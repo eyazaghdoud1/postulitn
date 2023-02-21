@@ -31,4 +31,6 @@ public interface UtilisateurInterface {
     //geById
     public Utilisateur GetByIdUser (int id);
     
+  
+    
 }

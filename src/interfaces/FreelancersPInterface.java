@@ -23,5 +23,7 @@ public interface FreelancersPInterface {
     
    //filterbyuser
    
+    //getbyid
+    public FreelancersP GetByIdfp (int id);
     
 }
