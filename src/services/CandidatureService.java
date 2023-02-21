@@ -15,6 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import models.Candidature;
+import utilities.EtatCandidature;
 import utilities.MaConnexion;
 
 /**
@@ -27,6 +28,7 @@ public class CandidatureService implements CandidatureInterface {
     Connection cnx = MaConnexion.getInstance().getCnx();
 
     /* create candiature */
+    
     @Override
     public void addCandidature(Candidature c) {
         List candidatures = this.fetchCandidatures();
@@ -40,14 +42,17 @@ public class CandidatureService implements CandidatureInterface {
          }
          }
         if (!existe) {
-        String req = "INSERT INTO `candidatures`(`idCandidat`, `idOffre`, `cv`, `lettre`, `date`) VALUES (?,?,?,?,?)";
+        String req = "INSERT INTO `candidatures`(`idCandidat`, `idOffre`, `cv`, `lettre`, `date`, `etat`) VALUES (?,?,?,?,?,?)";
         try {
             PreparedStatement ps = cnx.prepareStatement(req);
+            //ps.setInt(1, c.getCandidat().getId());
             ps.setInt(1, c.getIdCandidat());
+            //ps.setInt(1, c.getOffre().getId());
             ps.setInt(2, c.getIdOffre());
             ps.setString(3, c.getCv());
             ps.setString(4, c.getLettre());
             ps.setDate(5, c.getDate());
+            ps.setString(6, EtatCandidature.EtatsCandidature.Enregistrée.toString());
             ps.executeUpdate();
             System.out.println("Candidature ajoutée avec succès.");
         } catch (SQLException ex) {
@@ -68,8 +73,11 @@ public class CandidatureService implements CandidatureInterface {
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while(rs.next()){
+                
+                EtatCandidature.EtatsCandidature etat = EtatCandidature.EtatsCandidature.valueOf(rs.getString(7));
                 Candidature c = new Candidature(rs.getInt(1),rs.getInt(2), rs.getInt(3), 
-                 rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7));
+                 rs.getString(4), rs.getString(5), rs.getDate(6), etat);
+                 
                 candidatures.add(c);
             }
         } catch (SQLException ex) {
@@ -89,9 +97,10 @@ public class CandidatureService implements CandidatureInterface {
             ps.setInt(1, idCandidature);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
+                EtatCandidature.EtatsCandidature etat = EtatCandidature.EtatsCandidature.valueOf(rs.getString(7));
                 cand = new Candidature(rs.getInt(1),rs.getInt(2), rs.getInt(3), 
-                                                rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7));
-                //System.out.println("Candidature trouvée: " + cand);
+                                                rs.getString(4), rs.getString(5), rs.getDate(6), etat);
+              
             } else {
                 System.out.println("Pas de candidature avec l'id {" + idCandidature + "}.");
              }
@@ -120,7 +129,7 @@ public class CandidatureService implements CandidatureInterface {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, c.getCv());
             ps.setString(2, c.getLettre());
-            ps.setString(3, c.getEtat());
+            ps.setString(3, c.getEtat().toString());
             ps.setInt(4, idCandidature);
             ps.executeUpdate();
             System.out.println("Candidature modifiée avec succès.");
@@ -162,20 +171,6 @@ public class CandidatureService implements CandidatureInterface {
      
     }
 
-   public boolean exists(Candidature c) {
-   List candidatures = this.fetchCandidatures();
-        boolean existe=false;
-        for (int i=0; i<candidatures.size(); i++) {
-         if (c.getIdCandidat() == ((Candidature) candidatures.get(i)).getIdCandidat()
-                && c.getIdOffre() == ((Candidature) candidatures.get(i)).getIdOffre())
-         {
-             existe = true;
-             break;
-         }
-         }
-        return existe;
-   }
-
     @Override
     public List<Candidature> filterByCandidat(int idCandidat) {
          List<Candidature> candFiltrees = new ArrayList<>() ;
@@ -185,8 +180,9 @@ public class CandidatureService implements CandidatureInterface {
             ps.setInt(1, idCandidat);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
+                EtatCandidature.EtatsCandidature etat = EtatCandidature.EtatsCandidature.valueOf(rs.getString(7));
                 Candidature c = new Candidature(rs.getInt(1),rs.getInt(2), rs.getInt(3), 
-                 rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7));
+                 rs.getString(4), rs.getString(5), rs.getDate(6), etat);
                 candFiltrees.add(c);
             }
         } catch (SQLException ex) {
@@ -204,14 +200,62 @@ public class CandidatureService implements CandidatureInterface {
             ps.setInt(1, idOffre);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
+                EtatCandidature.EtatsCandidature etat = EtatCandidature.EtatsCandidature.valueOf(rs.getString(7));
                 Candidature c = new Candidature(rs.getInt(1),rs.getInt(2), rs.getInt(3), 
-                 rs.getString(4), rs.getString(5), rs.getDate(6), rs.getString(7));
+                 rs.getString(4), rs.getString(5), rs.getDate(6), etat);
                 candFiltrees.add(c);
             }
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());
         }
         return candFiltrees;
+    }
+    
+    /* filtrer par état de candidature */ 
+    @Override
+     public List<Candidature> filterByEtat(EtatCandidature.EtatsCandidature etat) {
+        List<Candidature> candFiltrees = new ArrayList<>() ;
+        String req = "select * from candidatures where etat=?";
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setString(1, etat.toString());
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                EtatCandidature.EtatsCandidature etatC = EtatCandidature.EtatsCandidature.valueOf(rs.getString(7));
+                Candidature c = new Candidature(rs.getInt(1),rs.getInt(2), rs.getInt(3), 
+                 rs.getString(4), rs.getString(5), rs.getDate(6), etatC);
+                candFiltrees.add(c);
+            }
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+        return candFiltrees;
+    }
+    /****************************************************************************************************************/ 
+        public List<Candidature> filterListeByEtat(List<Candidature> l, EtatCandidature.EtatsCandidature etat) {
+        List<Candidature> candFiltrees = new ArrayList<>() ;
+        for (Candidature c: l){
+         if(c.getEtat().compareTo(etat) == 0 ) {
+          candFiltrees.add(c);
+          }
+        }
+        return candFiltrees;
+    }
+
+    /* valider candidature */ 
+    @Override
+    public void valider(int idCandidature, boolean validee) {
+        Candidature c = getCandidatureById(idCandidature);
+        c.setId(idCandidature);
+        if (validee==true) {
+         
+         c.setEtat(EtatCandidature.EtatsCandidature.Validée);
+         this.updateCandidature(idCandidature, c);
+        
+        }
+        else {
+         c.setEtat(EtatCandidature.EtatsCandidature.NonValidée);  
+        this.updateCandidature(idCandidature, c);}
     }
    
   

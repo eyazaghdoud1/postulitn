@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Candidature;
 import models.Entretien;
+import utilities.EtatCandidature;
 import utilities.MaConnexion;
+import utilities.TypeEntretien;
 
 /**
  *
@@ -53,6 +55,11 @@ public class EntretienService implements EntretienInterface {
             ps.setString(3, e.getHeure());
             ps.setString(4, e.getLieu());
             ps.setInt(5, e.getCandidatureId());
+            if (e.getType().equals(TypeEntretien.TypeE.Téléphone.toString())) {
+              cs.getCandidatureById(e.getCandidatureId()).setEtat(EtatCandidature.EtatsCandidature.EntretienTel);
+            } else {
+                cs.getCandidatureById(e.getCandidatureId()).setEtat(EtatCandidature.EtatsCandidature.EntretienPres);
+            }
             ps.setInt(6, e.getGuideId());
             ps.executeUpdate();
             System.out.println("Entretien ajouté avec succès.");
@@ -329,6 +336,22 @@ public class EntretienService implements EntretienInterface {
         }
         return entFiltres;    
     }
-    
+
+    @Override
+    public void accepter(int idCandidature, boolean res) {
+        Candidature c = cs.getCandidatureById(idCandidature);
+        c.setId(idCandidature);
+        if (res==true) {
+         
+         c.setEtat(EtatCandidature.EtatsCandidature.Acceptée);
+         cs.updateCandidature(idCandidature, c);
+        
+        }
+        else {
+         c.setEtat(EtatCandidature.EtatsCandidature.Refusée);  
+         cs.updateCandidature(idCandidature, c);
+        }
+        
+    }
 }
 

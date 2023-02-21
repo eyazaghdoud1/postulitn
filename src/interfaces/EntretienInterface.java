@@ -8,6 +8,7 @@ package interfaces;
 import java.sql.Date;
 import java.util.List;
 import models.Entretien;
+import models.Candidature;
 
 /**
  *
@@ -25,6 +26,8 @@ public interface EntretienInterface {
     public List<Entretien> filterByOffre(int idOffre);
     public List<Entretien> filterByCandidature (int idCandidature);
     public List<Entretien> filterByType (String type);
-    
+
+    /* resultat entretien */ 
+    public void accepter(int idCandidature, boolean res);
     
 }

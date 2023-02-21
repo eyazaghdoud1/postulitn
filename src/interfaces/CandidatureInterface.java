@@ -7,6 +7,7 @@ package interfaces;
 
 import java.util.List;
 import models.Candidature;
+import utilities.EtatCandidature;
 
 /**
  *
@@ -21,6 +22,9 @@ public interface CandidatureInterface {
     /* filtres */ 
     public List<Candidature> filterByCandidat(int idCandidat);
     public List<Candidature> filterByOffre(int idOffre);
-
+    public List<Candidature> filterByEtat(EtatCandidature.EtatsCandidature etat);
+        
+    /* valider / invalider candidature */ 
+    public void valider(int idCandidature, boolean validee);
     
 }

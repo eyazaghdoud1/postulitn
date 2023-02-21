@@ -6,6 +6,7 @@
 package models;
 
 import java.sql.Date;
+import utilities.EtatCandidature;
 
 
 
@@ -16,42 +17,38 @@ import java.sql.Date;
 public class Candidature {
     
     private int id;
+    // private Utilisateur candidat;
     private int idCandidat;
+    // private Offre offre;
     private int idOffre;
     private String cv; 
     private String lettre;
     private Date date;
-    private String etat;
+    private EtatCandidature.EtatsCandidature etat;
+
 
     /* constructeur non paramètré */
     public Candidature() {
     }
 
-    /* cnstructeur pour le test sans date */
-     public Candidature(int idCandidat, int idOffre, String cv, String lettre) {
-        this.idCandidat = idCandidat;
-        this.idOffre = idOffre;
-        this.cv = cv;
-        this.lettre = lettre;
-    }
      
     /* constructeur pour l'ajout en bdd */
-    public Candidature(int idCandidat, int idOffre, String cv, String lettre, Date date) {
+    public Candidature(int idCandidat, int idOffre, String cv, String lettre) {
         this.idCandidat = idCandidat;
         this.idOffre = idOffre;
         this.cv = cv;
         this.lettre = lettre;
-        this.date = date;
+        this.date = new Date(System.currentTimeMillis()) ;
     }
 
     /* constructeur pour la récupération de la bdd */
-    public Candidature(int id, int idCandidat, int idOffre, String cv, String lettre, Date date, String etat) {
+    public Candidature(int id, int idCandidat, int idOffre, String cv, String lettre, Date date, EtatCandidature.EtatsCandidature etat) {
         this.id = id;
         this.idCandidat = idCandidat;
         this.idOffre = idOffre;
         this.cv = cv;
         this.lettre = lettre;
-        this.date = date;
+         this.date = date ;
         this.etat = etat;
     }
     
@@ -104,11 +101,11 @@ public class Candidature {
         this.idOffre = idOffre;
     }
 
-    public String getEtat() {
+    public EtatCandidature.EtatsCandidature getEtat() {
         return etat;
     }
 
-    public void setEtat(String etat) {
+    public void setEtat(EtatCandidature.EtatsCandidature etat) {
         this.etat = etat;
     }
 
