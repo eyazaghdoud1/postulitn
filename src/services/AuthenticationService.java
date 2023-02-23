@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import jdk.nashorn.internal.ir.CatchNode;
+import models.Utilisateur;
 import utilities.Maconnexion;
 
 /**
@@ -20,12 +21,15 @@ import utilities.Maconnexion;
 public class AuthenticationService implements AuthInterface{
     
     //var
+    Utilisateur uco;
     Connection cnx = Maconnexion.getInstance().getCnx();
     
     @Override
     
-    public void authentification(String email, String password){
+    public boolean authentification(String email, String password){
        int i=0 ;
+       boolean test;
+       UtilisateurService us = new UtilisateurService();
         try {
             String req ="SELECT * FROM utilisateur";
             PreparedStatement ps= cnx.prepareStatement(req);
@@ -49,14 +53,20 @@ public class AuthenticationService implements AuthInterface{
         }
           if (i==-1){
                     System.out.print("L'utilisateur n'existe pas \n");
+                    test=false;
                 }
                 else if (i==0){
                     System.out.print("Le mot de passe est incorrect \n");
+                    test=false;
                 }
                 else{
                     i=1;
                      System.out.print("L'utilisateur est authentifié avec succès \n");
+                     test=true;
                 }     
+           return test;
+           
+           
    }
          
 }

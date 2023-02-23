@@ -11,5 +11,5 @@ package interfaces;
  */
 public interface AuthInterface {
     
-    public void authentification(String email, String password);
+    public boolean authentification(String email, String password);
 }

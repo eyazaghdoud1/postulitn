@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.SignInRecruteurController">
+   <children>
+      <AnchorPane layoutX="-11.0" layoutY="-17.0" prefHeight="431.0" prefWidth="246.0" style="-fx-background-color: #0E1947;">
+         <children>
+            <ImageView fitHeight="141.0" fitWidth="147.0" layoutX="48.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="216.0" fitWidth="210.0" layoutX="11.0" layoutY="108.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Label layoutX="262.0" layoutY="90.0" text="Entreprise" textFill="#0e1947">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="260.0" layoutY="110.0" prefHeight="26.0" prefWidth="230.0" promptText="Insérez votre entreprise" />
+      <Label layoutX="263.0" layoutY="205.0" prefHeight="18.0" prefWidth="40.0" text="Poste" textFill="#0e1947">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="261.0" layoutY="225.0" prefHeight="26.0" prefWidth="230.0" promptText="Insérez votre poste" />
+      <Label layoutX="262.0" layoutY="264.0" prefHeight="18.0" prefWidth="147.0" text="Domaine d'expertise" textFill="#0e1947">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="261.0" layoutY="286.0" prefHeight="26.0" prefWidth="230.0" promptText="Insérez le domaine de votre entreprise" />
+      <Label layoutX="263.0" layoutY="151.0" text="Lien du site de l'entreprise" textFill="#0e1947">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="260.0" layoutY="170.0" prefHeight="26.0" prefWidth="230.0" promptText="Insérez le lien du site de votre entreprise" />
+      <Button fx:id="btnsave" layoutX="468.0" layoutY="345.0" mnemonicParsing="false" onAction="#signin" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #0e1947;" text="Enregistrer" textFill="WHITE" />
+      <Button fx:id="previousbtn" layoutX="9.0" layoutY="7.0" mnemonicParsing="false" onAction="#previous" prefHeight="31.0" prefWidth="45.0" text="&lt;&lt;" />
+   </children>
+</AnchorPane>

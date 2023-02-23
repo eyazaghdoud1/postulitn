@@ -44,56 +44,46 @@ public class PostulitnApp {
         //FreelancersP init 
         FreelancersP fp = new FreelancersP();
        
-        
+//       System.out.println(us.fetchUsers());
         
         
 /*************************************  CRUD Role  *******************************************************/
 
         //add Role       
-//        r.setDescription("Candidat");
+//        r.setDescription("Admin");
 //        rs.addRole(r);
 
         //delete role         
-//        r.setIdRole(9);
+//        r.setIdRole(21);
 //        rs.deleteRole(r);
 
         // fetch roles       
 //        System.out.println(rs.fetchRoles());
 
-        //update role
-//        r.setDescription("Recruteur");
-//        rs.updateRole(r,12);
-        
+//        update role
+//        r.setDescription("TestRecruteur");
+//        rs.updateRole(r, 21);
+//        
 
        
 
 /*************************************  CRUD Utilisateur  ***********************************************/
 
         //add Utilisateur       
-//        u.setNom("Ben Guirat");
+        
+//        u.setNom("Naes");
 //        u.setPrenom("Aziz");
-//        u.setEmail("aziz.benguirat@esprit.tn");
-//        u.setMdp("test1");
-//        u.setDateNaissance(Date.valueOf("2001-02-02"));
-//        u.setAdresse("Ariana");
-//        u.setTel("11111111234");
-//        u.setRole(rs.GetByIdRole(13));
-//        us.addUser(u);
-//      
-
-//        u.setNom("Zinelabidine");
-//        u.setPrenom("Eya");
-//        u.setEmail("eya.zinelabidine@esprit.tn");
+//        u.setEmail("aziz.naes@esprit.tn");
 //        u.setTel("2222222");
-//        u.setAdresse("Ennasr");
+//        u.setAdresse("Chotrana");
 //        u.setMdp("test");
 //        u.setDateNaissance(Date.valueOf("2001-01-01"));
-//        u.setRole(rs.GetByIdRole(1));
+//        u.setRole(rs.GetByIdRole(19));
 //        us.addUser(u);
 
 
         //delete Utilisateur 
-//        u.setId(38);
+//        u.setId(43);
 //        us.deleteUser(u);
 //        
         //fetch utilisateurs        
@@ -104,24 +94,24 @@ public class PostulitnApp {
 //        u.setPrenom("Eya");
 //        u.setEmail("eya.zaghdoud@esprit.tn");
 //        u.setTel("2222222");
-//        u.setAdresse("Aouinaaaaaaaaaa");
+//        u.setAdresse("Aouina");
 //        u.setMdp("test");
 //        u.setDateNaissance(Date.valueOf("2001-01-01"));
-//        u.setRole(rs.GetByIdRole(12));
-//        us.updateUser(u, 3);
+//        u.setRole(rs.GetByIdRole(1));
+//        us.updateUser(u, 44);
       
 //
 
 /*************************************  CRUD FreelancersP  *******************************************************/
 
       //add 
-//         fp.setUtilisateur(us.GetByIdUser(38));
+//         fp.setUtilisateur(us.GetByIdUser(44));
 //         fp.setIdProjet(3);
 //         fps.addAffectation(fp);
 
 //      //delete 
           
-//           fp.setUtilisateur(us.GetByIdUser(38));
+//           fp.setUtilisateur(us.GetByIdUser(44));
 //           fp.setIdProjet(3);
 //           fps.deleteAffectation(fp);
 
@@ -133,25 +123,23 @@ public class PostulitnApp {
 /*************************************  GetById  *******************************************************/
 
         //getbyid role        
-//        System.out.println(rs.GetByIdRole(12));
+//        System.out.println(rs.GetByIdRole(19));
 
        //getbyid utilisateur
-//        System.out.println(us.GetByIdUser(38));
+//        System.out.println(us.GetByIdUser(45));
 
         
 /*************************************  Filtrage  ******************************************************/        
       
           //filtrerbyrole
-//        System.out.println(us.filtrerByRole(12));
+//        System.out.println(us.filtrerByRole(19));
        
           //filterbyidProjet      
 //        System.out.println(fps.fetchfreelancers(3));
 
          
-       
+/************************************ Authentification ************************************************/       
 
-//        users.put("eya", "password123");
-//        users.put("aziz", "letmein");
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter email: ");
@@ -159,15 +147,11 @@ public class PostulitnApp {
         System.out.println("Enter password: ");
         String password = scanner.nextLine();
 
-//        if(as.authentification(username, password))
-//        {
-//            System.out.println("Authentication successful.");
-//        } else {
-//            System.out.println("Authentication failed.");
-//        }
+        as.authentification(username, password);
+       
 
           
-          as.authentification(username, password);
+       
     }
 
 
