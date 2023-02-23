@@ -29,7 +29,7 @@ public class NewFXMain extends Application {
        
            
         try {
-         Parent root = FXMLLoader.load(getClass().getResource("../GUI/Lesoffres.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/types.fxml"));
         
             System.out.println("FXML loaded successfully");
             

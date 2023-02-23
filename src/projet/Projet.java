@@ -51,7 +51,7 @@ public class Projet {
         System.out.println("les offres");
        System.out.println(ps.fetchOffres());
 //*****************************DELETE*************************************************************************************
-       ps.deleteOffre(37);
+       //ps.deleteOffre(37);
 //               // System.out.println("apres delete");
 //*****************OFFRE PAR ID*******************************************************************************************
              //  System.out.println("l'offre par son id");

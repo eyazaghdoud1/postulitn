@@ -8,9 +8,11 @@ package GUI;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import models.Offre;
 import models.Typeoffre;
@@ -26,6 +28,8 @@ public class TypesController implements Initializable {
 
     @FXML
     private VBox typeoffresvb;
+    @FXML
+    private TextField txtsupprimer;
 
     /**
      * Initializes the controller class.
@@ -40,4 +44,16 @@ public class TypesController implements Initializable {
               typeoffresvb.getChildren().add(Secteur);
     }    
     
-    }}
+    }
+
+    @FXML
+    private void Deletetype(ActionEvent event) {
+        int id_event = Integer.parseInt(txtsupprimer.getText());
+
+
+TypeoffreService ts = new TypeoffreService();
+
+    ts.deletetypeoffre(id_event);
+         
+    }
+}
