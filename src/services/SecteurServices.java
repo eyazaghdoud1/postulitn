@@ -152,6 +152,26 @@ public class SecteurServices implements SecteurInterface{
         return SecteurFiltres;
     }
 
-  
+   public Secteur getsecteurbydescription(String description) {
+      
+      Secteur s = new Secteur(); 
+
+         try {
+             String req = "SELECT * FROM secteurs where description = ? ";
+             PreparedStatement ps = cnx.prepareStatement(req);
+             ps.setString(1,description);
+             ResultSet rs = ps.executeQuery();
+             if (rs.next()){
+             
+              s.setIdSecteur(rs.getInt(1));
+              s.setDescription(rs.getString(2));}
+             
+         } catch (SQLException ex) {
+              ex.printStackTrace();
+            
+         
+    }
+         return s;
+    }
     
 }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="49.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.RController">
+   <children>
+      <Label fx:id="Ltheme" text="Label">
+         <HBox.margin>
+            <Insets left="15.0" top="15.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="Ldescription" text="Label">
+         <HBox.margin>
+            <Insets top="15.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lduree" text="Label">
+         <HBox.margin>
+            <Insets top="15.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="LDatedebut" text="Label">
+         <HBox.margin>
+            <Insets top="15.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="LDateFin" text="Label">
+         <HBox.margin>
+            <Insets top="15.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lsecteur" text="Label">
+         <HBox.margin>
+            <Insets top="15.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="15.0" right="15.0" />
+         </padding>
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#GoToPageModifier" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: #0E1947;" text="Modifier" textFill="WHITE">
+         <HBox.margin>
+            <Insets left="200.0" top="10.0" />
+         </HBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#SupprimerProjet" prefHeight="26.0" prefWidth="75.0" style="-fx-background-color: #0E1947;" text="Supprimer" textFill="WHITE">
+         <HBox.margin>
+            <Insets left="15.0" right="15.0" top="10.0" />
+         </HBox.margin>
+      </Button>
+   </children>
+</HBox>

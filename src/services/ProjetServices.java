@@ -94,7 +94,7 @@ public class ProjetServices implements ProjetInterface {
      @Override
     public void UpdateProjet(int id, ProjetFreelance p) {
          try {
-             String req ="UPDATE projets SET `theme`=?,`description`=?, `duree`=?, `DateDebut`=?, `DateFin`=?, `idsecteur`= ? WHERE idProjet = ?";
+             String req ="UPDATE projets SET `theme`=?,`description`=?, `duree`=?, `DateDebut`=?, `DateFin`=?, `idsecteur`= ?, `idResponsable`= ? WHERE idProjet = ?";
              PreparedStatement ps = cnx.prepareStatement(req);
              ps.setString(1, p.getTheme());
              ps.setString(2, p.getDescription());
@@ -227,7 +227,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setDuree(rs.getInt(4));
                  p.setDateDebut(rs.getDate(5));
                  p.setDateFin(rs.getDate(6));
-                                String r = "SELECT * FROM secteurs where idSecteur = ?";
+                    String r = "SELECT * FROM secteurs where idSecteur = ?";
                  PreparedStatement ps1 = cnx.prepareStatement(r);
                  ps1.setInt(1, rs.getInt(7));
                  ResultSet rs1 = ps1.executeQuery(); 
@@ -283,6 +283,39 @@ public class ProjetServices implements ProjetInterface {
      
      
  
+     public List<ProjetFreelance> filterByIdResponsable(int IdResponsable) {
+        List<ProjetFreelance> ProjetRFiltres = new ArrayList<>() ;
+        String req = "select * from Projets where idResponsable=?";
+         try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setInt(1, IdResponsable);
+            ResultSet rs = ps.executeQuery();
+           while (rs.next()) {
+                 ProjetFreelance p = new ProjetFreelance();
+                 p.setIdProjet(rs.getInt(1));
+                 p.setTheme(rs.getString(2));
+                 p.setDescription(rs.getString(3));
+                 p.setDuree(rs.getInt(4));
+                 p.setDateDebut(rs.getDate(5));
+                 p.setDateFin(rs.getDate(6));
+                                String r = "SELECT * FROM secteurs where idSecteur = ?";
+                 PreparedStatement ps1 = cnx.prepareStatement(r);
+                 ps1.setInt(1, rs.getInt(7));
+                 ResultSet rs1 = ps1.executeQuery(); 
+                 rs1.next();
+                 Secteur s = new Secteur();
+                 s.setIdSecteur(rs1.getInt(1));
+                 s.setDescription(rs1.getString(2));  
+                 p.setS(s);
+                 p.setIdResponsable(rs.getInt(8));
+                 ProjetRFiltres.add(p);
+            }
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+        return  ProjetRFiltres;
+    }
+    
     
 
 }
