@@ -43,6 +43,44 @@ public class GuideEntretienService implements GuideEntretienInterface {
         }
        
     }
+    
+    
+    
+//    public void addGuideEntretien(GuideEntretien ge) {
+//    try {
+//        // Check if the guide entretien already exists
+//        String selectQuery = "SELECT * FROM `guidesentretiens` WHERE `domaine`=? AND `specialite`=? AND `support`=?";
+//        PreparedStatement selectStmt = cnx.prepareStatement(selectQuery);
+//        selectStmt.setString(1, ge.getDomaine());
+//        selectStmt.setString(2, ge.getSpecialite());
+//        selectStmt.setString(3, ge.getSupport());
+//        ResultSet rs = selectStmt.executeQuery();
+//        if (rs.next()) {
+//            System.out.println("Guide Entretien existe déjà!");
+//            return; // Exit the method without adding the new guide entretien
+//        }
+//        
+//        // If the guide entretien doesn't exist, add it to the database
+//        String insertQuery = "INSERT INTO `guidesentretiens`(`domaine`, `specialite`, `support`) VALUES (?,?,?)";
+//        PreparedStatement insertStmt = cnx.prepareStatement(insertQuery);
+//        insertStmt.setString(1, ge.getDomaine());
+//        insertStmt.setString(2, ge.getSpecialite());
+//        insertStmt.setString(3, ge.getSupport());
+//        insertStmt.executeUpdate();
+//        System.out.println("Guide Entretien Ajouté avec succes!");
+//        
+//    } catch (SQLException ex) {
+//        ex.printStackTrace();
+//    }
+//}
+
+
+
+    
+    
+    
+    
+    
 
      @Override
     public List<GuideEntretien> fetchGuideEntretien() {

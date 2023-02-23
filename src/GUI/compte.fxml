@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="534.0" prefWidth="797.0" style="-fx-background-color: #0E1947;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CompteController">
+   <children>
+      <Text fill="WHITE" layoutX="66.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naes">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="153.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aziz">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Box height="75.0" layoutX="398.0" layoutY="38.0" width="797.0" />
+      <Text layoutX="145.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Candidatures">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="327.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Projets">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="638.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User:">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Text>
+      <Label layoutX="15.0" layoutY="305.0" text="Mohamedaziz.naes1@esprit.tn" textFill="#fcfcfc">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="349.0" text="+216   22240558" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Button layoutX="70.0" layoutY="408.0" mnemonicParsing="false" onAction="#bouutnmodifiercompte" prefHeight="75.0" prefWidth="160.0" text="modifier profil">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+      </Button>
+      <Box height="425.0" layoutX="554.0" layoutY="305.0" width="450.0" />
+      <Label layoutX="350.0" layoutY="118.0" text="Mes donnees:">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="305.0" text="Date diplome:">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="365.0" layoutY="183.0" text="Experience:">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="239.0" text="Diplome:">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="370.0" layoutY="372.0" text="CV:">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="exppers" layoutX="571.0" layoutY="183.0" text="2 ans ">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="diplomepers" layoutX="572.0" layoutY="244.0" text="Ingenieur informatique">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="ddippers" layoutX="571.0" layoutY="305.0" text="20/05/2025">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="371.0" layoutY="432.0" text="Entreprise">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="cvpers" layoutX="574.0" layoutY="372.0" text="hufhjf/URL/jhj">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="entrpers" layoutX="574.0" layoutY="432.0" text="Google">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="153.0" fitWidth="160.0" layoutX="57.0" layoutY="100.0">
+         <image>
+            <Image url="@user%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="708.0" layoutY="1.0">
+         <image>
+            <Image url="@user%20icon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="109.0" fitWidth="120.0" layoutX="-3.0" layoutY="-16.0">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

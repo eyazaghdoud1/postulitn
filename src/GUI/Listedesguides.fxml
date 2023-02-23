@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListedesguidesController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutY="1.0" prefHeight="597.0" prefWidth="805.0" style="-fx-background-color: #0E1947;">
+         <children>
+            <Box height="75.0" layoutX="403.0" layoutY="39.0" width="810.0" />
+            <Label layoutX="37.0" layoutY="97.0" text="Les Guides d'entretiens:" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Label layoutX="231.0" layoutY="16.0" text="Affichage des guides">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Button layoutX="608.0" layoutY="221.0" mnemonicParsing="false" onAction="#modifierguide" prefHeight="75.0" prefWidth="177.0" text="modifier guide">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button layoutX="608.0" layoutY="387.0" mnemonicParsing="false" onAction="#supprimerguide" prefHeight="75.0" prefWidth="177.0" text="supprimer guide">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="114.0" fitWidth="120.0" layoutX="-2.0" layoutY="-18.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="75.0" fitWidth="85.0" layoutX="709.0" layoutY="2.0">
+               <image>
+                  <Image url="@user%20icon.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableguides" layoutX="72.0" layoutY="186.0" prefHeight="355.0" prefWidth="462.0">
+              <columns>
+                <TableColumn fx:id="colidguide" prefWidth="113.0" text="id du guide" />
+                <TableColumn fx:id="coldomaine" prefWidth="119.0" text="domaine" />
+                  <TableColumn fx:id="colspecialite" prefWidth="113.0" text="specialite" />
+                  <TableColumn fx:id="colsupport" prefWidth="116.0" text="support" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

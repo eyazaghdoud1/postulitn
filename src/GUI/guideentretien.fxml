@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GuideentretienController">
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="534.0" prefWidth="797.0" style="-fx-background-color: #0E1947;">
+         <children>
+            <Box height="75.0" layoutX="398.0" layoutY="38.0" width="797.0" />
+            <Label layoutX="39.0" layoutY="91.0" text="Guide entretien:" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Text fx:id="domguide" fill="WHITE" layoutX="195.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Informatique">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="461.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Specialite:">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="39.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Support:">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Text>
+            <Text layoutX="237.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage du guide ">
+               <font>
+                  <Font name="System Bold" size="35.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="39.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Domaine:">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Text>
+            <Text fx:id="specguide" fill="WHITE" layoutX="623.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Specialite">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="119.0" fitWidth="118.0" layoutY="-21.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="75.0" fitWidth="87.0" layoutX="696.0" layoutY="1.0">
+               <image>
+                  <Image url="@user%20icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="253.0" fitWidth="718.0" layoutX="41.0" layoutY="244.0">
+               <image>
+                  <Image url="@support.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

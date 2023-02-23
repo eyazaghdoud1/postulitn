@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package postulitnapp;
+package postulitnapp22;
 
 import interfaces.GuideEntretienInterface;
 import java.sql.Date;
@@ -20,7 +20,7 @@ import services.VisiteGuideService;
  *
  * @author dell
  */
-public class PostulitnApp {
+public class PostulitnApp22 {
 
    /**
      * @param args the command line arguments
@@ -32,13 +32,13 @@ public class PostulitnApp {
        VisiteGuideService vgs= new VisiteGuideService();
        
        
-  //     Ajout d'un guides entretien
-  /*     GuideEntretien ge = new GuideEntretien();
-       ge.setDomaine("cuisine");
-       ge.setSpecialite("ejja");
-       ge.setSupport("aaaaa");
-       ges.addGuideEntretien(ge);
-  */
+     //  Ajout d'un guides entretien
+//       GuideEntretien ge = new GuideEntretien();
+//       ge.setDomaine("sport");
+//       ge.setSpecialite("joueurpro");
+//       ge.setSupport("css");
+//       ges.addGuideEntretien(ge);
+//  
      
      //ajout compte 
   /*      Compte c = new Compte();
@@ -59,32 +59,32 @@ public class PostulitnApp {
       
       
 //**************************get by id guide******************************
-      // System.out.println(ges.GetByIdGuideEntretiens(4));
+  //  System.out.println(ges.GetByIdGuideEntretiens(10));
      
       
 //***************************afficher la liste des comptes*********************  
-     // System.out.println(cs.fetchComptes());
+   //  System.out.println(cs.fetchComptes());
      
  
  //**************************afficher la liste des guides***********************
-     // System.out.println(ges.fetchGuideEntretien());
+   //   System.out.println(ges.fetchGuideEntretien());
         
     
      
      
 //*************************supprimer guide entretien************************ 
-     // ges.deleteGuideEntretien(ge);
+   //   ges.deleteGuideEntretien(ges.GetByIdGuideEntretiens(10));
        
 //*************************supprimer compte************************************
-      // cs.deleteCompte(c);
+      // cs.deleteCompte(cs.GetByIdCompte(2));
 
        
         
 //*****************************Modifier compte********************************** 
-        // cs.updateCompte(c, ge);
+        // cs.updateCompte(6, c);
  
 //*************************Modifier guide entretien*****************************
-        //ges.updateGuideEntretien(4, ge);
+    //     ges.updateGuideEntretien(4, ge);
  
  
 
@@ -93,29 +93,29 @@ public class PostulitnApp {
 //       c.setIdCompte(5);
 
 
-//***********************les filtres guides entretien****************************************
-//         System.out.println(ges.filterBydomaine("informatique"));
-//         System.out.println(ges.filterByspecialite("BI"));
+//***********************les filtres guides entretien***************************
+  //  System.out.println(ges.filterBydomaine("infoo"));
+   //   System.out.println(ges.filterByspecialite("BI"));
 
 
 
         
         
 //*****************************ajouter une visite*******************************
-        //visite guide entretien init
-        /*VisiteGuide v = new VisiteGuide();
-          v.setDate_consultation(Date.valueOf("2022-02-22"));
-          v.setGuideentretien(ges.GetByIdGuideEntretiens(4));
-          v.setCompte (cs.GetByIdCompte(2));
-          */
-         //vgs.addVisiteGuide(v);
+       // visite guide entretien init
+//        VisiteGuide v = new VisiteGuide();
+//          v.setDate_consultation(Date.valueOf("2027-02-05"));
+//          v.setGuideentretien(ges.GetByIdGuideEntretiens(10));
+//          v.setCompte (cs.GetByIdCompte(9));
+//          
+//         vgs.addVisiteGuide(v);
          
 //*************************afficher la liste des visites***************************
          //System.out.println(vgs.fetchVisites());
        
          
 //****************************filter by compte*************************************
-        // vgs.filterByCompte(2);
+      //   vgs.filterByCompte(9);
         
          
          
