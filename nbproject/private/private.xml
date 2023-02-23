@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projet/src/models/Offre.java</file>
-            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projet/src/projet/Projet.java</file>
-            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projet/src/interfaces/OffreInterface.java</file>
-            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projet/src/services/OffreService.java</file>
-            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projet/src/services/TypeoffreService.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/projet/NewFXMain.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/services/OffreService.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/GUI/OffresController.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/GUI/ModifieroffreController.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/GUI/OFFREITEMController.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/projet/Projet.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/GUI/AjouteroffreController.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/GUI/LesoffresController.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/GUI/AjoutertypeController.java</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/GUI/modifieroffre.fxml</file>
+            <file>file:/C:/Users/Aziz%20Ben%20Guirat/Documents/NetBeansProjects/projetcp/src/services/TypeoffreService.java</file>
         </group>
     </open-files>
 </project-private>

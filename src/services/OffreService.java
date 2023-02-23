@@ -38,8 +38,18 @@ public class OffreService implements OffreInterface {
 
     @Override
     public void addOffre(Offre o) {
+       
+         List <Offre> typeoffers = this.fetchOffres();
+    
+        boolean existe= true;
+        for (int i=0; i<typeoffers.size(); i++){
+            if (o.getDescription().equalsIgnoreCase(typeoffers.get(i).getDescription() )){
+                existe=false;    
+            }
+        }
+        if (existe == true){
         try {
-            
+        
             String req = "INSERT INTO offre(`poste`, `description`, `lieu`,`entreprise`,`specialite`,`dateExpiration`,`idrecruteur`,`idtype` ) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, o.getPoste());
@@ -60,7 +70,7 @@ public class OffreService implements OffreInterface {
         
 
     }
-
+    }
     @Override
     public List<Offre> fetchOffres() {
         List<Offre> offres = new ArrayList<>();
@@ -83,7 +93,10 @@ public class OffreService implements OffreInterface {
                 PreparedStatement ps = cnx.prepareStatement(r);
                 ps.setInt(1, rs.getInt(9));
                 ResultSet rs1 = ps.executeQuery();
+                                rs1.next();
                 Typeoffre to = new Typeoffre();
+                to.setId(rs1.getInt(1));
+                to.setDescription(rs1.getString(2));
                 o.setType(to);
                 
                 
@@ -173,6 +186,7 @@ public class OffreService implements OffreInterface {
          }
          return o;
     }
+    
 
     @Override
     public List<Offre> filterByEntreprise(String entreprise) {
@@ -248,8 +262,9 @@ public class OffreService implements OffreInterface {
         }
         return entFiltres;
 
-    }
-    }
+    }}
+
+    
         
         
         

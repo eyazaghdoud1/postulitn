@@ -124,6 +124,8 @@ public class Offre {
         return "Offre{" + "idOffre=" + idOffre + ", poste=" + poste + ", description=" + description + ", lieu=" + lieu + ", entreprise=" + entreprise + ", specialite=" + specialite + ", dateExpiration=" + dateExpiration + ", type=" + type + ", idRecruteur=" + idRecruteur + '}';
     }
 
+   
+
     
     
 }

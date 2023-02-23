@@ -19,8 +19,10 @@ public interface TypeoffreInterface {
     //list : select
     public List<Typeoffre> fetchOffres();
     
-    public void updatetypeoffre(Typeoffre t,String  s);
+    public void updatetypeoffre(Typeoffre t,int idType);
     public void deletetypeoffre(int idType);
     public Typeoffre getelementbyid(int idType);
+
+    public Typeoffre getelementbydescription(String description);
     
 }
