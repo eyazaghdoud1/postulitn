@@ -2,6 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/CandRecItemController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/ModificationEntretienController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/FXMain.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/CandidatureService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/EntretiensRecruteurController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/utilities/EtatCandidature.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/CandidatureItemController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/AjoutEntretienController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/AddCandidatureController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/EntretienItemController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/EntretienService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/CandEntValideeItemController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/CandidaturesRecruteurController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/CandidaturesController.java</file>
+        </group>
     </open-files>
 </project-private>

@@ -251,11 +251,14 @@ public class CandidatureService implements CandidatureInterface {
          
          c.setEtat(EtatCandidature.EtatsCandidature.Validée);
          this.updateCandidature(idCandidature, c);
+            System.out.println("candidature validée");
         
         }
         else {
          c.setEtat(EtatCandidature.EtatsCandidature.NonValidée);  
-        this.updateCandidature(idCandidature, c);}
+        this.updateCandidature(idCandidature, c);
+        System.out.println("candidature non validée");
+        }
     }
    
   

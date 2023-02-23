@@ -30,10 +30,11 @@ public class PostulitnApp {
         Candidature c2 = new Candidature(2, 1, "urlcv", "urllettre");
         Candidature c3 = new Candidature(1, 2, "urlcv", "urllettre");
         Candidature c4 = new Candidature(2, 2, "cv", "lettre", Date.valueOf("2023-02-14"));*/
-        Candidature c = new Candidature(9, 3, "cv", "lettre");
+        //Candidature c = new Candidature(9, 3, "cv", "lettre");
         /* instance de CandidatureService */
         CandidatureService cs = new CandidatureService();
-        
+        //Candidature c = cs.getCandidatureById(1);
+        cs.valider(1, true);
         //Candidature cupdate = new Candidature(3, 2, "newurlcv", "newurlurllettre");
        
         

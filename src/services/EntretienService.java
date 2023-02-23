@@ -162,7 +162,7 @@ public class EntretienService implements EntretienInterface {
              break;
             }
          }
-        if (existe) {
+        if (existe == true) {
          String req = "UPDATE `entretiens` SET `date`=?,`heure`=?,`lieu`=?,`idCandidature`=?,`idGuide`=? WHERE id = ?";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
@@ -170,8 +170,8 @@ public class EntretienService implements EntretienInterface {
             ps.setString(2,e.getHeure());
             ps.setString(3, e.getLieu());
             ps.setInt(4, e.getCandidatureId());
-            ps.setInt(5, idEntretien);
-            ps.setInt(6, e.getGuideId());
+            ps.setInt(5, e.getGuideId());
+            ps.setInt(6, idEntretien);
             ps.executeUpdate();
             System.out.println("Entretien modifié avec succès.");
             

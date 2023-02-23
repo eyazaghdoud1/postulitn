@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox prefHeight="29.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CandRecItemController">
+   <children>
+      <Label fx:id="candidatLabel" prefHeight="17.0" prefWidth="90.0" text="Eya Zaghdoud">
+         <HBox.margin>
+            <Insets left="5.0" top="5.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="offreLabel" prefHeight="17.0" prefWidth="104.0" text="Développeur web">
+         <HBox.margin>
+            <Insets left="70.0" top="5.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="typeOffreLabel" prefHeight="17.0" prefWidth="66.0" text="Mi-temps">
+         <HBox.margin>
+            <Insets left="80.0" right="25.0" top="5.0" />
+         </HBox.margin>
+      </Label>
+      <HBox prefHeight="29.0" prefWidth="189.0">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <children>
+            <Button fx:id="validerBtn" mnemonicParsing="false" onAction="#valider" text="Valider">
+               <HBox.margin>
+                  <Insets left="10.0" top="2.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="consulterBtn" mnemonicParsing="false" onAction="#consulter" text="Consulter">
+               <HBox.margin>
+                  <Insets left="2.0" top="2.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="25.0" />
+         </padding>
+      </HBox>
+   </children>
+</HBox>

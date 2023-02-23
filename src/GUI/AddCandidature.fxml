@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AddCandidatureController">
+   <children>
+      <VBox fx:id="parentVB" layoutX="92.0" layoutY="70.0" prefHeight="282.0" prefWidth="416.0" style="-fx-background-color: #0E1947;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+         <children>
+            <Label text="Offre:  Développeur web" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label prefHeight="20.0" prefWidth="135.0" text="Curriculum Vitae" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="40.0" top="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="50.0" prefWidth="540.0">
+               <children>
+                  <TextField fx:id="cvText" prefHeight="25.0" prefWidth="521.0" promptText="Insérez l'url de votre cv">
+                     <HBox.margin>
+                        <Insets left="30.0" right="50.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="browseButton1" mnemonicParsing="false" onAction="#browse1" prefHeight="25.0" prefWidth="200.0" text="Browse">
+                     <HBox.margin>
+                        <Insets right="30.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <Label prefHeight="20.0" prefWidth="159.0" text="Lettre de motivation" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="40.0" top="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="50.0" prefWidth="540.0">
+               <children>
+                  <TextField fx:id="lettreText" prefHeight="25.0" prefWidth="521.0" promptText="Insérez l'url de votre lettre de motivation">
+                     <HBox.margin>
+                        <Insets left="30.0" right="50.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="browseButton2" mnemonicParsing="false" onAction="#browse2" prefHeight="25.0" prefWidth="200.0" text="Browse">
+                     <HBox.margin>
+                        <Insets right="30.0" top="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <Button fx:id="postulerBtn" mnemonicParsing="false" onAction="#postuler" prefHeight="25.0" prefWidth="86.0" text="Posutler">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="260.0" top="30.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="78.0" layoutY="17.0" text="Home" />
+      <Label layoutX="132.0" layoutY="17.0" text="Candidatures" />
+      <Label layoutX="229.0" layoutY="17.0" text="Projets" />
+      <ImageView fitHeight="65.0" fitWidth="60.0" layoutX="3.0" layoutY="-7.0">
+         <image>
+            <Image url="@325554422_570397571644716_8824221449279015534_n.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="551.0" layoutY="5.0">
+         <image>
+            <Image url="@330831433_1536180653567674_6866388944530913939_n.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="change" layoutX="440.0" layoutY="13.0" mnemonicParsing="false" onAction="#changeScene" text="Button" />
+   </children>
+</AnchorPane>

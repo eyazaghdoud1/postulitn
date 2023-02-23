@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutEntretienController">
+   <children>
+      <HBox layoutY="44.0" prefHeight="356.0" prefWidth="600.0" style="-fx-background-color: #0E1947;" />
+      <VBox fx:id="sideVB" layoutX="289.0" layoutY="61.0" prefHeight="311.0" prefWidth="236.0">
+         <children>
+            <VBox fx:id="entretienVB" prefHeight="306.0" prefWidth="236.0">
+               <children>
+                  <Label text="Programmer un entretien" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <DatePicker fx:id="dateDP" prefHeight="25.0" prefWidth="153.0">
+                     <VBox.margin>
+                        <Insets left="40.0" top="20.0" />
+                     </VBox.margin>
+                  </DatePicker>
+                  <HBox spacing="3.0">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label text="Horaire" textFill="WHITE" />
+                        <Spinner fx:id="hourSpinner" editable="true" prefWidth="50" />
+                        <Label text=":" />
+                        <Spinner fx:id="minuteSpinner" editable="true" prefWidth="50" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </HBox>
+                  <ComboBox fx:id="typeEntretienCB" prefHeight="25.0" prefWidth="150.0" promptText="Type de l'entretien">
+                     <VBox.margin>
+                        <Insets left="40.0" top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <VBox prefHeight="57.0" prefWidth="176.0">
+                     <children>
+                        <Label text="Lieu" textFill="WHITE" />
+                        <TextField fx:id="lieuTF" />
+                     </children>
+                     <VBox.margin>
+                        <Insets left="35.0" right="35.0" top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="77.0" prefWidth="252.0">
+                           <children>
+                              <Button fx:id="enregistrerBtn" mnemonicParsing="false" onAction="#enregistrerEntretien" text="Enregistrer l'entretien">
+                                 <VBox.margin>
+                                    <Insets left="50.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="modiferBtn" mnemonicParsing="false" onAction="#modifierEntretien" prefHeight="25.0" prefWidth="131.0" text="Modifier l'entretien">
+                                 <VBox.margin>
+                                    <Insets left="50.0" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="0.0" prefWidth="221.0" />
+         </children>
+      </VBox>
+      <VBox layoutX="43.0" layoutY="67.0" prefHeight="300.0" prefWidth="257.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#back" prefHeight="7.0" prefWidth="30.0" text="&lt;&lt;">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Label text="Candidatures" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="5.0" top="2.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <Label text="Par téléphone" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="-7.0" />
+               </VBox.margin>
+            </Label>
+            <HBox fx:id="entTelVideHB" prefHeight="80.0" prefWidth="257.0" />
+            <HBox prefHeight="57.0" prefWidth="257.0">
+               <children>
+                  <VBox fx:id="entTelVB" prefHeight="57.0" prefWidth="272.0">
+                     <children>
+                        <Label fx:id="dateEntTel" text="Date:" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="heureEntTel" text="Horaire: " textFill="WHITE">
+                           <VBox.margin>
+                              <Insets left="10.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="modifierBtn1" mnemonicParsing="false" onAction="#modifierEntretienTel" text="Modifier">
+                           <VBox.margin>
+                              <Insets left="10.0" top="3.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <Label text="En présentiel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox fx:id="entPresVideHB" prefHeight="80.0" prefWidth="257.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox fx:id="entPresVb" prefHeight="58.0" prefWidth="257.0">
+               <children>
+                  <Label fx:id="dateEntPres" text="Date:" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="heureEntPres" text="Horaire: " textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="7.0" left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="lieuEntPres" text="Lieu: " textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="-5.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </VBox>
+            <Button fx:id="modifierBtn2" mnemonicParsing="false" onAction="#modifierEntretienPres" text="Modifier">
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="86.0" layoutY="16.0" text="Home" />
+      <Label layoutX="140.0" layoutY="17.0" text="Candidatures" />
+      <Label layoutX="237.0" layoutY="17.0" text="Offres" />
+      <ImageView fitHeight="65.0" fitWidth="60.0" layoutX="8.0" layoutY="-12.0">
+         <image>
+            <Image url="@325554422_570397571644716_8824221449279015534_n.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="550.0" layoutY="5.0">
+         <image>
+            <Image url="@330831433_1536180653567674_6866388944530913939_n.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="496.0" layoutY="17.0" text="Recruteur" />
+   </children>
+</AnchorPane>

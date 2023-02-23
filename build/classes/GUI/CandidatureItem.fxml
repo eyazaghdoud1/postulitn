@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="34.0" prefWidth="562.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CandidatureItemController">
+   <children>
+      <Label fx:id="offreLabel" prefHeight="17.0" prefWidth="100.0" text="Développeur web">
+         <HBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="typeOffreLabel" prefHeight="17.0" prefWidth="66.0" text="Embauche">
+         <HBox.margin>
+            <Insets left="65.0" top="10.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="etatLabel" prefHeight="17.0" prefWidth="78.0" text="Enregistrée">
+         <HBox.margin>
+            <Insets left="70.0" top="10.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#modifierCandidature" prefHeight="25.0" prefWidth="69.0" text="Modifier">
+         <HBox.margin>
+            <Insets left="70.0" top="5.0" />
+         </HBox.margin>
+      </Button>
+      <Button mnemonicParsing="false" onAction="#annulerCandidature" prefHeight="25.0" prefWidth="68.0" text="Annuler">
+         <HBox.margin>
+            <Insets left="5.0" top="5.0" />
+         </HBox.margin>
+      </Button>
+   </children>
+</HBox>
