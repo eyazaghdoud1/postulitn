@@ -48,7 +48,7 @@ public class GuideEntretienService implements GuideEntretienInterface {
     
 //    public void addGuideEntretien(GuideEntretien ge) {
 //    try {
-//        // Check if the guide entretien already exists
+//        // inajem ou non 
 //        String selectQuery = "SELECT * FROM `guidesentretiens` WHERE `domaine`=? AND `specialite`=? AND `support`=?";
 //        PreparedStatement selectStmt = cnx.prepareStatement(selectQuery);
 //        selectStmt.setString(1, ge.getDomaine());
@@ -57,7 +57,7 @@ public class GuideEntretienService implements GuideEntretienInterface {
 //        ResultSet rs = selectStmt.executeQuery();
 //        if (rs.next()) {
 //            System.out.println("Guide Entretien existe déjà!");
-//            return; // Exit the method without adding the new guide entretien
+//            return; // maghir ma yzid
 //        }
 //        
 //        // If the guide entretien doesn't exist, add it to the database
@@ -109,13 +109,15 @@ public class GuideEntretienService implements GuideEntretienInterface {
 
     @Override
     public void updateGuideEntretien(int idGuide, GuideEntretien ge) {
-        String req = "UPDATE `guidesentretiens` SET `domaine`=?,`specialite`=?,`support`=? WHERE idGuide=?";
+        String req = "UPDATE `guidesentretiens` SET `domaine`=?,`specialite`=?,`support`=?,`note`=?,`nombreNotes`=? WHERE idGuide=?";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, ge.getDomaine());
             ps.setString(2, ge.getSpecialite());
             ps.setString(3, ge.getSupport());
-            ps.setInt(4, idGuide);
+            ps.setDouble(4, ge.getNote());
+             ps.setInt(5, ge.getNombreNotes());
+            ps.setInt(6, idGuide);
             ps.executeUpdate();
             System.out.println("Guide entretien modifié avec succès.");
             
@@ -212,6 +214,8 @@ public class GuideEntretienService implements GuideEntretienInterface {
              ge.setDomaine(rs.getString(2));
              ge.setSpecialite(rs.getString(3));
              ge.setSupport(rs.getString(4));
+             ge.setNote(rs.getDouble(5));
+             ge.setNombreNotes(rs.getInt(6));
              }
          } catch (SQLException ex) {
              ex.printStackTrace();
@@ -284,6 +288,21 @@ public class GuideEntretienService implements GuideEntretienInterface {
         }
         return GuideFiltres;
     }
+    
+    
+    
+    public void ajouterNote(double note, GuideEntretien ge) {
+   double totalNote = ge.getNote()  + note;
+   ge.setNombreNotes(ge.getNombreNotes()+1);
+   ge.setNote(totalNote/ge.getNombreNotes());
+   this.updateGuideEntretien(ge.getIdguide(), ge);
+   
+}
+
+    
+   
+    
+    
    
 }
 

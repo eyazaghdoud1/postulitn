@@ -48,7 +48,7 @@ public class CompteController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          CompteServices cs = new CompteServices();
-         Compte c =cs.GetByIdCompte(9);
+         Compte c =cs.GetByIdCompte(7);
          compteUser= c; 
 
          exppers.setText(c.getExperience()); 

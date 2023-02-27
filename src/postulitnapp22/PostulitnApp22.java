@@ -32,18 +32,22 @@ public class PostulitnApp22 {
        VisiteGuideService vgs= new VisiteGuideService();
        
        
+        //******pour noter********
+      // GuideEntretien ge = ges.GetByIdGuideEntretiens(10);
+       
+       
      //  Ajout d'un guides entretien
-//       GuideEntretien ge = new GuideEntretien();
+     // GuideEntretien ge = new GuideEntretien() ;   
 //       ge.setDomaine("sport");
 //       ge.setSpecialite("joueurpro");
-//       ge.setSupport("css");
-//       ges.addGuideEntretien(ge);
-//  
+//       ge.setSupport("ca");
+      // ges.addGuideEntretien(ge);
+  
      
      //ajout compte 
   /*      Compte c = new Compte();
-          c.setPhoto("tof");
-          c.setCv("ti cv ");
+          c.setPhoto("jnij/URL/hjHHH");
+          c.setCv("tiTTII/cv/jhi ");
           c.setDiplome("ganiouur");
           c.setDateDiplome(Date.valueOf("2000-09-08"));
           c.setEntreprise("Esprit");
@@ -81,10 +85,10 @@ public class PostulitnApp22 {
        
         
 //*****************************Modifier compte********************************** 
-        // cs.updateCompte(6, c);
+    //     cs.updateCompte(6, c);
  
 //*************************Modifier guide entretien*****************************
-    //     ges.updateGuideEntretien(4, ge);
+    //     ges.updateGuideEntretien(15, ge);
  
  
 
@@ -104,26 +108,26 @@ public class PostulitnApp22 {
 //*****************************ajouter une visite*******************************
        // visite guide entretien init
 //        VisiteGuide v = new VisiteGuide();
-//          v.setDate_consultation(Date.valueOf("2027-02-05"));
+//          v.setDate_consultation(Date.valueOf("2027-02-06"));
 //          v.setGuideentretien(ges.GetByIdGuideEntretiens(10));
 //          v.setCompte (cs.GetByIdCompte(9));
 //          
 //         vgs.addVisiteGuide(v);
          
 //*************************afficher la liste des visites***************************
-         //System.out.println(vgs.fetchVisites());
+    //     System.out.println(vgs.fetchVisites());
        
          
 //****************************filter by compte*************************************
-      //   vgs.filterByCompte(9);
+      //  vgs.filterByCompte(9);
         
+ //**********************NOTER UN GUIDE ****************************************        
+      //  ges.ajouterNote(20,ge);
          
          
          
          
          
-         
-         
         
         
         
@@ -134,12 +138,7 @@ public class PostulitnApp22 {
         
         
         
-               // GuideEntretien ge = new GuideEntretien();      
-              // ge.setIdguide(4);
-         //init compte      
-        // Compte c = new Compte();
-        // c.setIdCompte(2);
-        // ge.setIdguide(3);
+            
     }
     
 }

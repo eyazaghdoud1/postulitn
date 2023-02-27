@@ -29,4 +29,6 @@ public interface GuideEntretienInterface {
     public List<GuideEntretien> filterBydomaine(String domaine);
     //filtrer par specia
     public List<GuideEntretien> filterByspecialite(String specialite);
+    //noter guide
+     public void ajouterNote(double note, GuideEntretien ge);
 }

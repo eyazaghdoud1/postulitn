@@ -5,6 +5,7 @@
 package models;
 
 import java.sql.Date;
+import models.VisiteGuide;
 
 /**
  *
@@ -103,7 +104,7 @@ public class Compte {
     }
 
     
-    
+        
     
     
 }

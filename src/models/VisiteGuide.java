@@ -16,6 +16,21 @@ public class VisiteGuide {
     private Compte compte;
     private GuideEntretien guideentretien;
 
+
+
+//public class VisiteGuide {
+//    private int idVisiteGuide;
+//    private Date date_consultation;
+//    private Compte compte;
+//    private GuideEntretien guideentretien;
+//    private int note;
+//    
+//    public int getNote() {
+//        return note;
+//
+//    }
+
+
     public VisiteGuide() {
     }
 

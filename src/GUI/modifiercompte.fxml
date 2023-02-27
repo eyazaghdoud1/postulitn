@@ -11,31 +11,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ModifiercompteController">
    <children>
-      <AnchorPane id="AnchorPane" layoutX="-1.0" prefHeight="490.0" prefWidth="802.0" style="-fx-background-color: #0E1947;">
+      <AnchorPane id="AnchorPane" prefHeight="490.0" prefWidth="802.0" style="-fx-background-color: #0E1947;">
          <children>
-            <Label layoutX="424.0" layoutY="159.0" text="Entreprise:" textFill="WHITE">
+            <Label layoutX="20.0" layoutY="148.0" text="Experience:" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="424.0" layoutY="222.0" text="CV:" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="17.0" layoutY="308.0" text="Diplome:" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="13.0" layoutY="160.0" text="Experience:" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-            </Label>
-            <Label layoutX="17.0" layoutY="384.0" text="Date diplome:" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="19.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
             <ImageView fitHeight="65.0" fitWidth="63.0" layoutX="717.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
@@ -59,23 +39,15 @@
                </font>
             </Text>
             <Box height="100.0" layoutX="401.0" layoutY="48.0" width="802.0" />
-            <Label layoutX="14.0" layoutY="227.0" text="Photo" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="19.0" />
-               </font>
-            </Label>
             <Label layoutX="264.0" layoutY="29.0" text="Modifier un compte">
                <font>
                   <Font name="System Bold" size="31.0" />
                </font>
             </Label>
-            <TextField fx:id="experiencetf" layoutX="182.0" layoutY="155.0" prefHeight="39.0" prefWidth="211.0" />
-            <TextField fx:id="phototf" layoutX="182.0" layoutY="222.0" prefHeight="39.0" prefWidth="211.0" />
-            <TextField fx:id="diplometf" layoutX="182.0" layoutY="303.0" prefHeight="39.0" prefWidth="211.0" />
-            <TextField fx:id="cvtf" layoutX="570.0" layoutY="216.0" prefHeight="39.0" prefWidth="211.0" />
-            <TextField fx:id="entreprisetf" layoutX="570.0" layoutY="153.0" prefHeight="39.0" prefWidth="211.0" />
-            <DatePicker fx:id="datediplomedp" layoutX="182.0" layoutY="379.0" prefHeight="39.0" prefWidth="211.0" />
-            <Button layoutX="570.0" layoutY="312.0" mnemonicParsing="false" onAction="#boutnmodifiercompte" prefHeight="106.0" prefWidth="211.0" text="Valider modification" AnchorPane.leftAnchor="570.0" AnchorPane.topAnchor="312.0">
+            <TextField fx:id="experiencetf" layoutX="192.0" layoutY="143.0" prefHeight="39.0" prefWidth="211.0" />
+            <TextField fx:id="phototf" layoutX="192.0" layoutY="232.0" prefHeight="39.0" prefWidth="211.0" />
+            <TextField fx:id="entreprisetf" layoutX="570.0" layoutY="138.0" prefHeight="39.0" prefWidth="211.0" />
+            <Button layoutX="574.0" layoutY="338.0" mnemonicParsing="false" onAction="#boutnmodifiercompte" prefHeight="106.0" prefWidth="211.0" text="Valider modification" AnchorPane.leftAnchor="574.0" AnchorPane.topAnchor="338.0">
                <font>
                   <Font name="System Bold Italic" size="19.0" />
                </font>
@@ -90,6 +62,34 @@
                   <Image url="@user%20icon.png" />
                </image>
             </ImageView>
+            <Label layoutX="20.0" layoutY="237.0" text="Photo:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="322.0" text="Diplome:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="443.0" layoutY="143.0" text="Entreprise:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="412.0" text="Date diplome:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cvtf" layoutX="574.0" layoutY="232.0" prefHeight="39.0" prefWidth="211.0" />
+            <TextField fx:id="diplometf" layoutX="192.0" layoutY="318.0" prefHeight="39.0" prefWidth="211.0" />
+            <Label layoutX="443.0" layoutY="237.0" text="CV:" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datediplomedp" layoutX="189.0" layoutY="404.0" prefHeight="39.0" prefWidth="218.0" />
          </children>
       </AnchorPane>
    </children>

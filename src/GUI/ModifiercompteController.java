@@ -42,9 +42,9 @@ public class ModifiercompteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
-    @FXML
+    }   
+    
+     @FXML
     private void boutnmodifiercompte(ActionEvent event) {
            CompteServices cs = new CompteServices();
         //date to a string if needed
@@ -63,5 +63,10 @@ public class ModifiercompteController implements Initializable {
          
          Compte c1 = new Compte();
     }
+
+    @FXML
+    private void boutnvalidermodd(ActionEvent event) {
+    }
+
     
 }
