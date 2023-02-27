@@ -6,14 +6,20 @@
 package GUI;
 
 import interfaces.TypeoffreInterface;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import models.Typeoffre;
 import services.TypeoffreService;
 
@@ -60,6 +66,18 @@ public class AjoutertypeController implements Initializable {
     
     
    }
+
+    @FXML
+    private void listetype(ActionEvent event) {
+        try {Parent Liste = FXMLLoader.load(getClass().getResource("../gui/types.fxml"));
+            Scene si = new Scene(Liste);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
+    }
 }
 //    public boolean controleTextFieldNomEtPrenom(TextField textField1) {
 //        if (textField1.getText().matches(".*[0-9].*")) {

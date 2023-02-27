@@ -37,5 +37,6 @@
       </Button>
       <TextField fx:id="descriptiontf" layoutX="230.0" layoutY="165.0" />
       <Label fx:id="erreurdescription" layoutX="230.0" layoutY="191.0" prefHeight="18.0" prefWidth="150.0" text="Label" />
+      <Button layoutX="273.0" layoutY="401.0" mnemonicParsing="false" onAction="#listetype" text="listes types" />
    </children>
 </AnchorPane>

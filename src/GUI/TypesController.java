@@ -40,7 +40,7 @@ public class TypesController implements Initializable {
          TypeoffreService ts = new TypeoffreService();
              List<Typeoffre> ls=  ts.fetchOffres();
           for (int i=0; i<ls.size(); i++){
-              Label Secteur = new Label(ls.get(i).toString());
+              Label Secteur = new Label(ls.get(i).getDescription().toString());
               typeoffresvb.getChildren().add(Secteur);
     }    
     

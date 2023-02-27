@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -22,16 +23,25 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 import services.OffreService;
 import models.Offre;
 import models.Typeoffre;
 import services.TypeoffreService;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 import util.MyConnection;
 
 /**
@@ -49,7 +59,7 @@ public class AjouteroffreController implements Initializable {
     private TextField lieutf;
     @FXML
     private TextField entreprisetf;
-        @FXML
+    @FXML
     private TextField specialitetf;
     @FXML
     private DatePicker dateD;
@@ -87,15 +97,7 @@ public class AjouteroffreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
-       // TODO
-          //ObservableList<String> list = FXCollections.observableArrayList("JavaFX","SceneBuilder","Laravel","Python");
-            //     typetf.setItems(list);
-          //  typeEntretienCB.getItems().addAll(TypeEntretien.TypeE.Téléphone.toString(),
-          
-               //typetf.getItems().addAll(listeIds);
-
-       
-       List<Typeoffre> to = tos.fetchOffres();
+        List<Typeoffre> to = tos.fetchOffres();
         for(Typeoffre t :to)  {
         typetf.getItems().add(t.getDescription());
         }
@@ -108,62 +110,9 @@ public class AjouteroffreController implements Initializable {
     @FXML
     private void ajouteroffre(ActionEvent event) throws SQLException {
 //        
-        TypeoffreService ts = new TypeoffreService();
-//        
-//      //  Player init;
-//         Offre o = new Offre();
-//        Typeoffre to = ts.getelementbyid(4);
-//        OffreService os = new OffreService();
-//        o.setPoste(postetf.getText());
-//        o.setDescription(descriptiontf.getText());
-//        o.setLieu(lieutf.getText());
-//        o.setEntreprise(entreprisetf.getText());
-//        o.setSpecialite(specialitetf.getText());
-//        o.setDateExpiration(Date.valueOf("2024-11-19"));
-//        o.setType(to);
-//        o.setIdRecruteur(5);
-//
-//
-//        os.addOffre(o);
-
-
-
-
+        TypeoffreService ts = new TypeoffreService();      
    if(!validateDatePicker(dateD)  && !controleTextFieldNomEtPrenom(postetf,descriptiontf) )   {           //|| controleTextFieldMAIL(specialitetf)
-//    if (postetf.getText().isEmpty())
-//         {
-//                        erreurposte.setText("poste non valide !");
-//                        erreurposte.setVisible(true);
-//                        
-//                        return;
-//                    }
-//    if (descriptiontf.getText().isEmpty())
-//         {
-//                        erreurdescription.setText("Description non valide !");
-//                        erreurdescription.setVisible(true);
-//                        
-//                        return;
-//                    }
-//     if (lieutf.getText().isEmpty())
-//         {
-//                        erreurlieu.setText("lieu non valide !");
-//                        erreurlieu.setVisible(true);
-//                        
-//                        return;
-//                    }
-//      if (entreprisetf.getText().isEmpty())
-//         {
-//                        entreprisetf.setText("entreprise non valide !");
-//                        entreprisetf.setVisible(true);
-//                        
-//                        return;
-//                    }
-//      if (specialitetf.getText().isEmpty())
-//         {
-//                        specialitetf.setText("specialite non valide !");
-//                        specialitetf.setVisible(true);
-//                        
-//                        return;
+
 //                    }
     LocalDate selectedDate = dateD.getValue();
 //
@@ -204,9 +153,46 @@ String dateString = selectedDate.toString();
         o.setIdRecruteur(5);
         System.out.println(o);
         os.addOffre(o);
-    
+       // System.out.println(os.fetchOffres().get(0));
+        
+    String tilte = "Offre Ajoute";
+            String message = postetf.getText();
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+        
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.millis(3000));
     
    }
+   else if(validateDatePicker(dateD)) {
+        String tilte = "offre n est pas ajoute";
+            String message = "entrer la date d expiration";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+        
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.millis(3000));
+       
+    }
+   else if(controleTextFieldNomEtPrenom(postetf,descriptiontf)) {
+        String tilte = "offre n est pas ajoute";
+            String message = "il est interdit de meettre des numeros dans le champs poste et description ";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+        
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.millis(3000));
+       
+    }
     
     
     
@@ -227,16 +213,8 @@ String dateString = selectedDate.toString();
          }
            return false;
         }
-    /* public boolean controleTextFieldNonNumerique(TextField textField) {
-        if (textField.getText().matches(".*[a-zA-Z].*")) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("veuillez saisir que des entiers!");
-            alert.showAndWait();
-            return true;
-        }
-             return false;}
-   */ 
+    
+    
     public boolean controleTextFieldNomEtPrenom(TextField textField1,TextField textField) {
         if (textField1.getText().matches(".*[0-9].*")||textField.getText().matches(".*[0-9].*")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -247,28 +225,23 @@ String dateString = selectedDate.toString();
         }
              return false;}
 
+    @FXML
+    private void liste(ActionEvent event) {
+        try {Parent Liste = FXMLLoader.load(getClass().getResource("../gui/lesoffres.fxml"));
+            Scene si = new Scene(Liste);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
+    }
+
+    
+
 }
  
-//       /*public boolean controleTextFieldMAIL(TextField textField) {
-//        if (!textField.getText().contains("@")) {
-//            Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setHeaderText(null);
-//            alert.setContentText("Votre adresse mail est invalide");
-//            alert.showAndWait();
-//            return true;
-//        }
-//             return false;}
-//*/
-////    private void checkinput(javafx.scene.input.KeyEvent event) {
-////      if(event.getCharacter().matches("[^\\e\t\r\\d+$]")){
-////            event.consume();
-////            
-////            lieutf.setStyle("-fx-border-color: red");
-////        }else{
-////            lieutf.setStyle("-fx-border-color: green");
-////        }
-////    }
-//}
+
 
    
     

@@ -16,11 +16,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.Offre;
+import models.Typeoffre;
 import services.OffreService;
+import services.TypeoffreService;
 
 /**
  * FXML Controller class
@@ -33,6 +36,13 @@ public class LesoffresController implements Initializable {
     private VBox offresvb;
     @FXML
     private TextField txtsupprimer;
+    @FXML
+    private ComboBox supp;
+    
+     TypeoffreService tos = new TypeoffreService();
+      OffreService os = new OffreService();
+      String typeSelectionne;
+   
 
     /**
      * Initializes the controller class.
@@ -40,7 +50,19 @@ public class LesoffresController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+//         List<Typeoffre> to = tos.fetchOffres();
+//        for(Typeoffre t :to)  {
+//        typetf.getItems().add(t.getDescription());
+//        }
+//        typetf.setOnAction(e -> {typeSelectionne=typetf.getValue().toString();});
+
+ List<Offre> lo = os.fetchOffres();
+        for(Offre o :lo)  {
+        supp.getItems().add(o.getDescription());
+        }
+        supp.setOnAction(e -> {typeSelectionne=supp.getValue().toString();});
         OffreService os = new OffreService();
+        
        List<Offre> offres = os.fetchOffres();
         for(int i=0; i<offres.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -61,12 +83,14 @@ public class LesoffresController implements Initializable {
 
     @FXML
     private void Delete(ActionEvent event) {
-        int id_event = Integer.parseInt(txtsupprimer.getText());
-
-
-OffreService os = new OffreService();
-
-    os.deleteOffre(id_event);
+        //int id_event = Integer.parseInt(txtsupprimer.getText());
+      //  int id=setType(os.getelementbyid(typeSelectionne));
+        Offre o = new Offre() ;
+       // a =os.getelementbyDescription(typeSelectionne);
+          OffreService os = new OffreService();
+     o.setType(tos.getelementbydescription(typeSelectionne));
+  //  os.deleteOffre(id_event);
+    os.deletebydes(typeSelectionne);
     }
     
 }

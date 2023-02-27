@@ -48,24 +48,29 @@ public class Projet {
         
    
 //*******************************SELECT OFFRE****************************************************************************
-        System.out.println("les offres");
-       System.out.println(ps.fetchOffres());
+       // System.out.println("les offres");
+      // System.out.println(ps.fetchOffres());
 //*****************************DELETE*************************************************************************************
        //ps.deleteOffre(37);
+   //    ps.deletebydes("aaa3");
+       
+       
 //               // System.out.println("apres delete");
 //*****************OFFRE PAR ID*******************************************************************************************
              //  System.out.println("l'offre par son id");
              //  System.out.println(ps.getelementbyid(24));
+              // System.out.println("l'offre par son descri");
+           //  System.out.println(ps.getelementbyDescription("twil"));
 
         
 //        
 //**************************SELECT TYPE***********************************************************************************
-System.out.println("les types");
+//System.out.println("les types");
       TypeoffreInterface pt = new TypeoffreService();
          Typeoffre t = new Typeoffre();
          t.setDescription("mitemps");
          // pt.addType2(t);
-         System.out.println(pt.fetchOffres());
+        // System.out.println(pt.fetchOffres());
       // t.setDescription("stage2");
      // pt.updatetypeoffre(t,1);
          //***************DELETE TYPE*************************************************************************************
@@ -84,15 +89,19 @@ System.out.println("les types");
         
 
 //*********************UPDATE OFFRE************************************************************************************************
-//       o.setPoste("aaaaa");
-//         o.setDescription("twil");
-//         o.setLieu("marsa");
-//        o.setEntreprise("aziza");
-//         o.setSpecialite("najjar");
-       //  o.setDateExpiration(Date.valueOf("2022-02-09"));
-        // o.setType(ts.getelementbyid(4));
+       o.setPoste("aazzaaa");
+         //o.setDescription("twil");
+         o.setLieu("marsa");
+        o.setEntreprise("aziza");
+         o.setSpecialite("najjar");
+         o.setDateExpiration(Date.valueOf("2022-02-09"));
+         o.setIdRecruteur(5);
+         o.setType(ts.getelementbyid(4));
+                 
+
 ////         
       // ps.updateOffre(o, 24);
+       ps.updateOffrebydes(o,"hh");
 
 
 
@@ -101,8 +110,8 @@ System.out.println("les types");
       //  pt.updatetypeoffre(to, 4);
       
   //*************************getelementbydescription*************    
-        System.out.println("le type d'offre par son description");
-        System.out.println(ts.getelementbydescription("embauche"));
+      //  System.out.println("le type d'offre par son description");
+      //  System.out.println(ts.getelementbydescription("embauche"));
         
     }
     

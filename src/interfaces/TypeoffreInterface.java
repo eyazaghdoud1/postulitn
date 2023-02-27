@@ -21,6 +21,7 @@ public interface TypeoffreInterface {
     
     public void updatetypeoffre(Typeoffre t,int idType);
     public void deletetypeoffre(int idType);
+    public List<Typeoffre> getTypeDesc();
     public Typeoffre getelementbyid(int idType);
 
     public Typeoffre getelementbydescription(String description);

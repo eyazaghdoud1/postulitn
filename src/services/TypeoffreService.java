@@ -70,7 +70,7 @@ public class TypeoffreService implements TypeoffreInterface {
         List<Typeoffre> typeoffres = new ArrayList<>();
         try {
             
-            String req = "SELECT * FROM typeoffre";
+            String req = "SELECT  * FROM typeoffre";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {                
@@ -85,6 +85,26 @@ public class TypeoffreService implements TypeoffreInterface {
                 typeoffres.add(t);
             }
             
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return typeoffres;
+    }
+    @Override
+    public List<Typeoffre> getTypeDesc() {
+        List<Typeoffre> typeoffres = new ArrayList<>();
+        try {
+            
+            String req = "SELECT typeoffre.idtype,typeoffre.description  FROM typeoffre join offre on offre.idtype=typeoffre.idtype";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {                
+                Typeoffre t = new Typeoffre();
+                t.setId(rs.getInt(1));
+                t.setDescription(rs.getString(2));    
+                typeoffres.add(t);
+            }    
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

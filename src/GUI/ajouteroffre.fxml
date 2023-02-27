@@ -62,5 +62,6 @@
       <Label fx:id="erreurentreprise" layoutX="85.0" layoutY="464.0" prefHeight="18.0" prefWidth="150.0" textFill="#f7f1f1" />
       <Label fx:id="erreurspecialite" layoutX="414.0" layoutY="183.0" prefHeight="18.0" prefWidth="175.0" textFill="#f7f3f3" />
       <Label fx:id="erreurdate" layoutX="414.0" layoutY="248.0" prefHeight="18.0" prefWidth="175.0" textFill="#faf7f7" />
+      <Button layoutX="259.0" layoutY="500.0" mnemonicParsing="false" onAction="#liste" prefHeight="30.0" prefWidth="99.0" style="-fx-background-color: #1E9DFF;" text="listes offres" textFill="WHITE" />
    </children>
 </AnchorPane>

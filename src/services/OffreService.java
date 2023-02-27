@@ -262,7 +262,99 @@ public class OffreService implements OffreInterface {
         }
         return entFiltres;
 
-    }}
+    }
+
+    @Override
+    public Offre getelementbyDescription(String Description) {
+        
+         Offre o = new Offre();
+       
+
+         try {
+             String req = "SELECT * FROM offre where description = ? ";
+             PreparedStatement ps = cnx.prepareStatement(req);
+             
+             ps.setString(1,Description);
+             ResultSet rs = ps.executeQuery();
+             
+                rs.next() ;
+                o.setId(rs.getInt(1));
+                o.setPoste(rs.getString(2));
+                o.setDescription(rs.getString(3));
+                o.setLieu(rs.getString(4));
+                o.setEntreprise(rs.getString(5));
+                o.setSpecialite(rs.getString(6));
+                o.setDateExpiration(rs.getDate(7));
+                o.setIdRecruteur(rs.getInt(8));
+                String r = "SELECT * FROM typeoffre where idtype = ? ";
+                PreparedStatement ps1 = cnx.prepareStatement(r);
+                ps1.setInt(1, rs.getInt(9));
+                ResultSet rs1 = ps1.executeQuery();
+                rs1.next();
+                Typeoffre to = new Typeoffre();
+                to.setId(rs1.getInt(1));
+                to.setDescription(rs1.getString(2));
+                o.setType(to);
+         
+             
+             
+         } catch (SQLException ex) {
+              ex.printStackTrace();
+             
+         }
+         return o;
+        
+        
+        
+        
+        
+        
+    }
+
+    @Override
+    public void deletebydes(String description) {
+        String req = "DELETE FROM offre WHERE description= '"+description+"'";
+        
+           try {
+           Statement st = cnx.createStatement();
+           st.executeUpdate(req);
+           System.out.println("Offre supprime avec succes!!");
+               
+        } catch (SQLException ex) {
+           ex.printStackTrace();
+        }
+       
+    }
+    
+
+    @Override
+    public int typeByOffre(int idtype) {
+        String sql = "selEct coUnt(*) from offre where idtype ="+idtype;
+   
+  
+      try {
+              
+             PreparedStatement ps = cnx.prepareStatement(sql);
+             
+            
+             ResultSet rs = ps.executeQuery();
+            int num = 0;
+            while(rs.next()){
+                num = (rs.getInt(1));
+                return num;
+ 
+            }
+        } catch (SQLException ex) {
+            
+        }
+        return 0 ;
+    }
+
+    @Override
+    public void updateOffrebydes(Offre o, String Description) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
 
     
         
