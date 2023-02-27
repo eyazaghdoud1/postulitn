@@ -19,10 +19,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import services.SecteurServices;
 
 
@@ -53,7 +57,14 @@ public class ListeSecteurFXMLController implements Initializable {
          Secteur s= new Secteur(); 
         s.setDescription(secteurTF.getText());
         ss.addSecteur(s);
-    
+     try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/ListeSecteurFXML.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
      @Override

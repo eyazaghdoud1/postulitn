@@ -47,7 +47,7 @@ public class ListeProjetsResponsableController implements Initializable {
           for (int i=0; i<lp.size(); i++){
               
              FXMLLoader fxmlloader = new FXMLLoader();
-             fxmlloader.setLocation(getClass().getResource("../Gui/R.fxml"));
+             fxmlloader.setLocation(getClass().getResource("../Gui/R1.fxml"));
               try { 
               HBox hbox = fxmlloader.load();
               RController rc = fxmlloader.getController();

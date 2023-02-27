@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.SecteurServices;
@@ -35,6 +36,8 @@ public class SController implements Initializable {
     private HBox Shbox;
     @FXML
     private Label DescriSecteur;
+    @FXML
+    private TextField secteurInputTF;
 
     /**
      * Initializes the controller class.
@@ -71,12 +74,22 @@ public class SController implements Initializable {
    @FXML
     private void ModifierSecteur(ActionEvent event) {
             SecteurServices ss = new SecteurServices();
-       //     Secteur s = ListeSecteurFXMLController.s;
-        Secteur s = new Secteur();
-        s.setDescription(DescriSecteur.getText());
+            Secteur s = ListeSecteurFXMLController.s;
+        //sSecteur s = new Secteur();
+//        Secteur s = ListeSecteurFXMLController.s; // get the existing sector object to update
+//s.setDescription(secteurInputTF.getText()); // update the description property with the new value
+//ss.UpdateSecteur(s.getIdSecteur(), s); // update the sector in the system
+        s.setDescription(secteurInputTF.getText());
         ss.UpdateSecteur(ListeSecteurFXMLController.s.getIdSecteur(),s);          
          Secteur s1 = new Secteur(); 
-        
+          try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/ListeSecteurFXML.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
    
     

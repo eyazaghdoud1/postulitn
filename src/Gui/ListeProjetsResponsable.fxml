@@ -59,27 +59,27 @@
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="126.0" layoutY="153.0" text="Description" textFill="WHITE">
+      <Label layoutX="157.0" layoutY="153.0" text="Description" textFill="WHITE">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="244.0" layoutY="153.0" text="Durée" textFill="WHITE">
+      <Label layoutX="293.0" layoutY="153.0" text="Durée" textFill="WHITE">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="319.0" layoutY="153.0" text="Date Debut" textFill="WHITE">
+      <Label layoutX="405.0" layoutY="153.0" text="Date Debut" textFill="WHITE">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="550.0" layoutY="153.0" text="Secteur" textFill="WHITE">
+      <Label layoutX="737.0" layoutY="153.0" text="Secteur" textFill="WHITE">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="440.0" layoutY="153.0" text="Date Fin" textFill="WHITE">
+      <Label layoutX="585.0" layoutY="153.0" text="Date Fin" textFill="WHITE">
          <font>
             <Font name="Calibri" size="16.0" />
          </font>

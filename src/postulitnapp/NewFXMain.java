@@ -30,9 +30,17 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
       
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsResponsable.fxml"));
-            
-            
+            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeSecteurFXML.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/AjoutProjetFXML.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjets.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsResponsable.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeSecteurFXML.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/Offreprojet.fxml"));
+           // Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetResponsables.fxml"));
+          Parent root = FXMLLoader.load(getClass().getResource("../Gui/Serveur.fxml")); 
+         // Parent root = FXMLLoader.load(getClass().getResource("../Gui/Client.fxml")); 
+
+           
             Scene scene = new Scene(root);
             
             primaryStage.setTitle("");

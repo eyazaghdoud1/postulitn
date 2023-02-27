@@ -57,6 +57,8 @@ public class ListeProjetsController implements Initializable {
           } catch (IOException ex) {
               Logger.getLogger(ListeProjetsController.class.getName()).log(Level.SEVERE, null, ex);
           }  
+          
+          
              
          }
     }

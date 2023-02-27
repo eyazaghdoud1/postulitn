@@ -14,11 +14,6 @@
 <AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" style="-fx-background-color: #0E1947;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ListeSecteurFXMLController">
    <children>
       <Box depth="100" height="50.0" layoutX="222.0" layoutY="50.0" width="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="600.0" layoutY="7.0">
-         <image>
-            <Image url="@../../../../../Downloads/330831433_1536180653567674_6866388944530913939_n.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="73.0" fitWidth="69.0" layoutX="-1.0" layoutY="-11.0">
          <image>
             <Image url="@../Gui/logo.png" />
@@ -28,14 +23,14 @@
          <font>
             <Font size="16.0" />
          </font></Label>
-      <Label layoutX="553.0" layoutY="19.0" text="Admin" />
-      <Label layoutX="31.0" layoutY="72.0" text="Liste des secteurs" textFill="WHITE">
+      <Label layoutX="548.0" layoutY="19.0" text="Admin" />
+      <Label layoutX="31.0" layoutY="69.0" text="Liste des secteurs" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <Label layoutX="54.0" layoutY="143.0" text="Nom secteur" />
-      <ScrollPane layoutX="32.0" layoutY="115.0" prefHeight="286.0" prefWidth="586.0">
+      <ScrollPane layoutX="45.0" layoutY="115.0" prefHeight="286.0" prefWidth="558.0">
          <content>
             <VBox id="secteurVB" fx:id="secteurVB" prefHeight="251.0" prefWidth="564.0" />
          </content>
@@ -57,5 +52,10 @@
             <Font size="16.0" />
          </font>
       </Label>
+      <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="598.0" layoutY="6.0">
+         <image>
+            <Image url="@usepic.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

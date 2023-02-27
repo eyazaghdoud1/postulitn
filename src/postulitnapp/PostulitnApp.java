@@ -34,17 +34,18 @@ public class PostulitnApp {
 //         Secteur s3 = new Secteur("marketing");
 //         Secteur s4 =new Secteur("sécurité"); 
       Secteur s5 =new Secteur("info1"); 
+      Secteur s6 =new Secteur("Secteurtest");
  //     ss.addSecteur(s5);
           
 //***************************************  AJOUT DES PROJETS ***********************************************************************************    
 //          ProjetFreelance p = new ProjetFreelance(7,3, "info", "desc", Date.valueOf("2013-09-04"), Date.valueOf("2013-09-09"), ss.getById(1));
 //          ProjetFreelance p2 = new ProjetFreelance(8,3, "info", "desc", Date.valueOf("2013-09-04"), Date.valueOf("2013-09-09"), ss.getById(1));
-        ProjetFreelance p3 = new ProjetFreelance(11,3,"archi", "desc", Date.valueOf("2013-09-06"), Date.valueOf("2013-12-09"), ss.getById(14));
+//        ProjetFreelance p3 = new ProjetFreelance(11,3,"archi", "desc", Date.valueOf("2013-09-06"), Date.valueOf("2013-12-09"), ss.getById(14));
  //          ProjetFreelance p3 = new ProjetFreelance(7,"securite", "desc", Date.valueOf("2013-05-02"), Date.valueOf("2013-12-02"), ss.getById(15),8);
  //        ProjetFreelance p5 = new ProjetFreelance(7,"securite", "desc", Date.valueOf("2013-05-02"), Date.valueOf("2013-12-02"), ss.getById(15),7);
-      ProjetFreelance p6 = new ProjetFreelance(5,"test", "desc", Date.valueOf("2013-05-02"), Date.valueOf("2013-12-02"), ss.getById(15),2);
+  //      ProjetFreelance p6 = new ProjetFreelance(17,"test17", "des17", Date.valueOf("2013-05-08"), Date.valueOf("2013-12-08"), ss.getById(15),17);
          
-  //      ps.addProjet(p6);
+    //     ps.addProjet(p6);
 //          ps.addProjet(p2);
 //          ps.addProjet(p3);
 //          ps.addProjet(p3);
@@ -86,14 +87,19 @@ public class PostulitnApp {
 //              s4.setIdSecteur(20);
 //              Secteur s = new Secteur();
 //              s.setDescription("test");
-//              ss.UpdateSecteur(9,s);
+
+          
+
+//ss.UpdateSecteur(9,s6);
+            
+            
 
 
 
 //***************************************   LES FILTRES: PROJETS  ***************************************
- //       System.out.println(ps.filterBySecteur(14));
+ //     System.out.println(ps.filterBySecteur(14));
 //      System.out.println(ps.filterByDuree(3));
-//        System.out.println(ps.filterByTheme("sécurité"));
+//      System.out.println(ps.filterByTheme("sécurité"));
 
 
 
@@ -108,7 +114,10 @@ public class PostulitnApp {
 
 
 //***************************************   SUPPRESSION DES PROJETS ET SECTEURS   ***************************************
-   //  ps.deleteProjetById(p3);
+   
+
+
+//ps.deleteProjetById(p3);
 //        ss.deleteSecteurById(s4);
     }
    
