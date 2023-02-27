@@ -22,8 +22,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.AuthenticationService;
 import services.UtilisateurService;
@@ -43,6 +45,8 @@ public class FXMLController implements Initializable {
     private PasswordField mdp;
     @FXML
     private Button btnsi;
+    @FXML
+    private Label pwdforgotten;
 
     /**
      * Initializes the controller class.
@@ -90,7 +94,19 @@ public class FXMLController implements Initializable {
         }
     }
 
-   
-    
+    @FXML
+    private void Onclick_ForgotPassword(MouseEvent event) {
+         try {
+            Parent Login = FXMLLoader.load(getClass().getResource("../gui/Mdpoublie.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+               
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     
 }

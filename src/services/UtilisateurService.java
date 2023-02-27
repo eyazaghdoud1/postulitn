@@ -5,6 +5,7 @@
  */
 package services;
 
+import gui.MdpoublieController;
 import interfaces.UtilisateurInterface;
 import java.sql.Connection;
 import java.sql.Date;
@@ -168,6 +169,7 @@ public class UtilisateurService implements UtilisateurInterface {
                 r.setIdRole(rs1.getInt(1));
                 r.setDescription(rs1.getString(2));
                 u.setRole(r);
+                u.setSalt(rs.getString("salt"));
                 }
          } catch (SQLException ex) {
               ex.printStackTrace();
@@ -212,6 +214,25 @@ public class UtilisateurService implements UtilisateurInterface {
         }
         return users;
     }
+
+    @Override
+    public void UpdateMdp(Utilisateur u, String email, String nouveaumdp) {
+        //            String req = "UPDATE utilisateur set `mdp` = ? WHERE email=?";
+//            PreparedStatement ps = cnx.prepareStatement(req);
+//            ps.setString(1, nouveaumdp);
+//            ps.setString(2, email);
+//            ps.executeUpdate();
+             
+//             String salt = Passwordutils.getSalt(20);
+             String mySecurePassword = Passwordutils.generateSecurePassword(nouveaumdp,u.getSalt());
+             u.setMdp(mySecurePassword);
+//             u.setSalt(salt);
+             this.updateUser(u, u.getId());
+             System.out.println("Mdp modifié avec succès");
+    
+    }
+    
+    
     
 }
 

@@ -12,10 +12,12 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -28,11 +30,18 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
                try {
             
-            Parent root = FXMLLoader.load(getClass().getResource("../gui/users2.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/SignIn.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/SignInCandidat.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/SignInRecruteur.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/users2.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/Roles.fxml"));
             System.out.println("FXML loaded successfully");
             
             Scene scene = new Scene(root);
-            
+//            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+//            primaryStage.setWidth(primaryScreenBounds.getWidth());
+//            primaryStage.setHeight(primaryScreenBounds.getHeight());
             primaryStage.setTitle("test");
             primaryStage.setScene(scene);
             primaryStage.show();

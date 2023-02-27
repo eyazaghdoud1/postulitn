@@ -31,6 +31,8 @@ public interface UtilisateurInterface {
     //geById
     public Utilisateur GetByIdUser (int id);
     
+    //MDPOublié
+    public void UpdateMdp (Utilisateur u, String email, String nouveaumdp);
   
     
 }

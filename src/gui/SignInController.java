@@ -115,20 +115,20 @@ public class SignInController implements Initializable {
                         
                         return;
                     }
-//      if (adresse.getText().isEmpty())
-//         {
-//                        erreuradresse.setText("adresse non valide !");
-//                        erreuradresse.setVisible(true);
-//                        
-//                        return;
-//                    }
-//      if (tel.getText().isEmpty())
-//         {
-//                        erreurtel.setText("Tel non valide !");
-//                        erreurtel.setVisible(true);
-//                        
-//                        return;
-//                    }
+      if (adresse.getText().isEmpty())
+         {
+                        erreuradresse.setText("adresse non valide !");
+                        erreuradresse.setVisible(true);
+                        
+                        return;
+                    }
+      if (tel.getText().isEmpty())
+         {
+                        erreurtel.setText("Tel non valide !");
+                        erreurtel.setVisible(true);
+                        
+                        return;
+                    }
       if (mdp.getText().isEmpty())
          {
                         erreurmdp.setText("Mot de passe non valide !");

@@ -36,17 +36,16 @@ public class PostulitnApp {
         AuthenticationService as = new AuthenticationService();
         
         //Utilisateur init
-        Utilisateur u = new Utilisateur();
+        Utilisateur u = us.GetByIdUser(44);
         
         //Role init
         Role r = new Role();
         
         //FreelancersP init 
-        FreelancersP fp = new FreelancersP();
-       
-//       System.out.println(us.fetchUsers());
-        
-        
+//        FreelancersP fp = new FreelancersP();
+//        us.UpdateMdp(u, u.getEmail(), "zaghdoud");
+//        System.out.println(u.getMdp());
+//        
 /*************************************  CRUD Role  *******************************************************/
 
         //add Role       
@@ -109,7 +108,7 @@ public class PostulitnApp {
 //         fp.setIdProjet(3);
 //         fps.addAffectation(fp);
 
-//      //delete 
+      //delete 
           
 //           fp.setUtilisateur(us.GetByIdUser(44));
 //           fp.setIdProjet(3);
@@ -148,11 +147,7 @@ public class PostulitnApp {
         String password = scanner.nextLine();
 
         as.authentification(username, password);
-       
-
-          
-       
-    }
+      }
 
 
 

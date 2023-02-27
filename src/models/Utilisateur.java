@@ -12,13 +12,13 @@ public class Utilisateur {
     private String nom, prenom, email, tel, adresse, mdp;
     private Date dateNaissance;
     private Role role;
-
+    private String salt;
     
     //Constructors
     public Utilisateur() {
     }
 
-    public Utilisateur(int id, String nom, String prenom, String email, String tel, String adresse, String mdp, Date dateNaissance, Role role) {
+    public Utilisateur(int id, String nom, String prenom, String email, String tel, String adresse, String mdp, Date dateNaissance, Role role, String salt) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -28,10 +28,10 @@ public class Utilisateur {
         this.mdp = mdp;
         this.dateNaissance = dateNaissance;
         this.role = role;
-   
+        this.salt = salt;
     }
 
-    public Utilisateur(String nom, String prenom, String email, String tel, String adresse, String mdp, Date dateNaissance, Role role) {
+    public Utilisateur(String nom, String prenom, String email, String tel, String adresse, String mdp, Date dateNaissance, Role role, String salt) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -40,6 +40,7 @@ public class Utilisateur {
         this.mdp = mdp;
         this.dateNaissance = dateNaissance;
         this.role = role;
+        this.salt = salt;
     }
 
     //getters & setters
@@ -86,6 +87,15 @@ public class Utilisateur {
     public String getAdresse() {
         return adresse;
     }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+    
 
     public void setAdresse(String adresse) {
         this.adresse = adresse;
