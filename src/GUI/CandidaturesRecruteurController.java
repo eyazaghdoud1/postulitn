@@ -155,6 +155,25 @@ public class CandidaturesRecruteurController implements Initializable {
         indexValidee = listViewValidees.getSelectionModel().getSelectedIndex();
             System.out.println(indexValidee);
     }
+
+    @FXML
+    private void goToEntretiens(MouseEvent event) {
+          try {
+                  Parent root = FXMLLoader.load(getClass().getResource("./EntretiensRecruteur.fxml"));
+                  System.out.println("FXML loaded successfully");
+                  Scene scene = new Scene(root);
+                  Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                  stage.setScene(scene);
+                  stage.show();
+            
+                //System.out.println(e);
+                
+                
+           
+                 } catch (IOException e) {
+                      e.printStackTrace();
+                 }
+    }
          
     
         

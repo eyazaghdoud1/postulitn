@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Optional;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -67,7 +68,7 @@ public class CandidaturesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-      candidat.setText("Nom Candidat connecté");
+      candidat.setText("Candidat");
       // listeCand.setItems(data);
        List<Candidature> data = cs.fetchCandidatures();
        
@@ -97,6 +98,12 @@ public class CandidaturesController implements Initializable {
             candIndex = listViewCand.getSelectionModel().getSelectedIndex();
             System.out.println(candIndex);
        
+    }
+
+    @FXML
+    private void goToEntretiens(MouseEvent event) {
+
+        
     }
 
     

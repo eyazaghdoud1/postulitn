@@ -6,11 +6,21 @@
 package postulitnapp;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 import models.Candidature;
 import models.Entretien;
+import models.Quiz;
+import models.QuizQuestion;
+import models.QuizScore;
 import services.CandidatureService;
 import services.EntretienService;
+import services.QuizQuestionService;
+import services.QuizScoreService;
+import services.QuizService;
 import utilities.EtatCandidature;
+import utilities.QuizReponse;
 import utilities.TypeEntretien;
 
 /**
@@ -34,7 +44,7 @@ public class PostulitnApp {
         /* instance de CandidatureService */
         CandidatureService cs = new CandidatureService();
         //Candidature c = cs.getCandidatureById(1);
-        cs.valider(1, true);
+        //cs.valider(1, true);
         //Candidature cupdate = new Candidature(3, 2, "newurlcv", "newurlurllettre");
        
         
@@ -44,7 +54,7 @@ public class PostulitnApp {
        
         /************************ TEST DE L'AFFICHAGE DES CANDIDATURES *******************************/
          //System.out.println("/*** test de l'affichage des candidatures ***/");
-         System.out.println(cs.fetchCandidatures());
+         //System.out.println(cs.fetchCandidatures());
         
         /************************ TEST DE LA MODIFICATION DE CANDIDATURE *****************************/
          //System.out.println("/*** test de la modification des candidatures ***/");
@@ -69,6 +79,8 @@ public class PostulitnApp {
         /******************************** TEST DES FILTRES ******************************************/
         /* test de filtrer candidatures by candidat */ 
         //System.out.println(cs.filterByCandidat(1));
+        //System.out.println(cs.filterByEtat(EtatCandidature.EtatsCandidature.Enregistrée));
+        // System.out.println(cs.filterByOffre(1));
         
         
         
@@ -97,11 +109,62 @@ public class PostulitnApp {
 //        System.out.println("/*** test de la recherche des entretiens  par candidat ***/");
 //        System.out.println(es.filterByCandidat(1) );
          // System.out.println(es.filterByDate(Date.valueOf("2023-02-14") ));
-         //System.out.println(es.filterByType("presentiel"));
+        // System.out.println(es.filterByType(TypeEntretien.TypeE.Présentiel.toString()));
         
       /* cs.addCandidature(c);
        cs.valider(cs.getCandidatureById(10).getId(), true); */
        //cs.valider(cs.getCandidatureById(1).getId(), false);
+       
+       /******************************************** QUIZ *******************************************************/
+       QuizService qs = new QuizService();
+       QuizQuestionService qqs = new QuizQuestionService();
+       Quiz quiz = new Quiz();
+       quiz.setSecteur("Informatique");
+       quiz.setSpecialite("Java");
+       //qs.addQuiz(quiz);
+      // System.out.println(qs.getQuizBySpecialite("Web"));
+      
+       quiz.setQuestions(qqs.fetchByQuiz(1));
+       QuizQuestion q1 = new QuizQuestion("Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?",
+               "Encapsulation", "Abstraction", "Polymorphisme", "B", 1);
+       QuizQuestion q2 = new QuizQuestion("Comment ça s’appelle si un objet a son propre cycle de vie?",
+               "Agrégation", "Composition", "Association", " C", 1);
+       QuizQuestion q3 = new QuizQuestion("Les expressions lambda dans java 8 sont basées sur?",
+               "Programmation procédurale", "Programmation fonctionnelle", "Programmation des données", "B", 1);
+       
+       QuizQuestion q4 = new QuizQuestion("Par quoi se caractérise PreparedStatement en Java?",
+               "Ralentissement des performances", "Utilise plus de mémoire", "Empêche l’injection SQL", "C", 1);
+       
+       qqs.addQuizQuestion(q4);
+       
+       QuizQuestion q5 = new QuizQuestion("Quand les exceptions surviennent-elles dans un code Java?",
+               "Au moment de l’exécution", "Le moment de compilation", "Peut survenir à tout moment", "A", 1);
+       
+       qqs.addQuizQuestion(q5);
+       //System.out.println(qs.getQuizById(1).getQuestions().size());
+       /*qqs.addQuizQuestion(q2);
+       qqs.addQuizQuestion(q3);*/
+      /* QuizReponse rep = new QuizReponse();
+       Scanner sc = new Scanner(System.in);
+       List<String> resps = new ArrayList<>();
+       for (QuizQuestion qq: quiz.getQuestions()) {
+       System.out.println( qq.getQuestion());
+       System.out.println("A: "  + qq.getOption1());
+       System.out.println("B: " + qq.getOption2());
+       System.out.println("C: " + qq.getOption3());
+       String r = sc.nextLine();
+       resps.add(r);
+       }
+       rep.setReponses(resps);
+       QuizScore score = new QuizScore();
+       score.setIdCandidat(1);
+       score.setQuiz(quiz);
+       QuizScoreService qss = new QuizScoreService();
+       qss.calculerScore(score, rep);
+       System.out.println(score.getScore());*/
+       
+       
+       
         
     }
     

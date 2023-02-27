@@ -18,7 +18,7 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EntretiensRecruteurController">
    <children>
       <Label layoutX="68.0" layoutY="17.0" text="Home" />
-      <Label layoutX="122.0" layoutY="17.0" text="Candidatures" />
+      <Label layoutX="122.0" layoutY="17.0" onMouseClicked="#goToCandidatures" text="Candidatures" />
       <Label layoutX="219.0" layoutY="17.0" text="Offres" />
       <ImageView fitHeight="65.0" fitWidth="60.0" layoutX="5.0" layoutY="-8.0">
          <image>
@@ -166,5 +166,6 @@
             </HBox>
          </children>
       </VBox>
+      <Label layoutX="270.0" layoutY="16.0" text="Entretiens" />
    </children>
 </AnchorPane>

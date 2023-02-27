@@ -82,7 +82,7 @@
       </VBox>
       <Label layoutX="78.0" layoutY="17.0" text="Home" />
       <Label layoutX="132.0" layoutY="17.0" text="Candidatures" />
-      <Label layoutX="229.0" layoutY="17.0" text="Projets" />
+      <Label layoutX="224.0" layoutY="17.0" text="Entretiens" />
       <ImageView fitHeight="65.0" fitWidth="60.0" layoutX="3.0" layoutY="-7.0">
          <image>
             <Image url="@325554422_570397571644716_8824221449279015534_n.png" />
@@ -93,6 +93,6 @@
             <Image url="@330831433_1536180653567674_6866388944530913939_n.png" />
          </image>
       </ImageView>
-      <Button fx:id="change" layoutX="440.0" layoutY="13.0" mnemonicParsing="false" onAction="#changeScene" text="Button" />
+      <Label layoutX="299.0" layoutY="17.0" text="Projets" />
    </children>
 </AnchorPane>

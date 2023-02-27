@@ -9,13 +9,17 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -28,16 +32,27 @@ public class FXMain extends Application {
     public void start(Stage primaryStage) {
            try {
             // d'ou on va creer la scene
+            
+            //interfaces candidat
             //Parent root = FXMLLoader.load(getClass().getResource("../GUI/Candidatures.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddCandidature.fxml"));
-           // Parent root = FXMLLoader.load(getClass().getResource("../GUI/CandidaturesRecruteur.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../GUI/AddCandidature.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../GUI/ModificationCandidature.fxml"));
+            
+            //interface recruteur 
+            //Parent root = FXMLLoader.load(getClass().getResource("../GUI/CandidaturesRecruteur.fxml"));
            // Parent root = FXMLLoader.load(getClass().getResource("../GUI/EntretiensRecruteur.fxml"));
-           //Parent root = FXMLLoader.load(getClass().getResource("../GUI/ModificationCandidature.fxml"));
+           
+           Parent root = FXMLLoader.load(getClass().getResource("../GUI/test.fxml"));
+           
             System.out.println("FXML loaded successfully");
             
             Scene scene = new Scene(root);
-            
-            primaryStage.setTitle("test");
+
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            primaryStage.setWidth(primaryScreenBounds.getWidth());
+            primaryStage.setHeight(primaryScreenBounds.getHeight());
+
+            primaryStage.setTitle("Postuli.tn");
             primaryStage.setScene(scene);
             primaryStage.show();
             

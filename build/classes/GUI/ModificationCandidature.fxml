@@ -15,7 +15,7 @@
    <children>
       <Label layoutX="88.0" layoutY="27.0" text="Home" />
       <Label layoutX="142.0" layoutY="27.0" text="Candidatures" />
-      <Label layoutX="239.0" layoutY="27.0" text="Projets" />
+      <Label layoutX="293.0" layoutY="27.0" text="Projets" />
       <ImageView fitHeight="65.0" fitWidth="60.0" layoutX="13.0" layoutY="3.0">
          <image>
             <Image url="@325554422_570397571644716_8824221449279015534_n.png" />
@@ -113,5 +113,6 @@
             </HBox>
          </children>
       </VBox>
+      <Label layoutX="230.0" layoutY="27.0" text="Entretiens" />
    </children>
 </AnchorPane>

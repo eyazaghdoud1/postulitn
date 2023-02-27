@@ -22,7 +22,6 @@
       <Box depth="100" height="50.0" layoutX="300.0" layoutY="25.0" width="620.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Label layoutX="75.0" layoutY="19.0" text="Home" />
       <Label layoutX="129.0" layoutY="20.0" text="Candidatures" />
-      <Label layoutX="217.0" layoutY="21.0" text="Compte" />
       <Label layoutX="487.0" layoutY="19.0" prefHeight="17.0" prefWidth="60.0" text="Candidat" />
       <ImageView fitHeight="63.0" fitWidth="60.0" layoutY="-7.0">
          <image>
@@ -88,6 +87,8 @@
             <Insets top="20.0" />
          </padding>
       </VBox>
+      <Label layoutX="231.0" layoutY="20.0" onMouseClicked="#goToEntretiens" text="Entretiens" />
+      <Label layoutX="296.0" layoutY="20.0" text="Projets" />
       
    </children>
 </AnchorPane>
