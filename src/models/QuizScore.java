@@ -19,6 +19,12 @@ public class QuizScore {
     public QuizScore() {
     }
 
+     public QuizScore(int idCandidat, Quiz quiz) {
+
+        this.score = 0;
+        this.idCandidat = idCandidat;
+        this.quiz = quiz;
+    }
     public QuizScore(int id, int idCandidat, Quiz quiz) {
         this.id = id;
         this.score = 0;

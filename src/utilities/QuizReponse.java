@@ -22,15 +22,7 @@ public class QuizReponse {
     public QuizReponse(List<String> reponses) {
         this.reponses = reponses;
     }
-    
-    public QuizReponse(String rq1, String rq2,String rq3) {
-        this.reponses = new ArrayList<>();
-        this.reponses.add(rq1);
-        this.reponses.add(rq2);
-        this.reponses.add(rq3);
-        /*this.reponses.add(rq4);
-        this.reponses.add(rq5);*/
-    }
+
 
     public List<String> getReponses() {
         return reponses;

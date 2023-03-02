@@ -42,7 +42,7 @@ public class FXMain extends Application {
             //Parent root = FXMLLoader.load(getClass().getResource("../GUI/CandidaturesRecruteur.fxml"));
            // Parent root = FXMLLoader.load(getClass().getResource("../GUI/EntretiensRecruteur.fxml"));
            
-           Parent root = FXMLLoader.load(getClass().getResource("../GUI/test.fxml"));
+           Parent root = FXMLLoader.load(getClass().getResource("../GUI/NewQuizList.fxml"));
            
             System.out.println("FXML loaded successfully");
             
@@ -51,6 +51,8 @@ public class FXMain extends Application {
             Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
             primaryStage.setWidth(primaryScreenBounds.getWidth());
             primaryStage.setHeight(primaryScreenBounds.getHeight());
+               System.out.println(primaryScreenBounds.getWidth());
+               System.out.println(primaryScreenBounds.getHeight());
 
             primaryStage.setTitle("Postuli.tn");
             primaryStage.setScene(scene);

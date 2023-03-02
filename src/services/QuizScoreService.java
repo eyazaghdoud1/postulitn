@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import models.Quiz;
 import models.QuizQuestion;
 import models.QuizScore;
@@ -31,7 +33,7 @@ public class QuizScoreService implements QuizScoreInterface{
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1, score.getScore());
             ps.setInt(2, score.getIdCandidat());
-            ps.setInt(2, score.getQuiz().getId());
+            ps.setInt(3, score.getQuiz().getId());
             ps.executeUpdate();
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());
@@ -42,11 +44,19 @@ public class QuizScoreService implements QuizScoreInterface{
     @Override
     public void calculerScore(QuizScore quizScore, QuizReponse reponses) {
        int score = 0; 
-       for(QuizQuestion qq: quizScore.getQuiz().getQuestions()) {
+       List<String> correctResp = new ArrayList();
+       for (QuizQuestion qq: quizScore.getQuiz().getQuestions()) {
+          correctResp.add(qq.getReponse());
+        }
+       
+       for(int i=0; i< quizScore.getQuiz().getQuestions().size(); i++) {
            System.out.println("start: " + score);  
-         for(String resp: reponses.getReponses()) {
-           if (resp.equalsIgnoreCase(qq.getReponse())) { score ++;}
-         }
+        
+           if (reponses.getReponses().get(i).equals(correctResp.get(i))) { 
+               
+               score ++;
+           }
+         
        }
         System.out.println("end: " +score);
        quizScore.setScore(score);

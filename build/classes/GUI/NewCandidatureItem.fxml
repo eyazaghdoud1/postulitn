@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="parentHB" prefHeight="48.0" prefWidth="1096.0" style="-fx-background-color: #939AB0; " xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewCandidatureItemController">
+   <children>
+      <Label fx:id="offre" prefHeight="20.0" prefWidth="166.0" text="Dévelopeur web" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="typeOffre" prefHeight="20.0" prefWidth="119.0" text="Mi-temps" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="230.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="25.0" right="10.0" />
+         </padding>
+      </Label>
+      <Label fx:id="etat" prefHeight="20.0" prefWidth="114.0" text="Enregistrée" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="315.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+   </children>
+   <padding>
+      <Insets left="10.0" right="10.0" top="10.0" />
+   </padding>
+</HBox>

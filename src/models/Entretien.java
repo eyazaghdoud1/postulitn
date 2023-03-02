@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author HP I5
  */
-public class Entretien {
+public class Entretien implements Comparable<Entretien> {
 
     private int id;
     private Candidature candidature; 
@@ -118,6 +118,11 @@ public class Entretien {
     @Override
     public String toString() {
         return "Entretien{" + "id=" + id + ", candidature=" + candidature + ", type=" + type + ", date=" + date + ", heure=" + heure + ", lieu=" + lieu + ", idGuide=" + guideId + '}';
+    }
+
+    @Override
+    public int compareTo(Entretien o) {
+        return o.getDate().compareTo(this.getDate());
     }
 
     

@@ -29,6 +29,7 @@ public class Candidature {
 
     /* constructeur non paramètré */
     public Candidature() {
+        this.date = new Date(System.currentTimeMillis()) ;
     }
 
      

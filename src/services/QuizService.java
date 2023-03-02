@@ -28,7 +28,7 @@ public class QuizService implements QuizInterface{
     
     @Override
     public void addQuiz(Quiz quiz) {
-        /* le controle ne fonctionne pas */
+        
         if ( this.getQuizBySpecialite(quiz.getSpecialite()) == null) {
         String req = "INSERT INTO `quiz` (`secteur`, `specialite`) VALUES (?,?)";
         try {

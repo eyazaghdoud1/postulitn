@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewQuizInterfaceController">
+   <children>
+      <BorderPane prefHeight="728.0" prefWidth="1366.0">
+         <top>
+            <HBox prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="61.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="61.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@325554422_570397571644716_8824221449279015534_n.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="27.0" prefWidth="195.0">
+                     <HBox.margin>
+                        <Insets left="1030.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="29.0" prefWidth="123.0" text="username" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="15.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fx:id="userPhoto" fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@330831433_1536180653567674_6866388944530913939_n.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox opacity="0.72" prefHeight="715.0" prefWidth="101.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="offresVB" onMouseClicked="#goToOffres" prefHeight="76.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@333746549_1356825635076666_3460829535495601600_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-4.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label text="Offres" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="candidaturesVB" onMouseClicked="#goToCandidatures" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@73944.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-5.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="16.0" prefWidth="67.0" text="Candidatures" textFill="#0e1947">
+                           <VBox.margin>
+                              <Insets left="-23.0" top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="entretiensVB" onMouseClicked="#goToEntretiens" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@280297163_704924577502506_7220543109587187832_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="17.0" prefWidth="58.0" text="Entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-15.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="guidesVB" onMouseClicked="#goToGuides" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@85615.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="24.0" prefWidth="94.0" text="Guides d'entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="quizVB" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="75.0" onMouseClicked="#goToQuiz" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@334074808_9577115555639300_2186101771236401721_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="3.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="15.0" layoutY="17.0" prefHeight="72.0" prefWidth="498.0">
+                     <children>
+                        <HBox prefHeight="36.0" prefWidth="84.0">
+                           <children>
+                              <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="29.0">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="19.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@93634.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <Label fx:id="quiname" prefHeight="52.0" prefWidth="436.0" text="Quiz: " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox layoutX="57.0" layoutY="103.0" prefHeight="506.0" prefWidth="1154.0" style="-fx-background-color: #0E1947;">
+                     <children>
+                        <HBox prefHeight="232.0" prefWidth="1154.0" spacing="7.0">
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="10.0" top="10.0" />
+                           </VBox.margin>
+                           <children>
+                              <VBox fx:id="q1VB" prefHeight="232.0" prefWidth="374.0" style="-fx-border-color: #D9D9D9; -fx-border-radius: 40;">
+                                 <children>
+                                    <Label prefHeight="37.0" prefWidth="137.0" text="Question 1 :  " textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="q1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?" wrappingWidth="332.955078125">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <RadioButton fx:id="A1" mnemonicParsing="false" onAction="#handleA1" text="Encapsulation" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="B1" mnemonicParsing="false" onAction="#handleB1" text="Abstraction" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="C1" mnemonicParsing="false" onAction="#handleC1" text="Polymorphisme" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </VBox>
+                              <VBox fx:id="q2VB" prefHeight="232.0" prefWidth="374.0" style="-fx-border-color: #D9D9D9; -fx-border-radius: 40;">
+                                 <children>
+                                    <Label prefHeight="37.0" prefWidth="137.0" text="Question 2 :  " textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="q2" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?" wrappingWidth="332.955078125">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <RadioButton fx:id="A2" mnemonicParsing="false" onAction="#handleA2" text="Encapsulation" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="B2" mnemonicParsing="false" onAction="#handleB2" text="Abstraction" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="C2" mnemonicParsing="false" onAction="#handleC2" text="Polymorphisme" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </VBox>
+                              <VBox fx:id="q3VB" prefHeight="232.0" prefWidth="374.0" style="-fx-border-color: #D9D9D9; -fx-border-radius: 40;">
+                                 <children>
+                                    <Label prefHeight="37.0" prefWidth="137.0" text="Question 3 :   " textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="q3" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?" wrappingWidth="332.955078125">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <RadioButton fx:id="A3" mnemonicParsing="false" onAction="#handleA3" text="Encapsulation" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="B3" mnemonicParsing="false" onAction="#handleB3" text="Abstraction" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="C3" mnemonicParsing="false" onAction="#handleC3" text="Polymorphisme" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="228.0" prefWidth="1154.0" spacing="30.0">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="180.0" />
+                           </padding>
+                           <children>
+                              <VBox fx:id="q4VB" prefHeight="232.0" prefWidth="374.0" style="-fx-border-color: #D9D9D9; -fx-border-radius: 40;">
+                                 <children>
+                                    <Label prefHeight="37.0" prefWidth="137.0" text="Question 4 :  " textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="q4" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?" wrappingWidth="332.955078125">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <RadioButton fx:id="A4" mnemonicParsing="false" onAction="#handleA4" text="Encapsulation" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="B4" mnemonicParsing="false" onAction="#handleB4" text="Abstraction" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="C4" mnemonicParsing="false" onAction="#handleC4" text="Polymorphisme" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </VBox>
+                              <VBox fx:id="q5VB" prefHeight="232.0" prefWidth="374.0" style="-fx-border-color: #D9D9D9; -fx-border-radius: 40;">
+                                 <children>
+                                    <Label prefHeight="37.0" prefWidth="137.0" text="Question 5 : " textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Text fx:id="q5" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?" wrappingWidth="332.955078125">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <RadioButton fx:id="A5" mnemonicParsing="false" onAction="#handleA5" text="Encapsulation" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="B5" mnemonicParsing="false" onAction="#handleB5" text="Abstraction" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                    <RadioButton fx:id="C5" mnemonicParsing="false" onAction="#handleC5" text="Polymorphisme" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="10.0" />
+                                       </VBox.margin>
+                                    </RadioButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </VBox>
+                              <Button fx:id="submitBtn" mnemonicParsing="false" onAction="#submit" style="-fx-background-color: #1E9DFF;" text="Enregistrer" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets left="80.0" top="190.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children></HBox>
+                     </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.9078947305679321" green="0.8952850699424744" blue="0.8952850699424744" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </VBox>
+                  <HBox fx:id="scoreHB" layoutX="953.0" layoutY="31.0" prefHeight="64.0" prefWidth="256.0" style="-fx-background-color: #1E9DFF;">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="148.0" text="Votre score est :" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="15.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="scoreLabel" text="0" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

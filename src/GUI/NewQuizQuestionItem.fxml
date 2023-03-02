@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="232.0" prefWidth="374.0" style="-fx-border-color: white; -fx-border-radius: 40; -fx-background-color: #939AB0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewQuizQuestionItemController">
+   <children>
+      <Label fx:id="questionNumber" prefHeight="37.0" prefWidth="137.0" text="Question   " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Text fx:id="question" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?" wrappingWidth="332.955078125">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="20.0" />
+         </VBox.margin>
+      </Text>
+      <RadioButton fx:id="A" mnemonicParsing="false" text="Encapsulation" textFill="WHITE" />
+      <RadioButton fx:id="B" mnemonicParsing="false" text="Abstraction" textFill="WHITE" />
+      <RadioButton fx:id="C" mnemonicParsing="false" text="Polymorphisme" textFill="WHITE" />
+   </children>
+   <padding>
+      <Insets left="20.0" />
+   </padding>
+</VBox>

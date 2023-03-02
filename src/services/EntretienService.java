@@ -56,10 +56,17 @@ public class EntretienService implements EntretienInterface {
             ps.setString(4, e.getLieu());
             ps.setInt(5, e.getCandidatureId());
             if (e.getType().equals(TypeEntretien.TypeE.Téléphone.toString())) {
-              cs.getCandidatureById(e.getCandidatureId()).setEtat(EtatCandidature.EtatsCandidature.EntretienTel);
+              //cs.getCandidatureById(e.getCandidatureId()).setEtat(EtatCandidature.EtatsCandidature.EntretienTel);
+              e.getCandidature().setEtat(EtatCandidature.EtatsCandidature.EntretienTel);
+              cs.updateCandidature(e.getCandidature().getId(), e.getCandidature());
+              System.out.println("etat updated: " + e.getCandidature().getEtat());
+              
             } else {
-                cs.getCandidatureById(e.getCandidatureId()).setEtat(EtatCandidature.EtatsCandidature.EntretienPres);
+                e.getCandidature().setEtat(EtatCandidature.EtatsCandidature.EntretienPres);
+                cs.updateCandidature(e.getCandidature().getId(), e.getCandidature());
+                System.out.println("etat updated: " + e.getCandidature().getEtat());
             }
+           
             ps.setInt(6, e.getGuideId());
             ps.executeUpdate();
             System.out.println("Entretien ajouté avec succès.");
@@ -88,9 +95,11 @@ public class EntretienService implements EntretienInterface {
                 e.setLieu(rs.getString(5));
                 e.setCandidature(cs.getCandidatureById(rs.getInt(6))); 
                 e.setGuideId(rs.getInt(7));
-                
                 entretiens.add(e);
+                
+               
             }
+            
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());
         }
@@ -352,6 +361,16 @@ public class EntretienService implements EntretienInterface {
          cs.updateCandidature(idCandidature, c);
         }
         
+    }
+    /*************************************************************************************************************/
+     public List<Entretien> filterListeByDate(List<Entretien> l, Date date) {
+        List<Entretien> entFiltres = new ArrayList<>() ;
+        for (Entretien e: l){
+         if(e.getDate().equals(date) ) {
+          entFiltres.add(e);
+          }
+        }
+        return entFiltres;
     }
 }
 

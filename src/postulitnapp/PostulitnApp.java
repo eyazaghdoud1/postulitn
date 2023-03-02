@@ -7,6 +7,7 @@ package postulitnapp;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import models.Candidature;
@@ -124,23 +125,23 @@ public class PostulitnApp {
        //qs.addQuiz(quiz);
       // System.out.println(qs.getQuizBySpecialite("Web"));
       
-       quiz.setQuestions(qqs.fetchByQuiz(1));
-       QuizQuestion q1 = new QuizQuestion("Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?",
-               "Encapsulation", "Abstraction", "Polymorphisme", "B", 1);
-       QuizQuestion q2 = new QuizQuestion("Comment ça s’appelle si un objet a son propre cycle de vie?",
-               "Agrégation", "Composition", "Association", " C", 1);
-       QuizQuestion q3 = new QuizQuestion("Les expressions lambda dans java 8 sont basées sur?",
-               "Programmation procédurale", "Programmation fonctionnelle", "Programmation des données", "B", 1);
-       
-       QuizQuestion q4 = new QuizQuestion("Par quoi se caractérise PreparedStatement en Java?",
-               "Ralentissement des performances", "Utilise plus de mémoire", "Empêche l’injection SQL", "C", 1);
-       
-       qqs.addQuizQuestion(q4);
-       
-       QuizQuestion q5 = new QuizQuestion("Quand les exceptions surviennent-elles dans un code Java?",
-               "Au moment de l’exécution", "Le moment de compilation", "Peut survenir à tout moment", "A", 1);
-       
-       qqs.addQuizQuestion(q5);
+//       quiz.setQuestions(qqs.fetchByQuiz(1));
+//       QuizQuestion q1 = new QuizQuestion("Quel concept de Java est un moyen de convertir des objets du monde réel en termes de classe?",
+//               "Encapsulation", "Abstraction", "Polymorphisme", "B", 1);
+//       QuizQuestion q2 = new QuizQuestion("Comment ça s’appelle si un objet a son propre cycle de vie?",
+//               "Agrégation", "Composition", "Association", " C", 1);
+//       QuizQuestion q3 = new QuizQuestion("Les expressions lambda dans java 8 sont basées sur?",
+//               "Programmation procédurale", "Programmation fonctionnelle", "Programmation des données", "B", 1);
+//       
+//       QuizQuestion q4 = new QuizQuestion("Par quoi se caractérise PreparedStatement en Java?",
+//               "Ralentissement des performances", "Utilise plus de mémoire", "Empêche l’injection SQL", "C", 1);
+//       
+//       qqs.addQuizQuestion(q4);
+//       
+//       QuizQuestion q5 = new QuizQuestion("Quand les exceptions surviennent-elles dans un code Java?",
+//               "Au moment de l’exécution", "Le moment de compilation", "Peut survenir à tout moment", "A", 1);
+//       
+//       qqs.addQuizQuestion(q5);
        //System.out.println(qs.getQuizById(1).getQuestions().size());
        /*qqs.addQuizQuestion(q2);
        qqs.addQuizQuestion(q3);*/
@@ -162,8 +163,11 @@ public class PostulitnApp {
        QuizScoreService qss = new QuizScoreService();
        qss.calculerScore(score, rep);
        System.out.println(score.getScore());*/
-       
-       
+       List<Entretien> l = es.fetchEntretiens();
+       System.out.println(l);
+       //System.out.println(es.filterListeByDate(l,Date.valueOf("2023-02-28") ));
+      Collections.sort(l);
+       System.out.println(l);
        
         
     }
