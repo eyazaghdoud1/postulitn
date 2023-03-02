@@ -20,10 +20,9 @@ import utilities.Maconnexion;
  */
 public class AuthenticationService implements AuthInterface{
     
-    //var
-    Utilisateur uco;
+    //var   
     Connection cnx = Maconnexion.getInstance().getCnx();
-    
+    public static Utilisateur userconnecte;
     @Override
     
     public boolean authentification(String email, String password){
@@ -63,11 +62,16 @@ public class AuthenticationService implements AuthInterface{
                     i=1;
                      System.out.print("L'utilisateur est authentifié avec succès \n");
                      test=true;
+                     //sauvegarder user connecté
+                     userconnecte=us.GetByEmail(email);
                 }     
            return test;
            
            
    }
+
+    
+    
          
 }
   

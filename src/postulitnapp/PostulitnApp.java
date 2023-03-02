@@ -70,15 +70,15 @@ public class PostulitnApp {
 
         //add Utilisateur       
         
-//        u.setNom("Naes");
-//        u.setPrenom("Aziz");
-//        u.setEmail("aziz.naes@esprit.tn");
-//        u.setTel("2222222");
-//        u.setAdresse("Chotrana");
-//        u.setMdp("test");
-//        u.setDateNaissance(Date.valueOf("2001-01-01"));
-//        u.setRole(rs.GetByIdRole(19));
-//        us.addUser(u);
+        u.setNom("Lakhoua");
+        u.setPrenom("Stuph");
+        u.setEmail("Stuph.lakhoua@esprit.tn");
+        u.setTel("2222222");
+        u.setAdresse("Chotrana");
+        u.setMdp("test");
+        u.setDateNaissance(Date.valueOf("2001-01-01"));
+        u.setRole(rs.GetByIdRole(1));
+        us.addUser(u);
 
 
         //delete Utilisateur 
@@ -139,15 +139,15 @@ public class PostulitnApp {
          
 /************************************ Authentification ************************************************/       
 
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter email: ");
-        String username = scanner.nextLine();
-        System.out.println("Enter password: ");
-        String password = scanner.nextLine();
-
-        as.authentification(username, password);
-      }
+//
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Enter email: ");
+//        String username = scanner.nextLine();
+//        System.out.println("Enter password: ");
+//        String password = scanner.nextLine();
+//
+//        as.authentification(username, password);
+//      }
 
 
 
@@ -156,5 +156,6 @@ public class PostulitnApp {
 
 
     }
+}
     
 

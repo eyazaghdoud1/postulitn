@@ -107,7 +107,7 @@ public class UtilisateurService implements UtilisateurInterface {
 
     @Override
     public void updateUser(Utilisateur u, int id) {
-    String req = "UPDATE utilisateur SET `nom`=?, `prenom`=?, `email`=?, `tel`=?, `adresse`=?, `mdp`=?, `dateNaissance`=?, `idRole`=? WHERE id=?";
+    String req = "UPDATE utilisateur SET `nom`=?, `prenom`=?, `email`=?, `tel`=?, `adresse`=?, `mdp`=?, `dateNaissance`=?, `idRole`=?,`salt`=? WHERE id=?";
     try {
         PreparedStatement ps = cnx.prepareStatement(req);
         ps.setString(1, u.getNom());
@@ -118,7 +118,9 @@ public class UtilisateurService implements UtilisateurInterface {
         ps.setString(6, u.getMdp());
         ps.setDate(7, u.getDateNaissance());  
         ps.setInt(8, u.getRole().getIdRole());
-        ps.setInt(9, id);
+        ps.setString(9, u.getSalt());
+        ps.setInt(10, id);
+        
         ps.executeUpdate();
         System.out.println("Utilisateur modifié avec succès !");
     } catch (SQLException ex) {
@@ -217,21 +219,51 @@ public class UtilisateurService implements UtilisateurInterface {
 
     @Override
     public void UpdateMdp(Utilisateur u, String email, String nouveaumdp) {
-        //            String req = "UPDATE utilisateur set `mdp` = ? WHERE email=?";
-//            PreparedStatement ps = cnx.prepareStatement(req);
-//            ps.setString(1, nouveaumdp);
-//            ps.setString(2, email);
-//            ps.executeUpdate();
-             
-//             String salt = Passwordutils.getSalt(20);
              String mySecurePassword = Passwordutils.generateSecurePassword(nouveaumdp,u.getSalt());
              u.setMdp(mySecurePassword);
-//             u.setSalt(salt);
+
              this.updateUser(u, u.getId());
              System.out.println("Mdp modifié avec succès");
     
     }
     
+    @Override
+    public Utilisateur GetByEmail(String mail) {
+      
+       Utilisateur u = new Utilisateur();
+       
+
+         try {
+             String req = "SELECT * FROM utilisateur where email = ? ";
+             PreparedStatement ps = cnx.prepareStatement(req);
+             ps.setString(1,mail);
+             ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                u.setId(rs.getInt(1));
+                u.setNom(rs.getString(2));
+                u.setPrenom(rs.getString(3));
+                u.setEmail(rs.getString(4));
+                u.setTel(rs.getString(5));
+                u.setAdresse(rs.getString(6));
+                u.setMdp(rs.getString(7));
+                u.setDateNaissance(rs.getDate(8));
+                String rq = "SELECT * FROM role where idRole = ? ";
+                PreparedStatement ps1 = cnx.prepareStatement(rq);
+                ps1.setInt(1, rs.getInt(9));
+                ResultSet rs1 = ps1.executeQuery();
+                rs1.next();
+                Role r = new Role();
+                r.setIdRole(rs1.getInt(1));
+                r.setDescription(rs1.getString(2));
+                u.setRole(r);
+                u.setSalt(rs.getString("salt"));
+                }
+         } catch (SQLException ex) {
+              ex.printStackTrace();
+             
+         }
+         return u;
+    }
     
     
 }

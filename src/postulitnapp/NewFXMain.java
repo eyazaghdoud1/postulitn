@@ -30,12 +30,16 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
                try {
             
-            Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/Login.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/SignIn.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/SignInCandidat.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/SignInRecruteur.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/users2.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/Roles.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../gui/Mdpoublie.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/RolesList.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/UsersList.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/Modifmdp.fxml"));
             System.out.println("FXML loaded successfully");
             
             Scene scene = new Scene(root);

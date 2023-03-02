@@ -6,43 +6,67 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="42.0" prefWidth="778.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UController">
+<HBox prefHeight="42.0" prefWidth="1818.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.UController">
    <children>
       <Label fx:id="lnom" prefHeight="26.0" prefWidth="140.0" text="Eya ">
          <HBox.margin>
             <Insets left="10.0" top="10.0" />
          </HBox.margin>
          <font>
-            <Font size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lprenom" prefHeight="15.0" prefWidth="131.0" text="Zinelabidine">
+      <Label fx:id="lprenom" prefHeight="15.0" prefWidth="118.0" text="Zinelabidine">
          <HBox.margin>
-            <Insets left="30.0" top="14.0" />
+            <Insets left="100.0" top="14.0" />
          </HBox.margin>
          <font>
-            <Font size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <Label fx:id="lmail" prefHeight="15.0" prefWidth="161.0" text="eyazinelabidine@esprit.tn">
          <HBox.margin>
-            <Insets top="14.0" />
+            <Insets left="100.0" top="14.0" />
          </HBox.margin>
          <font>
-            <Font size="10.0" />
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lrole" prefHeight="15.0" prefWidth="90.0" text="Recruteur">
+      <Label fx:id="lrole" prefHeight="15.0" prefWidth="94.0" text="Recruteur">
          <HBox.margin>
-            <Insets top="14.0" />
+            <Insets left="100.0" top="14.0" />
          </HBox.margin>
          <font>
-            <Font size="10.0" />
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="ladresse" prefHeight="15.0" prefWidth="140.0" text="Adresse">
+         <HBox.margin>
+            <Insets left="100.0" top="14.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="ltel" prefHeight="15.0" prefWidth="62.0" text="12345678">
+         <HBox.margin>
+            <Insets left="100.0" top="14.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="ldateNaissance" text="07/02/2001">
+         <HBox.margin>
+            <Insets left="100.0" top="14.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
       <Button fx:id="suppbtn1" mnemonicParsing="false" onAction="#supprimerUtilisateur" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #0e1947;" text="Supprimer" textFill="WHITE">
          <HBox.margin>
-            <Insets left="80.0" top="9.0" />
+            <Insets left="250.0" top="9.0" />
          </HBox.margin>
       </Button>
    </children>

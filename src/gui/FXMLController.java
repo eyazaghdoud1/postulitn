@@ -63,7 +63,7 @@ public class FXMLController implements Initializable {
 //          Utilisateur u = new Utilisateur();
          if (as.authentification(mail.getText(), mdp.getText())){
           try {
-            Parent Login = FXMLLoader.load(getClass().getResource("../gui/Users2.fxml"));
+            Parent Login = FXMLLoader.load(getClass().getResource("../gui/UsersList.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
@@ -95,7 +95,7 @@ public class FXMLController implements Initializable {
     }
 
     @FXML
-    private void Onclick_ForgotPassword(MouseEvent event) {
+    private void Onclick_mdpoublie(MouseEvent event) {
          try {
             Parent Login = FXMLLoader.load(getClass().getResource("../gui/Mdpoublie.fxml"));
             Scene si = new Scene(Login);

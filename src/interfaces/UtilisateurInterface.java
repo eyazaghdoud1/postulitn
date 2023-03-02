@@ -34,5 +34,7 @@ public interface UtilisateurInterface {
     //MDPOublié
     public void UpdateMdp (Utilisateur u, String email, String nouveaumdp);
   
+    //getByEmail
+    public Utilisateur GetByEmail(String mail);
     
 }

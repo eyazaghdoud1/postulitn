@@ -47,6 +47,12 @@ public class UController implements Initializable {
     private Label lrole;
     @FXML
     private Button suppbtn1;
+    @FXML
+    private Label ladresse;
+    @FXML
+    private Label ltel;
+    @FXML
+    private Label ldateNaissance;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -59,6 +65,10 @@ public class UController implements Initializable {
             lprenom.setText(u.getPrenom());
             lmail.setText(u.getEmail());
             lrole.setText(u.getRole().getDescription());
+            ladresse.setText(u.getAdresse());
+            ltel.setText(u.getTel());
+            ldateNaissance.setText(u.getDateNaissance().toString());
+            
             
     }
 

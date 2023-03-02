@@ -7,6 +7,7 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -48,6 +49,8 @@ public class RController implements Initializable {
     @FXML
     private TextField fieldmodif;
 
+    RoleService rs = new RoleService();
+    List<Role> roles = rs.fetchRoles();
     /**
      * Initializes the controller class.
      */
@@ -64,14 +67,11 @@ public class RController implements Initializable {
 
     @FXML
     private void supprimerRole(ActionEvent event) {
-       
-            RoleService rs = new RoleService();
-            Role r = RolesController.r;
-//            Role r = new Role();
-
-            r.setDescription(lrole.getText());
+        
+            Role r = roles.get(RolesListController.selectedRole);
+//            r.setDescription(lrole.getText());
             rs.deleteRole(r);
-       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/Roles.fxml"));
+       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/RolesList.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
@@ -85,12 +85,11 @@ public class RController implements Initializable {
 
     @FXML
     private void ModifierRole(ActionEvent event) {
-        RoleService rs = new RoleService();
-        Role r = RolesController.r;
+        Role r = roles.get(RolesListController.selectedRole);
         r.setDescription(fieldmodif.getText());
         rs.updateRole(r, r.getIdRole());  
         
-         try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/Roles.fxml"));
+         try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/RolesList.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
