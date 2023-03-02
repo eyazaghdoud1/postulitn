@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -32,22 +33,31 @@ import javafx.stage.Stage;
  */
 public class OffreprojetController implements Initializable {
 
+    
     @FXML
-    private VBox LayoutOffre;
+    private Label userConnecte;
     @FXML
-    private Label LTheme;
+    private VBox offresVB;
     @FXML
-    private Label LDescription;
+    private VBox candidaturesVB;
     @FXML
-    private Label LDuree;
+    private VBox entretiensVB;
     @FXML
-    private Label LDateD;
+    private VBox guidesVB;
     @FXML
-    private Label LDateF;
+    private VBox quizVB;
     @FXML
-    private Label LResponsable;
+    private Label Lduree;
     @FXML
-    private Button btnHome;
+    private Label Ltheme;
+    @FXML
+    private Label Ldescription;
+    @FXML
+    private Label LDateDebut;
+    @FXML
+    private Label LDateFin;
+    @FXML
+    private Label Lsecteur;
 
     /**
      * Initializes the controller class.
@@ -55,27 +65,50 @@ public class OffreprojetController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        Ltheme.setText(ListeProjetsFreelanceController.selectedProjet.getTheme());
+        LDateDebut.setText(ListeProjetsFreelanceController.selectedProjet.getDateDebut() + "");
+        LDateFin.setText(ListeProjetsFreelanceController.selectedProjet.getDateFin() + "");
+        Lduree.setText(ListeProjetsFreelanceController.selectedProjet.getDuree()+ "");
+        Ldescription.setText(ListeProjetsFreelanceController.selectedProjet.getDescription());
+        Lsecteur.setText(ListeProjetsFreelanceController.selectedProjet.getS().getDescription()+"");
     }    
     
-    
-    
-    
-      public void setData(ProjetFreelance p){
-  
-   LTheme.setText(p.getTheme());  
-   LDescription.setText(p.getDescription());
-   LDuree.setText(p.getDuree()+"");
-    
+   
+
+
+
+
+    @FXML
+    private void goToCompte(MouseEvent event) {
     }
 
     @FXML
-    private void GoToListeProjet(ActionEvent event) throws IOException {
-          Parent Offreprojet = FXMLLoader.load(getClass().getResource("ListeProjets.fxml"));
+    private void goToOffres(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToCandidatures(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToEntretiens(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToGuides(MouseEvent event) {
+    }
+
+    @FXML
+    private void GoToPostuler(ActionEvent event) {
+    }
+
+    @FXML
+    private void GoToListeProjets(MouseEvent event) throws IOException {
+         Parent Offreprojet = FXMLLoader.load(getClass().getResource("ListeProjetsFreelance.fxml"));
        Scene  OffreprojetScene = new Scene(Offreprojet);
        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
        appStage.setScene(OffreprojetScene); 
        appStage.show();
-       
     }
     
 }

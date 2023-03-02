@@ -8,8 +8,6 @@ package Gui;
 import Models.ProjetFreelance;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +16,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -28,20 +25,18 @@ import javafx.stage.Stage;
  *
  * @author Users
  */
-public class PController implements Initializable {
+public class ResponsableController implements Initializable {
 
-    @FXML
-    private Label Ltheme;
-    @FXML
-    private Label Ldescription;
     @FXML
     private Label Lduree;
     @FXML
     private Label Lsecteur;
     @FXML
-    private Button btn;
+    private Label Ltheme;
     @FXML
-    private HBox Phbox;
+    private Label Ldescription;
+    @FXML
+    private HBox phbox;
 
     /**
      * Initializes the controller class.
@@ -51,8 +46,12 @@ public class PController implements Initializable {
         // TODO
     }    
 
+   /* @FXML
+    private void GoToModifier(ActionEvent event) {
+    }*/
+
     
-    public void setData(ProjetFreelance p){
+   public void setData(ProjetFreelance p){
   
    Ltheme.setText(p.getTheme());  
    Ldescription.setText(p.getDescription());
@@ -60,22 +59,21 @@ public class PController implements Initializable {
    Lsecteur.setText(p.getS().getDescription());
    
     }
+    
+    
+    
+    @FXML
+    private void DeleteProjet(ActionEvent event) {
+    }
 
-   
-     @FXML
-    private void GoToOffre(ActionEvent event) throws IOException {
-        
-        Parent Offreprojet = FXMLLoader.load(getClass().getResource("Offreprojet.fxml"));
+    @FXML
+    private void GoToModifier(ActionEvent event) throws IOException {
+        Parent Offreprojet = FXMLLoader.load(getClass().getResource("ModifierProjets.fxml"));
        Scene  OffreprojetScene = new Scene(Offreprojet);
        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
        appStage.setScene(OffreprojetScene); 
        appStage.show();
-       
-        
         
     }
-   
-    
-    
     
 }

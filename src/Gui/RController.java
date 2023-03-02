@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -38,6 +39,8 @@ public class RController implements Initializable {
     private Label LDateFin;
     @FXML
     private Label Lsecteur;
+    @FXML
+    private HBox Rhbox;
 
     /**
      * Initializes the controller class.
@@ -65,7 +68,7 @@ public class RController implements Initializable {
     @FXML
     private void GoToPageModifier(ActionEvent event) throws IOException {
         
-         Parent Offreprojet = FXMLLoader.load(getClass().getResource("ModiferProjetResponsableFXML.fxml"));
+      Parent Offreprojet = FXMLLoader.load(getClass().getResource("ModiferProjets.fxml"));
        Scene  OffreprojetScene = new Scene(Offreprojet);
        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
        appStage.setScene(OffreprojetScene); 

@@ -9,6 +9,7 @@ import Models.ProjetFreelance;
 import Models.Secteur;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,6 +40,9 @@ public class SController implements Initializable {
     @FXML
     private TextField secteurInputTF;
 
+     SecteurServices ss = new SecteurServices();
+     List<Secteur> secteurs = ss.fetchSecteur();
+     
     /**
      * Initializes the controller class.
      */
@@ -57,13 +61,12 @@ public class SController implements Initializable {
     
 @FXML
     private void supprimerSecteur(ActionEvent event) {
-       
-            SecteurServices ss = new SecteurServices();
-        Secteur s = ListeSecteurFXMLController.s;
-            s.setDescription(DescriSecteur.getText());
+   
+       Secteur s = secteurs.get(AjouterSecteursController.selectedSecteur);
+           // s.setDescription(DescriSecteur.getText());
             ss.deleteSecteurById(s);
-       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/ListeSecteurFXML.fxml"));
-            Scene si = new Scene(Login);
+       try {Parent root= FXMLLoader.load(getClass().getResource("./AjouterSecteurs.fxml"));
+            Scene si = new Scene(root);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
             st.show();
@@ -73,8 +76,8 @@ public class SController implements Initializable {
 }
    @FXML
     private void ModifierSecteur(ActionEvent event) {
-            SecteurServices ss = new SecteurServices();
-            Secteur s = ListeSecteurFXMLController.s;
+        
+         /*   Secteur s = secteurs.get(AjouterSecteursController.selectedSecteur);
         //sSecteur s = new Secteur();
 //        Secteur s = ListeSecteurFXMLController.s; // get the existing sector object to update
 //s.setDescription(secteurInputTF.getText()); // update the description property with the new value
@@ -90,7 +93,37 @@ public class SController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
    
-    
+       Secteur s = secteurs.get(AjouterSecteursController.selectedSecteur);
+           s.setDescription(secteurInputTF.getText());
+            ss.UpdateSecteur(s.getIdSecteur(), s);
+       try {Parent root= FXMLLoader.load(getClass().getResource("./AjouterSecteurs.fxml"));
+            Scene si = new Scene(root);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
+        }}
 }
+/* @FXML
+    private void ModifierRole(ActionEvent event) {
+        RoleService rs = new RoleService();
+        Role r = RolesController.r;
+        r.setDescription(fieldmodif.getText());
+        rs.updateRole(r, r.getIdRole());  
+        
+         try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/Roles.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+
+}*/
