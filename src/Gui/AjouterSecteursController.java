@@ -50,9 +50,11 @@ public class AjouterSecteursController implements Initializable {
     private VBox guidesVB;
     @FXML
     private VBox quizVB;
+    @FXML
     private ListView<HBox> secteurListView;
     SecteurServices ss = new SecteurServices();
     public static int selectedSecteur;
+    @FXML
     private TextField secteurTF;
     
       private String SecteurSelectionne; 
@@ -60,8 +62,6 @@ public class AjouterSecteursController implements Initializable {
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
        
         ProjetInterface ps = new ProjetServices();
-    @FXML
-    private ListView<?> ProjetsFreelanceListView;
     
     /**
      * Initializes the controller class.
@@ -112,6 +112,7 @@ public class AjouterSecteursController implements Initializable {
         selectedSecteur = secteurListView.getSelectionModel().getSelectedIndex();
     }
 
+    @FXML
     private void addSecteur(ActionEvent event) {
      SecteurServices ss = new SecteurServices();
          Secteur s= new Secteur(); 

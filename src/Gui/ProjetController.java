@@ -37,6 +37,8 @@ public class ProjetController implements Initializable {
     private Label Ldescription;
     @FXML
     private HBox phbox;
+    @FXML
+    private Label Lnom;
 
     /**
      * Initializes the controller class.
@@ -54,13 +56,14 @@ public class ProjetController implements Initializable {
    Ldescription.setText(p.getDescription());
    Lduree.setText(p.getDuree()+""); 
    Lsecteur.setText(p.getS().getDescription());
+    Lnom.setText(p.getNom());
    
     }
 
     @FXML
     private void GoToOffer(ActionEvent event) throws IOException {
            
-          Parent Offreprojet = FXMLLoader.load(getClass().getResource("Offreprojet.fxml"));
+       Parent Offreprojet = FXMLLoader.load(getClass().getResource("Offreprojet.fxml"));
        Scene  OffreprojetScene = new Scene(Offreprojet);
        Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
        appStage.setScene(OffreprojetScene); 

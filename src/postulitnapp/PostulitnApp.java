@@ -5,12 +5,14 @@
  */
 package postulitnapp;
 
+import Models.Commentaire;
 import Models.ProjetFreelance;
 import Models.Secteur;
 import interfaces.ProjetInterface;
 import java.sql.Date;
 import services.ProjetServices;
 import services.SecteurServices;
+import services.CommentaireServices;
         
 /**
  *
@@ -26,17 +28,20 @@ public class PostulitnApp {
         
         ProjetInterface ps = new ProjetServices(); 
         SecteurServices ss = new SecteurServices();
-        
+        CommentaireServices cc = new CommentaireServices();
         
 //***************************************  AJOUT DES SECTEURS  *********************************************************************************
 //         Secteur s = new Secteur("info");
 //         Secteur s2 = new Secteur("finance");
 //         Secteur s3 = new Secteur("marketing");
 //         Secteur s4 =new Secteur("sécurité"); 
-      Secteur s5 =new Secteur("info1"); 
-      Secteur s6 =new Secteur("Secteurtest");
+//      Secteur s5 =new Secteur("info1"); 
+ //     Secteur s6 =new Secteur("Secteurtest");
  //     ss.addSecteur(s5);
           
+ 
+// Commentaire c = new Commentaire("commentaire test"); 
+// cc.addCommentaire(c);
 //***************************************  AJOUT DES PROJETS ***********************************************************************************    
 //          ProjetFreelance p = new ProjetFreelance(7,3, "info", "desc", Date.valueOf("2013-09-04"), Date.valueOf("2013-09-09"), ss.getById(1));
 //          ProjetFreelance p2 = new ProjetFreelance(8,3, "info", "desc", Date.valueOf("2013-09-04"), Date.valueOf("2013-09-09"), ss.getById(1));
@@ -44,8 +49,9 @@ public class PostulitnApp {
  //          ProjetFreelance p3 = new ProjetFreelance(7,"securite", "desc", Date.valueOf("2013-05-02"), Date.valueOf("2013-12-02"), ss.getById(15),8);
  //        ProjetFreelance p5 = new ProjetFreelance(7,"securite", "desc", Date.valueOf("2013-05-02"), Date.valueOf("2013-12-02"), ss.getById(15),7);
   //      ProjetFreelance p6 = new ProjetFreelance(17,"test17", "des17", Date.valueOf("2013-05-08"), Date.valueOf("2013-12-08"), ss.getById(15),17);
+   //ProjetFreelance p7 = new ProjetFreelance(17,"test17", "des17", Date.valueOf("2013-05-08"), Date.valueOf("2013-12-08"), ss.getById(15),17,"Offre Test",17);
          
-    //     ps.addProjet(p6);
+   //     ps.addProjet(p7);
 //          ps.addProjet(p2);
 //          ps.addProjet(p3);
 //          ps.addProjet(p3);

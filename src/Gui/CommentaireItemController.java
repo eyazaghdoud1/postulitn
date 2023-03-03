@@ -5,16 +5,27 @@
  */
 package Gui;
 
+import Models.Commentaire;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
  *
  * @author Users
  */
-public class ListeProjetResponsablesController implements Initializable {
+public class CommentaireItemController implements Initializable {
+
+    @FXML
+    private ImageView UserPic;
+    @FXML
+    private Label Luser;
+    @FXML
+    private Label LContenu;
 
     /**
      * Initializes the controller class.
@@ -23,5 +34,8 @@ public class ListeProjetResponsablesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+     public void setData(Commentaire c){
+            LContenu.setText(c.getContenu()); 
+    }
     
 }

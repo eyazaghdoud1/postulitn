@@ -64,6 +64,8 @@ public class AjouterProjetsController implements Initializable {
         private String SecteurSelectionne;
          SecteurServices ss = new SecteurServices();
          ProjetServices ps = new ProjetServices(); 
+    @FXML
+    private TextField NomTF;
     /**
      * Initializes the controller class.
      */
@@ -114,10 +116,12 @@ public class AjouterProjetsController implements Initializable {
         Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
         p.setDuree(Integer.parseInt(dureeTF.getText()));
         p.setTheme(themeTF.getText());
+        p.setNom(NomTF.getText()); 
         p.setDescription(descriptionTF.getText());     
         p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
         p.setDateFin(Date.valueOf(datedebutDP.getValue()));
         p.setS(ss.getsecteurbydescription(SecteurSelectionne));
+        p.setIdResponsable(0);
         ps.addProjet(p);
     }
 
@@ -141,6 +145,7 @@ public class AjouterProjetsController implements Initializable {
     private void goToGuides(javafx.scene.input.MouseEvent event) {
     }
 
+ 
 
     }
   

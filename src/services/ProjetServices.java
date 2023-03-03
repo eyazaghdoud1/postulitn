@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Models.ProjetFreelance;
 import Models.Secteur;
+import Models.Commentaire;
 import utilities.MyConnexion;
 
 /**
@@ -35,7 +36,7 @@ public class ProjetServices implements ProjetInterface {
     @Override
     public void addProjet(ProjetFreelance p) {
          try {
-             String req = "INSERT INTO `projets` (`theme`, `description`, `duree`, `dateDebut`, `dateFin`, `idSecteur`,`idResponsable`) VALUES (?,?,?,?,?,?,?)";
+             String req = "INSERT INTO `projets` (`theme`, `description`, `duree`, `dateDebut`, `dateFin`, `idSecteur`,`idResponsable`,`Nom`) VALUES (?,?,?,?,?,?,?,?)";
              PreparedStatement ps = cnx.prepareStatement(req); 
              ps.setString(1, p.getTheme());
              ps.setString(2, p.getDescription());
@@ -44,6 +45,7 @@ public class ProjetServices implements ProjetInterface {
              ps.setDate(5, p.getDateFin());
              ps.setInt(6, p.getS().getIdSecteur());
              ps.setInt(7, p.getIdResponsable());
+             ps.setString(8, p.getNom());
              ps.executeUpdate();
              System.out.println("Projet ajouté avec succes");
          } catch (SQLException ex) {
@@ -70,6 +72,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setDuree(rs.getInt(4));
                  p.setDateDebut(rs.getDate(5));
                  p.setDateFin(rs.getDate(6));
+  
                 
                  String r = "SELECT * FROM secteurs where idSecteur = ?";
                  PreparedStatement ps1 = cnx.prepareStatement(r);
@@ -81,6 +84,8 @@ public class ProjetServices implements ProjetInterface {
                 s.setDescription(rs1.getString(2));  
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
+                 p.setNom(rs.getString(9));
+          
                  projets.add(p); 
              }
          } catch (SQLException ex) {
@@ -104,6 +109,7 @@ public class ProjetServices implements ProjetInterface {
              ps.setInt(6, p.getS().getIdSecteur());
              ps.setInt(7, id);
              ps.setInt(8, p.getIdResponsable());
+             ps.setString(9, p.getNom());
              ps.executeUpdate();
              System.out.println("Projet modiifié avec succes"); 
          } catch (SQLException ex) {
@@ -144,7 +150,7 @@ public class ProjetServices implements ProjetInterface {
                  s.setDescription(rs1.getString(2));
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
-                 
+                 p.setNom(rs.getString(9));
           }
              else System.err.println("vide");
          } catch (SQLException ex) {
@@ -202,6 +208,7 @@ public class ProjetServices implements ProjetInterface {
                 s.setDescription(rs1.getString(2));  
                  p.setS(s);
                 p.setIdResponsable(rs.getInt(8));
+                p.setNom(rs.getString(9));
                  ProjFiltres.add(p); 
         }
          } catch (SQLException ex) {
@@ -237,6 +244,7 @@ public class ProjetServices implements ProjetInterface {
                  s.setDescription(rs1.getString(2));  
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
+                 p.setNom(rs.getString(9));
                  ProjetTFiltres.add(p);
             }
         } catch (SQLException ex) {
@@ -273,6 +281,7 @@ public class ProjetServices implements ProjetInterface {
                 s.setDescription(rs1.getString(2));  
                  p.setS(s);
                   p.setIdResponsable(rs.getInt(8));
+                  p.setNom(rs.getString(9));
                   ProjetDFiltres.add(p);
             }
         } catch (SQLException ex) {
@@ -308,6 +317,7 @@ public class ProjetServices implements ProjetInterface {
                  s.setDescription(rs1.getString(2));  
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
+                 p.setNom(rs.getString(9));
                  ProjetRFiltres.add(p);
             }
         } catch (SQLException ex) {

@@ -7,6 +7,7 @@ package Gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +18,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -53,6 +57,10 @@ public class OffreprojetResponsableController implements Initializable {
     private Label LDateDebut;
     @FXML
     private Label LDateFin;
+    @FXML
+    private Label Lnom;
+    
+    
 
     /**
      * Initializes the controller class.
@@ -67,6 +75,7 @@ public class OffreprojetResponsableController implements Initializable {
         Lduree.setText(ListeProjetsResponsableController.selectedProjetResp.getDuree()+ "");
         Ldescription.setText(ListeProjetsResponsableController.selectedProjetResp.getDescription());
         Lsecteur.setText(ListeProjetsResponsableController.selectedProjetResp.getS().getDescription()+"");
+        Lnom.setText(ListeProjetsResponsableController.selectedProjetResp.getNom());
     }    
 
     @FXML
@@ -104,18 +113,34 @@ public class OffreprojetResponsableController implements Initializable {
 
     @FXML
     private void deleteProjet(ActionEvent event) {
+     
     }
 
     @FXML
     private void GoToModifier(ActionEvent event) {
-         try {
-            Parent Offreprojet = FXMLLoader.load(getClass().getResource("ModifierProjets.fxml"));
-            Scene  OffreprojetScene = new Scene(Offreprojet);
+        try {
+   
+            Parent ModifierProjets = FXMLLoader.load(getClass().getResource("ModifierProjets.fxml"));
+            Scene  ModifierProjetsScene = new Scene(ModifierProjets);
             Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            appStage.setScene(OffreprojetScene);
+            appStage.setScene(ModifierProjetsScene);
             appStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(OffreprojetResponsableController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void GoToCommentaire(ActionEvent event) {
+        try {
+   
+            Parent ModifierProjets = FXMLLoader.load(getClass().getResource("SuppressionCommentaire.fxml"));
+            Scene  ModifierProjetsScene = new Scene(ModifierProjets);
+            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            appStage.setScene(ModifierProjetsScene);
+            appStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -183,42 +183,42 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="dureeTF" layoutX="314.0" layoutY="132.0" prefHeight="26.0" prefWidth="695.0" />
-                  <TextField fx:id="themeTF" layoutX="314.0" layoutY="174.0" prefHeight="26.0" prefWidth="695.0" />
-                  <TextField fx:id="descriptionTF" layoutX="314.0" layoutY="218.0" prefHeight="26.0" prefWidth="696.0" />
-                  <DatePicker fx:id="datedebutDP" layoutX="314.0" layoutY="262.0" prefHeight="26.0" prefWidth="694.0" />
-                  <DatePicker fx:id="datefinDP" layoutX="314.0" layoutY="311.0" prefHeight="26.0" prefWidth="695.0" />
-                  <ComboBox fx:id="secteurCB" layoutX="314.0" layoutY="362.0" prefHeight="26.0" prefWidth="696.0" />
-                  <Button layoutX="426.0" layoutY="432.0" mnemonicParsing="false" onAction="#addProjet" style="-fx-background-color: #1E9DFF;" text="Ajouter " textFill="WHITE">
+                  <TextField fx:id="dureeTF" layoutX="314.0" layoutY="176.0" prefHeight="26.0" prefWidth="695.0" />
+                  <TextField fx:id="themeTF" layoutX="314.0" layoutY="223.0" prefHeight="26.0" prefWidth="695.0" />
+                  <TextField fx:id="descriptionTF" layoutX="314.0" layoutY="270.0" prefHeight="26.0" prefWidth="696.0" />
+                  <DatePicker fx:id="datedebutDP" layoutX="314.0" layoutY="316.0" prefHeight="26.0" prefWidth="694.0" />
+                  <DatePicker fx:id="datefinDP" layoutX="314.0" layoutY="363.0" prefHeight="26.0" prefWidth="695.0" />
+                  <ComboBox fx:id="secteurCB" layoutX="314.0" layoutY="411.0" prefHeight="26.0" prefWidth="696.0" />
+                  <Button layoutX="426.0" layoutY="478.0" mnemonicParsing="false" onAction="#addProjet" style="-fx-background-color: #1E9DFF;" text="Ajouter " textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font></Button>
-                  <Label layoutX="178.0" layoutY="364.0" text="Secteur" textFill="WHITE">
+                  <Label layoutX="178.0" layoutY="415.0" text="Secteur" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="167.0" layoutY="313.0" text="Date de fin" textFill="WHITE">
+                  <Label layoutX="167.0" layoutY="367.0" text="Date de fin" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="155.0" layoutY="264.0" text="Date de debut" textFill="WHITE">
+                  <Label layoutX="155.0" layoutY="320.0" text="Date de debut" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="165.0" layoutY="220.0" text="Description" textFill="WHITE">
+                  <Label layoutX="165.0" layoutY="273.0" text="Description" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="180.0" layoutY="176.0" text="Thème" textFill="WHITE">
+                  <Label layoutX="180.0" layoutY="225.0" text="Thème" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="182.0" layoutY="132.0" prefHeight="26.0" prefWidth="42.0" text="Durée" textFill="WHITE">
+                  <Label layoutX="182.0" layoutY="170.0" prefHeight="26.0" prefWidth="42.0" text="Durée" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -226,6 +226,12 @@
                   <Label layoutX="51.0" layoutY="39.0" text="Nouveau projet freelance " textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="NomTF" layoutX="313.0" layoutY="131.0" prefHeight="26.0" prefWidth="695.0" />
+                  <Label layoutX="185.0" layoutY="130.0" prefHeight="26.0" prefWidth="42.0" text="Poste" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
                      </font>
                   </Label>
                </children></AnchorPane>

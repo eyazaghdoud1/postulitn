@@ -210,7 +210,7 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="47.0" layoutY="36.0" text="Nouveau projet freelance " textFill="WHITE">
+                  <Label fx:id="Lnom" layoutX="47.0" layoutY="36.0" text="Nouveau projet freelance " textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -261,6 +261,11 @@
                      </font>
                   </Label>
                   <Button layoutX="544.0" layoutY="535.0" mnemonicParsing="false" onAction="#deleteProjet" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Supprimer" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="784.0" layoutY="535.0" mnemonicParsing="false" onAction="#GoToCommentaire" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Voir commentaires" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>

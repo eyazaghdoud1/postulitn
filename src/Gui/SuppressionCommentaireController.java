@@ -5,8 +5,7 @@
  */
 package Gui;
 
-import Models.ProjetFreelance;
-import Models.Secteur;
+import Models.Commentaire;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -25,18 +24,15 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import services.ProjetServices; 
-import services.SecteurServices;
-
+import services.CommentaireServices;
 
 /**
  * FXML Controller class
  *
  * @author Users
  */
-public class ListeProjetsFreelanceController implements Initializable {
-    
-    ProjetServices ps = new ProjetServices(); 
+public class SuppressionCommentaireController implements Initializable {
+
     @FXML
     private Label userConnecte;
     @FXML
@@ -50,32 +46,30 @@ public class ListeProjetsFreelanceController implements Initializable {
     @FXML
     private VBox quizVB;
     @FXML
-    private ListView<HBox> ProjetsFreelanceListView;
-    public static ProjetFreelance selectedProjet;
-    List<ProjetFreelance> projets = ps.fetchProjet();
+    private ListView<HBox> CommentListView;
+    CommentaireServices cs = new CommentaireServices(); 
+  List<Commentaire> commentaires = cs.fetchCommentaire();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-           
-    
-       for (ProjetFreelance pf : projets) {
+        // TODO ProjetFreelance pf : projets
+         for (Commentaire c : commentaires ) {
        
            FXMLLoader loader = new FXMLLoader();
-           loader.setLocation(getClass().getResource("./Projet.fxml"));
+           loader.setLocation(getClass().getResource("./CommentaireRespItem.fxml"));
            try {
                HBox hb = loader.load();
-               ProjetController pc = loader.getController();
-               pc.setData(pf);
+               CommentaireRespItemController sc = loader.getController();
+               sc.setData(c);
              
-               ProjetsFreelanceListView.getItems().add(hb);
+               CommentListView.getItems().add(hb);
            } catch (IOException ex) {
                Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
            }
        }
-}
+    }    
 
     @FXML
     private void goToCompte(MouseEvent event) {
@@ -98,19 +92,17 @@ public class ListeProjetsFreelanceController implements Initializable {
     }
 
     @FXML
-    private void handleProjet(MouseEvent event) {
-selectedProjet = projets.get( ProjetsFreelanceListView.getSelectionModel().getSelectedIndex());
-        try {
-   
-            Parent Offreprojet = FXMLLoader.load(getClass().getResource("Offreprojet.fxml"));
+    private void GoBack(MouseEvent event) {
+     try {
+            Parent Offreprojet = FXMLLoader.load(getClass().getResource("OffreprojetResponable.fxml"));
             Scene  OffreprojetScene = new Scene(Offreprojet);
             Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             appStage.setScene(OffreprojetScene);
             appStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-         
     }
-}
+    }
+    
+

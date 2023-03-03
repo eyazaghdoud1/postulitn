@@ -5,6 +5,8 @@
  */
 package Gui;
 
+import static Gui.ListeProjetsFreelanceController.selectedProjet;
+import Models.Commentaire;
 import Models.ProjetFreelance;
 import Models.Secteur;
 import java.io.IOException;
@@ -23,21 +25,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import Models.Commentaire;
 import services.CommentaireServices;
-
+import services.SecteurServices;
 /**
  * FXML Controller class
  *
  * @author Users
  */
-public class OffreprojetController implements Initializable {
+public class FeedbackController implements Initializable {
 
-    
     @FXML
     private Label userConnecte;
     @FXML
@@ -51,43 +52,37 @@ public class OffreprojetController implements Initializable {
     @FXML
     private VBox quizVB;
     @FXML
-    private Label Lduree;
+    private ListView<HBox> CommentListView;
+    CommentaireServices cs = new CommentaireServices();
+    List<Commentaire> commentaires = cs.fetchCommentaire();
+   // public static ProjetFreelance selectedProjet;
+    
     @FXML
-    private Label Ltheme;
+    private Button AjouterCommentaire;
     @FXML
-    private Label Ldescription;
-    @FXML
-    private Label LDateDebut;
-    @FXML
-    private Label LDateFin;
-    @FXML
-    private Label Lsecteur;
-    private ListView<HBox> CommentsListView;
-    @FXML
-    private Label Lnom;
-
-
+    private TextField ContenuTF;
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        Ltheme.setText(ListeProjetsFreelanceController.selectedProjet.getTheme());
-        LDateDebut.setText(ListeProjetsFreelanceController.selectedProjet.getDateDebut() + "");
-        LDateFin.setText(ListeProjetsFreelanceController.selectedProjet.getDateFin() + "");
-        Lduree.setText(ListeProjetsFreelanceController.selectedProjet.getDuree()+ "");
-        Ldescription.setText(ListeProjetsFreelanceController.selectedProjet.getDescription());
-        Lsecteur.setText(ListeProjetsFreelanceController.selectedProjet.getS().getDescription()+"");
-        Lnom.setText(ListeProjetsFreelanceController.selectedProjet.getNom());
-  
-        
+    public void initialize(URL url, ResourceBundle rb) {  
+       for (Commentaire c : commentaires) {
+               FXMLLoader loader = new FXMLLoader();
+               loader.setLocation(getClass().getResource("./CommentaireItem.fxml"));
+           try {
+               HBox hb = loader.load();
+               CommentaireItemController cc = loader.getController();
+               cc.setData(c);
+               //cc.setData(c);
+               CommentListView.getItems().add(hb);
+           } catch (IOException ex) {
+               Logger.getLogger(FeedbackController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+         
+       }
+
+
     }    
-    
-   
-
-
-
 
     @FXML
     private void goToCompte(MouseEvent event) {
@@ -110,13 +105,28 @@ public class OffreprojetController implements Initializable {
     }
 
     @FXML
-    private void GoToPostuler(ActionEvent event) {
+    private void addComment(ActionEvent event) {
+        
+        CommentaireServices cs = new CommentaireServices();
+        Commentaire c = new Commentaire(); 
+        c.setContenu(ContenuTF.getText());
+        c.setIdProjet(selectedProjet.getIdProjet());
+        c.setIdUser(0);
+        cs.addCommentaire(c);
+     try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/Feedback.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
-    private void GoToListeProjets(MouseEvent event) {
-        try {
-            Parent Offreprojet = FXMLLoader.load(getClass().getResource("ListeProjetsFreelance.fxml"));
+    private void GoBack(MouseEvent event) {
+             try {
+            Parent Offreprojet = FXMLLoader.load(getClass().getResource("OffreProjet.fxml"));
             Scene  OffreprojetScene = new Scene(Offreprojet);
             Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             appStage.setScene(OffreprojetScene);
@@ -125,18 +135,6 @@ public class OffreprojetController implements Initializable {
             Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    @FXML
-    private void GoToComments(ActionEvent event) {
-      try {
-            Parent Offreprojet = FXMLLoader.load(getClass().getResource("Feedback.fxml"));
-            Scene  OffreprojetScene = new Scene(Offreprojet);
-            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            appStage.setScene(OffreprojetScene);
-            appStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     
-}
+

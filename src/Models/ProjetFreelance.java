@@ -19,6 +19,7 @@ public class ProjetFreelance {
    private Date dateDebut, dateFin; 
    private Secteur s; 
    private int idResponsable;
+   private String Nom;  
 
     public ProjetFreelance() {
     }
@@ -41,6 +42,40 @@ public class ProjetFreelance {
         this.dateFin = dateFin;
         this.s=s;
     }
+
+    public ProjetFreelance(int idProjet, int duree, String theme, String description, Date dateDebut, Date dateFin, Secteur s, int idResponsable, String Nom) {
+        this.idProjet = idProjet;
+        this.duree = duree;
+        this.theme = theme;
+        this.description = description;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.s = s;
+        this.idResponsable = idResponsable;
+        this.Nom = Nom;
+    }
+
+    public ProjetFreelance(int duree, String theme, String description, Date dateDebut, Date dateFin, Secteur s, int idResponsable, String Nom) {
+        this.duree = duree;
+        this.theme = theme;
+        this.description = description;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.s = s;
+        this.idResponsable = idResponsable;
+        this.Nom = Nom;
+    }
+
+
+    public String getNom() {
+        return Nom;
+    }
+
+    public void setNom(String Nom) {
+        this.Nom = Nom;
+    }
+    
+     
 
 
     public int getIdProjet() {
@@ -117,10 +152,17 @@ public class ProjetFreelance {
         this.idResponsable = idResponsable;
     }
 
+
     @Override
     public String toString() {
-        return "ProjetFreelance{" + "idProjet=" + idProjet + ", duree=" + duree + ", theme=" + theme + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", s=" + s + ", idResponsable=" + idResponsable + '}';
+        return "ProjetFreelance{" + "idProjet=" + idProjet + ", duree=" + duree + ", theme=" + theme + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", s=" + s + ", idResponsable=" + idResponsable + ", Nom=" + Nom + '}';
     }
+
+
+
+    
+    
+
     
     
 

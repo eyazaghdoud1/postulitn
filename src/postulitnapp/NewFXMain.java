@@ -34,17 +34,23 @@ public class NewFXMain extends Application {
         try {
             //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeSecteurFXML.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjets.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsResponsable.fxml"));
+            
             //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeSecteurFXML.fxml"));
-           // Parent root = FXMLLoader.load(getClass().getResource("../Gui/Offreprojet.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("../Gui/Offreprojet.fxml"));
           //  Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetResponsables.fxml"));
-        
+          
+          
+          
+           //Parent root = FXMLLoader.load(getClass().getResource("/Gui/AjouterSecteurs.fxml")); 
+           //Parent root = FXMLLoader.load(getClass().getResource("../Gui/AjouterProjets.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsFreelance.fxml"));
+           Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsResponsable.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ModifierProjets.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("../Gui/Feedback.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("../Gui/SuppressionCommentaire.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("../Gui/Commentaire.fxml"));
            
-
-         //Parent root = FXMLLoader.load(getClass().getResource("/Gui/AjouterSecteurs.fxml")); 
-            // Parent root = FXMLLoader.load(getClass().getResource("../Gui/AjouterProjets.fxml"));
-          // Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsFreelance.fxml"));
-           //   Parent root = FXMLLoader.load(getClass().getResource("../Gui/test.fxml"));
+           
            javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
             primaryStage.setWidth(primaryScreenBounds.getWidth());
             primaryStage.setHeight(primaryScreenBounds.getHeight());
