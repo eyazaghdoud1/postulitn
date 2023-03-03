@@ -37,15 +37,16 @@ public class NewFXMain extends Application {
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/users2.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/Roles.fxml"));
             Parent root = FXMLLoader.load(getClass().getResource("../gui/Mdpoublie.fxml"));
-            //Parent root = FXMLLoader.load(getClass().getResource("../gui/RolesList.fxml"));
+           //Parent root = FXMLLoader.load(getClass().getResource("../gui/RolesList.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/UsersList.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("../gui/Modifmdp.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../gui/modifuser.fxml"));
             System.out.println("FXML loaded successfully");
             
             Scene scene = new Scene(root);
-//            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-//            primaryStage.setWidth(primaryScreenBounds.getWidth());
-//            primaryStage.setHeight(primaryScreenBounds.getHeight());
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            primaryStage.setWidth(primaryScreenBounds.getWidth());
+            primaryStage.setHeight(primaryScreenBounds.getHeight());
             primaryStage.setTitle("test");
             primaryStage.setScene(scene);
             primaryStage.show();

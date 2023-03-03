@@ -69,7 +69,6 @@ public class RController implements Initializable {
     private void supprimerRole(ActionEvent event) {
         
             Role r = roles.get(RolesListController.selectedRole);
-//            r.setDescription(lrole.getText());
             rs.deleteRole(r);
        try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/RolesList.fxml"));
             Scene si = new Scene(Login);

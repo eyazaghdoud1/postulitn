@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #0E1947;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="gui.ModifuserController">
+   <children>
+      <Label layoutX="537.0" layoutY="171.0" text="Remplir ces champs pour modifier l'utilisateur" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="39.0" />
+         </font>
+      </Label>
+      <Label fx:id="lnom1" layoutX="541.0" layoutY="358.0" prefHeight="26.0" prefWidth="140.0" text="Nom" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField layoutX="539.0" layoutY="424.0" prefHeight="40.0" prefWidth="260.0" promptText="remplir nom">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lnom11" layoutX="546.0" layoutY="507.0" prefHeight="26.0" prefWidth="140.0" text="Prénom" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField layoutX="541.0" layoutY="564.0" prefHeight="40.0" prefWidth="260.0" promptText="remplir prénom">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lnom111" layoutX="548.0" layoutY="637.0" prefHeight="26.0" prefWidth="140.0" text="Adresse" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField layoutX="540.0" layoutY="697.0" prefHeight="40.0" prefWidth="260.0" promptText="remplir prénom">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lnom1111" layoutX="1025.0" layoutY="362.0" prefHeight="50.0" prefWidth="356.0" text="Numéro de téléphone" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField layoutX="1026.0" layoutY="420.0" prefHeight="43.0" prefWidth="346.0" promptText="remplir tel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lnom11111" layoutX="1021.0" layoutY="505.0" prefHeight="50.0" prefWidth="356.0" text="Email" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField layoutX="1020.0" layoutY="560.0" prefHeight="43.0" prefWidth="352.0" promptText="remplir tel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lnom111111" layoutX="1023.0" layoutY="641.0" prefHeight="50.0" prefWidth="356.0" text="Rôle" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <TextField layoutX="1018.0" layoutY="697.0" prefHeight="43.0" prefWidth="352.0" promptText="remplir tel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btnvalidermodifuser" layoutX="806.0" layoutY="838.0" mnemonicParsing="false" onAction="#modifUser" prefHeight="58.0" prefWidth="232.0" style="-fx-background-color: #ffffff;" text="Valider" textFill="#0e1947">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

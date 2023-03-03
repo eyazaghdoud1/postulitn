@@ -6,6 +6,7 @@
 package gui;
 
 //import static gui.Users2Controller.u;
+import static gui.RolesListController.selectedRole;
 import static gui.Users2Controller.u;
 import java.io.IOException;
 import java.net.URL;
@@ -53,7 +54,11 @@ public class UController implements Initializable {
     private Label ltel;
     @FXML
     private Label ldateNaissance;
-
+    
+     UtilisateurService us = new UtilisateurService();
+      List<Utilisateur> utilisateurs = us.fetchUsers();
+    @FXML
+    private Button modifbtn;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
@@ -75,16 +80,10 @@ public class UController implements Initializable {
     @FXML
     private void supprimerUtilisateur(ActionEvent event) {
         
-        UtilisateurService us = new UtilisateurService();
-            u = Users2Controller.u;
-            u.setNom(lnom.getText());
-            u.setPrenom(lprenom.getText());
-            u.setEmail(lmail.getText());
-//            u.setRole(lrole.getText());
-            
+            Utilisateur u = utilisateurs.get(UsersListController.selectedUser);
             us.deleteUser(u);
             
-       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/users2.fxml"));
+       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/UsersList.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
@@ -92,6 +91,22 @@ public class UController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void ModifierUtilisateur(ActionEvent event) {
+        
+         try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/Modifuser.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
     }
 
 

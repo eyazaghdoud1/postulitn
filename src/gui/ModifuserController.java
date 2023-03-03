@@ -11,24 +11,29 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import models.Utilisateur;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
  *
  * @author ezine
  */
-public class ModifmdpController implements Initializable {
+public class ModifuserController implements Initializable {
 
     @FXML
-    private Button btnlog;
+    private Label lnom1;
     @FXML
-    private PasswordField nouveaumdp;
+    private Label lnom11;
     @FXML
-    private Button btnnouvmdp;
+    private Label lnom111;
     @FXML
-    private PasswordField nouveaumdp1;
+    private Label lnom1111;
+    @FXML
+    private Label lnom11111;
+    @FXML
+    private Label lnom111111;
+    @FXML
+    private Button btnvalidermodifuser;
 
     /**
      * Initializes the controller class.
@@ -39,13 +44,8 @@ public class ModifmdpController implements Initializable {
     }    
 
     @FXML
-    private void goToLogin(ActionEvent event) {
+    private void modifUser(ActionEvent event) {
+        
     }
-
-    @FXML
-    private void modifmdp(ActionEvent event) {
-         
-    }
-
     
 }

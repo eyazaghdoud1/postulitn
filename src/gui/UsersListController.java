@@ -1,10 +1,11 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package gui;
 
+import static gui.RolesListController.selectedRole;
 import static gui.Users2Controller.u;
 import java.io.IOException;
 import java.net.URL;
@@ -16,12 +17,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import models.Role;
 import models.Utilisateur;
 import services.RoleService;
@@ -38,7 +43,7 @@ public class UsersListController implements Initializable {
      * Initializes the controller class.
      */
     
-    UtilisateurService us= new UtilisateurService();
+    
     @FXML
     private Label userConnecte;
     @FXML
@@ -71,21 +76,24 @@ public class UsersListController implements Initializable {
     private Label ldateNaissance11;
     @FXML
     private ComboBox<Role> filter;
-    private Role f;
-    RoleService rs = new RoleService();
+ //   private Role f;
+    
+    public static int selectedUser;
+//    RoleService rs = new RoleService();
+    UtilisateurService us= new UtilisateurService();
+    List <Utilisateur> utilisateurs = us.fetchUsers();
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         List <Utilisateur> utilisateurs = us.fetchUsers();
+         
         
         for (int i=0; i<utilisateurs.size();i++){
-            u=utilisateurs.get(i);
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("../gui/u.fxml"));
              try {
                  HBox hBox = fxmlLoader.load();
-                 UController uc = fxmlLoader.getController();
+                 gui.UController uc = fxmlLoader.getController();
                  uc.setData(utilisateurs.get(i));
                  userslistview.getItems().add(hBox);
              } catch (IOException ex) {
@@ -117,6 +125,8 @@ public class UsersListController implements Initializable {
 
     @FXML
     private void handleusers(MouseEvent event) {
+        selectedRole = userslistview.getSelectionModel().getSelectedIndex();
+       
     }
 
 //    @FXML

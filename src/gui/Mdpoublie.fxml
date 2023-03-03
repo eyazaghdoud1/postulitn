@@ -43,13 +43,13 @@
          <font>
             <Font size="24.0" />
          </font></TextField>
-      <Label fx:id="err" layoutX="1434.0" layoutY="353.0" prefHeight="18.0" prefWidth="174.0" />
+      <Label fx:id="err" layoutX="1067.0" layoutY="451.0" prefHeight="18.0" prefWidth="626.0" />
       <Label fx:id="lcode" layoutX="1333.0" layoutY="608.0" text="CODE" textFill="#0e1947">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <TextField fx:id="fcode" alignment="TOP_CENTER" layoutX="1286.0" layoutY="663.0" onAction="#saisirCode" prefHeight="46.0" prefWidth="190.0" promptText="Saisir le code">
+      <TextField fx:id="fcode" alignment="TOP_CENTER" layoutX="1286.0" layoutY="663.0" prefHeight="46.0" prefWidth="190.0" promptText="Saisir le code">
          <font>
             <Font size="18.0" />
          </font>

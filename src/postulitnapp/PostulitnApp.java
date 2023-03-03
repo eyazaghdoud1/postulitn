@@ -9,11 +9,13 @@ import interfaces.RoleInterface;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Scanner;
+import javax.mail.MessagingException;
 import models.FreelancersP;
 import models.Role;
 import models.Utilisateur;
 import services.AuthenticationService;
 import services.FreelancersPService;
+import services.MailUtils;
 import services.RoleService;
 import services.UtilisateurService;
 
@@ -25,7 +27,7 @@ public class PostulitnApp {
 
 //    private static HashMap<String, String> users = new HashMap<String, String>();
        
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MessagingException {
         
         //instances 
         
@@ -70,15 +72,15 @@ public class PostulitnApp {
 
         //add Utilisateur       
         
-        u.setNom("Lakhoua");
-        u.setPrenom("Stuph");
-        u.setEmail("Stuph.lakhoua@esprit.tn");
-        u.setTel("2222222");
-        u.setAdresse("Chotrana");
-        u.setMdp("test");
-        u.setDateNaissance(Date.valueOf("2001-01-01"));
-        u.setRole(rs.GetByIdRole(1));
-        us.addUser(u);
+//        u.setNom("Ben guirat");
+//        u.setPrenom("aziz");
+//        u.setEmail("aziz.benguirat@esprit.tn");
+//        u.setTel("2222222");
+//        u.setAdresse("ennasr");
+//        u.setMdp("test");
+//        u.setDateNaissance(Date.valueOf("2001-01-01"));
+//        u.setRole(rs.GetByIdRole(1));
+//        us.addUser(u);
 
 
         //delete Utilisateur 
@@ -149,7 +151,7 @@ public class PostulitnApp {
 //        as.authentification(username, password);
 //      }
 
-
+//        MailUtils.SendMail("eya.zinelabidine@esprit.tn");
 
 
 

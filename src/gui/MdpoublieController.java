@@ -67,6 +67,11 @@ public class MdpoublieController implements Initializable {
     private TextField fcode;
     @FXML
     private Label validercode;
+    
+    UtilisateurService us = new UtilisateurService();
+       
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -75,20 +80,19 @@ public class MdpoublieController implements Initializable {
     
     @FXML
     private void SendCode(ActionEvent event) {
-       UtilisateurService us = new UtilisateurService();
        Utilisateur u = us.GetByEmail(fmail.getText());
         if (u.getEmail() != null){
             
             try {
-                String code = getRandomCode();
-                System.out.println(code);
+//                String code = getRandomCode();
+//                System.out.println(code);
 //                String salt =  Passwordutils.getSalt(20);
 //                String password =  Passwordutils.generateSecurePassword(pass, salt);                
 //                u.setMdp(password);
 //                u.setSalt(salt);
-//                us.UpdateMdp(u,u.getEmail(),pass);               
-                MailUtils.SendMail(u.getEmail(), code );
-                err.setText("Le code vous a été envoyé sur votre mail");
+//                us.UpdateMdp(u,u.getEmail(),pass);
+                 MailUtils.SendMail(u.getEmail());
+                 err.setText("Le code vous a été envoyé sur votre mail");
             } catch (MessagingException ex) {
                 Logger.getLogger(MdpoublieController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -97,20 +101,20 @@ public class MdpoublieController implements Initializable {
                 err.setText("Vérifiez votre email");
         }
         
-    }
-    
-     public static String getRandomCode() 
-    {
-        String code = "0123456789"; 
-  
-        StringBuilder s = new StringBuilder(4); 
-  
-        for (int i = 0; i < 4; i++) { 
-            int index = (int)(code.length() * Math.random()); 
-            s.append(code.charAt(index)); 
-        } 
-        return s.toString();  
     } 
+    
+//     public static String getRandomCode() 
+//    {
+//        String code = "0123456789"; 
+//  
+//        StringBuilder s = new StringBuilder(4); 
+//  
+//        for (int i = 0; i < 4; i++) { 
+//            int index = (int)(code.length() * Math.random()); 
+//            s.append(code.charAt(index)); 
+//        } 
+//        return s.toString();  
+//    } 
 
     @FXML
     private void goToLogin(ActionEvent event) {
@@ -127,28 +131,24 @@ public class MdpoublieController implements Initializable {
 
 
     @FXML
-    private void saisirCode(ActionEvent event) {
-    }
-
-    @FXML
     private void ValiderCode(MouseEvent event) {
         
-        if (lcode.getText().equalsIgnoreCase(getRandomCode())){
-            try {
-            Parent Login = FXMLLoader.load(getClass().getResource("../gui/Modifmdp.fxml"));
-            Scene si = new Scene(Login);
-            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-            st.setScene(si);
-            st.show();
-        } catch (IOException ex) {
-            Logger.getLogger(SignInCandidatController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Code non compatible");
-            alert.showAndWait();
-        }
+//        if (lcode.getText().equalsIgnoreCase(){
+//            try {
+//            Parent Login = FXMLLoader.load(getClass().getResource("../gui/Modifmdp.fxml"));
+//            Scene si = new Scene(Login);
+//            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+//            st.setScene(si);
+//            st.show();
+//        } catch (IOException ex) {
+//            Logger.getLogger(SignInCandidatController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        } else {
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setHeaderText(null);
+//            alert.setContentText("Code non compatible");
+//            alert.showAndWait();
+//        }
     
     }
     

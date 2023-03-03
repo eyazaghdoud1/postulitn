@@ -57,12 +57,13 @@ public class RolesListController implements Initializable {
 
     RoleService rs = new RoleService();
     public static int selectedRole;
+    List<Role> roles = rs.fetchRoles();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-           List<Role> roles = rs.fetchRoles();
+           
         for (int i=0; i<roles.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("../gui/r.fxml"));

@@ -64,9 +64,14 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
+      <Button fx:id="modifbtn" mnemonicParsing="false" onAction="#ModifierUtilisateur" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #0e1947;" text="Modifier" textFill="WHITE">
+         <HBox.margin>
+            <Insets left="100.0" top="9.0" />
+         </HBox.margin>
+      </Button>
       <Button fx:id="suppbtn1" mnemonicParsing="false" onAction="#supprimerUtilisateur" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: #0e1947;" text="Supprimer" textFill="WHITE">
          <HBox.margin>
-            <Insets left="250.0" top="9.0" />
+            <Insets left="50.0" top="9.0" />
          </HBox.margin>
       </Button>
    </children>

@@ -173,7 +173,7 @@ public class SignInController implements Initializable {
         }
     
     public boolean controleTextFieldNonNumerique(TextField textField) {
-        if (textField.getText().matches(".*[a-zA-Z].*")) {
+        if (textField.getText().matches(".*[a-zA-Z].*") || textField.getText().length()!= 8) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("veuillez saisir que des entiers!");
@@ -193,7 +193,7 @@ public class SignInController implements Initializable {
              return false;}
     
     public boolean controleTextFieldMAIL(TextField textField) {
-        if (!textField.getText().contains("@")) {
+        if (!textField.getText().contains("@") || textField.getText().contains(".")) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
             alert.setContentText("Votre adresse mail est invalide");
@@ -202,74 +202,6 @@ public class SignInController implements Initializable {
         }
              return false;}
  
-    /*
-    // validateDatePicker(dateN) || controleTextFieldNomEtPrenom(nom,prenom))  {           //|| controleTextFieldMAIL(specialitetf)
-   
-    LocalDate selectedDate = dateN.getValue();
-
-    // Convert the selected date to a string if needed
-String dateString = selectedDate.toString();
-
-// Check if a date has been selected
-//  if (selectedDate == null) {
-//    dateString.setText("Date non valide !");
-//    dateString.setVisible(true);
-//    return;
-//}
-
-
-
-
-
-
-//   TypeoffreService ts = new TypeoffreService();
-//    Offre o = new Offre();
-//    //Typeoffre to = ts.getelementbyid(typetf);
-//    
-//    
-//    o.setPoste(postetf.getText());
-//        o.setDescription(descriptiontf.getText());
-//        o.setLieu(lieutf.getText());
-//        o.setEntreprise(entreprisetf.getText());
-//        o.setSpecialite(specialitetf.getText());
-//        o.setDateExpiration(Date.valueOf(dateD.getValue()));
-//       // o.setType(type);
-//    
-//    //o.setDateExpiration(Date.valueOf("2024-11-19"));
-//       // o.setType(to);
-//        o.setIdRecruteur(5);
-//        os.addOffre(o);
-    
-    
-   }
-    
-    
-    
-//    showAll();
-    
-    
-    
-   
-        
-    /* 
-   */ 
-    /*
-    
-        
-       /*
-
-    private void checkinput(javafx.scene.input.KeyEvent event) {
-      if(event.getCharacter().matches("[^\\e\t\r\\d+$]")){
-            event.consume();
-            
-            lieutf.setStyle("-fx-border-color: red");
-        }else{
-            lieutf.setStyle("-fx-border-color: green");
-        }
-    }
-    
-    
-}*/
 
 
     @FXML
