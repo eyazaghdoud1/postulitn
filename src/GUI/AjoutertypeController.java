@@ -17,8 +17,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Typeoffre;
 import services.TypeoffreService;
@@ -33,7 +38,21 @@ public class AjoutertypeController implements Initializable {
     @FXML
     private TextField descriptiontf;
     @FXML
-    private Label erreurdescription;
+    private Label userConnecte;
+    @FXML
+    private ImageView userPhoto;
+    @FXML
+    private VBox offresVB;
+    @FXML
+    private VBox candidaturesVB;
+    @FXML
+    private VBox entretiensVB;
+    @FXML
+    private VBox guidesVB;
+    @FXML
+    private VBox quizVB;
+    @FXML
+    private AnchorPane listetype;
 
     /**
      * Initializes the controller class.
@@ -69,8 +88,46 @@ public class AjoutertypeController implements Initializable {
 
     @FXML
     private void listetype(ActionEvent event) {
-        try {Parent Liste = FXMLLoader.load(getClass().getResource("../gui/types.fxml"));
+        try {Parent Liste = FXMLLoader.load(getClass().getResource("../gui/newtypes.fxml"));
             Scene si = new Scene(Liste);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
+    }
+
+    @FXML
+    private void goToCompte(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToOffres(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToCandidatures(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToEntretiens(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToGuides(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToQuiz(MouseEvent event) {
+    }
+
+    @FXML
+    private void dist(ActionEvent event) {
+        try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/statistique.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
             st.show();

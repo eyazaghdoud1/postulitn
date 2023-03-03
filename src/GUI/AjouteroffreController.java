@@ -33,6 +33,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import services.OffreService;
@@ -66,27 +70,27 @@ public class AjouteroffreController implements Initializable {
     @FXML
     private ComboBox typetf;
     
-    @FXML
-    private Label f;
     
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    @FXML
-    private Label erreurposte;
-    @FXML
-    private Label erreurdescription;
-    @FXML
-    private Label erreurlieu;
-    @FXML
-    private Label erreurentreprise;
-    @FXML
-    private Label erreurspecialite;
-    @FXML
-    private Label erreurdate;
     private Label labell;
 
      TypeoffreService tos = new TypeoffreService();
       OffreService os = new OffreService();
       String typeSelectionne;
+    @FXML
+    private Label userConnecte;
+    @FXML
+    private ImageView userPhoto;
+    @FXML
+    private VBox offresVB;
+    @FXML
+    private VBox candidaturesVB;
+    @FXML
+    private VBox entretiensVB;
+    @FXML
+    private VBox guidesVB;
+    @FXML
+    private VBox quizVB;
      
     /**
      * Initializes the controller class.
@@ -227,7 +231,7 @@ String dateString = selectedDate.toString();
 
     @FXML
     private void liste(ActionEvent event) {
-        try {Parent Liste = FXMLLoader.load(getClass().getResource("../gui/lesoffres.fxml"));
+        try {Parent Liste = FXMLLoader.load(getClass().getResource("../gui/newoffres.fxml"));
             Scene si = new Scene(Liste);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
@@ -235,6 +239,30 @@ String dateString = selectedDate.toString();
         } catch (IOException ex) {
             ex.printStackTrace();;
         }
+    }
+
+    @FXML
+    private void goToCompte(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToOffres(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToCandidatures(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToEntretiens(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToGuides(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToQuiz(MouseEvent event) {
     }
 
     

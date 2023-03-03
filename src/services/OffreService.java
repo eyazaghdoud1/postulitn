@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package services;
+import GUI.NewoffresController;
 import interfaces.OffreInterface;
 import java.sql.Connection;
 import java.sql.Date;
@@ -13,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import models.Offre;
 import models.Typeoffre;
 import util.MyConnection;
@@ -70,6 +72,9 @@ public class OffreService implements OffreInterface {
         
 
     }
+        
+        
+    
     }
     @Override
     public List<Offre> fetchOffres() {
@@ -353,6 +358,41 @@ public class OffreService implements OffreInterface {
     @Override
     public void updateOffrebydes(Offre o, String Description) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Offre> suggestedOffres(int idType, int idOffre) {
+         List<Offre> OffreSuggeres = new ArrayList<>() ;
+          
+        String req = "SELECT * FROM `offre` join typeoffre on offre.idtype=typeoffre.idtype where offre.idtype= ? limit 4 ";
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setInt(1, idType);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Offre o = new Offre();
+                o.setId(rs.getInt(1));
+                o.setPoste(rs.getString(2));
+                o.setDescription(rs.getString(3));
+                o.setLieu(rs.getString(4));
+                o.setEntreprise(rs.getString(5));
+                o.setSpecialite(rs.getString(6));
+                o.setDateExpiration(rs.getDate(7));
+                o.setIdRecruteur(rs.getInt(8));
+                Typeoffre to = new Typeoffre();
+                TypeoffreService toserv = new TypeoffreService();
+                to =toserv.getelementbyid(idType);
+                o.setType(to);
+                OffreSuggeres.add(o);
+            }
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+        List<Offre> suggestedOffres = OffreSuggeres.stream()
+            .filter(offer -> offer.getId()!= idOffre)
+            .collect(Collectors.toList());
+        
+        return suggestedOffres; 
     }
 }
 

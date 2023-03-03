@@ -5,6 +5,7 @@
  */
 package projet;
 
+import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -29,11 +31,15 @@ public class NewFXMain extends Application {
        
            
         try {
-         Parent root = FXMLLoader.load(getClass().getResource("../GUI/statistique.fxml"));
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajoutertype.fxml"));
         
             System.out.println("FXML loaded successfully");
             
             Scene scene = new Scene(root);
+            javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            primaryStage.setWidth(primaryScreenBounds.getWidth());
+            primaryStage.setHeight(primaryScreenBounds.getHeight());
+            
             
             primaryStage.setTitle("test");
             primaryStage.setScene(scene);

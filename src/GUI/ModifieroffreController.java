@@ -45,15 +45,15 @@ public class ModifieroffreController implements Initializable {
     @FXML
     private DatePicker dateD;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    @FXML
-    private ComboBox typetf;
+   
+
     
     TypeoffreService tos = new TypeoffreService();
       OffreService os = new OffreService();
       String typeSelectionne;
     @FXML
-    private ComboBox modif;
-    
+    private ComboBox typetf;
+     
     
 
     /**
@@ -61,20 +61,14 @@ public class ModifieroffreController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        List<Offre> lo = os.fetchOffres();
-        for(Offre o :lo)  {
-        modif.getItems().add(o.getDescription());
-        }
-        modif.setOnAction(e -> {typeSelectionne=modif.getValue().toString();});
-        OffreService os = new OffreService();
-        
+       
         List<Typeoffre> to = tos.fetchOffres();
         for(Typeoffre t :to)  {
-        
-            typetf.getItems().add(t.getDescription());
+        typetf.getItems().add(t.getDescription());
         }
         typetf.setOnAction(e -> {typeSelectionne=typetf.getValue().toString();});
         
+        OffreService os = new OffreService();
         // TODO
     }    
 
@@ -86,7 +80,7 @@ public class ModifieroffreController implements Initializable {
                 TypeoffreService ts = new TypeoffreService();
 
                
-         o.setId(Integer.parseInt(idm.getText()));
+        
 
 
          o.setPoste(postem.getText());
@@ -99,7 +93,7 @@ public class ModifieroffreController implements Initializable {
          
         // o.setType(ts.getelementbyid(4));
 //         
-       ps.updateOffre(o,Integer.valueOf(idm.getText()));
+       ps.updateOffre(o,NewoffresController.selectedoffre.getId());
     }
     
 }

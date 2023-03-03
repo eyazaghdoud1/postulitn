@@ -13,6 +13,10 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import models.Typeoffre;
 import services.OffreService;
 import services.TypeoffreService;
@@ -26,6 +30,20 @@ public class StatistiqueController implements Initializable {
 
     @FXML
     private PieChart chartfor;
+    @FXML
+    private Label userConnecte;
+    @FXML
+    private ImageView userPhoto;
+    @FXML
+    private VBox offresVB;
+    @FXML
+    private VBox candidaturesVB;
+    @FXML
+    private VBox entretiensVB;
+    @FXML
+    private VBox guidesVB;
+    @FXML
+    private VBox quizVB;
 
     /**
      * Initializes the controller class.
@@ -49,6 +67,30 @@ public class StatistiqueController implements Initializable {
 
      chartfor.setData(PieChartData);
      
+    }
+
+    @FXML
+    private void goToCompte(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToOffres(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToCandidatures(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToEntretiens(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToGuides(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToQuiz(MouseEvent event) {
     }
     
 }

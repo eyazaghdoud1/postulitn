@@ -101,8 +101,8 @@ public class Projet {
 
 ////         
       // ps.updateOffre(o, 24);
-       ps.updateOffrebydes(o,"hh");
-
+//       ps.updateOffrebydes(o,"hh");
+       
 
 
   //*******************************UPDATE TYPE OFFRE *************************
@@ -113,6 +113,9 @@ public class Projet {
       //  System.out.println("le type d'offre par son description");
       //  System.out.println(ts.getelementbydescription("embauche"));
         
+      
+        
+       // System.out.println(ps.suggestedOffres(5));
     }
     
 }
