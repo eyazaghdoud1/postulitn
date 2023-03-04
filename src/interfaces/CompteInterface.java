@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import java.io.IOException;
 import java.util.List;
 import models.Compte;
 import models.GuideEntretien;
@@ -23,4 +24,7 @@ public interface CompteInterface {
     
     //delete
     public void deleteCompte(Compte c);
+     
+    //read cv 
+     public String readCV(String filePath) throws IOException;
 }

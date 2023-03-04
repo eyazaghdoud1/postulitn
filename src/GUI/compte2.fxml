@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Compte2Controller">
+   <children>
+      <BorderPane prefHeight="1080.0" prefWidth="1920.0">
+         <top>
+            <HBox prefHeight="94.0" prefWidth="1920.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="61.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="101.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@logo.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="27.0" prefWidth="1300.0">
+                     <HBox.margin>
+                        <Insets left="1550.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="50.0" prefWidth="140.0" text="username" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="15.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fx:id="userPhoto" fitHeight="103.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="60.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@user%20icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox opacity="0.72" prefHeight="1019.0" prefWidth="137.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="offresVB" onMouseClicked="#goToOffres" prefHeight="76.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="61.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@mtaaofre.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-4.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label text="Offres" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="candidaturesVB" onMouseClicked="#goToCandidatures" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="57.0" fitWidth="76.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@warketinf.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-5.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="16.0" prefWidth="140.0" text="Candidatures" textFill="#0e1947">
+                           <VBox.margin>
+                              <Insets left="-23.0" top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="entretiensVB" onMouseClicked="#goToEntretiens" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="69.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@tofentretien.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="16.0" prefWidth="131.0" text="Entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-15.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="guidesVB" onMouseClicked="#goToGuides" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="74.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@elquiz.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="15.0" prefWidth="241.0" text="Guides d'entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="quizVB" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="101.0" fitWidth="114.0" onMouseClicked="#goToQuiz" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@mtaaquiz.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="3.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fx:id="eeltaswira" fitHeight="239.0" fitWidth="313.0" layoutX="50.0" layoutY="33.0">
+                     <image>
+                        <Image url="@user%20icon.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="entrpers" layoutX="1287.0" layoutY="551.0" text="Google" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="cvpers" layoutX="1287.0" layoutY="452.0" text="hufhjf/URL/jhj" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="904.0" layoutY="551.0" text="Entreprise:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="ddippers" layoutX="1287.0" layoutY="351.0" text="20/05/2025" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="diplomepers" layoutX="1287.0" layoutY="267.0" text="Ingenieur informatique" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="exppers" layoutX="1287.0" layoutY="184.0" text="2 ans " textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="904.0" layoutY="452.0" text="CV:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="909.0" layoutY="267.0" text="Diplome:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="909.0" layoutY="184.0" text="Experience:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="904.0" layoutY="351.0" text="Date diplome:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="909.0" layoutY="55.0" text="Mes donnees:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="527.0" layoutY="429.0" mnemonicParsing="false" onAction="#bouutnmodifiercompte" prefHeight="112.0" prefWidth="227.0" text="modifier profil">
+                     <font>
+                        <Font name="System Bold Italic" size="27.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="94.0" layoutY="465.0" text="+216   22240558" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="15.0" layoutY="374.0" text="Mohamedaziz.naes1@esprit.tn" textFill="#fcfcfc">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Text fill="WHITE" layoutX="129.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aziz">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="239.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naes">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="904.0" layoutY="633.0" text="Domaine:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="904.0" layoutY="725.0" text="Poste:" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="domainetf" layoutX="1287.0" layoutY="641.0" text="Google" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="postetf" layoutX="1287.0" layoutY="725.0" text="Google" textFill="#ffc4c4">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="527.0" layoutY="199.0" mnemonicParsing="false" onAction="#zidtaswira" prefHeight="102.0" prefWidth="227.0" text="Ajout photo">
+                     <font>
+                        <Font name="System Bold Italic" size="27.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="527.0" layoutY="656.0" mnemonicParsing="false" onAction="#bouutnajoutcompte" prefHeight="112.0" prefWidth="227.0" text="Ajout compte">
+                     <font>
+                        <Font name="System Bold Italic" size="27.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

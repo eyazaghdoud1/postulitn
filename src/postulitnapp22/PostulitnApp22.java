@@ -37,23 +37,24 @@ public class PostulitnApp22 {
        
        
      //  Ajout d'un guides entretien
-     // GuideEntretien ge = new GuideEntretien() ;   
-//       ge.setDomaine("sport");
-//       ge.setSpecialite("joueurpro");
-//       ge.setSupport("ca");
-      // ges.addGuideEntretien(ge);
+      GuideEntretien ge = new GuideEntretien() ;   
+       ge.setDomaine("agriculture");
+       ge.setSpecialite("pasolives");
+       ge.setSupport("hjbebjkURRRLLLLL");
+     
+       ges.addGuideEntretien(ge);
   
      
      //ajout compte 
-  /*      Compte c = new Compte();
-          c.setPhoto("jnij/URL/hjHHH");
-          c.setCv("tiTTII/cv/jhi ");
-          c.setDiplome("ganiouur");
-          c.setDateDiplome(Date.valueOf("2000-09-08"));
-          c.setEntreprise("Esprit");
-          c.setExperience("kbira");         
-          cs.addCompte(c);
-    */      
+//        Compte c = new Compte();
+//          c.setPhoto("jnij/URL/hjHHH");
+//          c.setCv("tiTTII/cv/jhi ");
+//          c.setDiplome("ganiouur");
+//          c.setDateDiplome(Date.valueOf("2000-09-08"));
+//          c.setEntreprise("Esprit");
+//          c.setExperience("kbira");         
+//          cs.addCompte(c);
+          
     
     
     
@@ -106,14 +107,14 @@ public class PostulitnApp22 {
         
         
 //*****************************ajouter une visite*******************************
-       // visite guide entretien init
+     //   visite guide entretien init
 //        VisiteGuide v = new VisiteGuide();
 //          v.setDate_consultation(Date.valueOf("2027-02-06"));
-//          v.setGuideentretien(ges.GetByIdGuideEntretiens(10));
-//          v.setCompte (cs.GetByIdCompte(9));
+//          v.setGuideentretien(ges.GetByIdGuideEntretiens(16));
+//          v.setCompte (cs.GetByIdCompte(10));
 //          
 //         vgs.addVisiteGuide(v);
-         
+//         
 //*************************afficher la liste des visites***************************
     //     System.out.println(vgs.fetchVisites());
        

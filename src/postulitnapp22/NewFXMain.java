@@ -12,10 +12,12 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
@@ -27,10 +29,14 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
       
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/listedesguides.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/listeguide.fxml"));
             
             
             Scene scene = new Scene(root);
+            
+            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+            primaryStage.setWidth(primaryScreenBounds.getWidth());
+            primaryStage.setHeight(primaryScreenBounds.getHeight());
             
             primaryStage.setTitle("");
             primaryStage.setScene(scene);

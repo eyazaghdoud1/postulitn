@@ -16,7 +16,7 @@ public class Compte {
     
  //att
     private int idCompte;
-    private String experience, photo,cv ,diplome,entreprise ;
+    private String experience, photo,cv ,diplome,entreprise,domaine,poste ;
     private Date dateDiplome;
     
     //const
@@ -95,15 +95,31 @@ public class Compte {
     public void setEntreprise(String entreprise) {
     this.entreprise = entreprise;
     }
+
+    public String getDomaine() {
+        return domaine;
+    }
+
+    public void setDomaine(String domaine) {
+        this.domaine = domaine;
+    }
+
+    public String getPoste() {
+        return poste;
+    }
+
+    public void setPoste(String poste) {
+        this.poste = poste;
+    }
     
     //display
 
     @Override
     public String toString() {
-        return "Compte{" + "experience=" + experience + ", photo=" + photo + ", cv=" + cv + ", diplome=" + diplome + ", entreprise=" + entreprise + ", dateDiplome=" + dateDiplome + '}';
+        return "Compte{" + "idCompte=" + idCompte + ", experience=" + experience + ", photo=" + photo + ", cv=" + cv + ", diplome=" + diplome + ", entreprise=" + entreprise + ", domaine=" + domaine + ", poste=" + poste + ", dateDiplome=" + dateDiplome + '}';
     }
 
-    
+   
         
     
     

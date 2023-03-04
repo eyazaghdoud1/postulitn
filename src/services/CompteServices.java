@@ -5,6 +5,10 @@
 package services;
 
 import interfaces.CompteInterface;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Compte;
 import models.GuideEntretien;
+import org.joda.time.DateTime;
+import org.joda.time.Years;
 import utilities.MyConnection;
 
 /**
@@ -26,9 +32,38 @@ public class CompteServices implements CompteInterface {
 
     @Override
     public void addCompte(Compte c) {
+        
+        
+        
+//         try {
+//        String req = "INSERT INTO `comptes`(`photo`, `cv`, `diplome`, `dateDiplome`, `entreprise`, `experience`) VALUES (?,?,?,?,?,?)";
+//        PreparedStatement ps = cnx.prepareStatement(req);
+//        ps.setString(1, c.getPhoto());
+//        ps.setString(2, c.getCv());
+//        ps.setString(3, c.getDiplome());
+//        ps.setDate(4, c.getDateDiplome());
+//        ps.setString(5, c.getEntreprise());
+//        ps.setString(6, c.getExperience());
+//        ps.executeUpdate();
+//        
+//        // Check if the diplome is expired
+//        DateTime dateDiplome = new DateTime(c.getDateDiplome());
+//        DateTime currentDate = new DateTime();
+//        Years years = Years.yearsBetween(dateDiplome, currentDate);
+//        if (years.getYears() >= 5) {
+//            System.out.println("Compte ajouté avec succès! Diplôme expiré :(");
+//        } else {
+//            System.out.println("Compte ajouté avec succès!");
+//        }
+//    } catch (SQLException ex) {
+//        ex.printStackTrace();
+//    }
+        
+        
+        
              try {
             
-            String req = "INSERT INTO `comptes`(`photo`, `cv`, `diplome`, `dateDiplome`, `entreprise`, `experience`) VALUES (?,?,?,?,?,?)";
+            String req = "INSERT INTO `comptes`(`photo`, `cv`, `diplome`, `dateDiplome`, `entreprise`, `experience`,`domaine`,`poste`) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, c.getPhoto());
             ps.setString(2, c.getCv());
@@ -36,6 +71,8 @@ public class CompteServices implements CompteInterface {
             ps.setDate(4, c.getDateDiplome());
             ps.setString(5, c.getEntreprise());
             ps.setString(6, c.getExperience());
+            ps.setString(7, c.getDomaine());
+            ps.setString(8, c.getPoste());
             ps.executeUpdate();
             System.out.println("Compte Ajouté avec succes!");
             
@@ -62,6 +99,8 @@ public class CompteServices implements CompteInterface {
                 c.setDateDiplome(rs.getDate(5));
                 c.setEntreprise(rs.getString(6));
                 c.setExperience(rs.getString(7));
+                c.setDomaine(rs.getString(8));
+                c.setPoste(rs.getString(9));
                 comptes.add(c);
             }
         } catch (SQLException ex) {
@@ -101,6 +140,8 @@ public class CompteServices implements CompteInterface {
              c.setDateDiplome(rs.getDate(5));
              c.setEntreprise(rs.getString(6));
              c.setExperience(rs.getString(7));
+             c.setDomaine(rs.getString(8));
+             c.setPoste(rs.getString(9));
              }
             
          } catch (SQLException ex) {
@@ -123,24 +164,57 @@ public class CompteServices implements CompteInterface {
 
     @Override
     public void updateCompte(int idCompte, Compte c) {
-     String req = "UPDATE `comptes` SET `photo`=?,`cv`=?,`diplome`=?,`dateDiplome`=?,`entreprise`=?,`experience`=? WHERE idcompte=?";
+     String req = "UPDATE `comptes` SET `photo`=?,`cv`=?,`diplome`=?,`dateDiplome`=?,`entreprise`=?,`experience`,`domaine`,`poste`=? WHERE idcompte=?";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, c.getPhoto());
             ps.setString(2, c.getCv());
             ps.setString(3, c.getDiplome());
             ps.setDate(4, c.getDateDiplome());
-            ps.setString(5, c.getEntreprise());
-            ps.setString(6, c.getExperience());
-            ps.setInt(7, idCompte);
-            ps.executeUpdate();
-            System.out.println("Compte modifié avec succès.");
-            
-         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-         }
+             ps.setString(5, c.getEntreprise());
+        ps.setString(6, c.getExperience());
+        ps.setString(7, c.getDomaine());
+        ps.setString(8, c.getPoste());
+        ps.setInt(9, idCompte);
+        ps.executeUpdate();
+        System.out.println("Compte modifié avec succès.");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+//            ps.setString(5, c.getEntreprise());
+//            ps.setString(7, c.getExperience());
+//            ps.setString(7, c.getDomaine());
+//            ps.setString(8, c.getPoste());
+//            ps.setInt(9, idCompte);
+//            ps.executeUpdate();
+//            System.out.println("Compte modifié avec succès.");
+//            
+//         } catch (SQLException ex) {
+//            System.out.println(ex.getMessage());
+//         }
     }
     
+    
+    
+    
+    
+   public String readCV(String filePath) throws IOException {
+    File file = new File(filePath);
+    BufferedReader reader = new BufferedReader(new FileReader(file));
+
+    StringBuilder sb = new StringBuilder();
+    String line;
+    while ((line = reader.readLine()) != null) {
+        sb.append(line);
+    }
+
+    reader.close();
+
+    return sb.toString();
+}
+
+
+   
     
     
 }

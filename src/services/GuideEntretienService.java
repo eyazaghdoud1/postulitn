@@ -26,15 +26,21 @@ public class GuideEntretienService implements GuideEntretienInterface {
     Connection cnx = MyConnection.getInstance().getCnx();
 
     @Override
+    
+    
+    
+    
     public void addGuideEntretien(GuideEntretien ge) {
         
         try {
             
-            String req = "INSERT INTO `guidesentretiens`(`domaine`, `specialite`, `support`) VALUES (?,?,?)";
+            String req = "INSERT INTO `guidesentretiens`(`domaine`, `specialite`, `support`,`note`,`nombreNotes`) VALUES (?,?,?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, ge.getDomaine());
             ps.setString(2, ge.getSpecialite());
             ps.setString(3, ge.getSupport());
+             ps.setInt(4, (int) ge.getNote());
+              ps.setInt(5, (int) ge.getNombreNotes());
             ps.executeUpdate();
             System.out.println("Guide Entretien Ajouté avec succes!");
             
@@ -43,6 +49,28 @@ public class GuideEntretienService implements GuideEntretienInterface {
         }
        
     }
+    
+    
+    
+    
+    
+//    public void addGuideEntretien(GuideEntretien ge) {
+//        
+//        try {
+//            
+//            String req = "INSERT INTO `guidesentretiens`(`domaine`, `specialite`, `support`) VALUES (?,?,?)";
+//            PreparedStatement ps = cnx.prepareStatement(req);
+//            ps.setString(1, ge.getDomaine());
+//            ps.setString(2, ge.getSpecialite());
+//            ps.setString(3, ge.getSupport());
+//            ps.executeUpdate();
+//            System.out.println("Guide Entretien Ajouté avec succes!");
+//            
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//       
+//    }
     
     
     
@@ -96,7 +124,7 @@ public class GuideEntretienService implements GuideEntretienInterface {
                 p.setDomaine(rs.getString(2));
                 p.setSpecialite(rs.getString(3));
                 p.setSupport(rs.getString(4));
-                
+                p.setNote(rs.getDouble(5));
                 GuideEntretiens.add(p);
             }
             
@@ -292,10 +320,20 @@ public class GuideEntretienService implements GuideEntretienInterface {
     
     
     public void ajouterNote(double note, GuideEntretien ge) {
-   double totalNote = ge.getNote()  + note;
-   ge.setNombreNotes(ge.getNombreNotes()+1);
-   ge.setNote(totalNote/ge.getNombreNotes());
+        
+        double totalNote = ge.getNote() * ge.getNombreNotes() + note;
+   ge.setNombreNotes(ge.getNombreNotes() + 1);
+   ge.setNote(totalNote / ge.getNombreNotes());
    this.updateGuideEntretien(ge.getIdguide(), ge);
+        
+        
+        
+        
+        
+//   double totalNote = ge.getNote()  + note;
+//   ge.setNombreNotes(ge.getNombreNotes()+1);
+//   ge.setNote(totalNote/ge.getNombreNotes());
+//   this.updateGuideEntretien(ge.getIdguide(), ge);
    
 }
 
