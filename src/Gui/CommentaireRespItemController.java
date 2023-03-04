@@ -6,13 +6,23 @@
 package Gui;
 
 import Models.Commentaire;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import services.CommentaireServices;
 
 /**
  * FXML Controller class
@@ -28,6 +38,8 @@ public class CommentaireRespItemController implements Initializable {
     @FXML
     private Label LContenu;
 
+    CommentaireServices cs = new CommentaireServices();
+    List<Commentaire> commentaires = cs.fetchCommentaire();
     /**
      * Initializes the controller class.
      */
@@ -40,9 +52,19 @@ public class CommentaireRespItemController implements Initializable {
             LContenu.setText(c.getContenu()); 
     }
     
-
+// A corriger 
     @FXML
     private void DeleteComment(MouseEvent event) {
+        //Commentaire c = commentaires.get(SuppressionCommentaireController.selectedComment);
+            cs.deleteCommentaireById(SuppressionCommentaireController.selectedComment);
+       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/SuppressionCommentaire.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -47,8 +47,9 @@ public class SuppressionCommentaireController implements Initializable {
     private VBox quizVB;
     @FXML
     private ListView<HBox> CommentListView;
-    CommentaireServices cs = new CommentaireServices(); 
-  List<Commentaire> commentaires = cs.fetchCommentaire();
+    static CommentaireServices cs = new CommentaireServices(); 
+  static List<Commentaire> commentaires = cs.fetchCommentaire();
+    public static Commentaire selectedComment;
     /**
      * Initializes the controller class.
      */
@@ -102,6 +103,11 @@ public class SuppressionCommentaireController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void HandleCommentaire(MouseEvent event) {
+         selectedComment = cs.getById(commentaires.get(CommentListView.getSelectionModel().getSelectedIndex()).getIdCommentaire());
     }
     }
     

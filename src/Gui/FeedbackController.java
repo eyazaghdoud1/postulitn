@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -112,6 +113,14 @@ public class FeedbackController implements Initializable {
         c.setContenu(ContenuTF.getText());
         c.setIdProjet(selectedProjet.getIdProjet());
         c.setIdUser(0);
+        String contenu = c.getContenu().toLowerCase();
+ if (contenu.contains("fuck") || contenu.contains("shit") || contenu.contains("test")) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez respecter les éthiques de notre communauté");
+        alert.showAndWait();
+    } else {
         cs.addCommentaire(c);
      try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/Feedback.fxml"));
             Scene si = new Scene(Login);
@@ -121,6 +130,7 @@ public class FeedbackController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
         }
+ }
     }
 
     @FXML
@@ -135,6 +145,9 @@ public class FeedbackController implements Initializable {
             Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     }
+
+    
     
 

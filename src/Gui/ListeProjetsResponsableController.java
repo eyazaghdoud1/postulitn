@@ -119,7 +119,6 @@ public class ListeProjetsResponsableController implements Initializable {
     private void handleSecteur(MouseEvent event) {
         selectedProjetResp = projets.get( ProjetsResponsableListView.getSelectionModel().getSelectedIndex());
         try {
-   
             Parent Offreprojet = FXMLLoader.load(getClass().getResource("OffreprojetResponsable.fxml"));
             Scene  OffreprojetScene = new Scene(Offreprojet);
             Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();

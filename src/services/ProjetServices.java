@@ -99,7 +99,7 @@ public class ProjetServices implements ProjetInterface {
      @Override
     public void UpdateProjet(int id, ProjetFreelance p) {
          try {
-             String req ="UPDATE projets SET `theme`=?,`description`=?, `duree`=?, `DateDebut`=?, `DateFin`=?, `idsecteur`= ?, `idResponsable`= ? WHERE idProjet = ?";
+             String req ="UPDATE projets SET `theme`=?,`description`=?, `duree`=?, `DateDebut`=?, `DateFin`=?, `idsecteur`= ?, `idResponsable`= ?, `Nom`=? WHERE idProjet = ?";
              PreparedStatement ps = cnx.prepareStatement(req);
              ps.setString(1, p.getTheme());
              ps.setString(2, p.getDescription());
@@ -107,9 +107,9 @@ public class ProjetServices implements ProjetInterface {
              ps.setDate(4, p.getDateDebut());
              ps.setDate(5, p.getDateFin());
              ps.setInt(6, p.getS().getIdSecteur());
-             ps.setInt(7, id);
-             ps.setInt(8, p.getIdResponsable());
-             ps.setString(9, p.getNom());
+             ps.setInt(7, p.getIdResponsable());
+             ps.setString(8, p.getNom());
+             ps.setInt(9,p.getIdProjet());
              ps.executeUpdate();
              System.out.println("Projet modiifié avec succes"); 
          } catch (SQLException ex) {

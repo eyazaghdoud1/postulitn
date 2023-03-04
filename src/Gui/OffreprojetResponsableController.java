@@ -5,8 +5,10 @@
  */
 package Gui;
 
+import Models.ProjetFreelance;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -25,6 +27,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import services.ProjetServices; 
 
 /**
  * FXML Controller class
@@ -60,6 +63,8 @@ public class OffreprojetResponsableController implements Initializable {
     @FXML
     private Label Lnom;
     
+     static ProjetServices ps = new ProjetServices(); 
+  static List<ProjetFreelance> commentaires = ps.fetchProjet();
     
 
     /**
@@ -113,7 +118,7 @@ public class OffreprojetResponsableController implements Initializable {
 
     @FXML
     private void deleteProjet(ActionEvent event) {
-     
+        
     }
 
     @FXML
