@@ -244,7 +244,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox layoutX="770.0" layoutY="66.0" prefHeight="454.0" prefWidth="398.0">
+            <VBox layoutX="791.0" layoutY="221.0" prefHeight="398.0" prefWidth="398.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -276,7 +276,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="BOTTOM_LEFT" prefHeight="62.0" prefWidth="158.0" text="Specialite : " textFill="WHITE">
+                        <Label alignment="BOTTOM_LEFT" prefHeight="62.0" prefWidth="158.0" text="Type :" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>

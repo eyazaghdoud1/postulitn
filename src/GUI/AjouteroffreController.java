@@ -29,6 +29,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -114,9 +116,35 @@ public class AjouteroffreController implements Initializable {
     @FXML
     private void ajouteroffre(ActionEvent event) throws SQLException {
 //        
-        TypeoffreService ts = new TypeoffreService();      
-   if(!validateDatePicker(dateD)  && !controleTextFieldNomEtPrenom(postetf,descriptiontf) )   {           //|| controleTextFieldMAIL(specialitetf)
 
+        TypeoffreService ts = new TypeoffreService();     
+        
+        if (postetf.getText().isEmpty() || descriptiontf.getText().isEmpty() || lieutf.getText().isEmpty()  ||  entreprisetf.getText().isEmpty() || specialitetf.getText().isEmpty() || typetf.getValue() == null)
+                {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Champs manquants");
+                alert.setContentText("Vous devez remplir tous les champs avant d'enregistrer.");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();
+                
+                String tilte = "offre n est pas ajoute";
+            String message = "completer les champs";
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+        
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.millis(3000));
+            }
+        
+        
+ else if(!validateDatePicker(dateD)  && !controleTextFieldNomEtPrenom(postetf,descriptiontf) )   {           //|| controleTextFieldMAIL(specialitetf)
+//           
+//                
+//        }
 //                    }
     LocalDate selectedDate = dateD.getValue();
 //
@@ -147,6 +175,7 @@ String dateString = selectedDate.toString();
         o.setSpecialite(specialitetf.getText());
         o.setDateExpiration(Date.valueOf(dateD.getValue()));
         o.setType(tos.getelementbydescription(typeSelectionne));
+        o.setIdRecruteur(5);
         // selectedValue = (String) typetf.getValue();
          //   o.setType(ts.getelementbydescription(selectedValue));
         
@@ -154,7 +183,7 @@ String dateString = selectedDate.toString();
     
     //o.setDateExpiration(Date.valueOf("2024-11-19"));
        // o.setType((Typeoffre) to);
-        o.setIdRecruteur(5);
+        
         System.out.println(o);
         os.addOffre(o);
          
@@ -185,7 +214,9 @@ String dateString = selectedDate.toString();
         }
    }
    else if(validateDatePicker(dateD)) {
-        String tilte = "offre n est pas ajoute";
+       Alert alert = new Alert(Alert.AlertType.WARNING);
+                
+       String tilte = "offre n est pas ajoute";
             String message = "entrer la date d expiration";
             TrayNotification tray = new TrayNotification();
             AnimationType type = AnimationType.POPUP;
@@ -213,14 +244,15 @@ String dateString = selectedDate.toString();
            
        
     }
+  
     
    
     
 //    showAll();
     
     
-    
     }
+    
         public boolean validateDatePicker(DatePicker date)
     {
           if(date.getEditor().getText().isEmpty())

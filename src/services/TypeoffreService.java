@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import models.Typeoffre;
 import util.MyConnection;
 
@@ -92,11 +94,11 @@ public class TypeoffreService implements TypeoffreInterface {
         return typeoffres;
     }
     @Override
-    public List<Typeoffre> getTypeDesc() {
-        List<Typeoffre> typeoffres = new ArrayList<>();
+    public ObservableList<Typeoffre> getTypeDesc() {
+        ObservableList<Typeoffre> typeoffres = FXCollections.observableArrayList();
         try {
             
-            String req = "SELECT typeoffre.idtype,typeoffre.description  FROM typeoffre join offre on offre.idtype=typeoffre.idtype";
+            String req = "SELECT idtype,description  FROM typeoffre ";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {                

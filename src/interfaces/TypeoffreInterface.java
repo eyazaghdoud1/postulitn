@@ -5,6 +5,7 @@
  */
 package interfaces;
 import java.util.List;
+import javafx.collections.ObservableList;
 import models.Typeoffre;
 import models.Offre;
 
@@ -21,7 +22,7 @@ public interface TypeoffreInterface {
     
     public void updatetypeoffre(Typeoffre t,int idType);
     public void deletetypeoffre(int idType);
-    public List<Typeoffre> getTypeDesc();
+    public ObservableList<Typeoffre> getTypeDesc();
     public Typeoffre getelementbyid(int idType);
 
     public Typeoffre getelementbydescription(String description);

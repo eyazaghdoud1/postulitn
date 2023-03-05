@@ -61,18 +61,16 @@ public class StatistiqueController implements Initializable {
         // TODO  
     }    
     
-    
+     
      private void statsTypeOffre() {
          OffreService serv = new OffreService();
-         TypeoffreService t = new TypeoffreService();
-         List<Typeoffre> listTypes= t.getTypeDesc();
-         ObservableList<PieChart.Data> PieChartData =FXCollections.observableArrayList( );
-         for (Typeoffre type : listTypes) {
-             PieChartData.add( new PieChart.Data(type.getDescription(), serv.typeByOffre(type.getId()) ));
+          TypeoffreService t = new TypeoffreService();
+         ObservableList<Typeoffre> listTypes= t.getTypeDesc();
+          ObservableList<PieChart.Data> PieChartData =FXCollections.observableArrayList();
+         for (Typeoffre type : listTypes){
+              PieChartData.add(new PieChart.Data(type.getDescription(),serv.typeByOffre(type.getId())));
          }
-
-     chartfor.setData(PieChartData);
-     
+    chartfor.setData(PieChartData);
     }
 
     @FXML
