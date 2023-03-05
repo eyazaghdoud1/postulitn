@@ -20,7 +20,7 @@ import services.RoleService;
  *
  * @author ezine
  */
-public class MenuBarController implements Initializable {
+public class MenuBarAdminController implements Initializable {
 
     @FXML
     private Label userConnecte;

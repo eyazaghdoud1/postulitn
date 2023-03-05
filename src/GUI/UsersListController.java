@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import static GUI.RolesListController.selectedRole;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -23,7 +22,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -74,16 +72,7 @@ public class UsersListController implements Initializable {
     @FXML
     private Label ldateNaissance1;
     @FXML
-    private Label ldateNaissance11;
-    private static Role selectedRoleFiltre;
- //   private Role f;
-    
-    public static int selectedUser;
-//    RoleService rs = new RoleService();
-    UtilisateurService us= new UtilisateurService();
-    public static List <Utilisateur> utilisateurs;
-    RoleService rs = new RoleService();
-            
+    private Label ldateNaissance11;          
     @FXML
     private ComboBox<String> filterRole;
     @FXML
@@ -95,6 +84,11 @@ public class UsersListController implements Initializable {
     @FXML
     private Label ROLE;
     
+    private static Role selectedRoleFiltre;  
+    public static int selectedUser;
+    UtilisateurService us= new UtilisateurService();
+    public static List <Utilisateur> utilisateurs;
+    RoleService rs = new RoleService();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
