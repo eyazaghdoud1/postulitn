@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewCandidatureInterfaceController">
+   <children>
+      <BorderPane prefHeight="728.0" prefWidth="1366.0">
+         <top>
+            <HBox prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="61.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="61.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@325554422_570397571644716_8824221449279015534_n.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="27.0" prefWidth="195.0">
+                     <HBox.margin>
+                        <Insets left="1030.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="29.0" prefWidth="123.0" text="username" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="15.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fx:id="userPhoto" fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@330831433_1536180653567674_6866388944530913939_n.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox opacity="0.72" prefHeight="715.0" prefWidth="101.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="offresVB" onMouseClicked="#goToOffres" prefHeight="76.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@333746549_1356825635076666_3460829535495601600_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-4.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label text="Offres" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="candidaturesVB" onMouseClicked="#goToCandidatures" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@73944.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-5.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="16.0" prefWidth="67.0" text="Candidatures" textFill="#0e1947">
+                           <VBox.margin>
+                              <Insets left="-23.0" top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="entretiensVB" onMouseClicked="#goToEntretiens" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@280297163_704924577502506_7220543109587187832_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="17.0" prefWidth="58.0" text="Entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-15.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="guidesVB" onMouseClicked="#goToGuides" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@85615.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="24.0" prefWidth="94.0" text="Guides d'entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="quizVB" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="75.0" onMouseClicked="#goToQuiz" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@334074808_9577115555639300_2186101771236401721_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="3.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane prefHeight="654.0" prefWidth="1265.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox layoutX="11.0" layoutY="37.0" prefHeight="32.0" prefWidth="1223.0" spacing="10.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <Label fx:id="posteOffre" prefHeight="53.0" prefWidth="360.0" text="Poste:  Développeur web" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="entrepriseOffre" prefHeight="53.0" prefWidth="306.0" text="Entreprise: Solobat" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="typeOffre" prefHeight="53.0" prefWidth="242.0" text="Type de l'offre:  Embauche" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="etatCand" prefHeight="20.0" prefWidth="196.0" text="Etat:  " textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="20.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox layoutX="9.0" layoutY="76.0" prefHeight="342.0" prefWidth="1242.0" spacing="10.0">
+                     <children>
+                        <VBox prefHeight="358.0" prefWidth="768.0" style="-fx-background-color: #353D62;">
+                           <children>
+                              <HBox prefHeight="0.0" prefWidth="768.0">
+                                 <children>
+                                    <Label prefHeight="41.0" prefWidth="138.0" text="Votre candidature" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Button fx:id="updateBtn" mnemonicParsing="false" onAction="#updateCandidature" prefHeight="21.0" prefWidth="149.0" style="-fx-background-color: #1E9DFF;" text="Enregistrer la modification " textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets left="370.0" top="5.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="10.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#delete" prefHeight="16.0" prefWidth="27.0" style="-fx-background-color: red;">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="13.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@remove.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <HBox.margin>
+                                          <Insets left="30.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="dateCand" prefHeight="17.0" prefWidth="233.0" text="Ajoutée le : " textFill="WHITE">
+                                 <VBox.margin>
+                                    <Insets left="45.0" top="7.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox fx:id="candidatureHB" prefHeight="321.0" prefWidth="768.0" spacing="50.0">
+                                 <children>
+                                    <VBox prefHeight="277.0" prefWidth="199.0">
+                                       <children>
+                                          <ImageView fx:id="cvImageView" fitHeight="230.0" fitWidth="199.0" onMouseClicked="#getBiggerCv" pickOnBounds="true" preserveRatio="true" />
+                                          <TextField fx:id="cvTF" prefHeight="25.0" prefWidth="178.0">
+                                             <VBox.margin>
+                                                <Insets right="38.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></TextField>
+                                          <Button fx:id="browseCvBtn" mnemonicParsing="false" onAction="#browseCv" prefHeight="29.0" prefWidth="105.0" text="Modifier">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="80.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox prefHeight="250.0" prefWidth="204.0">
+                                       <children>
+                                          <ImageView fx:id="lettreImageView" fitHeight="230.0" fitWidth="199.0" onMouseClicked="#getBiggerLettre" pickOnBounds="true" preserveRatio="true" />
+                                          <TextField fx:id="lettreTF">
+                                             <VBox.margin>
+                                                <Insets right="40.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="10.0" />
+                                             </font></TextField>
+                                          <Button fx:id="browseLettreBtn" mnemonicParsing="false" onAction="#browseLettre" prefHeight="29.0" prefWidth="105.0" text="Modifier">
+                                             <VBox.margin>
+                                                <Insets left="30.0" top="10.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="80.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets left="50.0" top="10.0" />
+                                 </padding>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </HBox>
+                           </children>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.0117647061124444" green="0.03529411926865578" blue="0.2235294133424759" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </VBox>
+                        <VBox fx:id="entretiensVB" prefHeight="358.0" prefWidth="444.0" style="-fx-background-color: #353D62; -fx-border-radius: 60;">
+                           <children>
+                              <Label text="Entretiens" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="40.0" top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <VBox prefHeight="262.0" prefWidth="376.0">
+                                 <children>
+                                    <Label text="Par téléphone" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox fx:id="entTelVideHB" prefHeight="35.0" prefWidth="404.0" />
+                                    <HBox prefHeight="41.0" prefWidth="404.0">
+                                       <children>
+                                          <Label fx:id="dateEntTel" prefHeight="17.0" prefWidth="206.0" text="Date:" textFill="WHITE">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label fx:id="heureEntTel" prefHeight="17.0" prefWidth="107.0" text="Horaire: " textFill="WHITE">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <Label text="En présentiel" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <HBox fx:id="entPresVideHB" prefHeight="38.0" prefWidth="404.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <VBox fx:id="entPresVb" prefHeight="58.0" prefWidth="257.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label fx:id="dateEntPres" prefHeight="17.0" prefWidth="208.0" text="Date:" textFill="WHITE">
+                                                   <HBox.margin>
+                                                      <Insets left="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="heureEntPres" prefHeight="17.0" prefWidth="130.0" text="Horaire: " textFill="WHITE">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="lieuEntPres" text="Lieu: " textFill="WHITE">
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets top="-5.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="40.0" top="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets right="10.0" top="20.0" />
+                           </padding>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.0117647061124444" green="0.03529411926865578" blue="0.2235294133424759" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </VBox>
+                     </children></HBox>
+                  <VBox layoutX="7.0" layoutY="440.0" prefHeight="169.0" prefWidth="1224.0" style="-fx-background-color: #353D62;" AnchorPane.topAnchor="440.0">
+                     <children>
+                        <Label text="Détails de l'offre" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="descriptionOffre" prefHeight="49.0" prefWidth="1159.0" text="Description:" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="dateExpOffre" prefHeight="17.0" prefWidth="365.0" text="Date d'expiration de l'offre: " textFill="WHITE">
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="recruteurOffre" prefHeight="27.0" prefWidth="380.0" text="Publiée par: " textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <effect>
+                        <DropShadow>
+                           <color>
+                              <Color red="0.0117647061124444" green="0.03529411926865578" blue="0.2235294133424759" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <HBox layoutX="8.0" layoutY="5.0" prefHeight="29.0" prefWidth="106.0">
+                     <children>
+                        <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="29.0">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="19.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@93634.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
