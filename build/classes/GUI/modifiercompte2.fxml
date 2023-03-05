@@ -29,7 +29,7 @@
                   </HBox>
                   <HBox prefHeight="108.0" prefWidth="219.0">
                      <HBox.margin>
-                        <Insets left="1560.0" />
+                        <Insets left="1450.0" />
                      </HBox.margin>
                      <children>
                         <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="67.0" prefWidth="170.0" text="username" textFill="#0e1947">
@@ -178,64 +178,148 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
                <children>
-                  <DatePicker fx:id="datediplomedp" layoutX="303.0" layoutY="508.0" prefHeight="39.0" prefWidth="218.0" />
-                  <Label layoutX="694.0" layoutY="255.0" text="CV:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="diplometf" layoutX="306.0" layoutY="382.0" prefHeight="39.0" prefWidth="211.0" />
-                  <TextField fx:id="cvtf" layoutX="943.0" layoutY="258.0" prefHeight="39.0" prefWidth="211.0" />
-                  <Label layoutX="72.0" layoutY="505.0" text="Date diplome:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="694.0" layoutY="130.0" text="Entreprise:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="72.0" layoutY="379.0" text="Diplome:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="72.0" layoutY="255.0" text="Photo:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="943.0" layoutY="441.0" mnemonicParsing="false" onAction="#boutnmodifiercompte" prefHeight="106.0" prefWidth="211.0" text="Valider modification">
+                  <Button layoutX="655.0" layoutY="703.0" mnemonicParsing="false" onAction="#boutnmodifiercompte" prefHeight="67.0" prefWidth="251.0" text="Valider modification">
                      <font>
                         <Font name="System Bold Italic" size="19.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="entreprisetf" layoutX="943.0" layoutY="133.0" prefHeight="39.0" prefWidth="211.0" />
-                  <TextField fx:id="phototf" layoutX="306.0" layoutY="261.0" prefHeight="39.0" prefWidth="211.0" />
-                  <TextField fx:id="experiencetf" layoutX="306.0" layoutY="133.0" prefHeight="39.0" prefWidth="211.0" />
-                  <Label layoutX="72.0" layoutY="130.0" text="Experience:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="455.0" layoutY="20.0" text="Modifier compte" textFill="WHITE">
+                  <Label layoutX="570.0" layoutY="23.0" text="Modifier compte" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="41.0" />
                      </font>
                   </Label>
-                  <Label layoutX="72.0" layoutY="670.0" text="Domaine:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="72.0" layoutY="821.0" text="Poste:" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="domainetf" layoutX="307.0" layoutY="673.0" prefHeight="39.0" prefWidth="211.0" />
-                  <TextField fx:id="postetf" layoutX="306.0" layoutY="824.0" prefHeight="39.0" prefWidth="211.0" />
+                  <VBox layoutX="77.0" layoutY="108.0" prefHeight="538.0" prefWidth="1473.0" style="-fx-background-color: #939AB0;">
+                     <children>
+                        <ImageView fx:id="eetaswira" fitHeight="146.0" fitWidth="159.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@user%20icon.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="90.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Button mnemonicParsing="false" onAction="#zidtaswira" prefHeight="29.0" prefWidth="118.0" text="Ajout photo">
+                           <font>
+                              <Font name="System Bold Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="100.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox prefHeight="138.0" prefWidth="1473.0">
+                           <children>
+                              <Label text="Photo:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="phototf" prefHeight="15.0" prefWidth="229.0">
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="30.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Domaine:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="domainetf" prefHeight="39.0" prefWidth="211.0">
+                                 <HBox.margin>
+                                    <Insets top="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Entreprise:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="entreprisetf" prefHeight="39.0" prefWidth="211.0">
+                                 <HBox.margin>
+                                    <Insets top="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Experience:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="experiencetf" prefHeight="39.0" prefWidth="211.0">
+                                 <HBox.margin>
+                                    <Insets top="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Diplome:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="diplometf" prefHeight="39.0" prefWidth="211.0">
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Date diplome:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <DatePicker fx:id="datediplomedp" prefHeight="39.0" prefWidth="218.0">
+                                 <HBox.margin>
+                                    <Insets top="25.0" />
+                                 </HBox.margin>
+                              </DatePicker>
+                              <Label text="CV:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="95.0" top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="cvtf" prefHeight="39.0" prefWidth="211.0">
+                                 <HBox.margin>
+                                    <Insets top="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Poste:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="85.0" top="35.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="postetf" prefHeight="39.0" prefWidth="211.0">
+                                 <HBox.margin>
+                                    <Insets top="25.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
          </center>

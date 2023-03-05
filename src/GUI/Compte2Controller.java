@@ -52,7 +52,6 @@ public class Compte2Controller implements Initializable {
     private VBox quizVB;
     @FXML
     private Label entrpers;
-    @FXML
     private Label cvpers;
     @FXML
     private Label ddippers;
@@ -76,6 +75,20 @@ public class Compte2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        URL u;
+        try {
+            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+             Image image = new Image(u.toString());
+              userPhoto.setImage(image);
+             
+           eeltaswira.setImage(image);
+           
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+        
          
          Compte c =compteUser;
          //compteUser= c; 
@@ -83,7 +96,7 @@ public class Compte2Controller implements Initializable {
          exppers.setText(c.getExperience()); 
          diplomepers.setText(c.getDiplome());
          ddippers.setText("" + c.getDateDiplome());
-         cvpers.setText(c.getCv());
+       //  cvpers.setText(c.getCv());
          //************HOOOOOOO      NAHI ENTREPRISE COMM *******
          entrpers.setText(c.getEntreprise());
          domainetf.setText(c.getDomaine());
@@ -161,7 +174,6 @@ public class Compte2Controller implements Initializable {
     taswira.setImage(image);
 }
 
-    @FXML
     private void zidtaswira(ActionEvent event) {
         
           // Create a FileChooser dialog
@@ -185,7 +197,6 @@ public class Compte2Controller implements Initializable {
         
     }
 
-    @FXML
     private void bouutnajoutcompte(ActionEvent event) {
         
         try {

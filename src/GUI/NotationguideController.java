@@ -6,8 +6,11 @@
 package GUI;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -57,6 +61,17 @@ public class NotationguideController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+         URL u;
+        try {
+            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+             Image image = new Image(u.toString());
+              userPhoto.setImage(image);
+             
+           
+           
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML

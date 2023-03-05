@@ -16,7 +16,7 @@ public class Compte {
     
  //att
     private int idCompte;
-    private String experience, photo,cv ,diplome,entreprise,domaine,poste ;
+    private String experience, photo,diplome,entreprise,domaine,poste ;
     private Date dateDiplome;
     
     //const
@@ -25,7 +25,6 @@ public class Compte {
     public Compte(String experience, String photo, String cv, String diplome, Date dateDiplome, String entreprise) {
         this.experience = experience;
         this.photo = photo;
-        this.cv = cv;
         this.diplome = diplome;
         this.dateDiplome = dateDiplome;
         this.entreprise = entreprise;
@@ -35,7 +34,6 @@ public class Compte {
         this.idCompte = idCompte;
         this.experience = experience;
         this.photo = photo;
-        this.cv = cv;
         this.diplome = diplome;
         this.entreprise = entreprise;
         this.dateDiplome = dateDiplome;
@@ -66,14 +64,7 @@ public class Compte {
         this.photo = photo;
     }
 
-    public String getCv() {
-        return cv;
-    }
-
-    public void setCv(String cv) {
-        this.cv = cv;
-    }
-
+   
     public String getDiplome() {
         return diplome;
     }
@@ -116,7 +107,7 @@ public class Compte {
 
     @Override
     public String toString() {
-        return "Compte{" + "idCompte=" + idCompte + ", experience=" + experience + ", photo=" + photo + ", cv=" + cv + ", diplome=" + diplome + ", entreprise=" + entreprise + ", domaine=" + domaine + ", poste=" + poste + ", dateDiplome=" + dateDiplome + '}';
+        return "Compte{" + "idCompte=" + idCompte + ", experience=" + experience + ", photo=" + photo + ", diplome=" + diplome + ", entreprise=" + entreprise + ", domaine=" + domaine + ", poste=" + poste + ", dateDiplome=" + dateDiplome + '}';
     }
 
    

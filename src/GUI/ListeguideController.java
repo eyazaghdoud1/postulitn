@@ -6,6 +6,7 @@
 package GUI;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -22,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -66,7 +68,17 @@ List<GuideEntretien> guides = ges.fetchGuideEntretien();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+        URL u;
+        try {
+            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+             Image image = new Image(u.toString());
+              userPhoto.setImage(image);
+             
+         
+           
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         for (int i=0; i<guides.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -152,16 +164,25 @@ List<GuideEntretien> guides = ges.fetchGuideEntretien();
             LocalDate currentDate = LocalDate.now();
             VisiteGuide v = new VisiteGuide();
             VisiteGuideService vgs = new VisiteGuideService();
-            CompteServices cs = new CompteServices();
+            CompteServices cservice = new CompteServices();
        v.setDate_consultation(Date.valueOf(currentDate));
         v.setGuideentretien(selectedGuide);
-        v.setCompte(cs.GetByIdCompte(10));
+        v.setCompte(cservice.GetByIdCompte(10));
         vgs.addVisiteGuide(v);
             
         } catch (IOException ex) {
             Logger.getLogger(ListeguideController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+
+    @FXML
+    private void allerajouter(ActionEvent event) throws IOException {
+         Parent root = FXMLLoader.load(getClass().getResource("ajoutguide2.fxml"));
+    Scene scene = new Scene(root);
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.setScene(scene);
+    stage.show();
     }
 
 

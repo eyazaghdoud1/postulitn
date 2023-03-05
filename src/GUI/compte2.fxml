@@ -30,7 +30,7 @@
                   </HBox>
                   <HBox prefHeight="27.0" prefWidth="1300.0">
                      <HBox.margin>
-                        <Insets left="1550.0" />
+                        <Insets left="1455.0" />
                      </HBox.margin>
                      <children>
                         <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="50.0" prefWidth="140.0" text="username" textFill="#0e1947">
@@ -179,121 +179,191 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fx:id="eeltaswira" fitHeight="239.0" fitWidth="313.0" layoutX="50.0" layoutY="33.0">
-                     <image>
-                        <Image url="@user%20icon.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="entrpers" layoutX="1287.0" layoutY="551.0" text="Google" textFill="#ffc4c4">
+                  <Label layoutX="663.0" layoutY="60.0" text="Informations" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="31.0" />
+                        <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="cvpers" layoutX="1287.0" layoutY="452.0" text="hufhjf/URL/jhj" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="904.0" layoutY="551.0" text="Entreprise:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="ddippers" layoutX="1287.0" layoutY="351.0" text="20/05/2025" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="diplomepers" layoutX="1287.0" layoutY="267.0" text="Ingenieur informatique" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="exppers" layoutX="1287.0" layoutY="184.0" text="2 ans " textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="904.0" layoutY="452.0" text="CV:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="909.0" layoutY="267.0" text="Diplome:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="909.0" layoutY="184.0" text="Experience:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="904.0" layoutY="351.0" text="Date diplome:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="909.0" layoutY="55.0" text="Mes donnees:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="45.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="527.0" layoutY="429.0" mnemonicParsing="false" onAction="#bouutnmodifiercompte" prefHeight="112.0" prefWidth="227.0" text="modifier profil">
-                     <font>
-                        <Font name="System Bold Italic" size="27.0" />
-                     </font>
-                  </Button>
-                  <Label layoutX="94.0" layoutY="465.0" text="+216   22240558" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="15.0" layoutY="374.0" text="Mohamedaziz.naes1@esprit.tn" textFill="#fcfcfc">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Text fill="WHITE" layoutX="129.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aziz">
-                     <font>
-                        <Font name="System Bold" size="28.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="239.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naes">
-                     <font>
-                        <Font name="System Bold" size="28.0" />
-                     </font>
-                  </Text>
-                  <Label layoutX="904.0" layoutY="633.0" text="Domaine:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="904.0" layoutY="725.0" text="Poste:" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="domainetf" layoutX="1287.0" layoutY="641.0" text="Google" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="postetf" layoutX="1287.0" layoutY="725.0" text="Google" textFill="#ffc4c4">
-                     <font>
-                        <Font name="System Bold" size="31.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="527.0" layoutY="199.0" mnemonicParsing="false" onAction="#zidtaswira" prefHeight="102.0" prefWidth="227.0" text="Ajout photo">
-                     <font>
-                        <Font name="System Bold Italic" size="27.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="527.0" layoutY="656.0" mnemonicParsing="false" onAction="#bouutnajoutcompte" prefHeight="112.0" prefWidth="227.0" text="Ajout compte">
-                     <font>
-                        <Font name="System Bold Italic" size="27.0" />
-                     </font>
-                  </Button>
+                  <VBox layoutX="110.0" layoutY="60.0" prefHeight="764.0" prefWidth="464.0" style="-fx-background-color: #939AB0;">
+                     <children>
+                        <ImageView fx:id="eeltaswira" fitHeight="208.0" fitWidth="192.0">
+                           <image>
+                              <Image url="@user%20icon.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="150.0" top="40.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Aziz  Naes">
+                           <font>
+                              <Font name="System Bold" size="28.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="100.0" left="160.0" />
+                           </VBox.margin>
+                        </Text>
+                        <HBox prefHeight="60.0" prefWidth="510.0">
+                           <children>
+                              <Label text="Téléphone:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="+216   22240558" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="E-mail:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Mohamedaziz.naes1@esprit.tn" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="30.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets left="60.0" />
+                           </padding>
+                        </HBox>
+                        <Button mnemonicParsing="false" onAction="#bouutnmodifiercompte" prefHeight="31.0" prefWidth="184.0" text="modifier profil">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="130.0" top="70.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="663.0" layoutY="164.0" prefHeight="660.0" prefWidth="926.0" style="-fx-background-color: #939AB0;">
+                     <children>
+                        <HBox prefHeight="51.0" prefWidth="430.0">
+                           <children>
+                              <Label text="Experience:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="exppers" text="2 ans " textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="100.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Diplome:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="diplomepers" text="Ingenieur informatique" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="130.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Date diplome:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ddippers" text="20/05/2025" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="60.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Entreprise:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="entrpers" text="Google" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="110.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Domaine:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="domainetf" text="Google" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="120.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Poste:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="postetf" text="Google" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="170.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="50.0" top="50.0" />
+                     </padding>
+                  </VBox>
                </children>
             </AnchorPane>
          </center>

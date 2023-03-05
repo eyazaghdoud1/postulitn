@@ -62,11 +62,11 @@ public class VisiteGuideService implements VisiteGuideInterface {
                 Compte c= new Compte();
                 c.setIdCompte(rs1.getInt(1));
                 c.setPhoto(rs1.getString(2));
-                c.setCv(rs1.getString(3));
-                c.setDiplome(rs1.getString(4));
-                c.setDateDiplome(rs1.getDate(5));
-                c.setEntreprise(rs1.getString(6));
-                c.setExperience(rs1.getString(7));
+               
+                c.setDiplome(rs1.getString(3));
+                c.setDateDiplome(rs1.getDate(4));
+                c.setEntreprise(rs1.getString(5));
+                c.setExperience(rs1.getString(6));
                 v.setCompte(c);
                 
                 String r2 = "SELECT * FROM `guidesentretiens` WHERE idGuide = ? ";
@@ -113,11 +113,11 @@ public class VisiteGuideService implements VisiteGuideInterface {
                 Compte c= new Compte();
                 c.setIdCompte(rs1.getInt(1));
                 c.setPhoto(rs1.getString(2));
-                c.setCv(rs1.getString(3));
-                c.setDiplome(rs1.getString(4));
-                c.setDateDiplome(rs1.getDate(5));
-                c.setEntreprise(rs1.getString(6));
-                c.setExperience(rs1.getString(7));
+               
+                c.setDiplome(rs1.getString(3));
+                c.setDateDiplome(rs1.getDate(4));
+                c.setEntreprise(rs1.getString(5));
+                c.setExperience(rs1.getString(6));
                 v.setCompte(c);
                 
                 String r2 = "SELECT * FROM `guidesentretiens` WHERE idGuide = ? ";

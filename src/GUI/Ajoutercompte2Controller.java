@@ -6,11 +6,14 @@
 package GUI;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Date;
 //import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -23,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -61,8 +65,6 @@ public class Ajoutercompte2Controller implements Initializable {
     @FXML
     private TextField entreprisetf;
     @FXML
-    private TextField cvtf;
-    @FXML
     private TextField diplometf;
     @FXML
     private TextField phototf;
@@ -81,6 +83,17 @@ public class Ajoutercompte2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        URL u;
+        try {
+            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+             Image image = new Image(u.toString());
+              userPhoto.setImage(image);
+             
+          //  eeltaswira.setImage(image);
+           
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
 
     @FXML
@@ -127,7 +140,7 @@ public class Ajoutercompte2Controller implements Initializable {
     @FXML
     private void boutnajoutcompte(ActionEvent event) {
         
-         CompteServices cs = new CompteServices();
+         CompteServices cservice = new CompteServices();
     LocalDate selectedDate = datediplomedp.getValue();
     DateTime dateTime = new DateTime(selectedDate.getYear(), selectedDate.getMonthValue(), selectedDate.getDayOfMonth(), 0, 0);
     int yearsSinceDiploma = Years.yearsBetween(dateTime, DateTime.now()).getYears();
@@ -164,12 +177,12 @@ public class Ajoutercompte2Controller implements Initializable {
         c.setPhoto(phototf.getText());
         c.setDiplome(diplometf.getText());
         c.setPhoto(phototf.getText());
-        c.setCv(cvtf.getText());
+        //c.setCv(cvtf.getText());
         c.setEntreprise(entreprisetf.getText());
         c.setDomaine(domainetf.getText());
         c.setPoste(postetf.getText());
         c.setDateDiplome(Date.valueOf(datediplomedp.getValue()));
-        cs.addCompte(c);
+        cservice.addCompte(c);
         
          Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();

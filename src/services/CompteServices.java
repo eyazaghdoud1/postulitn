@@ -63,10 +63,9 @@ public class CompteServices implements CompteInterface {
         
              try {
             
-            String req = "INSERT INTO `comptes`(`photo`, `cv`, `diplome`, `dateDiplome`, `entreprise`, `experience`,`domaine`,`poste`) VALUES (?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO `comptes`(`photo`,`diplome`, `dateDiplome`, `entreprise`, `experience`,`domaine`,`poste`) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, c.getPhoto());
-            ps.setString(2, c.getCv());
             ps.setString(3, c.getDiplome());
             ps.setDate(4, c.getDateDiplome());
             ps.setString(5, c.getEntreprise());
@@ -94,13 +93,12 @@ public class CompteServices implements CompteInterface {
                 Compte c = new Compte();
                 c.setIdCompte(rs.getInt(1));
                 c.setPhoto(rs.getString(2));
-                c.setCv(rs.getString(3));
-                c.setDiplome(rs.getString(4));
-                c.setDateDiplome(rs.getDate(5));
-                c.setEntreprise(rs.getString(6));
-                c.setExperience(rs.getString(7));
-                c.setDomaine(rs.getString(8));
-                c.setPoste(rs.getString(9));
+                c.setDiplome(rs.getString(3));
+                c.setDateDiplome(rs.getDate(4));
+                c.setEntreprise(rs.getString(5));
+                c.setExperience(rs.getString(6));
+                c.setDomaine(rs.getString(7));
+                c.setPoste(rs.getString(8));
                 comptes.add(c);
             }
         } catch (SQLException ex) {
@@ -135,13 +133,13 @@ public class CompteServices implements CompteInterface {
              if (rs.next()){
              c.setIdCompte(rs.getInt(1));
              c.setPhoto(rs.getString(2));
-             c.setCv(rs.getString(3));
-             c.setDiplome(rs.getString(4));
-             c.setDateDiplome(rs.getDate(5));
-             c.setEntreprise(rs.getString(6));
-             c.setExperience(rs.getString(7));
-             c.setDomaine(rs.getString(8));
-             c.setPoste(rs.getString(9));
+           
+             c.setDiplome(rs.getString(3));
+             c.setDateDiplome(rs.getDate(4));
+             c.setEntreprise(rs.getString(5));
+             c.setExperience(rs.getString(6));
+             c.setDomaine(rs.getString(7));
+             c.setPoste(rs.getString(8));
              }
             
          } catch (SQLException ex) {
@@ -164,11 +162,11 @@ public class CompteServices implements CompteInterface {
 
     @Override
     public void updateCompte(int idCompte, Compte c) {
-     String req = "UPDATE `comptes` SET `photo`=?,`cv`=?,`diplome`=?,`dateDiplome`=?,`entreprise`=?,`experience`,`domaine`,`poste`=? WHERE idcompte=?";
+     String req = "UPDATE `comptes` SET `photo`=?,`diplome`=?,`dateDiplome`=?,`entreprise`=?,`experience`=?,`domaine`=?,`poste`=? WHERE idcompte=?";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, c.getPhoto());
-            ps.setString(2, c.getCv());
+          
             ps.setString(3, c.getDiplome());
             ps.setDate(4, c.getDateDiplome());
              ps.setString(5, c.getEntreprise());

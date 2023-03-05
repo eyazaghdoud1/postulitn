@@ -195,7 +195,7 @@
                               <Insets left="50.0" />
                            </padding>
                            <HBox.margin>
-                              <Insets left="360.0" top="30.0" />
+                              <Insets left="260.0" top="30.0" />
                            </HBox.margin>
                         </Label>
                         <ImageView fx:id="userPhoto" fitHeight="69.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">

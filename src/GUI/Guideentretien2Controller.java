@@ -22,7 +22,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -65,8 +67,6 @@ public class Guideentretien2Controller implements Initializable {
     private Text domguide;
     
     public static GuideEntretien guideUser;
-    @FXML
-    private VBox offresVB1;
     
 //    Media media = new Media("file:///path/to/video.mp4");
 //    MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -74,19 +74,40 @@ public class Guideentretien2Controller implements Initializable {
 //    Pane pane = new Pane();
 //    pane.getChildren().add(mediaView);
      private Pane pane;
-    @FXML
-     private MediaView mediaView;
-    private MediaPlayer mediaPlayer;
+    /* private MediaView mediaView;
+    private MediaPlayer mediaPlayer;*/
     private AnchorPane mainAnchorPane;
+    @FXML
+    private VBox supprimerBox;
+    @FXML
+    private Button noteBtn;
+    @FXML
+    private Button modifierBtn;
+    @FXML
+    private VBox container;
+    @FXML
+    private MediaView mediaView;
 
 
-
+javafx.scene.media.MediaPlayer mediaPlayer;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
    
+        
+        URL u;
+        try {
+            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+             Image image = new Image(u.toString());
+              userPhoto.setImage(image);
+             
+        
+           
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
             // TODO
 // String videoPath = "C:\\Users\\dell\\Downloads\\guide1.mp4";
 //videoPath = videoPath.replaceAll("\\\\", "/");
@@ -104,6 +125,14 @@ public class Guideentretien2Controller implements Initializable {
             specguide.setText(ListeguideController.selectedGuide.getSpecialite());
             noteguide.setText((int) ListeguideController.selectedGuide.getNote() + "");
 
+            Media media = new Media(new File("C:\\Users\\dell\\Downloads\\guide1.mp4").toURI().toString());  
+            mediaPlayer = new MediaPlayer(media);  
+            mediaView.setMediaPlayer(mediaPlayer);
+            //container.getChildren().add(mediaView);
+            //mediaPlayer.setAutoPlay(true);  
+            System.out.println(media);
+            
+            
         
         
     }    
@@ -194,7 +223,7 @@ public class Guideentretien2Controller implements Initializable {
     }
     
     
-private void loadVideo(ActionEvent event) {
+/*private void loadVideo(ActionEvent event) {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("C:\\\\Users\\\\dell\\\\Downloads\\\\guide1.mp4");
     fileChooser.getExtensionFilters().addAll(
@@ -206,7 +235,18 @@ private void loadVideo(ActionEvent event) {
         mediaView.setMediaPlayer(mediaPlayer);
         mediaPlayer.play();
     }
+}*/
+
+    @FXML
+    private void play(MouseEvent event) {
+      if (mediaPlayer != null) {
+if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+mediaPlayer.pause();
+} else {
+mediaPlayer.play();
 }
+}
+    }
     
     
     

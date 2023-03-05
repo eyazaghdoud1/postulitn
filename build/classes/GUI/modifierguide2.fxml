@@ -29,7 +29,7 @@
                   </HBox>
                   <HBox prefHeight="27.0" prefWidth="1250.0">
                      <HBox.margin>
-                        <Insets left="1600.0" />
+                        <Insets left="1450.0" />
                      </HBox.margin>
                      <children>
                         <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="51.0" prefWidth="139.0" text="username" textFill="#0e1947">

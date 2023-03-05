@@ -29,7 +29,7 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
       
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/listeguide.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajoutercompte2.fxml"));
             
             
             Scene scene = new Scene(root);

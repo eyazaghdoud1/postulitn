@@ -8,7 +8,6 @@ package GUI;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,7 +29,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.GuideEntretien;
-import static org.joda.time.format.ISODateTimeFormat.date;
 import services.GuideEntretienService;
 
 /**
@@ -38,7 +36,7 @@ import services.GuideEntretienService;
  *
  * @author dell
  */
-public class Modifierguide2Controller implements Initializable {
+public class Ajoutguide2Controller implements Initializable {
     @FXML
     private Label userConnecte;
     @FXML
@@ -65,27 +63,23 @@ public class Modifierguide2Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-         URL u;
+        // TODO
+        URL u;
         try {
             u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
              Image image = new Image(u.toString());
               userPhoto.setImage(image);
              
-          
+          //  eeltaswira.setImage(image);
+           
         } catch (MalformedURLException ex) {
             Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        // TODO
-//        domainetf.setText(Guideentretien2Controller.getDomaine());
-//        cvtf.setText(Compte2Controller.compteUser.getCv());
-//        entreprisetf.setText(Compte2Controller.compteUser.getEntreprise());
     }    
 
     @FXML
     private void goToCompte(MouseEvent event) {
-         try {
+          try {
         Parent compteParent = FXMLLoader.load(getClass().getResource("compte2.fxml"));
         Scene compteScene = new Scene(compteParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -94,6 +88,7 @@ public class Modifierguide2Controller implements Initializable {
     } catch (IOException e) {
         e.printStackTrace();
     }
+        
     }
 
     @FXML
@@ -119,6 +114,7 @@ public class Modifierguide2Controller implements Initializable {
     } catch (IOException ex) {
         System.out.println(ex.getMessage());
     }
+        
     }
 
     @FXML
@@ -128,7 +124,8 @@ public class Modifierguide2Controller implements Initializable {
     @FXML
     private void boutnmodifierguide(ActionEvent event) {
         
-        String domaine = domainetf.getText().trim();
+     
+     String domaine = domainetf.getText().trim();
 String specialite = specialitetf.getText().trim();
 String support = supporttf.getText().trim();
 
@@ -142,32 +139,40 @@ if (domaine.isEmpty() || specialite.isEmpty() || support.isEmpty()) {
                 alert.showAndWait();
     
     
-    
-    
-    
     return;
-} else {
+} else {   
         
-        
-                    GuideEntretienService ges = new GuideEntretienService();
-        GuideEntretien ge = new GuideEntretien();
+         GuideEntretien ge = new GuideEntretien();
+          GuideEntretienService ges = new GuideEntretienService();
         ge.setDomaine(domainetf.getText());
         ge.setSpecialite(specialitetf.getText());
         ge.setSupport(supporttf.getText());
-        ges.updateGuideEntretien(ListeguideController.selectedGuide.getIdguide(), ge);
         
-       
- try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/listeguide.fxml"));
-        Parent root = loader.load();
-        ListeguideController controller = loader.getController();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        System.out.println(ex.getMessage());
+        ges.addGuideEntretien(ge);
+        
+ Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
+        
+        // Afficher la fenêtre Compte2.fxml
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("listeguide.fxml"));
+            Parent root = loader.load();
+            Stage compte2Stage = new Stage();
+            compte2Stage.setScene(new Scene(root));
+            compte2Stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
     }
-}
-}
+    }
+
+    @FXML
+    private void browsevideo(ActionEvent event) {
+        
+        
+        
+    }
+    
 }
