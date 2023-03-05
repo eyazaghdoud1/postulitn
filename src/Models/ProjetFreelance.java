@@ -20,6 +20,8 @@ public class ProjetFreelance {
    private Secteur s; 
    private int idResponsable;
    private String Nom;  
+   private int note; 
+   
 
     public ProjetFreelance() {
     }
@@ -64,6 +66,19 @@ public class ProjetFreelance {
         this.s = s;
         this.idResponsable = idResponsable;
         this.Nom = Nom;
+    }
+
+    public ProjetFreelance(int idProjet, int duree, String theme, String description, Date dateDebut, Date dateFin, Secteur s, int idResponsable, String Nom, int note) {
+        this.idProjet = idProjet;
+        this.duree = duree;
+        this.theme = theme;
+        this.description = description;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.s = s;
+        this.idResponsable = idResponsable;
+        this.Nom = Nom;
+        this.note = note;
     }
 
 
@@ -152,13 +167,21 @@ public class ProjetFreelance {
         this.idResponsable = idResponsable;
     }
 
+    public int getNote() {
+        return note;
+    }
+
+    public void setNote(int note) {
+        this.note = note;
+    }
 
     @Override
     public String toString() {
-        return "ProjetFreelance{" + "idProjet=" + idProjet + ", duree=" + duree + ", theme=" + theme + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", s=" + s + ", idResponsable=" + idResponsable + ", Nom=" + Nom + '}';
+        return "ProjetFreelance{" + "idProjet=" + idProjet + ", duree=" + duree + ", theme=" + theme + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", s=" + s + ", idResponsable=" + idResponsable + ", Nom=" + Nom + ", note=" + note + '}';
     }
 
-
+    
+    
 
     
     

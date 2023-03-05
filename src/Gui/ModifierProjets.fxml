@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.ModifierProjetsController">
    <children>
@@ -180,7 +181,7 @@
                </padding>
             </VBox>
          </left>
-         <center>
+         <right>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
                <children>
                   <TextField fx:id="dureeTF" layoutX="314.0" layoutY="207.0" prefHeight="26.0" prefWidth="695.0" />
@@ -235,9 +236,10 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
+                  <Rating fx:id="tf_note" layoutX="821.0" layoutY="99.0" prefHeight="10.0" prefWidth="105.0" />
                </children>
             </AnchorPane>
-         </center>
+         </right>
       </BorderPane>
    </children>
 </AnchorPane>

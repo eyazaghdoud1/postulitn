@@ -7,6 +7,7 @@ package Gui;
 
 import static Gui.ListeProjetsFreelanceController.selectedProjet;
 import Models.ProjetFreelance;
+import Models.Secteur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -28,6 +29,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import services.ProjetServices;
+import services.SecteurServices;
 
 /**
  * FXML Controller class
@@ -53,6 +55,10 @@ public class ListeProjetsResponsableController implements Initializable {
     private VBox quizVB;
     @FXML
     private ListView<HBox> ProjetsResponsableListView;
+    @FXML
+    private ComboBox<String> secteurCB;
+     SecteurServices ss = new SecteurServices();
+      public static Secteur selectedSecteur;
 
     /**
      * Initializes the controller class.
@@ -62,39 +68,46 @@ public class ListeProjetsResponsableController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-       // les projets doivent apparternir a un seul responsable => fitrés par id responsable
-        
-              
-                      
-    List<ProjetFreelance> projets = ps.filterByIdResponsable(0);
-       for (ProjetFreelance pf : projets) {
+ if (selectedSecteur ==null){
+        projets = ps.fetchProjet();
+        } else {
+            projets = ps.filterBySecteur(selectedSecteur.getIdSecteur());
+        }
+  
+       for (int i=0; i<projets.size();i++) {
        
            FXMLLoader loader = new FXMLLoader();
            loader.setLocation(getClass().getResource("./ProjetRespItem.fxml"));
            try {
                HBox hb = loader.load();
-               ProjetRespItemController rc = loader.getController();
-               rc.setData(pf);
+               ProjetRespItemController pc = loader.getController();
+               pc.setData(projets.get(i));
+             
                ProjetsResponsableListView.getItems().add(hb);
            } catch (IOException ex) {
-               Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
+               Logger.getLogger(ListeProjetsResponsableController.class.getName()).log(Level.SEVERE, null, ex);
            }
        }
-        /*  
-         List<ProjetFreelance> projets = ps.fetchProjet();
-       for (ProjetFreelance pf : projets) {
        
-           FXMLLoader loader = new FXMLLoader();
-           loader.setLocation(getClass().getResource("./p.fxml"));
-           try {
-               HBox hb = loader.load();
-               PController pc = loader.getController();
-               pc.setData(pf);
-             
-               ProjetsFreelanceListView.getItems().add(hb);
-           } catch (IOException ex) {
-               Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
-           }*/
+         for (int i=0; i<ss.fetchSecteur().size(); i++){
+            secteurCB.getItems().add(ss.fetchSecteur().get(i).getDescription());
+        }
+         
+         secteurCB.setOnAction(e -> {
+            selectedSecteur= ss.getsecteurbydescription(secteurCB.getValue());
+             projets = ps.filterBySecteur(selectedSecteur.getIdSecteur());
+            System.out.println(selectedSecteur);
+            try {Parent Login = FXMLLoader.load(getClass().getResource("../GUI/ListeProjetsResponsable.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)secteurCB.getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        });
+       
        }
        @FXML
     private void goToCompte(MouseEvent event) {
@@ -143,6 +156,20 @@ public class ListeProjetsResponsableController implements Initializable {
             Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
         }
          
+    }
+
+    @FXML
+    private void Reset(ActionEvent event) {
+          selectedSecteur = null;
+     projets=ps.fetchProjet();
+     try {Parent Login = FXMLLoader.load(getClass().getResource("../GUI/ListeProjetsResponsable.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     }
 

@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.OffreprojetController">
    <children>
@@ -263,6 +264,17 @@
                   <Button layoutX="974.0" layoutY="551.0" mnemonicParsing="false" onAction="#GoToComments" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Check Feedback" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Button>
+                  <Rating fx:id="tf_note" layoutX="908.0" layoutY="82.0" />
+                  <Label layoutX="740.0" layoutY="87.0" text="Notez cette offre" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="882.0" layoutY="151.0" mnemonicParsing="false" onAction="#Submit" style="-fx-background-color: #1E9DFF;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
                      </font>
                   </Button>
                </children>

@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/FeedbackController.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/services/ProjetServices.java</file>
             <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/postulitnapp/NewFXMain.java</file>
-            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/ListeProjetsResponsableController.java</file>
-            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/build/classes/Gui/AjouterProjets.fxml</file>
-            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/ResponsableController.java</file>
-            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/AjouterProjetsController.java</file>
-            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/SuppressionCommentaireController.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/ModifierProjetsController.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/OffreprojetController.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Models/ProjetFreelance.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/ProjetItemController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -27,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.Rating;
 import services.ProjetServices;
 import services.SecteurServices;
 
@@ -66,6 +67,8 @@ public class ModifierProjetsController implements Initializable {
      private String SecteurSelectionne;
     @FXML
     private TextField NomTF;
+    @FXML
+    private Rating tf_note;
     /**
      * Initializes the controller class.
      */
@@ -79,6 +82,7 @@ public class ModifierProjetsController implements Initializable {
     descriptionTF.setText(ListeProjetsResponsableController.selectedProjetResp.getDescription());
     themeTF.setText(ListeProjetsResponsableController.selectedProjetResp.getTheme());
     secteurCB.setValue(ListeProjetsResponsableController.selectedProjetResp.getS().getDescription()+""); 
+   // tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
     }    
 
     @FXML
@@ -110,8 +114,8 @@ public class ModifierProjetsController implements Initializable {
         p.setDescription(descriptionTF.getInt());
         p.setDateDebut(datedebutDP.getDate());
         ps.UpdateProjet(p.getIdProjet(), p);*/
-      ProjetFreelance proUpdate =  ListeProjetsResponsableController.selectedProjetResp; 
-   proUpdate.setNom(NomTF.getText());
+    ProjetFreelance proUpdate =  ListeProjetsResponsableController.selectedProjetResp; 
+    proUpdate.setNom(NomTF.getText());
     proUpdate.setDuree(Integer.parseInt(dureeTF.getText()));
     proUpdate.setTheme(themeTF.getText());
     proUpdate.setDescription(descriptionTF.getText());

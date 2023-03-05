@@ -36,7 +36,7 @@ public class ProjetServices implements ProjetInterface {
     @Override
     public void addProjet(ProjetFreelance p) {
          try {
-             String req = "INSERT INTO `projets` (`theme`, `description`, `duree`, `dateDebut`, `dateFin`, `idSecteur`,`idResponsable`,`Nom`) VALUES (?,?,?,?,?,?,?,?)";
+             String req = "INSERT INTO `projets` (`theme`, `description`, `duree`, `dateDebut`, `dateFin`, `idSecteur`,`idResponsable`,`Nom`,`note`) VALUES (?,?,?,?,?,?,?,?,?)";
              PreparedStatement ps = cnx.prepareStatement(req); 
              ps.setString(1, p.getTheme());
              ps.setString(2, p.getDescription());
@@ -46,6 +46,7 @@ public class ProjetServices implements ProjetInterface {
              ps.setInt(6, p.getS().getIdSecteur());
              ps.setInt(7, p.getIdResponsable());
              ps.setString(8, p.getNom());
+             ps.setInt(9,p.getNote());
              ps.executeUpdate();
              System.out.println("Projet ajouté avec succes");
          } catch (SQLException ex) {
@@ -71,9 +72,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setDescription(rs.getString(3));
                  p.setDuree(rs.getInt(4));
                  p.setDateDebut(rs.getDate(5));
-                 p.setDateFin(rs.getDate(6));
-  
-                
+                 p.setDateFin(rs.getDate(6));       
                  String r = "SELECT * FROM secteurs where idSecteur = ?";
                  PreparedStatement ps1 = cnx.prepareStatement(r);
                  ps1.setInt(1, rs.getInt(7));
@@ -85,6 +84,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
                  p.setNom(rs.getString(9));
+                 p.setNote(rs.getInt(10));
           
                  projets.add(p); 
              }
@@ -99,7 +99,7 @@ public class ProjetServices implements ProjetInterface {
      @Override
     public void UpdateProjet(int id, ProjetFreelance p) {
          try {
-             String req ="UPDATE projets SET `theme`=?,`description`=?, `duree`=?, `DateDebut`=?, `DateFin`=?, `idsecteur`= ?, `idResponsable`= ?, `Nom`=? WHERE idProjet = ?";
+             String req ="UPDATE projets SET `theme`=?,`description`=?, `duree`=?, `DateDebut`=?, `DateFin`=?, `idsecteur`= ?, `idResponsable`= ?, `Nom`=?, `note`=? WHERE idProjet = ?";
              PreparedStatement ps = cnx.prepareStatement(req);
              ps.setString(1, p.getTheme());
              ps.setString(2, p.getDescription());
@@ -110,6 +110,7 @@ public class ProjetServices implements ProjetInterface {
              ps.setInt(7, p.getIdResponsable());
              ps.setString(8, p.getNom());
              ps.setInt(9,p.getIdProjet());
+             ps.setInt(10,p.getNote());
              ps.executeUpdate();
              System.out.println("Projet modiifié avec succes"); 
          } catch (SQLException ex) {
@@ -151,6 +152,8 @@ public class ProjetServices implements ProjetInterface {
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
                  p.setNom(rs.getString(9));
+                  p.setNote(rs.getInt(10));
+                 
           }
              else System.err.println("vide");
          } catch (SQLException ex) {
@@ -209,6 +212,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setS(s);
                 p.setIdResponsable(rs.getInt(8));
                 p.setNom(rs.getString(9));
+                p.setNote(rs.getInt(10));
                  ProjFiltres.add(p); 
         }
          } catch (SQLException ex) {
@@ -245,6 +249,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
                  p.setNom(rs.getString(9));
+                 p.setNote(rs.getInt(10));
                  ProjetTFiltres.add(p);
             }
         } catch (SQLException ex) {
@@ -282,6 +287,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setS(s);
                   p.setIdResponsable(rs.getInt(8));
                   p.setNom(rs.getString(9));
+                  p.setNote(rs.getInt(10));
                   ProjetDFiltres.add(p);
             }
         } catch (SQLException ex) {
@@ -318,6 +324,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
                  p.setNom(rs.getString(9));
+                 p.setNote(rs.getInt(10));
                  ProjetRFiltres.add(p);
             }
         } catch (SQLException ex) {

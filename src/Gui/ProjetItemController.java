@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.Rating;
 
 /**
  * FXML Controller class
@@ -39,6 +40,8 @@ public class ProjetItemController implements Initializable {
     private HBox phbox;
     @FXML
     private Label Lnom;
+    @FXML
+    private Rating tf_note;
 
     /**
      * Initializes the controller class.
@@ -57,7 +60,8 @@ public class ProjetItemController implements Initializable {
    Lduree.setText(p.getDuree()+""); 
    Lsecteur.setText(p.getS().getDescription());
     Lnom.setText(p.getNom());
-   
+    tf_note.setRating(p.getNote()); 
+
     }
 
     @FXML

@@ -35,6 +35,7 @@ import javafx.stage.Stage;
 import services.ProjetServices;
 import services.SecteurServices;
 
+
 /**
  * FXML Controller class
  *
@@ -134,7 +135,7 @@ public class AjouterProjetResController implements Initializable {
                 
         }
         
-          LocalDate selectedDate = datedebutDP.getValue();
+    LocalDate selectedDate = datedebutDP.getValue();
     LocalDate selectedDate1 = datefinDP.getValue();
     SecteurServices ss = new SecteurServices();
     Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
@@ -151,7 +152,6 @@ public class AjouterProjetResController implements Initializable {
     }
     // TODO: Set idResponsable to a valid value
     p.setIdResponsable(1);
-
     ps.addProjet(p);
     }
 

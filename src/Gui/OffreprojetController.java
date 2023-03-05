@@ -28,6 +28,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import Models.Commentaire;
+import org.controlsfx.control.Rating;
 import services.CommentaireServices;
 
 /**
@@ -65,6 +66,8 @@ public class OffreprojetController implements Initializable {
     private ListView<HBox> CommentsListView;
     @FXML
     private Label Lnom;
+    @FXML
+    private Rating tf_note;
 
 
     /**
@@ -80,8 +83,8 @@ public class OffreprojetController implements Initializable {
         Ldescription.setText(ListeProjetsFreelanceController.selectedProjet.getDescription());
         Lsecteur.setText(ListeProjetsFreelanceController.selectedProjet.getS().getDescription()+"");
         Lnom.setText(ListeProjetsFreelanceController.selectedProjet.getNom());
-  
         
+      
     }    
     
    
@@ -138,5 +141,12 @@ public class OffreprojetController implements Initializable {
             Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+    @FXML
+    private void Submit(ActionEvent event) {
+
+        tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
+        
+    }
+
 }
