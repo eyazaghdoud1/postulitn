@@ -119,6 +119,23 @@ public class RoleService implements RoleInterface {
          }
          return r;
 }
+ @Override
+    public Role GetByDescription(String desc) {
+      Role r = new Role();
 
+         try {
+             String req = "SELECT * FROM role where description = ? ";
+             PreparedStatement ps = cnx.prepareStatement(req);
+             ps.setString(1,desc);
+             ResultSet rs = ps.executeQuery();
+             if (rs.next()){
+             r.setIdRole(rs.getInt(1));
+             r.setDescription(rs.getString(2));
+             }   
+         } catch (SQLException ex) {
+             ex.printStackTrace();
+         }
+         return r;
+}
     
 }

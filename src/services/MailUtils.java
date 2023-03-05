@@ -22,8 +22,7 @@ import javax.mail.internet.MimeMessage;
  * @author ezine
  */
 public class MailUtils {
-    public static void SendMail(String recepient) throws MessagingException{
-        String code = getRandomCode();       
+    public static void SendMail(String recepient, String code) throws MessagingException{      
         System.out.println("Preparing to send the message");
         Properties pr = new Properties();
         
@@ -51,6 +50,7 @@ public class MailUtils {
           Message msg = prepareMessage(session,email,recepient, code);   
           Transport.send(msg);
           System.out.println("Message envoyé");
+          System.out.println(code);
     }
 
     private static Message prepareMessage(Session session, String email,String recepient, String code) {
@@ -68,18 +68,18 @@ public class MailUtils {
        return null; 
     }
     
-       public static String getRandomCode() 
-    {
-        String code = "0123456789"; 
-  
-        StringBuilder s = new StringBuilder(4); 
-  
-        for (int i = 0; i < 4; i++) { 
-            int index = (int)(code.length() * Math.random()); 
-            s.append(code.charAt(index)); 
-        } 
-        return s.toString();  
-    } 
+//       public static String getRandomCode() 
+//    {
+//        String code = "0123456789"; 
+//  
+//        StringBuilder s = new StringBuilder(4); 
+//  
+//        for (int i = 0; i < 4; i++) { 
+//            int index = (int)(code.length() * Math.random()); 
+//            s.append(code.charAt(index)); 
+//        } 
+//        return s.toString();  
+//    } 
     
 //    public static void sendmail2(String recipient, String password) throws MessagingException{
 //        Properties pr = new Properties();

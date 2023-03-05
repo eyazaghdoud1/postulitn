@@ -5,7 +5,7 @@
  */
 package services;
 
-import gui.MdpoublieController;
+import GUI.MdpoublieController;
 import interfaces.UtilisateurInterface;
 import java.sql.Connection;
 import java.sql.Date;
@@ -218,7 +218,7 @@ public class UtilisateurService implements UtilisateurInterface {
     }
 
     @Override
-    public void UpdateMdp(Utilisateur u, String email, String nouveaumdp) {
+    public void UpdateMdp(Utilisateur u, String nouveaumdp) {
              String mySecurePassword = Passwordutils.generateSecurePassword(nouveaumdp,u.getSalt());
              u.setMdp(mySecurePassword);
 

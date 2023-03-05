@@ -38,7 +38,7 @@ public class PostulitnApp {
         AuthenticationService as = new AuthenticationService();
         
         //Utilisateur init
-        Utilisateur u = us.GetByIdUser(44);
+        Utilisateur u = us.GetByIdUser(59);
         
         //Role init
         Role r = new Role();
@@ -71,15 +71,15 @@ public class PostulitnApp {
 /*************************************  CRUD Utilisateur  ***********************************************/
 
         //add Utilisateur       
-        
-//        u.setNom("Ben guirat");
-//        u.setPrenom("aziz");
-//        u.setEmail("aziz.benguirat@esprit.tn");
-//        u.setTel("2222222");
-//        u.setAdresse("ennasr");
+//        
+//        u.setNom("Zaghdoud");
+//        u.setPrenom("Eya");
+//        u.setEmail("eya.zaghdoud@esprit.tn");
+//        u.setTel("22222222");
+//        u.setAdresse("Aouina");
 //        u.setMdp("test");
 //        u.setDateNaissance(Date.valueOf("2001-01-01"));
-//        u.setRole(rs.GetByIdRole(1));
+//        u.setRole(rs.GetByIdRole(20));
 //        us.addUser(u);
 
 
@@ -153,7 +153,7 @@ public class PostulitnApp {
 
 //        MailUtils.SendMail("eya.zinelabidine@esprit.tn");
 
-
+//         us.UpdateMdp(u, u.getEmail(), "test1");
 
 
 

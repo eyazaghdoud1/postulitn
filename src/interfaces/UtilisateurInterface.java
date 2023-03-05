@@ -32,7 +32,7 @@ public interface UtilisateurInterface {
     public Utilisateur GetByIdUser (int id);
     
     //MDPOublié
-    public void UpdateMdp (Utilisateur u, String email, String nouveaumdp);
+    public void UpdateMdp (Utilisateur u, String nouveaumdp);
   
     //getByEmail
     public Utilisateur GetByEmail(String mail);

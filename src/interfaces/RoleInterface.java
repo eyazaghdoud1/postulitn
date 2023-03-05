@@ -30,4 +30,5 @@ public interface RoleInterface {
     //getbyid
     public Role GetByIdRole (int id);
     
+    public Role GetByDescription (String desc);
 }
