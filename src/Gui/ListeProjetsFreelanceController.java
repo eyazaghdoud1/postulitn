@@ -64,10 +64,10 @@ public class ListeProjetsFreelanceController implements Initializable {
        for (ProjetFreelance pf : projets) {
        
            FXMLLoader loader = new FXMLLoader();
-           loader.setLocation(getClass().getResource("./Projet.fxml"));
+           loader.setLocation(getClass().getResource("./ProjetItem.fxml"));
            try {
                HBox hb = loader.load();
-               ProjetController pc = loader.getController();
+               ProjetItemController pc = loader.getController();
                pc.setData(pf);
              
                ProjetsFreelanceListView.getItems().add(hb);

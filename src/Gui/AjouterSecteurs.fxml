@@ -198,6 +198,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
+                  <Label fx:id="erreurSecteur" layoutX="248.0" layoutY="565.0" prefHeight="18.0" prefWidth="273.0" textFill="WHITE" />
                </children></AnchorPane>
          </center>
       </BorderPane>

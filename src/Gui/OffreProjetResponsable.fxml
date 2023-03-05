@@ -260,12 +260,12 @@
                         <Font size="13.0" />
                      </font>
                   </Label>
-                  <Button layoutX="544.0" layoutY="535.0" mnemonicParsing="false" onAction="#deleteProjet" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Supprimer" textFill="WHITE">
+                  <Button layoutX="784.0" layoutY="535.0" mnemonicParsing="false" onAction="#GoToCommentaire" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Voir commentaires" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="784.0" layoutY="535.0" mnemonicParsing="false" onAction="#GoToCommentaire" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Voir commentaires" textFill="WHITE">
+                  <Button layoutX="544.0" layoutY="535.0" mnemonicParsing="false" onAction="#deleteProjet" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>

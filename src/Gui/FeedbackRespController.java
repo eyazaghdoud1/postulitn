@@ -31,7 +31,7 @@ import services.CommentaireServices;
  *
  * @author Users
  */
-public class SuppressionCommentaireController implements Initializable {
+public class FeedbackRespController implements Initializable {
 
     @FXML
     private Label userConnecte;
@@ -48,16 +48,17 @@ public class SuppressionCommentaireController implements Initializable {
     @FXML
     private ListView<HBox> CommentListView;
     static CommentaireServices cs = new CommentaireServices(); 
-  static List<Commentaire> commentaires = cs.fetchCommentaire();
-    public static Commentaire selectedComment;
+  static List<Commentaire> commentairesResp ;
+    public static Commentaire selectedCommentResp;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO ProjetFreelance pf : projets
-         for (Commentaire c : commentaires ) {
-       
+               commentairesResp= cs.fetchCommentaire();
+         for (Commentaire c : commentairesResp ) {
+
            FXMLLoader loader = new FXMLLoader();
            loader.setLocation(getClass().getResource("./CommentaireRespItem.fxml"));
            try {
@@ -107,7 +108,7 @@ public class SuppressionCommentaireController implements Initializable {
 
     @FXML
     private void HandleCommentaire(MouseEvent event) {
-         selectedComment = cs.getById(commentaires.get(CommentListView.getSelectionModel().getSelectedIndex()).getIdCommentaire());
+    selectedCommentResp = commentairesResp.get(CommentListView.getSelectionModel().getSelectedIndex());
     }
     }
     

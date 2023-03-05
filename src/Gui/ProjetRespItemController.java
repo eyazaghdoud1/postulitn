@@ -11,6 +11,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +24,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import services.ProjetServices;
@@ -31,7 +34,7 @@ import services.ProjetServices;
  *
  * @author Users
  */
-public class ResponsableController implements Initializable {
+public class ProjetRespItemController implements Initializable {
 
     @FXML
     private Label Lduree;
@@ -46,7 +49,7 @@ public class ResponsableController implements Initializable {
     @FXML
     private Label Lnom;
     
-     public static ProjetFreelance selectedProjetResp;
+
      private ProjetServices ps = new ProjetServices(); 
      List<ProjetFreelance> projets = ps.fetchProjet(); 
 
@@ -75,37 +78,6 @@ public class ResponsableController implements Initializable {
     
     
     
-    @FXML
-    private void DeleteProjet(ActionEvent event) {
-          /* Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation de suppression projet ");
-                alert.setHeaderText("Etes-vous sures de vouloir supprimer ce projet ?");
-
-                ButtonType buttonTypeYes = new ButtonType("Oui");
-                ButtonType buttonTypeNo = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
-
-                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
-                
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.isPresent() && result.get() == buttonTypeYes){
-                 //  "Yes"
-                 ps.deleteProjetById(selectedProjetResp.getIdProjet());
-                 try {
-                  Parent root = FXMLLoader.load(getClass().getResource("./ListeProjetsFreelance.fxml"));
-                  System.out.println("FXML loaded successfully");
-                  Scene scene = new Scene(root);
-                  Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                  stage.setScene(scene);
-                  stage.show();
-           
-                 } catch (IOException ex) {
-                      ex.printStackTrace();
-                 }
-                } else {
-                 // "No"
-                 alert.close();
-    }*/
-    }
 
     @FXML
     private void GoToModifier(ActionEvent event) throws IOException {
@@ -116,5 +88,7 @@ public class ResponsableController implements Initializable {
        appStage.show();
         
     }
+
+    
     
 }

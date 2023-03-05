@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -69,10 +70,10 @@ public class ListeProjetsResponsableController implements Initializable {
        for (ProjetFreelance pf : projets) {
        
            FXMLLoader loader = new FXMLLoader();
-           loader.setLocation(getClass().getResource("./Responsable.fxml"));
+           loader.setLocation(getClass().getResource("./ProjetRespItem.fxml"));
            try {
                HBox hb = loader.load();
-               ResponsableController rc = loader.getController();
+               ProjetRespItemController rc = loader.getController();
                rc.setData(pf);
                ProjetsResponsableListView.getItems().add(hb);
            } catch (IOException ex) {
@@ -116,8 +117,22 @@ public class ListeProjetsResponsableController implements Initializable {
     }
 
     @FXML
-    private void handleSecteur(MouseEvent event) {
-        selectedProjetResp = projets.get( ProjetsResponsableListView.getSelectionModel().getSelectedIndex());
+    private void GoToAjouterProjet(ActionEvent event) {
+         try {
+            Parent Offreprojet = FXMLLoader.load(getClass().getResource("AjouterProjetRes.fxml"));
+            Scene  OffreprojetScene = new Scene(Offreprojet);
+            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            appStage.setScene(OffreprojetScene);
+            appStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+    }
+
+    @FXML
+    private void handleProjetResp(MouseEvent event) {
+         selectedProjetResp = projets.get(ProjetsResponsableListView.getSelectionModel().getSelectedIndex());
         try {
             Parent Offreprojet = FXMLLoader.load(getClass().getResource("OffreprojetResponsable.fxml"));
             Scene  OffreprojetScene = new Scene(Offreprojet);
@@ -127,7 +142,6 @@ public class ListeProjetsResponsableController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
          
     }
     }

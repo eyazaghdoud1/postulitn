@@ -118,7 +118,44 @@ public class OffreprojetResponsableController implements Initializable {
 
     @FXML
     private void deleteProjet(ActionEvent event) {
-        
+//        ps.deleteProjetById(ListeProjetsResponsableController.selectedProjetResp);
+//         try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/ListeProjetsResponsable.fxml"));
+//            Scene si = new Scene(Login);
+//            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+//            st.setScene(si);
+//            st.show();
+//        } catch (IOException ex) {
+//            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }  
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation de suppression");
+                alert.setHeaderText("Etes-vous sures de vouloir supprimer cette offre ?");
+
+                ButtonType buttonTypeYes = new ButtonType("Oui");
+                ButtonType buttonTypeNo = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonTypeYes){
+                 // User clicked "Yes"
+                ps.deleteProjetById(ListeProjetsResponsableController.selectedProjetResp);
+                 try {
+                  Parent root = FXMLLoader.load(getClass().getResource("./ListeProjetsResponsable.fxml"));
+                  System.out.println("FXML loaded successfully");
+                  Scene scene = new Scene(root);
+                  Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                  stage.setScene(scene);
+                  stage.show();
+           
+                 } catch (IOException ex) {
+                      ex.printStackTrace();
+                 }
+                } else {
+                 // User clicked "No" or closed the dialog
+                 alert.close();
+                }
     }
 
     @FXML
@@ -139,7 +176,7 @@ public class OffreprojetResponsableController implements Initializable {
     private void GoToCommentaire(ActionEvent event) {
         try {
    
-            Parent ModifierProjets = FXMLLoader.load(getClass().getResource("SuppressionCommentaire.fxml"));
+            Parent ModifierProjets = FXMLLoader.load(getClass().getResource("FeedbackResp.fxml"));
             Scene  ModifierProjetsScene = new Scene(ModifierProjets);
             Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             appStage.setScene(ModifierProjetsScene);

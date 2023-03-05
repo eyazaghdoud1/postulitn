@@ -55,9 +55,10 @@ public class CommentaireRespItemController implements Initializable {
 // A corriger 
     @FXML
     private void DeleteComment(MouseEvent event) {
-        //Commentaire c = commentaires.get(SuppressionCommentaireController.selectedComment);
-            cs.deleteCommentaireById(SuppressionCommentaireController.selectedComment);
-       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/SuppressionCommentaire.fxml"));
+        //Commentaire c = commentaires.get(FeedbackRespController.selectedComment);
+        System.out.println(FeedbackRespController.selectedCommentResp);
+          cs.deleteCommentaireById(FeedbackRespController.selectedCommentResp);
+       try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/FeedbackResp.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);

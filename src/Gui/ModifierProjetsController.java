@@ -110,8 +110,7 @@ public class ModifierProjetsController implements Initializable {
         p.setDescription(descriptionTF.getInt());
         p.setDateDebut(datedebutDP.getDate());
         ps.UpdateProjet(p.getIdProjet(), p);*/
-      ProjetFreelance proUpdate = new ProjetFreelance(); 
-   //ProjetFreelance p = ListeProjetsResponsableController.selectedProjetResp;
+      ProjetFreelance proUpdate =  ListeProjetsResponsableController.selectedProjetResp; 
    proUpdate.setNom(NomTF.getText());
     proUpdate.setDuree(Integer.parseInt(dureeTF.getText()));
     proUpdate.setTheme(themeTF.getText());
@@ -119,9 +118,18 @@ public class ModifierProjetsController implements Initializable {
     proUpdate.setDateDebut(Date.valueOf(datedebutDP.getValue()));
      proUpdate.setDateFin(Date.valueOf(datefinDP.getValue()));
      proUpdate.setS(ss.getsecteurbydescription(SecteurSelectionne));
+     proUpdate.setIdResponsable(1);
     //ps.UpdateProjet(p.getIdProjet(), p);
     ps.UpdateProjet(proUpdate.getIdProjet(), proUpdate);
-    
+     try {
+            Parent OffreprojetResponsable = FXMLLoader.load(getClass().getResource("OffreprojetResponsable.fxml"));
+            Scene  OffreprojetResponsableScene = new Scene(OffreprojetResponsable);
+            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            appStage.setScene(OffreprojetResponsableScene);
+            appStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ModifierProjetsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
  
         
     }

@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  *
  * @author Users
  */
-public class ProjetController implements Initializable {
+public class ProjetItemController implements Initializable {
 
     @FXML
     private Label Lduree;

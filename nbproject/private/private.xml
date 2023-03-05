@@ -5,7 +5,11 @@
         <group>
             <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/FeedbackController.java</file>
             <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/postulitnapp/NewFXMain.java</file>
-            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/build/classes/postulitnapp/NewFXMain.class</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/ListeProjetsResponsableController.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/build/classes/Gui/AjouterProjets.fxml</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/ResponsableController.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/AjouterProjetsController.java</file>
+            <file>file:/C:/Users/Users/Documents/NetBeansProjects/postulitnApp2/src/Gui/SuppressionCommentaireController.java</file>
         </group>
     </open-files>
 </project-private>

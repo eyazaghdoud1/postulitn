@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -62,6 +63,8 @@ public class AjouterSecteursController implements Initializable {
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
        
         ProjetInterface ps = new ProjetServices();
+    @FXML
+    private Label erreurSecteur;
     
     /**
      * Initializes the controller class.
@@ -116,6 +119,18 @@ public class AjouterSecteursController implements Initializable {
     private void addSecteur(ActionEvent event) {
      SecteurServices ss = new SecteurServices();
          Secteur s= new Secteur(); 
+          if (controleTextFieldNonNumerique(secteurTF))
+          {return ; 
+          }
+          
+          if(secteurTF.getText().isEmpty())
+                     {
+        erreurSecteur.setText("veuillez saisir un secteur !");
+        erreurSecteur.setVisible(true);
+        return;
+        }
+              
+ 
         s.setDescription(secteurTF.getText());
         ss.addSecteur(s);
      try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/AjouterSecteurs.fxml"));
@@ -129,4 +144,15 @@ public class AjouterSecteursController implements Initializable {
     
     }
     
-}
+        public boolean controleTextFieldNonNumerique(TextField textField) {
+        if (textField.getText().matches(".*[0-9].*")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez n'insérer que des caractères !");
+            alert.showAndWait();
+            return true;
+        }
+             return false;}
+
+    }
+    

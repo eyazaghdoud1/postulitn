@@ -26,6 +26,8 @@ import services.ProjetServices;
 import java.sql.Date;
 import java.util.List;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.VBox;
 import services.SecteurServices;
 
@@ -64,8 +66,23 @@ public class AjouterProjetsController implements Initializable {
         private String SecteurSelectionne;
          SecteurServices ss = new SecteurServices();
          ProjetServices ps = new ProjetServices(); 
+         ProjetFreelance p = new ProjetFreelance();
     @FXML
     private TextField NomTF;
+    @FXML
+    private Label erreurNom;
+    @FXML
+    private Label erreurDuree;
+    @FXML
+    private Label erreurTheme;
+    @FXML
+    private Label erreurDateDebut;
+    @FXML
+    private Label erreurDateFin;
+    @FXML
+    private Label erreurSecteur;
+    @FXML
+    private Label erreurDescription;
     /**
      * Initializes the controller class.
      */
@@ -84,46 +101,104 @@ public class AjouterProjetsController implements Initializable {
     @FXML
     private void addProjet(ActionEvent event) {
         
-       ProjetFreelance p = new ProjetFreelance();
-        /* if(validateDatePicker(datedebutDP) && validateDatePicker(datefinDP) && controleTextField(themeTF) && controleTextField(descriptionTF) && controleTextFieldDuree(dureeTF) )     {
-        if (themeTF.getText().isEmpty())
-        {
-        erreurtheme.setText("theme non valide !");
-        erreurtheme.setVisible(true);
-        
-        return;
+        if (NomTF.getText().isEmpty() || dureeTF.getText().isEmpty() || themeTF.getText().isEmpty()  ||  descriptionTF.getText().isEmpty() || datedebutDP.getValue()== null || datefinDP.getValue()== null || secteurCB.getValue() == null)
+                {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Champs manquants");
+                alert.setContentText("Vous devez remplir tous les champs avant d'enregistrer.");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();
+                
         }
-        if (descriptionTF.getText().isEmpty())
-        {
-        erreurdescription.setText("Description non valide !");
-        erreurdescription.setVisible(true);
         
-        return;
-        }
-        if (dureeTF.getText().isEmpty())
-        {
-        erreurduree.setText("duree non valide !");
-        erreurduree.setVisible(true);
+       
+//        if(validateDatePicker(datedebutDP) || validateDatePicker(datefinDP) || controleTextFieldNumerique(dureeTF) )     {
+//        if (NomTF.getText().isEmpty())
+//        {
+//        erreurNom.setText("Veuillez saisir un nom !");
+//        erreurNom.setVisible(true);
+//        return;
+//        }
+//            
+//            if (themeTF.getText().isEmpty())
+//        {
+//        erreurTheme.setText("theme non valide !");
+//        erreurTheme.setVisible(true);
+//        return;
+//        }
+//        
+//        if (descriptionTF.getText().isEmpty())
+//        {
+//        erreurDescription.setText("Description non valide !");
+//        erreurDescription.setVisible(true);
+//        return;
+//        }
+//        
+//        return;
+//        }
+//        if (dureeTF.getText().isEmpty())
+//        {
+//        erreurDuree.setText("duree non valide !");
+//        erreurDuree.setVisible(true);
+//        
+//        return;
+//        }
+//        
+//         if (datedebutDP.getValue()== null)
+//        {
+//        erreurDateDebut.setText("Date non valide !");
+//        erreurDateDebut.setVisible(true);
+//        return;
+//        }
+//        
+//         if (datefinDP.getValue()== null)
+//        {
+//        erreurDateFin.setText("Date non valide !");
+//        erreurDateFin.setVisible(true);
+//        
+//        
+//        return;
+//        }
         
-        return;
-        }*/
-        
-     LocalDate selectedDate = datedebutDP.getValue();
-        LocalDate selectedDate1 = datefinDP.getValue();
-        String dateString = selectedDate.toString();
-      //  ProjetFreelance p = new ProjetFreelance();
-        SecteurServices ss = new SecteurServices();
-        Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
-        p.setDuree(Integer.parseInt(dureeTF.getText()));
-        p.setTheme(themeTF.getText());
-        p.setNom(NomTF.getText()); 
-        p.setDescription(descriptionTF.getText());     
-        p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
-        p.setDateFin(Date.valueOf(datedebutDP.getValue()));
+//     LocalDate selectedDate = datedebutDP.getValue();
+//        LocalDate selectedDate1 = datefinDP.getValue();
+//        String dateString = selectedDate.toString();
+//      //  ProjetFreelance p = new ProjetFreelance();
+//        SecteurServices ss = new SecteurServices();
+//        Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
+//        p.setDuree(Integer.parseInt(dureeTF.getText()));
+//        p.setTheme        p.setTheme(themeTF.getText());
+//(themeTF.getText());
+//        p.setNom(NomTF.getText()); 
+//        p.setDescription(descriptionTF.getText());     
+//        p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
+//        p.setDateFin(Date.valueOf(datedebutDP.getValue()));
+//        p.setS(ss.getsecteurbydescription(SecteurSelectionne));
+//        p.setIdResponsable(0);
+//        ps.addProjet(p);
+
+    LocalDate selectedDate = datedebutDP.getValue();
+    LocalDate selectedDate1 = datefinDP.getValue();
+    SecteurServices ss = new SecteurServices();
+    Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
+
+    ProjetFreelance p = new ProjetFreelance();
+    p.setDuree(Integer.parseInt(dureeTF.getText()));
+    p.setTheme(themeTF.getText());
+    p.setNom(NomTF.getText()); 
+    p.setDescription(descriptionTF.getText());     
+    p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
+    p.setDateFin(Date.valueOf(datefinDP.getValue()));
+    if (SecteurSelectionne != null) {
         p.setS(ss.getsecteurbydescription(SecteurSelectionne));
-        p.setIdResponsable(0);
-        ps.addProjet(p);
     }
+    // TODO: Set idResponsable to a valid value
+    p.setIdResponsable(1);
+
+    ps.addProjet(p);
+    }
+        
 
     @FXML
     private void goToCompte(javafx.scene.input.MouseEvent event) {
@@ -144,8 +219,40 @@ public class AjouterProjetsController implements Initializable {
     @FXML
     private void goToGuides(javafx.scene.input.MouseEvent event) {
     }
+    
+    
+public boolean validateDatePicker(DatePicker dateD)
+    {
+          if(dateD.getEditor().getText().isEmpty())
+         {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez saisir la date ");
+            alert.showAndWait();
+            return true;
+         }
+           return false;
+        }
 
- 
+ public boolean controleTextFieldNumerique(TextField textField) {
+        if (textField.getText().matches(".*[a-zA-Z].*") ) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("veuillez saisir que des entiers!");
+            alert.showAndWait();
+            return true;
+        }
+             return false;}
+    
+    public boolean controleTextFieldNonNumerique(TextField textField) {
+        if (textField.getText().matches(".*[0-9].*")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez n'insérer que des caractères !");
+            alert.showAndWait();
+            return true;
+        }
+             return false;}
 
     }
   
