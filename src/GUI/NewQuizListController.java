@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -77,7 +78,8 @@ public class NewQuizListController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("./NewQuizItem.fxml"));
               
                 HBox hbox = fxmlLoader.load();
-                hbox.setStyle("-fx-background-color: #939AB0; -fx-border-radius: 10;"); 
+                hbox.setStyle("-fx-background-color: #939AB0; -fx-border-radius: 10;; -fx-border-color:white"); 
+                
                 hbox.setEffect(new DropShadow(2d, 0d, +2d, Color.WHITE));
                 quizListView.setStyle("-fx-control-inner-background:  #0E1947; -fx-box-border:#0E1947; -fx-border-radius: 10;");
                 NewQuizItemController qic = fxmlLoader.getController();
@@ -87,6 +89,16 @@ public class NewQuizListController implements Initializable {
                ex.printStackTrace();
             }
         }
+        
+         /*if (userconnecte.getRole().getDescription().equals("candidat")) { // the above code }
+         else if (userconnecte.getRole().getDescription().equals("Recruteur")) {
+           quizList = qs.filterQuizByRecruteur(userconnecte.getId());
+         Button newQuiz = new Button ("Ajouter un quiz ");
+         onclick=> redirection à la page d'ajout de quiz
+         }
+         
+         
+         */
         
     }    
 

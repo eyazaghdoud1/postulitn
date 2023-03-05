@@ -40,9 +40,9 @@ public class FXMain extends Application {
             
             //interface recruteur 
             //Parent root = FXMLLoader.load(getClass().getResource("../GUI/CandidaturesRecruteur.fxml"));
-           // Parent root = FXMLLoader.load(getClass().getResource("../GUI/EntretiensRecruteur.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../GUI/NewCandidaturesRecruteur.fxml"));
            
-           Parent root = FXMLLoader.load(getClass().getResource("../GUI/NewQuizList.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/NewQuizList.fxml"));
            
             System.out.println("FXML loaded successfully");
             

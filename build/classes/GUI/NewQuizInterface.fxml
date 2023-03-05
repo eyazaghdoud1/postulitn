@@ -439,7 +439,7 @@
                   </VBox>
                   <HBox fx:id="scoreHB" layoutX="953.0" layoutY="31.0" prefHeight="64.0" prefWidth="256.0" style="-fx-background-color: #1E9DFF;">
                      <children>
-                        <Label prefHeight="31.0" prefWidth="148.0" text="Votre score est :" textFill="WHITE">
+                        <Label fx:id="sLabel" prefHeight="31.0" prefWidth="148.0" text="Votre score est :" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>

@@ -87,7 +87,7 @@ public class QuizQuestionService implements QuizQuestionInterface{
         
      QuizQuestion qq = this.getQuizQuestionById(idQuestion);
         if (qq != null) {
-         String req = "DELETE FROM `quizqestions` WHERE id = ?";
+         String req = "DELETE FROM `quizquestions` WHERE id = ?";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1, idQuestion);
@@ -106,7 +106,7 @@ public class QuizQuestionService implements QuizQuestionInterface{
     public void updateQuizQuestion(int idQuestion, QuizQuestion question) {
         QuizQuestion qq = this.getQuizQuestionById(idQuestion);
         if (qq != null) {
-         String req = "UPDATE `quizquestion` SET `question`=? ,`option1`=?, `option2`=?, `option3`=?, `reponse`=?"
+         String req = "UPDATE `quizquestions` SET `question`=? ,`option1`=?, `option2`=?, `option3`=?, `reponse`=?"
                  + " WHERE id = ? ";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
@@ -118,6 +118,7 @@ public class QuizQuestionService implements QuizQuestionInterface{
             ps.setInt(6, idQuestion);
             ps.executeUpdate();
             System.out.println("Quiz question modifiée avec succès.");
+             System.out.println(question);
             
          } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -144,7 +145,7 @@ public class QuizQuestionService implements QuizQuestionInterface{
                 q.setOption2(rs.getString(4));
                 q.setOption3(rs.getString(5));
                 q.setReponse(rs.getString(6));
-                q.setId(rs.getInt(7));
+                q.setQuiz(rs.getInt(7));
               
                 questions.add(q);
             }

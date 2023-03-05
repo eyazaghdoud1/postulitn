@@ -5,6 +5,8 @@
  */
 package models;
 
+import java.sql.Date;
+
 /**
  *
  * @author HP I5
@@ -13,6 +15,7 @@ public class QuizScore {
     private int id, score; 
     private int idCandidat;
     private Quiz quiz;
+    private Date date;
     
     // constructeurs
 
@@ -24,19 +27,22 @@ public class QuizScore {
         this.score = 0;
         this.idCandidat = idCandidat;
         this.quiz = quiz;
+        this.date = new Date(System.currentTimeMillis()) ;
     }
     public QuizScore(int id, int idCandidat, Quiz quiz) {
         this.id = id;
         this.score = 0;
         this.idCandidat = idCandidat;
         this.quiz = quiz;
+     
     }
 
-    public QuizScore(int id, int score, int idCandidat, Quiz quiz) {
+    public QuizScore(int id, int score, int idCandidat, Quiz quiz, Date date) {
         this.id=id;
         this.score = score;
         this.idCandidat = idCandidat;
         this.quiz = quiz;
+        this.date = date ;
     }
     
     // getters and setters
@@ -72,13 +78,22 @@ public class QuizScore {
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
     
     // toString method 
 
     @Override
     public String toString() {
-        return "QuizScore{" + "id=" + id + ", score=" + score + ", idCandidat=" + idCandidat + ", quiz=" + quiz + '}';
+        return "QuizScore{" + "id=" + id + ", score=" + score + ", idCandidat=" + idCandidat + ", quiz=" + quiz + ", date=" + date + '}';
     }
+
     
     
     

@@ -12,10 +12,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,8 +34,12 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -40,6 +49,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import models.Candidature;
 import models.Entretien;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -118,28 +128,56 @@ public class NewCandidatureInterfaceController implements Initializable {
     private Label recruteurOffre;
     @FXML
     private Label etatCand;
+    @FXML
+    private Button updateBtn;
+    @FXML
+    private TextField cvTF;
+    @FXML
+    private TextField lettreTF;
+    
+    File cvFile, lettreFile;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        updateBtn.setDisable(true);
+         /*cvTF.textProperty().addListener((observable, oldValue, newValue) -> {
+           updateBtn.setDisable( (newValue.trim().isEmpty() || lettreTF.getText().trim().isEmpty()) 
+                );
+        });
+
+
         
+        updateBtn.setDisable(true);
         System.out.println(NewCandidaturesController.selectedCandidature);
         
         // si la candidature est passé de l'état enregistré à un autre état; pas de modifications
-        if (! NewCandidaturesController.selectedCandidature.getEtat().equals(EtatCandidature.EtatsCandidature.Enregistrée))
+/*        if (! NewCandidaturesController.selectedCandidature.getEtat().equals(EtatCandidature.EtatsCandidature.Enregistrée))
         {
            browseCvBtn.setDisable(true);
            browseLettreBtn.setDisable(true);
-        }
+        }*/
+        cvTF.setText(NewCandidaturesController.selectedCandidature.getCv());
+        lettreTF.setText(NewCandidaturesController.selectedCandidature.getLettre());
         dateCand.setText(dateCand.getText() + NewCandidaturesController.selectedCandidature.getDate());
         etatCand.setText(etatCand.getText() + NewCandidaturesController.selectedCandidature.getEtat());
         try {
             // TODO
             System.out.println("Initializing");
-            Path filePath = Paths.get("D:\\pfe\\projet\\cv\\CV_ZAGHDOUD_Eya.pdf");
-            URL u = filePath.toUri().toURL();
+            //Path filePath = Paths.get("D:\\pfe\\projet\\cv\\CV_ZAGHDOUD_Eya.pdf");
+           // Path filePath = Paths.get(NewCandidaturesController.selectedCandidature.getCv());
+            
+            //URL u = new URL(NewCandidaturesController.selectedCandidature.getCv());
+//           URI uri = ClassLoader.getSystemResource("http://localhost").toURI();
+    //       String mainPath = Paths.get(uri).toString();
+      //     Path filePath = Paths.get(mainPath + NewCandidaturesController.selectedCandidature.getCv());
+            //Path filePath = Paths.get("C:\\xampp\\htdocs\\postulitn\\cv\\" + NewCandidaturesController.selectedCandidature.getCv());
+          //  Path filePath = new Path("");
+          //  URL u = filePath.toUri().toURL();
+          URL u = new URL("http://localhost/postulitn/cv/"+ NewCandidaturesController.selectedCandidature.getCv());
+            System.out.println(u);
             try (InputStream inputStream = u.openStream()) {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];
@@ -189,8 +227,15 @@ catch (IOException ex) {
                 try {
             // TODO
             System.out.println("Initializing");
-            Path filePath2 = Paths.get("D:\\pfe\\projet\\lettre de motivation.pdf");
-            URL u2 = filePath2.toUri().toURL();
+            //Path filePath2 = Paths.get("D:\\pfe\\projet\\lettre de motivation.pdf");
+            //Path filePath2 = Paths.get(NewCandidaturesController.selectedCandidature.getLettre());
+            //Path filePath2 = Paths.get("C:\\xampp\\htdocs\\postulitn\\cv\\" + NewCandidaturesController.selectedCandidature.getLettre());
+            //URI uri = ClassLoader.getSystemResource("C:\\xampp\\htdocs\\postulitn\\lettres\\").toURI();
+           // String mainPath = Paths.get("C:\\xampp\\htdocs\\postulitn\\lettres\\").toString();
+           //Path filePath2 = Paths.get(mainPath + NewCandidaturesController.selectedCandidature.getLettre());
+            //URL u2 = filePath2.toUri().toURL();
+            URL u2 = new URL("http://localhost/postulitn/lettres/"+ NewCandidaturesController.selectedCandidature.getLettre());
+            System.out.println(u2);
             try (InputStream inputStream = u2.openStream()) {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer2 = new byte[4096];
@@ -450,23 +495,29 @@ imageView1.setScaleY(initialScale);
 
     @FXML
     private void browseCv(ActionEvent event) {
+        
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) browseCvBtn.getScene().getWindow();
-        File file = fc.showOpenDialog(stage);
-        NewCandidaturesController.selectedCandidature.setCv(file.getAbsolutePath());
-        NewCandidaturesController.cs.updateCandidature(NewCandidaturesController.selectedCandidature.getId(),
-                NewCandidaturesController.selectedCandidature);
+        cvFile = fc.showOpenDialog(stage);
+        cvTF.setText(cvFile.getAbsolutePath());
+         updateBtn.setDisable(false);
+        //NewCandidaturesController.selectedCandidature.setCv(file.getAbsolutePath());
+        /*NewCandidaturesController.cs.updateCandidature(NewCandidaturesController.selectedCandidature.getId(),
+                NewCandidaturesController.selectedCandidature);*/
        //refresh the page
     }
 
     @FXML
     private void browseLettre(ActionEvent event) {
+        
         FileChooser fc = new FileChooser();
         Stage stage = (Stage) browseCvBtn.getScene().getWindow();
-        File file = fc.showOpenDialog(stage);
-        NewCandidaturesController.selectedCandidature.setLettre(file.getAbsolutePath());
+        lettreFile = fc.showOpenDialog(stage);
+        lettreTF.setText(lettreFile.getAbsolutePath());
+        updateBtn.setDisable(false);
+        /*NewCandidaturesController.selectedCandidature.setLettre(lettreFile.getName());
         NewCandidaturesController.cs.updateCandidature(NewCandidaturesController.selectedCandidature.getId(),
-                NewCandidaturesController.selectedCandidature);
+                NewCandidaturesController.selectedCandidature);*/
          //refresh the page
     
     }
@@ -484,6 +535,89 @@ imageView1.setScaleY(initialScale);
                  } catch (IOException e) {
                       e.printStackTrace();
                  }
+    }
+
+    @FXML
+    private void updateCandidature(ActionEvent event) {
+        try {
+            //NewCandidaturesController.selectedCandidature.setLettre(lettreTF.getText());
+            Candidature newc = NewCandidaturesController.selectedCandidature;
+            if (cvFile != null ) {
+            newc.setCv(cvFile.getName()); 
+             Path sourceCv = cvFile.toPath() ;
+            Path destinationCv = Paths.get("C:\\xampp\\htdocs\\postulitn\\cv\\" + cvFile.getName());
+            Files.copy(sourceCv, destinationCv, StandardCopyOption.REPLACE_EXISTING);
+            }
+            if (lettreFile != null ) {
+            newc.setLettre(lettreFile.getName());
+            
+            Path sourceLettre = lettreFile.toPath() ;
+            Path destinationLettre = Paths.get("C:\\xampp\\htdocs\\postulitn\\lettres\\" + lettreFile.getName());
+            Files.copy(sourceLettre, destinationLettre, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
+            
+            NewCandidaturesController.cs.updateCandidature(NewCandidaturesController.selectedCandidature.getId(),
+                    newc);
+            System.out.println("updated successfully");
+            this.reload();
+        } catch (IOException ex) {
+            Logger.getLogger(NewCandidatureInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    
+    private void reload() {
+       try {
+               
+                  Parent root = FXMLLoader.load(getClass().getResource("./NewCandidatureInterface.fxml"));
+                  System.out.println("FXML loaded successfully");
+                  Scene scene = new Scene(root);
+                  Stage stage = (Stage) candidatureHB.getScene().getWindow();
+                  stage.setScene(scene);
+                  stage.show();
+           
+                 } catch (IOException e) {
+                      e.printStackTrace();
+                 }
+    }
+
+    @FXML
+    private void delete(ActionEvent event) {
+        
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation de suppression");
+                alert.setHeaderText("Etes-vous sures de vouloir supprimer ce quiz?");
+
+                ButtonType buttonTypeYes = new ButtonType("Oui");
+                ButtonType buttonTypeNo = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonTypeYes){
+                 // clic sur le bouton oui
+                 NewCandidaturesController.cs.deleteCandidature(NewCandidaturesController.selectedCandidature.getId());
+                 System.out.println("candidature supprimée " );
+                 try {
+                  Parent root = FXMLLoader.load(getClass().getResource("./NewCandidatures.fxml"));
+                  System.out.println("FXML loaded successfully");
+                  Scene scene = new Scene(root);
+                  Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                  stage.setScene(scene);
+                  stage.show();
+           
+                 } catch (IOException e) {
+                      e.printStackTrace();
+                 }
+                 
+                } else {
+                 // clic sur le bouton non
+                 alert.close();
+                }
+                
+
     }
     
 }

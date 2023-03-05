@@ -29,15 +29,16 @@ public class QuizService implements QuizInterface{
     @Override
     public void addQuiz(Quiz quiz) {
         
-        if ( this.getQuizBySpecialite(quiz.getSpecialite()) == null) {
-        String req = "INSERT INTO `quiz` (`secteur`, `specialite`) VALUES (?,?)";
+        if ( this.getQuizBySpecialite(quiz.getNom()) == null) {
+        String req = "INSERT INTO `quiz` ( `secteur`, `specialite`, `nom`) VALUES (?,?,?)";
         try {
             PreparedStatement ps = cnx.prepareStatement(req);
-            ps.setString(1, quiz.getSecteur());
-            ps.setString(2, quiz.getSpecialite());
-           for (QuizQuestion qq: quiz.getQuestions()) {
+            ps.setString(1, quiz.getSpecialite());
+            ps.setString(2, quiz.getSecteur());
+            ps.setString(3, quiz.getNom());
+           /*for (QuizQuestion qq: quiz.getQuestions()) {
               qqs.addQuizQuestion(qq);
-            }
+            }*/
             ps.executeUpdate();
             System.out.println("Quiz ajouté avec succès.");
             
@@ -45,7 +46,7 @@ public class QuizService implements QuizInterface{
             System.out.println(ex.getMessage());
         } 
         }else {
-            System.out.println("Un quiz pour la specialité " + quiz.getSpecialite() + "existe déjà.");
+            System.out.println("Un quiz pour la specialité " + quiz.getNom() + "existe déjà.");
         }
     }
 
@@ -58,7 +59,7 @@ public class QuizService implements QuizInterface{
             ps.setInt(1, idQuiz);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                quiz = new Quiz(rs.getInt(1),rs.getString(2), rs.getString(3));
+                quiz = new Quiz(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4));
                 quiz.setQuestions(qqs.fetchByQuiz(idQuiz));
               
             } else {
@@ -74,15 +75,16 @@ public class QuizService implements QuizInterface{
     public void updateQuiz(int idQuiz, Quiz quiz) {
         Quiz q = this.getQuizById(idQuiz);
         if (q != null) {
-         String req = "UPDATE `quiz` SET `secteur`=? ,`specialite`=? WHERE id = ? ";
+         String req = "UPDATE `quiz` SET `secteur`=? ,`specialite`=?, `nom`=?  WHERE id = ? ";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, quiz.getSecteur());
             ps.setString(2, quiz.getSpecialite());
-            ps.setInt(3, idQuiz);
-            for (QuizQuestion qq: quiz.getQuestions()) {
+            ps.setString(3, quiz.getNom());
+            ps.setInt(4, idQuiz);
+            /*for (QuizQuestion qq: quiz.getQuestions()) {
               qqs.updateQuizQuestion(qq.getId(), qq);
-            }
+            }*/
             
             ps.executeUpdate();
             System.out.println("Quiz modifié avec succès.");
@@ -105,11 +107,33 @@ public class QuizService implements QuizInterface{
             ps.setString(1, specialite);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-                quiz = new Quiz(rs.getInt(1),rs.getString(2), rs.getString(3));
+                quiz = new Quiz(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4));
                 quiz.setQuestions(qqs.fetchByQuiz(rs.getInt(1)));
               
             } else {
                 System.out.println("Pas de quiz pour la specialité {" + specialite + "}.");
+             }
+        } catch (SQLException ex) {
+             System.out.println(ex.getMessage());
+        }
+        return quiz;
+
+    }
+    
+     @Override
+    public Quiz getQuizByNom(String nom) {
+        String req = "select * from quiz where nom = ?";
+        Quiz quiz = null; 
+       try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setString(1, nom);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()){
+                quiz = new Quiz(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4));
+                quiz.setQuestions(qqs.fetchByQuiz(rs.getInt(1)));
+              
+            } else {
+                System.out.println("Pas de quiz avec le nom {" + nom + "}.");
              }
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());
@@ -127,7 +151,7 @@ public class QuizService implements QuizInterface{
             ResultSet rs = st.executeQuery(req);
             while(rs.next()){
                 
-                Quiz q = new Quiz(rs.getInt(1), rs.getString(2), rs.getString(3));
+                Quiz q = new Quiz(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
                 q.setQuestions(qqs.fetchByQuiz(rs.getInt(1)));
                  
                 qz.add(q);
@@ -147,7 +171,7 @@ public class QuizService implements QuizInterface{
             ps.setString(1, secteur);
             ResultSet rs = ps.executeQuery();
             if (rs.next()){
-               Quiz quiz = new Quiz(rs.getInt(1),rs.getString(2), rs.getString(3));
+               Quiz quiz = new Quiz(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4));
                quiz.setQuestions(qqs.fetchByQuiz(rs.getInt(1)));
                q.add(quiz);
               

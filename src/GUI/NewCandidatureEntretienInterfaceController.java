@@ -19,6 +19,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +33,10 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -54,6 +58,7 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import services.CandidatureService;
 import services.EntretienService;
+import utilities.EtatCandidature;
 import utilities.TypeEntretien;
 
 /**
@@ -158,6 +163,10 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
     
       byte[] pdfDataCV;
     byte[] pdfDataLettre;
+    @FXML
+    private VBox entretiensContainer;
+    @FXML
+    private Button refuserBtn;
     
 
     /**
@@ -273,7 +282,7 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
 
     @FXML
     private void valider(ActionEvent event) {
-        if( validerBtn.getText().equals("Valider")) {
+       /* if( validerBtn.getText().equals("Valider")) {
            csr.valider(NewCandidaturesRecruteurController.recSelectedCand.getId(), true);
            validerBtn.setText("Invalider");
         }
@@ -281,8 +290,11 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
            csr.valider(NewCandidaturesRecruteurController.recSelectedCand.getId(), false);
            validerBtn.setText("Valider");
            validerBtn.setStyle("-fx-background-color: red;");
-        }
-        this.reload();
+        } } */
+       csr.valider(NewCandidaturesRecruteurController.recSelectedCand.getId(), true);
+       this.reload();
+      
+        
          
     }
 
@@ -345,7 +357,7 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
 
     @FXML
     private void modifierEntretien(ActionEvent event) {
-         Entretien eupdate = new Entretien();
+       Entretien eupdate = new Entretien();
        eupdate.setDate(sqlDate);
        eupdate.setId(entModif.getId());
        int hour = hourSpinner.getValue();
@@ -375,9 +387,10 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
       /**********************************************************************************/
               try {
             // TODO
-            System.out.println("Initializing");
-            Path filePath = Paths.get("D:\\pfe\\projet\\cv\\CV_ZAGHDOUD_Eya.pdf");
-            URL u = filePath.toUri().toURL();
+           // System.out.println("Initializing");
+            //Path filePath = Paths.get("D:\\pfe\\projet\\cv\\CV_ZAGHDOUD_Eya.pdf");
+           // Path filePath = Paths.get(NewCandidaturesController.selectedCandidature.getCv());
+            URL u = new URL("http://localhost/postulitn/cv/"+ NewCandidaturesRecruteurController.recSelectedCand.getCv());
             try (InputStream inputStream = u.openStream()) {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];
@@ -427,8 +440,9 @@ catch (IOException ex) {
                 try {
             // TODO
             System.out.println("Initializing");
-            Path filePath2 = Paths.get("D:\\pfe\\projet\\lettre de motivation.pdf");
-            URL u2 = filePath2.toUri().toURL();
+            //Path filePath2 = Paths.get("D:\\pfe\\projet\\lettre de motivation.pdf");
+            //Path filePath2 = Paths.get(NewCandidaturesController.selectedCandidature.getLettre());
+            URL u2 = new URL("http://localhost/postulitn/lettres/"+ NewCandidaturesRecruteurController.recSelectedCand.getLettre());
             try (InputStream inputStream = u2.openStream()) {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer2 = new byte[4096];
@@ -473,6 +487,14 @@ catch (IOException ex) {
             Logger.getLogger(NewCandidatureInterfaceController.class.getName()).log(Level.SEVERE, null, e);
         }
   /******************************************************************************************/
+   if  (! NewCandidaturesRecruteurController.recSelectedCand.getEtat().equals(EtatCandidature.EtatsCandidature.Enregistrée)) {
+
+         validerBtn.setDisable(true);
+         validerBtn.setText("Validée");
+       } else {
+         validerBtn.setDisable(false);
+       }
+    
     }
     
     private void setDataEntretiens() {
@@ -491,6 +513,10 @@ catch (IOException ex) {
                         
                         dateEntTel.setText(dateEntTel.getText() + " " + ent.getDate()  );
                         heureEntTel.setText(heureEntTel.getText() + " " + ent.getHeure());
+                        dateEntPres.setVisible(false);
+                        heureEntPres.setVisible(false);
+                        lieuEntPres.setVisible(false);
+                        modifierBtn2.setVisible(false);
                         entTel = ent;
                     }
                     else if(ent.getType().equals(TypeEntretien.TypeE.Présentiel.toString())) {
@@ -499,6 +525,9 @@ catch (IOException ex) {
                         heureEntPres.setText(heureEntPres.getText() + " " + ent.getHeure() );
                         lieuEntPres.setText(lieuEntPres.getText() + " " + ent.getLieu());
                         entPres = ent;
+                        dateEntTel.setVisible(false);
+                        heureEntTel.setVisible(false);
+                        modifierBtn1.setVisible(false);
                     }
                 }    break;
             case 1:
@@ -541,15 +570,19 @@ catch (IOException ex) {
     private void planifierTel(ActionEvent event) {
           entretienVB.setVisible(true);
           lieuTF.setDisable(true);
+          modiferBtn.setVisible(false);
+          enregistrerBtn.setVisible(true);
         
     }
 
     @FXML
     private void planifierPres(ActionEvent event) {
            entretienVB.setVisible(true);
+           modiferBtn.setVisible(false);
+           enregistrerBtn.setVisible(true);
     }
     
-     private void reload() {
+    private void reload() {
      try {
                   Parent root = FXMLLoader.load(getClass().getResource("./NewCandidatureEntretienInterface.fxml"));
                   System.out.println("FXML loaded successfully");
@@ -683,6 +716,109 @@ imageView1.setScaleY(initialScale);
         } catch (IOException ex) {
             Logger.getLogger(NewCandidatureInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void deleteEntTel(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation de suppression");
+                alert.setHeaderText("Etes-vous sures de vouloir supprimer cet entretien?");
+                //alert.setContentText(("L'état de la candidature va changer."));
+
+                ButtonType buttonTypeYes = new ButtonType("Oui");
+                ButtonType buttonTypeNo = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonTypeYes){
+                 // clic sur le bouton oui
+                 es.deleteEntretien(entTel.getId());
+                 System.out.println("entretien par téléphone supprimé " );
+                 if (entPres != null ) {
+                     NewCandidaturesRecruteurController.recSelectedCand.setEtat(EtatCandidature.EtatsCandidature.EntretienPres);
+                     csr.updateCandidature(NewCandidaturesRecruteurController.recSelectedCand.getId(), NewCandidaturesRecruteurController.recSelectedCand);
+                 } else {
+                     NewCandidaturesRecruteurController.recSelectedCand.setEtat(EtatCandidature.EtatsCandidature.Validée);
+                     csr.updateCandidature(NewCandidaturesRecruteurController.recSelectedCand.getId(), NewCandidaturesRecruteurController.recSelectedCand);
+                }
+                 this.reload();
+                } else {
+                 // clic sur le bouton non
+                 alert.close();
+                }
+    }
+
+    @FXML
+    private void deleteEntPres(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation de suppression");
+                alert.setHeaderText("Etes-vous sures de vouloir supprimer cet entretien?");
+                //alert.setContentText(("L'état de la candidature va changer."));
+
+                ButtonType buttonTypeYes = new ButtonType("Oui");
+                ButtonType buttonTypeNo = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonTypeYes){
+                 // clic sur le bouton oui
+                 es.deleteEntretien(entPres.getId());
+                 System.out.println("entretien par téléphone supprimé " );
+                 if (entTel != null ) {
+                     NewCandidaturesRecruteurController.recSelectedCand.setEtat(EtatCandidature.EtatsCandidature.EntretienTel);
+                     csr.updateCandidature(NewCandidaturesRecruteurController.recSelectedCand.getId(), NewCandidaturesRecruteurController.recSelectedCand);
+                 } else {
+                     NewCandidaturesRecruteurController.recSelectedCand.setEtat(EtatCandidature.EtatsCandidature.Validée);
+                     csr.updateCandidature(NewCandidaturesRecruteurController.recSelectedCand.getId(), NewCandidaturesRecruteurController.recSelectedCand);
+                }
+                 this.reload();
+                } else {
+                 // clic sur le bouton non
+                 alert.close();
+                }
+    }
+
+    @FXML
+    private void refuser(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Confirmation de suppression");
+                alert.setHeaderText("Etes-vous sures de vouloir refuser cette candidature?");
+                alert.setContentText(("Suppression de la liste de candidatures de l'offre: " + 
+                        NewCandidaturesRecruteurController.recSelectedCand.getIdOffre()));
+                // manque le controle
+                
+
+                ButtonType buttonTypeYes = new ButtonType("Oui");
+                ButtonType buttonTypeNo = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+                
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonTypeYes){
+                 // clic sur le bouton oui
+                  NewCandidaturesRecruteurController.recSelectedCand.setEtat(EtatCandidature.EtatsCandidature.Refusée);
+                     csr.updateCandidature(NewCandidaturesRecruteurController.recSelectedCand.getId(), NewCandidaturesRecruteurController.recSelectedCand);
+                 System.out.println("candidature refusée " );
+                 //redirection
+                      try {
+                  Parent root = FXMLLoader.load(getClass().getResource("./NewCandidaturesRecruteur.fxml"));
+                  System.out.println("FXML loaded successfully");
+                  Scene scene = new Scene(root);
+                  Stage stage = (Stage) entretiensVB.getScene().getWindow();
+                  stage.setScene(scene);
+                  stage.show();
+           
+                 } catch (IOException e) {
+                      e.printStackTrace();
+                 }
+                 
+                } else {
+                 // clic sur le bouton non
+                 alert.close();
+                }
+        
     }
 
    

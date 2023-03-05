@@ -122,6 +122,10 @@ public class PostulitnApp {
        Quiz quiz = new Quiz();
        quiz.setSecteur("Informatique");
        quiz.setSpecialite("Java");
+       QuizQuestion newq = qqs.getQuizQuestionById(10);
+       newq.setOption2("Bean");
+       qqs.updateQuizQuestion(10, newq);
+       System.out.println(qqs.getQuizQuestionById(10));
        //qs.addQuiz(quiz);
       // System.out.println(qs.getQuizBySpecialite("Web"));
       
@@ -164,10 +168,10 @@ public class PostulitnApp {
        qss.calculerScore(score, rep);
        System.out.println(score.getScore());*/
        List<Entretien> l = es.fetchEntretiens();
-       System.out.println(l);
+      // System.out.println(l);
        //System.out.println(es.filterListeByDate(l,Date.valueOf("2023-02-28") ));
-      Collections.sort(l);
-       System.out.println(l);
+      //Collections.sort(l);
+      // System.out.println(l);
        
         
     }

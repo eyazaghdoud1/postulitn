@@ -20,6 +20,7 @@ public interface QuizInterface {
     public void updateQuiz(int idQuiz, Quiz quiz);
     public void deleteQuiz(int quizId);
     public Quiz getQuizBySpecialite(String specialite);
+    public Quiz getQuizByNom(String nom);
     public List<Quiz> fetchQuiz();
     
     public List<Quiz> filterQuizBySecteur(String secteur);

@@ -7,11 +7,17 @@ package GUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitMenuButton;
@@ -21,6 +27,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import models.Entretien;
 import services.EntretienService;
 
@@ -48,14 +55,16 @@ public class NewEntretiensCandidatController implements Initializable {
     @FXML
     private HBox headerHB;
     @FXML
-    private SplitMenuButton filtresMB;
-    @FXML
     private VBox mainVB;
     @FXML
     private ListView<HBox> listViewEnt;
     
-    EntretienService es = new EntretienService();
+    public static EntretienService esCandidat = new EntretienService();
     public static int candidatSelectedEntretien;
+    public static List<Entretien> dataEntCandidat = esCandidat.filterByCandidature(6);
+    @FXML
+    private DatePicker dateDP;
+    public static Date candSelectedEntDateFilter;
 
     /**
      * Initializes the controller class.
@@ -63,9 +72,9 @@ public class NewEntretiensCandidatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        List<Entretien> data = es.filterByCandidat(1);
         
-        for (Entretien e : data) {
+        
+        for (Entretien e : dataEntCandidat) {
            
           if (e.getDate() != null) {
             try {
@@ -87,6 +96,24 @@ public class NewEntretiensCandidatController implements Initializable {
             }
           }
         }
+        
+          if (candSelectedEntDateFilter != null) {
+           dateDP.setValue(candSelectedEntDateFilter.toLocalDate());
+        } 
+         //1 - date picker for filter
+           dateDP.setOnAction(e -> {
+            LocalDate selectedDate = dateDP.getValue();
+            Date sqlDate = Date.valueOf(selectedDate);
+            candSelectedEntDateFilter = sqlDate;
+            dataEntCandidat = esCandidat.filterListeByDate(dataEntCandidat, candSelectedEntDateFilter);
+            System.out.println("test on action; " + selectedDate);
+            //this.filterDate();
+            reload();
+
+        });
+           
+        
+           
     }    
 
     @FXML
@@ -117,6 +144,27 @@ public class NewEntretiensCandidatController implements Initializable {
     private void handleMouseClick(MouseEvent event) {
         candidatSelectedEntretien = listViewEnt.getSelectionModel().getSelectedIndex();
             System.out.println(candidatSelectedEntretien);
+       
+    }
+
+    @FXML
+    private void reset(ActionEvent event) {
+        dataEntCandidat = esCandidat.filterByCandidature(6);
+        candSelectedEntDateFilter = null;
+        reload();
     }
     
+     private void reload() {
+     try {
+                  Parent root = FXMLLoader.load(getClass().getResource("./NewEntretiensCandidat.fxml"));
+                  System.out.println("FXML loaded successfully");
+                  Scene scene = new Scene(root);
+                  Stage stage = (Stage) mainVB.getScene().getWindow();
+                  stage.setScene(scene);
+                  stage.show();
+           
+                 } catch (IOException e) {
+                      e.printStackTrace();
+                 }
+    }
 }

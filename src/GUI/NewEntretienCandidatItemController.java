@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import models.Entretien;
+import utilities.EtatCandidature;
+import utilities.TypeEntretien;
 
 /**
  * FXML Controller class
@@ -41,7 +43,12 @@ public class NewEntretienCandidatItemController implements Initializable {
      horaire.setText(e.getHeure());
      type.setText(e.getType());
      //entreprise.setText("Entreprise: " + e.getCandidature().getOffre().getEntreprise());
-     entreprise.setText("Entreprise: " + e.getCandidature().getIdCandidat());
+     if (e.getType().equals(TypeEntretien.TypeE.Présentiel.toString())) {
+     entreprise.setText("Entreprise: " + e.getLieu());
+     
+     } else {
+      entreprise.setText("");
+     }
     }
     
 }

@@ -19,8 +19,12 @@ import models.Quiz;
  */
 public class NewQuizItemController implements Initializable {
 
-    @FXML
     private Label nbQuestions;
+    private Label quizSpecialite;
+    @FXML
+    private Label nom;
+    @FXML
+    private Label specialite;
 
     /**
      * Initializes the controller class.
@@ -31,7 +35,8 @@ public class NewQuizItemController implements Initializable {
     }    
     
     public void setData(Quiz q) {
-       nbQuestions.setText(q.getQuestions().size() + " " + nbQuestions.getText());
+       specialite.setText(q.getSpecialite());
+       nom.setText(q.getNom() + " quiz");
     }
     
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox prefHeight="62.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewEmptyQuizQuestionController">
+   <children>
+      <TextArea fx:id="question" prefHeight="58.0" prefWidth="198.0">
+         <HBox.margin>
+            <Insets right="20.0" />
+         </HBox.margin>
+      </TextArea>
+      <TextArea fx:id="optionA" prefHeight="38.0" prefWidth="146.0">
+         <HBox.margin>
+            <Insets bottom="10.0" right="30.0" top="10.0" />
+         </HBox.margin>
+      </TextArea>
+      <TextArea fx:id="optionB" prefHeight="38.0" prefWidth="142.0">
+         <HBox.margin>
+            <Insets bottom="10.0" right="30.0" top="10.0" />
+         </HBox.margin>
+      </TextArea>
+      <TextArea fx:id="optionC" prefHeight="38.0" prefWidth="130.0">
+         <HBox.margin>
+            <Insets bottom="10.0" right="20.0" top="10.0" />
+         </HBox.margin>
+      </TextArea>
+      <ComboBox fx:id="reponse" prefHeight="25.0" prefWidth="80.0">
+         <HBox.margin>
+            <Insets left="20.0" top="15.0" />
+         </HBox.margin>
+      </ComboBox>
+      <Label fx:id="validerQ" onMouseClicked="#validerQuestion" prefWidth="51.0" style="-fx-background-color: #1E9DFF;" text="Valider" textFill="WHITE">
+         <HBox.margin>
+            <Insets left="55.0" top="15.0" />
+         </HBox.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </Label>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>

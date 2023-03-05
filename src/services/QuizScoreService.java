@@ -7,6 +7,7 @@ package services;
 
 import interfaces.QuizScoreInterface;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,14 +28,17 @@ public class QuizScoreService implements QuizScoreInterface{
     Connection cnx = MaConnexion.getInstance().getCnx();
     @Override
     public void addQuizScore(QuizScore score) {
-        String req = "insert into quizscores (`score`, `idCandidat`, `idQuiz`) valued (?,?,?)";
+        String req = "insert into quizscores (`score`, `idCandidat`, `idQuiz`, `date`) values (?,?,?,?)";
         
         try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1, score.getScore());
             ps.setInt(2, score.getIdCandidat());
             ps.setInt(3, score.getQuiz().getId());
+            ps.setDate(4, score.getDate());
             ps.executeUpdate();
+            
+            System.out.println("score enregistré");
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());
         }
@@ -66,15 +70,15 @@ public class QuizScoreService implements QuizScoreInterface{
     @Override
     public QuizScore getQuizScore(int idCandidat, Quiz quiz) {
 
-        String req = "select * from quizscores where idCanidat = ? and idQuiz = ?";
+        String req = "select * from quizscores where idCandidat = ? and idQuiz = ?";
         QuizScore qs = null; 
         try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1, idCandidat);
-            ps.setInt(1, quiz.getId());
+            ps.setInt(2, quiz.getId());
             ResultSet rs = ps.executeQuery();
             if (rs.next()){               
-                qs = new QuizScore(rs.getInt(1), rs.getInt(2), idCandidat, quiz);
+                qs = new QuizScore(rs.getInt(1), rs.getInt(2), idCandidat, quiz, rs.getDate(5));
                               
             } else {
                 System.out.println("Ce quiz n'a pas été passé par ce candidat.");
@@ -89,12 +93,14 @@ public class QuizScoreService implements QuizScoreInterface{
     public void updateQuizScore(int score, int idCandidat, Quiz quiz) {
         QuizScore qs = this.getQuizScore(idCandidat, quiz);
         if (qs != null) {
-         String req = "UPDATE `quizscore` SET `score`=? WHERE idCandidat = ? and idQuiz = ?";
+         String req = "UPDATE `quizscores` SET `score`=?, `date`=? WHERE idCandidat = ? and idQuiz = ?";
          try {
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1, score);
-            ps.setInt(2, idCandidat);
-            ps.setInt(3, quiz.getId());
+            ps.setDate(2, new Date(System.currentTimeMillis()));
+            ps.setInt(3, idCandidat);
+            ps.setInt(4, quiz.getId());
+            
             ps.executeUpdate();
             System.out.println("Quiz score question modifié avec succès.");
             

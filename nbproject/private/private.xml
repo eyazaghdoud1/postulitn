@@ -3,17 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/utilities/QuizReponse.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewCandidatureInterfaceController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewEntretiensController.java</file>
             <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/PostulitnApp.java</file>
             <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewQuizListController.java</file>
             <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/FXMain.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewQuizQuestionItemController.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizQuestionService.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewAjouterQuiz.fxml</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/models/QuizScore.java</file>
             <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizScoreService.java</file>
             <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewQuizInterfaceController.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewQuizItemController.java</file>
         </group>
     </open-files>
 </project-private>

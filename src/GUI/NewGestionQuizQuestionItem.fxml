@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="66.0" prefWidth="889.0" spacing="10.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewGestionQuizQuestionItemController">
+   <children>
+      <TextArea fx:id="question" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="optionA" prefHeight="25.0" prefWidth="123.0">
+         <HBox.margin>
+            <Insets top="20.0" />
+         </HBox.margin>
+      </TextField>
+      <TextField fx:id="optionB" prefHeight="25.0" prefWidth="121.0">
+         <HBox.margin>
+            <Insets top="20.0" />
+         </HBox.margin>
+      </TextField>
+      <TextField fx:id="optionC" prefHeight="25.0" prefWidth="121.0">
+         <HBox.margin>
+            <Insets top="20.0" />
+         </HBox.margin>
+      </TextField>
+      <ComboBox fx:id="reponse" prefHeight="25.0" prefWidth="82.0">
+         <HBox.margin>
+            <Insets left="15.0" top="20.0" />
+         </HBox.margin>
+      </ComboBox>
+      <ImageView fx:id="deleteBtn" fitHeight="28.0" fitWidth="30.0" onMouseClicked="#delete" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets left="37.0" top="20.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@remove.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="enregistrerBtn" onMouseClicked="#saveUpdate" prefHeight="24.0" prefWidth="69.0" style="-fx-background-color: #1E9DFF; -fx-border-radius: 20;" text="Enregistrer" textFill="WHITE">
+         <HBox.margin>
+            <Insets left="20.0" top="22.0" />
+         </HBox.margin>
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+         <padding>
+            <Insets left="5.0" right="4.0" />
+         </padding>
+      </Label>
+   </children>
+</HBox>

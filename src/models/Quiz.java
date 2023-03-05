@@ -14,6 +14,7 @@ import java.util.List;
 public class Quiz {
     private int id;
     // private Secteur secteur;
+    private String nom;
     private String secteur;
     private String specialite;
     private List<QuizQuestion> questions;
@@ -23,20 +24,23 @@ public class Quiz {
     public Quiz() {
     }
 
-    public Quiz(int id, String secteur, String specialite, List<QuizQuestion> questions) {
+    public Quiz(int id, String secteur, String specialite, String nom, List<QuizQuestion> questions) {
         this.id = id;
+        this.nom = nom;
         this.secteur = secteur;
         this.specialite = specialite;
         //this.questions = questions;
     }
 
-    public Quiz(String secteur, String specialite) {
+    public Quiz( String secteur, String specialite, String nom) {
+        this.nom = nom;
         this.secteur = secteur;
         this.specialite = specialite;
         
     }
-    public Quiz(int id, String secteur, String specialite) {
+    public Quiz(int id, String secteur, String specialite, String nom) {
         this.id = id;
+        this.nom = nom ; 
         this.secteur = secteur;
         this.specialite = specialite;
         
@@ -80,7 +84,16 @@ public class Quiz {
 
     @Override
     public String toString() {
-        return "Quiz{" + "id=" + id + ", secteur=" + secteur + ", specialite=" + specialite + ", questions=" + questions + '}';
+        return "Quiz{" + "id=" + id + ", nom=" + nom + ", secteur=" + secteur + ", specialite=" + specialite + ", questions=" + questions + '}';
+    }
+
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
     
     

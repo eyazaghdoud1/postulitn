@@ -7,7 +7,9 @@ package GUI;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -128,8 +130,10 @@ public class NewQuizInterfaceController implements Initializable {
     private VBox q4VB;
     @FXML
     private VBox q5VB;
+    @FXML
+    private Label sLabel;
 
-
+   private boolean isUpdate=false;
     /**
      * Initializes the controller class.
      */
@@ -137,13 +141,39 @@ public class NewQuizInterfaceController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         quiname.setText(quiname.getText() + " " + quiz.getSpecialite());
-        scoreHB.setVisible(false);
+        
         setQuestion1();
         setQuestion2();
         setQuestion3();
         setQuestion4();
         setQuestion5();
         
+        Calendar cal = Calendar.getInstance();
+       cal.add(Calendar.MONTH, -1);
+       java.sql.Date oneMonthAgo = new java.sql.Date(cal.getTimeInMillis());
+        
+        QuizScore pastScore = scoreService.getQuizScore(1, quiz);
+        if (pastScore != null  ) {
+         sLabel.setText("Dernier score:");
+         scoreLabel.setText( pastScore.getScore() + " / 5");
+         scoreHB.setVisible(true);
+         if ( pastScore.getDate().after(oneMonthAgo)) {  
+        
+         q1VB.setDisable(true);
+         q2VB.setDisable(true);
+         q3VB.setDisable(true);
+         q4VB.setDisable(true);
+         q5VB.setDisable(true);
+         submitBtn.setDisable(true);
+         
+        } else { isUpdate = true;}
+          //  System.out.println(pastScore.getDate().after(oneMonthAgo));
+         //scoreService.updateQuizScore(pastScore.getScore(), 1, quiz);
+       
+        } else {
+        scoreHB.setVisible(false);
+        }
+       
     }    
 
     @FXML
@@ -374,7 +404,12 @@ public class NewQuizInterfaceController implements Initializable {
         scoreService.calculerScore(score, reponse);
         scoreLabel.setText( score.getScore() + " / 5");
         scoreHB.setVisible(true);
-        //scoreService.addQuizScore(score);
+        if (!isUpdate) {scoreService.addQuizScore(score);}
+        // l'id candidat va changer
+        else {
+            sLabel.setText("Nouveau score:");
+            scoreService.updateQuizScore(score.getScore(),1 , quiz);};
+        
         submitBtn.setDisable(true);
         
         List<String> correctResp = new ArrayList();

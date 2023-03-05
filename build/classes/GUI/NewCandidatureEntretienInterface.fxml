@@ -256,9 +256,14 @@
                                                                   <Insets left="20.0" top="10.0" />
                                                                </HBox.margin>
                                                             </Label>
-                                                            <Button fx:id="validerBtn" mnemonicParsing="false" onAction="#valider" text="Valider">
+                                                            <Button fx:id="validerBtn" mnemonicParsing="false" onAction="#valider" style="-fx-background-color: green;" text="Valider" textFill="WHITE">
                                                                <HBox.margin>
-                                                                  <Insets left="200.0" top="10.0" />
+                                                                  <Insets left="150.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Button fx:id="refuserBtn" mnemonicParsing="false" onAction="#refuser" style="-fx-background-color: red;" text="Refuser" textFill="WHITE">
+                                                               <HBox.margin>
+                                                                  <Insets left="10.0" top="10.0" />
                                                                </HBox.margin>
                                                             </Button>
                                                          </children>
@@ -350,11 +355,30 @@
                                           </Label>
                                           <VBox prefHeight="141.0" prefWidth="798.0" spacing="5.0" style="-fx-border-color: #939AB0;">
                                              <children>
-                                                <Label text="Par téléphone" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="13.0" />
-                                                   </font>
-                                                </Label>
+                                                <HBox prefHeight="31.0" prefWidth="786.0">
+                                                   <children>
+                                                      <Label text="Par téléphone" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button mnemonicParsing="false" onAction="#deleteEntTel" prefHeight="16.0" prefWidth="27.0" style="-fx-background-color: red;">
+                                                         <font>
+                                                            <Font name="System Bold" size="11.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ImageView fitHeight="13.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@remove.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <HBox.margin>
+                                                            <Insets left="660.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
                                                 <HBox fx:id="entTelVideHB" prefHeight="36.0" prefWidth="400.0">
                                                    <children>
                                                       <Button fx:id="planifierTelBtn" mnemonicParsing="false" onAction="#planifierTel" text="Planifier un entretien par téléphone" />
@@ -388,14 +412,30 @@
                                           </VBox>
                                           <VBox prefHeight="149.0" prefWidth="798.0" spacing="5.0" style="-fx-border-color: #939AB0;">
                                              <children>
-                                                <Label text="En présentiel" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="13.0" />
-                                                   </font>
-                                                   <VBox.margin>
-                                                      <Insets top="10.0" />
-                                                   </VBox.margin>
-                                                </Label>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label prefHeight="19.0" prefWidth="89.0" text="En présentiel" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button mnemonicParsing="false" onAction="#deleteEntPres" prefHeight="16.0" prefWidth="27.0" style="-fx-background-color: red;">
+                                                         <font>
+                                                            <Font name="System Bold" size="11.0" />
+                                                         </font>
+                                                         <graphic>
+                                                            <ImageView fitHeight="13.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@remove.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                         <HBox.margin>
+                                                            <Insets left="660.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
                                                 <HBox fx:id="entPresVideHB" prefHeight="39.0" prefWidth="370.0">
                                                    <VBox.margin>
                                                       <Insets />
