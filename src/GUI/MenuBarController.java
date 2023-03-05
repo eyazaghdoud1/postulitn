@@ -19,9 +19,11 @@ import javafx.scene.layout.VBox;
 /**
  * FXML Controller class
  *
+
  * @author HP I5
  */
 public class MenuBarController implements Initializable {
+
 
     @FXML
     private Label userConnecte;
@@ -46,7 +48,10 @@ public class MenuBarController implements Initializable {
         // TODO
     }    
 
+
     @FXML
+    private ListView<?> guidelist;
+
     private void goToOffres(MouseEvent event) {
     }
 
@@ -67,7 +72,12 @@ public class MenuBarController implements Initializable {
     }
 
     @FXML
+
     private void goToCompte(MouseEvent event) {
     }
-    
+
+   
+
+    private void handleguidelist(MouseEvent event) {}
 }
+

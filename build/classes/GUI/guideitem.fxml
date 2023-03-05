@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox prefHeight="83.0" prefWidth="1611.0" style="-fx-background-color: #0E1947;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GuideitemController">
+   <children>
+      <Label fx:id="lidguide" prefHeight="32.0" prefWidth="260.0" text="ID GUIDE " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="10.0" top="15.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="ldomaine" prefHeight="32.0" prefWidth="271.0" text="DOMAINE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="100.0" top="15.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="lspecialite" prefHeight="32.0" prefWidth="292.0" text="SPECIALITE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="100.0" top="15.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="lsupport" prefHeight="32.0" prefWidth="274.0" text="SUPPORT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="100.0" top="15.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="lnote" text="NOTE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="100.0" top="15.0" />
+         </HBox.margin>
+      </Label>
+   </children>
+</HBox>
