@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatistiqueController">
+<BorderPane prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CondidatoffresController">
    <top>
-      <HBox prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="50.0" prefWidth="1336.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="61.0" prefWidth="140.0">
                <children>
@@ -86,7 +86,7 @@
                <children>
                   <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@73944.png" />
+                        <Image url="@../../../../../Downloads/73944.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="-5.0" top="15.0" />
@@ -112,7 +112,7 @@
                <children>
                   <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@280297163_704924577502506_7220543109587187832_n.png" />
+                        <Image url="@../../../../../Downloads/280297163_704924577502506_7220543109587187832_n.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="-7.0" top="10.0" />
@@ -135,7 +135,7 @@
                <children>
                   <ImageView fitHeight="42.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@85615.png" />
+                        <Image url="@../../../../../Downloads/85615.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="30.0" />
@@ -155,7 +155,7 @@
                <children>
                   <ImageView fitHeight="70.0" fitWidth="75.0" onMouseClicked="#goToQuiz" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@334074808_9577115555639300_2186101771236401721_n.png" />
+                        <Image url="@../../../../../Downloads/334074808_9577115555639300_2186101771236401721_n.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="3.0" />
@@ -176,19 +176,26 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
          <children>
-            <PieChart fx:id="chartfor" layoutX="297.0" layoutY="116.0" prefHeight="504.0" prefWidth="804.0" />
-            <Label layoutX="483.0" layoutY="14.0" text="TYPE OFFRE DIST" textFill="#3e3e3e">
+            <ListView fx:id="listeoffre" layoutX="68.0" layoutY="69.0" onMouseClicked="#handleOffre" prefHeight="559.0" prefWidth="747.0" />
+            <Label layoutX="350.0" layoutY="17.0" text="LISTE DES OFFRES" textFill="WHITE">
                <font>
-                  <Font name="Georgia Bold" size="29.0" />
+                  <Font name="Georgia" size="21.0" />
                </font>
             </Label>
-            <ImageView fitHeight="77.0" fitWidth="110.0" layoutX="28.0" layoutY="24.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="46.0" fitWidth="65.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#goback" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/252455794_481441976374019_3525607494353836331_n.png" />
                </image>
             </ImageView>
-         </children></AnchorPane>
+            <VBox fx:id="suggestedContainer" layoutX="877.0" layoutY="65.0" prefHeight="567.0" prefWidth="366.0" style="-fx-border-color: white; -fx-border-width: 2; -fx-border-radius: 20;" />
+            <Label layoutX="1004.0" layoutY="16.0" text="Suggestions" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </center>
 </BorderPane>

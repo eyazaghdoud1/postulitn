@@ -5,18 +5,24 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import models.Typeoffre;
 import services.OffreService;
 import services.TypeoffreService;
@@ -91,6 +97,20 @@ public class StatistiqueController implements Initializable {
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+    }
+
+    @FXML
+    private void back(MouseEvent event) {
+         try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/ajoutertype.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
     }
     
 }

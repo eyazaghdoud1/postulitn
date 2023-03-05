@@ -176,14 +176,19 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0060FF;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <PieChart fx:id="chartfor" layoutX="297.0" layoutY="116.0" prefHeight="504.0" prefWidth="804.0" />
-            <Label layoutX="483.0" layoutY="14.0" text="TYPE OFFRE DIST" textFill="WHITE">
+            <Label layoutX="483.0" layoutY="14.0" text="TYPE OFFRE DIST" textFill="#3e3e3e">
                <font>
                   <Font name="Georgia Bold" size="29.0" />
                </font>
             </Label>
+            <ImageView fitHeight="77.0" fitWidth="110.0" layoutX="28.0" layoutY="24.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/252455794_481441976374019_3525607494353836331_n.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </center>
 </BorderPane>

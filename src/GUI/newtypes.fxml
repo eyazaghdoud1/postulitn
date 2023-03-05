@@ -184,6 +184,11 @@
                   <Font name="Georgia" size="23.0" />
                </font>
             </Label>
+            <ImageView fitHeight="75.0" fitWidth="101.0" layoutX="22.0" layoutY="14.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/252455794_481441976374019_3525607494353836331_n.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </center>
 </BorderPane>

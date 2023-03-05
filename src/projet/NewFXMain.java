@@ -31,11 +31,13 @@ public class NewFXMain extends Application {
        
            
         try {
-         Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajoutertype.fxml"));
-        
+         Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajouteroffre.fxml"));
+                    
+
             System.out.println("FXML loaded successfully");
             
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/style.css").toExternalForm());
             javafx.geometry.Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
             primaryStage.setWidth(primaryScreenBounds.getWidth());
             primaryStage.setHeight(primaryScreenBounds.getHeight());

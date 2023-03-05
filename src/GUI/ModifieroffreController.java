@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -22,6 +23,15 @@ import models.Typeoffre;
 import services.OffreService;
 import services.TypeoffreService;
 import java.lang.Integer;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -41,8 +51,6 @@ public class ModifieroffreController implements Initializable {
     @FXML
     private TextField specialitem;
     @FXML
-    private TextField idm;
-    @FXML
     private DatePicker dateD;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
    
@@ -53,6 +61,20 @@ public class ModifieroffreController implements Initializable {
       String typeSelectionne;
     @FXML
     private ComboBox typetf;
+    @FXML
+    private Label userConnecte;
+    @FXML
+    private ImageView userPhoto;
+    @FXML
+    private VBox offresVB;
+    @FXML
+    private VBox candidaturesVB;
+    @FXML
+    private VBox entretiensVB;
+    @FXML
+    private VBox guidesVB;
+    @FXML
+    private VBox quizVB;
      
     
 
@@ -94,6 +116,44 @@ public class ModifieroffreController implements Initializable {
         // o.setType(ts.getelementbyid(4));
 //         
        ps.updateOffre(o,NewoffresController.selectedoffre.getId());
+    }
+
+    @FXML
+    private void goToCompte(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToOffres(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToCandidatures(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToEntretiens(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToGuides(MouseEvent event) {
+    }
+
+    @FXML
+    private void goToQuiz(MouseEvent event) {
+    }
+
+    @FXML
+    private void back(MouseEvent event) {
+         try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/newoffres.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
     }
     
 }

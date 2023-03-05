@@ -157,9 +157,14 @@ String dateString = selectedDate.toString();
         o.setIdRecruteur(5);
         System.out.println(o);
         os.addOffre(o);
+         
+        //clean();
+       
+               
+        os.sendEmailNotif(typeSelectionne, o);
        // System.out.println(os.fetchOffres().get(0));
         
-    String tilte = "Offre Ajoute";
+    String tilte = "Offre Ajoute et mail envoye pour les users ";
             String message = postetf.getText();
             TrayNotification tray = new TrayNotification();
             AnimationType type = AnimationType.POPUP;
@@ -169,7 +174,15 @@ String dateString = selectedDate.toString();
             tray.setMessage(message);
             tray.setNotificationType(NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.millis(3000));
-    
+            
+             try {Parent Login = FXMLLoader.load(getClass().getResource("./ajouteroffre.fxml"));
+           Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+                         Logger.getLogger(OFFREITEMController.class.getName()).log(Level.SEVERE, null, ex);
+        }
    }
    else if(validateDatePicker(dateD)) {
         String tilte = "offre n est pas ajoute";
@@ -195,10 +208,13 @@ String dateString = selectedDate.toString();
             tray.setMessage(message);
             tray.setNotificationType(NotificationType.ERROR);
             tray.showAndDismiss(Duration.millis(3000));
+         
+            
+           
        
     }
     
-    
+   
     
 //    showAll();
     

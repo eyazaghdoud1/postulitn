@@ -14,7 +14,15 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.stream.Collectors;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import models.Offre;
 import models.Typeoffre;
 import util.MyConnection;
@@ -24,28 +32,22 @@ import util.MyConnection;
  * @author Aziz Ben Guirat
  */
 public class OffreService implements OffreInterface {
+    
+    private static String USER_NAME = "postuli.contact";  // GMail user name (just the part before "@gmail.com")
+    private static String PASSWORD = "jgtjthkzolnpksxj"; // GMail password
+    private static String RECIPIENT = "aziz.benguirat@esprit.tn";
+    private static String RECIPIENT2 = "benguirataziz75@gmail.com";
     Connection cnx = MyConnection.getInstance().getCnx();
-//
-//    @Override
-//    public void addOffre(Offre o) {
-//        try {
-//            String req = "INSERT INTO `offre`(`poste`, `description`, `lieu`,`entreprise`,`specialite`,`dateExpiration` ) VALUES ('"+ o.getPoste()+"','"+o.getDescription()+"','"+o.getLieu()+"','"+o.getEntreprise()+"','"+o.getSpecialite()+"','"+o.getDateExpiration()+"')";
-//            Statement st = cnx.createStatement();
-//            st.executeUpdate(req);
-//            System.out.println("Offre Added successfully!");
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//    }
+
 
     @Override
     public void addOffre(Offre o) {
        
-         List <Offre> typeoffers = this.fetchOffres();
+         List <Offre> offres = this.fetchOffres();
     
         boolean existe= true;
-        for (int i=0; i<typeoffers.size(); i++){
-            if (o.getDescription().equalsIgnoreCase(typeoffers.get(i).getDescription() )){
+        for (int i=0; i<offres.size(); i++){
+            if (o.getDescription().equalsIgnoreCase(offres.get(i).getDescription() )){
                 existe=false;    
             }
         }
@@ -334,9 +336,9 @@ public class OffreService implements OffreInterface {
 
     @Override
     public int typeByOffre(int idtype) {
-        String sql = "selEct coUnt(*) from offre where idtype ="+idtype;
-   
-  
+       // String sql = "selEct coUnt(*) from offre where idtype ="+idtype;
+          //String sql = "SELECT idtype, COUNT(*) FROM offre GROUP BY idtype";
+           String sql = "selEct coUnt(*) from offre where idtype"+ "=" +"'"+idtype+"'";
       try {
               
              PreparedStatement ps = cnx.prepareStatement(sql);
@@ -345,6 +347,7 @@ public class OffreService implements OffreInterface {
              ResultSet rs = ps.executeQuery();
             int num = 0;
             while(rs.next()){
+                
                 num = (rs.getInt(1));
                 return num;
  
@@ -394,6 +397,58 @@ public class OffreService implements OffreInterface {
         
         return suggestedOffres; 
     }
+
+
+    @Override
+    public void sendEmailNotif(String recipient, Offre s) {
+        String from = USER_NAME;
+        String pass = PASSWORD;
+        String[] to = {RECIPIENT,RECIPIENT2}; // list of recipient email addresses
+        String subject = "Votre demande a ete bien effectuée";
+        String body = "Une offre est ajoute : la poste est  <b>"+s.getPoste()+ "</b> et de type <br/>"+s.getType();
+        sendFromGMail(from, pass, to, subject, body);
+    }
+
+    private static void sendFromGMail(String from, String pass, String[] to, String subject, String body) {
+        Properties props = System.getProperties();
+        String host = "smtp.gmail.com";
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.user", from);
+        props.put("mail.smtp.password", pass);
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
+
+        Session session = Session.getDefaultInstance(props);
+        MimeMessage message = new MimeMessage(session);
+
+        try {
+            message.setFrom(new InternetAddress(from));
+            InternetAddress[] toAddress = new InternetAddress[to.length];
+
+            // To get the array of addresses
+            for (int i = 0; i < to.length; i++) {
+                toAddress[i] = new InternetAddress(to[i]);
+            }
+
+            for (int i = 0; i < toAddress.length; i++) {
+                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+            }
+
+            message.setSubject(subject);
+            message.setText(body);
+            Transport transport = session.getTransport("smtp");
+            transport.connect(host, from, pass);
+            transport.sendMessage(message, message.getAllRecipients());
+            transport.close();
+        } catch (AddressException ae) {
+            ae.printStackTrace();
+        } catch (MessagingException me) {
+            me.printStackTrace();
+        }
+    }
+
+  
 }
 
     

@@ -40,5 +40,7 @@ public interface OffreInterface {
     public Offre getelementbyDescription(String Description);
 
     public List<Offre> suggestedOffres(int idType, int idOffre);
+    public void sendEmailNotif(String recipient,Offre s);
+    
 
 }
