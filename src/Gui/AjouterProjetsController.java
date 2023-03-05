@@ -105,80 +105,55 @@ public class AjouterProjetsController implements Initializable {
                 {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Champs manquants");
-                alert.setContentText("Vous devez remplir tous les champs avant d'enregistrer.");
+                alert.setContentText("Vous devez remplir tous les champs avant d'ajouter le projet.");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();         
+        } else if (controleTextFieldNumerique(dureeTF)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Duree invalide");
+                alert.setContentText("Votre durée est invalide");
                 ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
                 alert.getButtonTypes().setAll( buttonTypeNo);
                 alert.showAndWait();
-                
-        }
-        
-       
-//        if(validateDatePicker(datedebutDP) || validateDatePicker(datefinDP) || controleTextFieldNumerique(dureeTF) )     {
-//        if (NomTF.getText().isEmpty())
-//        {
-//        erreurNom.setText("Veuillez saisir un nom !");
-//        erreurNom.setVisible(true);
-//        return;
-//        }
-//            
-//            if (themeTF.getText().isEmpty())
-//        {
-//        erreurTheme.setText("theme non valide !");
-//        erreurTheme.setVisible(true);
-//        return;
-//        }
-//        
-//        if (descriptionTF.getText().isEmpty())
-//        {
-//        erreurDescription.setText("Description non valide !");
-//        erreurDescription.setVisible(true);
-//        return;
-//        }
-//        
-//        return;
-//        }
-//        if (dureeTF.getText().isEmpty())
-//        {
-//        erreurDuree.setText("duree non valide !");
-//        erreurDuree.setVisible(true);
-//        
-//        return;
-//        }
-//        
-//         if (datedebutDP.getValue()== null)
-//        {
-//        erreurDateDebut.setText("Date non valide !");
-//        erreurDateDebut.setVisible(true);
-//        return;
-//        }
-//        
-//         if (datefinDP.getValue()== null)
-//        {
-//        erreurDateFin.setText("Date non valide !");
-//        erreurDateFin.setVisible(true);
-//        
-//        
-//        return;
-//        }
-        
-//     LocalDate selectedDate = datedebutDP.getValue();
-//        LocalDate selectedDate1 = datefinDP.getValue();
-//        String dateString = selectedDate.toString();
-//      //  ProjetFreelance p = new ProjetFreelance();
-//        SecteurServices ss = new SecteurServices();
-//        Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
-//        p.setDuree(Integer.parseInt(dureeTF.getText()));
-//        p.setTheme        p.setTheme(themeTF.getText());
-//(themeTF.getText());
-//        p.setNom(NomTF.getText()); 
-//        p.setDescription(descriptionTF.getText());     
-//        p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
-//        p.setDateFin(Date.valueOf(datedebutDP.getValue()));
-//        p.setS(ss.getsecteurbydescription(SecteurSelectionne));
-//        p.setIdResponsable(0);
-//        ps.addProjet(p);
+        } else if (controleTextFieldNumerique(NomTF)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Duree invalide");
+                alert.setContentText("Votre nom est invalide");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();
+            }else if (controleTextFieldNonNumerique(themeTF)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Duree invalide");
+                alert.setContentText("Votre théme est invalide");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();
+            }else if (controleTextFieldNonNumerique(descriptionTF)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Duree invalide");
+                alert.setContentText("Votre description est invalide");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();
+         }else if (validateDatePicker(datedebutDP)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Duree invalide");
+                alert.setContentText("Votre date est invalide");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();
+          }else if(validateDatePicker(datefinDP)){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Duree invalide");
+                alert.setContentText("Votre date est invalide");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();}
+          else{
 
-    LocalDate selectedDate = datedebutDP.getValue();
+   LocalDate selectedDate = datedebutDP.getValue();
     LocalDate selectedDate1 = datefinDP.getValue();
     SecteurServices ss = new SecteurServices();
     Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
@@ -191,13 +166,13 @@ public class AjouterProjetsController implements Initializable {
     p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
     p.setDateFin(Date.valueOf(datefinDP.getValue()));
     if (SecteurSelectionne != null) {
-        p.setS(ss.getsecteurbydescription(SecteurSelectionne));
+    p.setS(ss.getsecteurbydescription(SecteurSelectionne));
     }
     // TODO: Set idResponsable to a valid value
     p.setIdResponsable(1);
 
     ps.addProjet(p);
-    }
+    }}
         
 
     @FXML
@@ -225,34 +200,23 @@ public boolean validateDatePicker(DatePicker dateD)
     {
           if(dateD.getEditor().getText().isEmpty())
          {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez saisir la date ");
-            alert.showAndWait();
+          
             return true;
          }
            return false;
         }
 
  public boolean controleTextFieldNumerique(TextField textField) {
-        if (textField.getText().matches(".*[a-zA-Z].*") ) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("veuillez saisir que des entiers!");
-            alert.showAndWait();
+        if (textField.getText().matches(".*[a-zA-Z].*") ) { 
             return true;
         }
              return false;}
     
     public boolean controleTextFieldNonNumerique(TextField textField) {
-        if (textField.getText().matches(".*[0-9].*")) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez n'insérer que des caractères !");
-            alert.showAndWait();
+        if (textField.getText().matches(".*[0-9].*")) { 
             return true;
         }
              return false;}
 
-    }
-  
+    } 
+

@@ -42,9 +42,9 @@ public class NewFXMain extends Application {
           
           
            //Parent root = FXMLLoader.load(getClass().getResource("/Gui/AjouterSecteurs.fxml")); 
-          // Parent root = FXMLLoader.load(getClass().getResource("../Gui/AjouterProjets.fxml"));
+           Parent root = FXMLLoader.load(getClass().getResource("../Gui/AjouterProjets.fxml"));
            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsFreelance.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsResponsable.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ListeProjetsResponsable.fxml"));
            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/ModifierProjets.fxml"));
            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/Feedback.fxml"));
            //Parent root = FXMLLoader.load(getClass().getResource("../Gui/SuppressionCommentaire.fxml"));
