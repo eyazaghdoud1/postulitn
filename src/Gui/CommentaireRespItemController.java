@@ -38,8 +38,8 @@ public class CommentaireRespItemController implements Initializable {
     @FXML
     private Label LContenu;
 
-    CommentaireServices cs = new CommentaireServices();
-    List<Commentaire> commentaires = cs.fetchCommentaire();
+    CommentaireServices commentservice = new CommentaireServices();
+    List<Commentaire> commentaires = commentservice.fetchCommentaire();
     /**
      * Initializes the controller class.
      */
@@ -57,7 +57,7 @@ public class CommentaireRespItemController implements Initializable {
     private void DeleteComment(MouseEvent event) {
         //Commentaire c = commentaires.get(FeedbackRespController.selectedComment);
         System.out.println(FeedbackRespController.selectedCommentResp);
-          cs.deleteCommentaireById(FeedbackRespController.selectedCommentResp);
+          commentservice.deleteCommentaireById(FeedbackRespController.selectedCommentResp);
        try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/FeedbackResp.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 

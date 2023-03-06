@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 import Models.ProjetFreelance;
 import Models.Secteur;
 import interfaces.SecteurInterface;
-import utilities.MyConnexion;
+import utilities.MaConnexion;
 
 /**
  *
@@ -27,7 +27,7 @@ import utilities.MyConnexion;
 public class SecteurServices implements SecteurInterface{
     
   //var  
-    Connection cnx = MyConnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
     
     
 //ajout d'un secteur 

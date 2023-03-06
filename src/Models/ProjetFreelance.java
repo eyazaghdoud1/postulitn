@@ -180,6 +180,8 @@ public class ProjetFreelance {
         return "ProjetFreelance{" + "idProjet=" + idProjet + ", duree=" + duree + ", theme=" + theme + ", description=" + description + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", s=" + s + ", idResponsable=" + idResponsable + ", Nom=" + Nom + ", note=" + note + '}';
     }
 
+
+
     
     
 

@@ -19,7 +19,9 @@ import java.util.logging.Logger;
 import Models.ProjetFreelance;
 import Models.Secteur;
 import Models.Commentaire;
-import utilities.MyConnexion;
+import org.controlsfx.control.Rating;
+import utilities.MaConnexion;
+
 
 /**
  *
@@ -27,7 +29,7 @@ import utilities.MyConnexion;
  */
 public class ProjetServices implements ProjetInterface {
     
-     Connection cnx = MyConnexion.getInstance().getCnx();
+     Connection cnx = MaConnexion.getInstance().getCnx();
      
  
      
@@ -46,7 +48,7 @@ public class ProjetServices implements ProjetInterface {
              ps.setInt(6, p.getS().getIdSecteur());
              ps.setInt(7, p.getIdResponsable());
              ps.setString(8, p.getNom());
-             ps.setInt(9,p.getNote());
+             ps.setInt(9, p.getNote());
              ps.executeUpdate();
              System.out.println("Projet ajouté avec succes");
          } catch (SQLException ex) {
@@ -54,6 +56,18 @@ public class ProjetServices implements ProjetInterface {
          }
     
     }
+    
+    
+   /* public void ajouterRating(int r , ProjetFreelance p){
+             String req = "UPDATE projets SET `note`=? WHERE idProjet = ?";
+        try { 
+            PreparedStatement ps = cnx.prepareStatement(req);
+                 PreparedStatement setInt = ps.setInt(1,p.getRating());
+        } catch (SQLException ex) {
+            Logger.getLogger(ProjetServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }*/
+   
 
     
     //SELECT
@@ -84,7 +98,7 @@ public class ProjetServices implements ProjetInterface {
                  p.setS(s);
                  p.setIdResponsable(rs.getInt(8));
                  p.setNom(rs.getString(9));
-                 p.setNote(rs.getInt(10));
+                p.setNote(rs.getInt(10));
           
                  projets.add(p); 
              }
@@ -331,8 +345,7 @@ public class ProjetServices implements ProjetInterface {
              System.out.println(ex.getMessage());
         }
         return  ProjetRFiltres;
-    }
-    
-    
+     }
+
 
 }

@@ -54,8 +54,8 @@ public class FeedbackController implements Initializable {
     private VBox quizVB;
     @FXML
     private ListView<HBox> CommentListView;
-    CommentaireServices cs = new CommentaireServices();
-    List<Commentaire> commentaires = cs.fetchCommentaire();
+    CommentaireServices commentservice = new CommentaireServices();
+    List<Commentaire> commentaires = commentservice.fetchCommentaire();
    // public static ProjetFreelance selectedProjet;
     
     @FXML
@@ -110,7 +110,7 @@ public class FeedbackController implements Initializable {
     @FXML
     private void addComment(ActionEvent event) {
         
-        CommentaireServices cs = new CommentaireServices();
+        CommentaireServices commentservice = new CommentaireServices();
         Commentaire c = new Commentaire(); 
         c.setContenu(ContenuTF.getText());
         c.setIdProjet(selectedProjet.getIdProjet());
@@ -123,7 +123,7 @@ public class FeedbackController implements Initializable {
         alert.setContentText("Veuillez respecter les éthiques de notre communauté");
         alert.showAndWait();
     } else {
-        cs.addCommentaire(c);
+        commentservice.addCommentaire(c);
      try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/Feedback.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 

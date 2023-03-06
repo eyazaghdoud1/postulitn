@@ -48,7 +48,7 @@ public class FeedbackRespController implements Initializable {
     private VBox quizVB;
     @FXML
     private ListView<HBox> CommentListView;
-    static CommentaireServices cs = new CommentaireServices(); 
+    static CommentaireServices commentsecteur = new CommentaireServices(); 
   static List<Commentaire> commentairesResp ;
     public static Commentaire selectedCommentResp;
     /**
@@ -57,7 +57,7 @@ public class FeedbackRespController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO ProjetFreelance pf : projets
-               commentairesResp= cs.fetchCommentaire();
+               commentairesResp= commentsecteur.fetchCommentaire();
          for (Commentaire c : commentairesResp ) {
 
            FXMLLoader loader = new FXMLLoader();

@@ -50,8 +50,8 @@ public class ProjetRespItemController implements Initializable {
     private Label Lnom;
     
 
-     private ProjetServices ps = new ProjetServices(); 
-     List<ProjetFreelance> projets = ps.fetchProjet(); 
+     private ProjetServices projetservice = new ProjetServices(); 
+     List<ProjetFreelance> projets = projetservice.fetchProjet(); 
 
     /**
      * Initializes the controller class.

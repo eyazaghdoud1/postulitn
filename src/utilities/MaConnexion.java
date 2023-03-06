@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Users
  */
-public class MyConnexion {
+public class MaConnexion {
     
 
  //DB PARAM
@@ -24,11 +24,11 @@ public class MyConnexion {
    //var
     private Connection cnx;
     //1
-    static MyConnexion instance;
+    static MaConnexion instance;
     
     //const
     //2
-    private MyConnexion(){
+    private MaConnexion(){
         try {
             cnx = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException ex) {
@@ -42,9 +42,9 @@ public class MyConnexion {
     }
 
     //3
-    public static MyConnexion getInstance() {
+    public static MaConnexion getInstance() {
         if(instance == null)
-            instance = new MyConnexion();
+            instance = new MaConnexion();
         
         return instance;
     }

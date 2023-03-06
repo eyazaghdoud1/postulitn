@@ -7,27 +7,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="Shbox" prefHeight="58.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.SController">
+<HBox fx:id="Shbox" prefHeight="58.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.SController">
    <children>
-      <Label fx:id="DescriSecteur" prefHeight="20.0" prefWidth="139.0" text="Label">
-         <HBox.margin>
-            <Insets left="30.0" top="15.0" />
-         </HBox.margin>
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <TextField fx:id="secteurInputTF" prefHeight="26.0" prefWidth="94.0">
+      <TextField fx:id="DescriSecteur" prefHeight="26.0" prefWidth="195.0">
          <HBox.margin>
             <Insets left="30.0" top="15.0" />
          </HBox.margin>
       </TextField>
+      <Label fx:id="erreurSecteur" prefHeight="18.0" prefWidth="199.0">
+         <HBox.margin>
+            <Insets left="15.0" top="20.0" />
+         </HBox.margin>
+      </Label>
       <Button mnemonicParsing="false" onAction="#ModifierSecteur" prefHeight="27.0" prefWidth="70.0" style="-fx-background-color: #0E1947;" text="Modifier" textFill="WHITE">
          <font>
             <Font size="13.0" />
          </font>
          <HBox.margin>
-            <Insets left="25.0" top="15.0" />
+            <Insets left="200.0" top="15.0" />
          </HBox.margin>
       </Button>
       <Button mnemonicParsing="false" onAction="#supprimerSecteur" style="-fx-background-color: #0E1947;" text="Supprimer" textFill="WHITE">

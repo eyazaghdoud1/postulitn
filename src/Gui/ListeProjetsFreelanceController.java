@@ -39,7 +39,7 @@ import services.SecteurServices;
  */
 public class ListeProjetsFreelanceController implements Initializable {
     
-    ProjetServices ps = new ProjetServices(); 
+    ProjetServices projetservice = new ProjetServices(); 
     @FXML
     private Label userConnecte;
     @FXML
@@ -57,7 +57,7 @@ public class ListeProjetsFreelanceController implements Initializable {
     public static ProjetFreelance selectedProjet;
    public static List<ProjetFreelance> projets;
    public static Secteur selectedSecteur;
-   SecteurServices ss = new SecteurServices();
+   SecteurServices secteurservice = new SecteurServices();
    
     @FXML
     private ComboBox<String> secteurCB;
@@ -70,9 +70,9 @@ public class ListeProjetsFreelanceController implements Initializable {
           
           
      if (selectedSecteur ==null){
-        projets = ps.fetchProjet();
+        projets = projetservice.fetchProjet();
         } else {
-            projets = ps.filterBySecteur(selectedSecteur.getIdSecteur());
+            projets = projetservice.filterBySecteur(selectedSecteur.getIdSecteur());
         }
   
        for (int i=0; i<projets.size();i++) {
@@ -90,13 +90,13 @@ public class ListeProjetsFreelanceController implements Initializable {
            }
        }
        
-         for (int i=0; i<ss.fetchSecteur().size(); i++){
-            secteurCB.getItems().add(ss.fetchSecteur().get(i).getDescription());
+         for (int i=0; i<secteurservice.fetchSecteur().size(); i++){
+            secteurCB.getItems().add(secteurservice.fetchSecteur().get(i).getDescription());
         }
          
          secteurCB.setOnAction(e -> {
-            selectedSecteur= ss.getsecteurbydescription(secteurCB.getValue());
-             projets = ps.filterBySecteur(selectedSecteur.getIdSecteur());
+            selectedSecteur= secteurservice.getsecteurbydescription(secteurCB.getValue());
+             projets = projetservice.filterBySecteur(selectedSecteur.getIdSecteur());
             System.out.println(selectedSecteur);
             try {Parent Login = FXMLLoader.load(getClass().getResource("../GUI/ListeProjetsFreelance.fxml"));
             Scene si = new Scene(Login);
@@ -151,7 +151,7 @@ selectedProjet = projets.get( ProjetsFreelanceListView.getSelectionModel().getSe
     @FXML
     private void ResetBtn(ActionEvent event) {
         selectedSecteur = null;
-     projets=ps.fetchProjet();
+     projets=projetservice.fetchProjet();
      try {Parent Login = FXMLLoader.load(getClass().getResource("../GUI/ListeProjetsFreelance.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 

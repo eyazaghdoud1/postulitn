@@ -27,9 +27,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.controlsfx.control.Rating;
 import services.ProjetServices;
 import services.SecteurServices;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -62,8 +66,8 @@ public class ModifierProjetsController implements Initializable {
     private DatePicker datefinDP;
     @FXML
     private ComboBox<String> secteurCB;
-   ProjetServices ps = new ProjetServices(); 
-    SecteurServices ss = new SecteurServices();
+   ProjetServices projetservice = new ProjetServices(); 
+    SecteurServices secteurservice = new SecteurServices();
      private String SecteurSelectionne;
     @FXML
     private TextField NomTF;
@@ -113,7 +117,7 @@ public class ModifierProjetsController implements Initializable {
         p.setDuree(dureeTF.getText());
         p.setDescription(descriptionTF.getInt());
         p.setDateDebut(datedebutDP.getDate());
-        ps.UpdateProjet(p.getIdProjet(), p);*/
+        projetservice.UpdateProjet(p.getIdProjet(), p);*/
     ProjetFreelance proUpdate =  ListeProjetsResponsableController.selectedProjetResp; 
     proUpdate.setNom(NomTF.getText());
     proUpdate.setDuree(Integer.parseInt(dureeTF.getText()));
@@ -121,10 +125,20 @@ public class ModifierProjetsController implements Initializable {
     proUpdate.setDescription(descriptionTF.getText());
     proUpdate.setDateDebut(Date.valueOf(datedebutDP.getValue()));
      proUpdate.setDateFin(Date.valueOf(datefinDP.getValue()));
-     proUpdate.setS(ss.getsecteurbydescription(SecteurSelectionne));
+     proUpdate.setS(secteurservice.getsecteurbydescription(SecteurSelectionne));
      proUpdate.setIdResponsable(1);
-    //ps.UpdateProjet(p.getIdProjet(), p);
-    ps.UpdateProjet(proUpdate.getIdProjet(), proUpdate);
+    //projetservice.UpdateProjet(p.getIdProjet(), p);
+    projetservice.UpdateProjet(proUpdate.getIdProjet(), proUpdate);
+          String tilte = "Projet modifié avec succes";
+            String message = NomTF.getText();
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+        
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.millis(3000));
      try {
             Parent OffreprojetResponsable = FXMLLoader.load(getClass().getResource("OffreprojetResponsable.fxml"));
             Scene  OffreprojetResponsableScene = new Scene(OffreprojetResponsable);

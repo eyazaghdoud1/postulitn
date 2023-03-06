@@ -32,9 +32,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import services.ProjetServices;
 import services.SecteurServices;
-
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -85,15 +88,15 @@ public class AjouterProjetResController implements Initializable {
     private Label erreurSecteur;
 
      private String SecteurSelectionne;
-         SecteurServices ss = new SecteurServices();
-         ProjetServices ps = new ProjetServices(); 
+         SecteurServices secteurservice = new SecteurServices();
+         ProjetServices projetservice = new ProjetServices(); 
          ProjetFreelance p = new ProjetFreelance();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-          List<Secteur> ls = ss.fetchSecteur();
+          List<Secteur> ls = secteurservice.fetchSecteur();
         for(int i=0; i<ls.size(); i++ )  {
         secteurCB.getItems().addAll(ls.get(i).getDescription());
         }
@@ -137,8 +140,8 @@ public class AjouterProjetResController implements Initializable {
         
     LocalDate selectedDate = datedebutDP.getValue();
     LocalDate selectedDate1 = datefinDP.getValue();
-    SecteurServices ss = new SecteurServices();
-    Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
+    SecteurServices secteurservice = new SecteurServices();
+    Secteur s = secteurservice.getsecteurbydescription(secteurCB.getValue());
 
     ProjetFreelance p = new ProjetFreelance();
     p.setDuree(Integer.parseInt(dureeTF.getText()));
@@ -148,11 +151,21 @@ public class AjouterProjetResController implements Initializable {
     p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
     p.setDateFin(Date.valueOf(datefinDP.getValue()));
     if (SecteurSelectionne != null) {
-        p.setS(ss.getsecteurbydescription(SecteurSelectionne));
+        p.setS(secteurservice.getsecteurbydescription(SecteurSelectionne));
     }
     // TODO: Set idResponsable to a valid value
     p.setIdResponsable(1);
-    ps.addProjet(p);
+    projetservice.addProjet(p);
+     String tilte = "Offre Ajoutée";
+            String message = NomTF.getText();
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+        
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.millis(3000));
     }
 
     @FXML

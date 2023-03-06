@@ -63,8 +63,8 @@ public class OffreprojetResponsableController implements Initializable {
     @FXML
     private Label Lnom;
     
-     static ProjetServices ps = new ProjetServices(); 
-  static List<ProjetFreelance> commentaires = ps.fetchProjet();
+     static ProjetServices projetservice = new ProjetServices(); 
+  static List<ProjetFreelance> commentaires = projetservice.fetchProjet();
     
 
     /**
@@ -139,7 +139,7 @@ public class OffreprojetResponsableController implements Initializable {
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == buttonTypeYes){
                  // User clicked "Yes"
-                ps.deleteProjetById(ListeProjetsResponsableController.selectedProjetResp);
+                projetservice.deleteProjetById(ListeProjetsResponsableController.selectedProjetResp);
                  try {
                   Parent root = FXMLLoader.load(getClass().getResource("./ListeProjetsResponsable.fxml"));
                   System.out.println("FXML loaded successfully");

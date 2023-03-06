@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.AjouterSecteursController">
+<BorderPane prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuBarAdminController">
    <top>
       <HBox prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
@@ -44,7 +44,7 @@
                   </Label>
                   <ImageView fitHeight="36.0" fitWidth="39.0">
                      <image>
-                        <Image url="@user1.png" />
+                        <Image url="@profilicon.png" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="10.0" top="10.0" />
@@ -60,9 +60,9 @@
          <children>
             <VBox fx:id="offresVB" onMouseClicked="#goToOffres" prefHeight="76.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
-                  <ImageView fitHeight="29.0" fitWidth="34.0">
+                  <ImageView fitHeight="27.0" fitWidth="34.0">
                      <image>
-                        <Image url="@Offres1.png" />
+                        <Image url="@offres.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="-7.0" top="15.0" />
@@ -85,7 +85,7 @@
                <children>
                   <ImageView fitHeight="33.0" fitWidth="34.0">
                      <image>
-                        <Image url="@offres.png" />
+                        <Image url="@type%20offre.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="-10.0" top="10.0" />
@@ -111,7 +111,7 @@
                <children>
                   <ImageView fitHeight="33.0" fitWidth="34.0">
                      <image>
-                        <Image url="@users.png" />
+                        <Image url="@icone%20user.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="-8.0" top="10.0" />
@@ -134,7 +134,7 @@
                <children>
                   <ImageView fitHeight="40.0" fitWidth="45.0">
                      <image>
-                        <Image url="@Roles.png" />
+                        <Image url="@icon%20role2.png" />
                      </image>
                      <VBox.margin>
                         <Insets left="25.0" top="15.0" />
@@ -207,7 +207,6 @@
                   <Label fx:id="erreurSecteur" layoutX="248.0" layoutY="565.0" prefHeight="18.0" prefWidth="273.0" textFill="WHITE" />
                </children>
             </AnchorPane>
-         </children>
-      </AnchorPane>
+         </children></AnchorPane>
    </center>
 </BorderPane>

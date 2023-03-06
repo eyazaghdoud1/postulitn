@@ -29,7 +29,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import services.SecteurServices;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 
 /**
@@ -64,8 +68,8 @@ public class AjouterProjetsController implements Initializable {
     @FXML
     private ComboBox<String> secteurCB;
         private String SecteurSelectionne;
-         SecteurServices ss = new SecteurServices();
-         ProjetServices ps = new ProjetServices(); 
+         SecteurServices secteurservice = new SecteurServices();
+         ProjetServices projetservice = new ProjetServices(); 
          ProjetFreelance p = new ProjetFreelance();
     @FXML
     private TextField NomTF;
@@ -88,7 +92,7 @@ public class AjouterProjetsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            List<Secteur> ls = ss.fetchSecteur();
+            List<Secteur> ls = secteurservice.fetchSecteur();
         for(int i=0; i<ls.size(); i++ )  {
         secteurCB.getItems().addAll(ls.get(i).getDescription());
         }
@@ -113,13 +117,6 @@ public class AjouterProjetsController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Duree invalide");
                 alert.setContentText("Votre durée est invalide");
-                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
-                alert.getButtonTypes().setAll( buttonTypeNo);
-                alert.showAndWait();
-        } else if (controleTextFieldNumerique(NomTF)){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Duree invalide");
-                alert.setContentText("Votre nom est invalide");
                 ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
                 alert.getButtonTypes().setAll( buttonTypeNo);
                 alert.showAndWait();
@@ -155,8 +152,8 @@ public class AjouterProjetsController implements Initializable {
 
    LocalDate selectedDate = datedebutDP.getValue();
     LocalDate selectedDate1 = datefinDP.getValue();
-    SecteurServices ss = new SecteurServices();
-    Secteur s = ss.getsecteurbydescription(secteurCB.getValue());
+    SecteurServices secteurservice = new SecteurServices();
+    Secteur s = secteurservice.getsecteurbydescription(secteurCB.getValue());
 
     ProjetFreelance p = new ProjetFreelance();
     p.setDuree(Integer.parseInt(dureeTF.getText()));
@@ -166,12 +163,22 @@ public class AjouterProjetsController implements Initializable {
     p.setDateDebut(Date.valueOf(datedebutDP.getValue()));
     p.setDateFin(Date.valueOf(datefinDP.getValue()));
     if (SecteurSelectionne != null) {
-    p.setS(ss.getsecteurbydescription(SecteurSelectionne));
+    p.setS(secteurservice.getsecteurbydescription(SecteurSelectionne));
     }
     // TODO: Set idResponsable to a valid value
     p.setIdResponsable(1);
 
-    ps.addProjet(p);
+    projetservice.addProjet(p);
+      String tilte = "Projet Ajouté avec succes";
+            String message = NomTF.getText();
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+        
+            tray.setAnimationType(type);
+            tray.setTitle(tilte);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.SUCCESS);
+            tray.showAndDismiss(Duration.millis(3000));
     }}
         
 

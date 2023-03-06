@@ -15,7 +15,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import utilities.MyConnexion;
+import utilities.MaConnexion;
 
 /**
  *
@@ -24,7 +24,7 @@ import utilities.MyConnexion;
 public class CommentaireServices implements CommentaireInterface {
     
   //var  
-    Connection cnx = MyConnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
     
     
 //ajout d'un commentaire

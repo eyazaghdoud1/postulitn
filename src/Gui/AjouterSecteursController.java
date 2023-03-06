@@ -53,7 +53,7 @@ public class AjouterSecteursController implements Initializable {
     private VBox quizVB;
     @FXML
     private ListView<HBox> secteurListView;
-    SecteurServices ss = new SecteurServices();
+    SecteurServices secteurservice = new SecteurServices();
     public static int selectedSecteur;
     @FXML
     private TextField secteurTF;
@@ -62,7 +62,7 @@ public class AjouterSecteursController implements Initializable {
       
        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
        
-        ProjetInterface ps = new ProjetServices();
+        ProjetInterface projetservice = new ProjetServices();
     @FXML
     private Label erreurSecteur;
     
@@ -74,7 +74,7 @@ public class AjouterSecteursController implements Initializable {
         
         
         // TODO
-       List<Secteur> secteurs = ss.fetchSecteur();
+       List<Secteur> secteurs = secteurservice.fetchSecteur();
        for (Secteur s: secteurs) {
        
            FXMLLoader loader = new FXMLLoader();
@@ -132,7 +132,7 @@ public class AjouterSecteursController implements Initializable {
               
  
         s.setDescription(secteurTF.getText());
-        ss.addSecteur(s);
+        secteurservice.addSecteur(s);
      try {Parent Login = FXMLLoader.load(getClass().getResource("../gui/AjouterSecteurs.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 

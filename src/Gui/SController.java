@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
@@ -36,12 +37,13 @@ public class SController implements Initializable {
     @FXML
     private HBox Shbox;
     @FXML
-    private Label DescriSecteur;
-    @FXML
-    private TextField secteurInputTF;
+    private TextField DescriSecteur;
+ 
 
-     SecteurServices ss = new SecteurServices();
-     List<Secteur> secteurs = ss.fetchSecteur();
+     SecteurServices secteurservice = new SecteurServices();
+     List<Secteur> secteurs = secteurservice.fetchSecteur();
+    @FXML
+    private Label erreurSecteur;
      
     /**
      * Initializes the controller class.
@@ -64,7 +66,7 @@ public class SController implements Initializable {
    
        Secteur s = secteurs.get(AjouterSecteursController.selectedSecteur);
            // s.setDescription(DescriSecteur.getText());
-            ss.deleteSecteurById(s);
+            secteurservice.deleteSecteurById(s);
        try {Parent root= FXMLLoader.load(getClass().getResource("./AjouterSecteurs.fxml"));
             Scene si = new Scene(root);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
@@ -93,11 +95,22 @@ public class SController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
+    }*/ SecteurServices secteurservice = new SecteurServices();
+        Secteur s = secteurs.get(AjouterSecteursController.selectedSecteur);
+          if (controleTextFieldNonNumerique(DescriSecteur))
+          {return ; 
+          }
+          
+          if(DescriSecteur.getText().isEmpty())
+                     {
+        erreurSecteur.setText("veuillez saisir un secteur !");
+        erreurSecteur.setVisible(true);
+        return;
+        }
    
-       Secteur s = secteurs.get(AjouterSecteursController.selectedSecteur);
-           s.setDescription(secteurInputTF.getText());
-            ss.UpdateSecteur(s.getIdSecteur(), s);
+       
+           s.setDescription(DescriSecteur.getText());
+            secteurservice.UpdateSecteur(s.getIdSecteur(), s);
        try {Parent root= FXMLLoader.load(getClass().getResource("./AjouterSecteurs.fxml"));
             Scene si = new Scene(root);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
@@ -106,6 +119,18 @@ public class SController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(SController.class.getName()).log(Level.SEVERE, null, ex);
         }}
+    
+    
+    
+        public boolean controleTextFieldNonNumerique(TextField textField) {
+        if (textField.getText().matches(".*[0-9].*")) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez n'insérer que des caractères !");
+            alert.showAndWait();
+            return true;
+        }
+             return false;}
 }
 /* @FXML
     private void ModifierRole(ActionEvent event) {

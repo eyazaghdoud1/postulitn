@@ -28,9 +28,15 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import Models.Commentaire;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import org.controlsfx.control.Rating;
-//import org.controlsfx.control.Rating;
+import org.controlsfx.control.Rating;
 import services.CommentaireServices;
+import services.ProjetServices;
+import utilities.MaConnexion;
 
 /**
  * FXML Controller class
@@ -84,6 +90,7 @@ public class OffreprojetController implements Initializable {
         Ldescription.setText(ListeProjetsFreelanceController.selectedProjet.getDescription());
         Lsecteur.setText(ListeProjetsFreelanceController.selectedProjet.getS().getDescription()+"");
         Lnom.setText(ListeProjetsFreelanceController.selectedProjet.getNom());
+       
         
       
     }    
@@ -132,12 +139,38 @@ public class OffreprojetController implements Initializable {
         }
     }
 
+    
+    
     @FXML
-    private void Submit(ActionEvent event) {
+private void Submit(ActionEvent event) throws SQLException {
+  tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
+       System.out.println("Rating enregistré");
+}
 
-     //   tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
-        
-    }
+   /* @FXML
+    private void Submit(ActionEvent event) throws SQLException {
+        ProjetServices projetservice = new ProjetServices(); 
+        projetservice.ajouterRating(tf_note, ListeProjetsFreelanceController.selectedProjet.getIdProjet());
+       //tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
+        //System.out.println("Rating enregistré");
+        */
+ 
+//    int rating = ListeProjetsFreelanceController.selectedProjet.getNote();
+//    tf_note.setRating(rating);
+//    
+//    // Update the rating value in the database
+//    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/postulidb/projets")) {
+//        PreparedStatement stmt = MaConnexion.prepareStatement("UPDATE projects SET note = ? WHERE idProjet = ?");
+//        stmt.setInt(1, rating);
+//        stmt.setInt(2, ListeProjetsFreelanceController.selectedProjet.getIdProjet());
+//        int rowsUpdated = stmt.executeUpdate();
+//        System.out.println(rowsUpdated + " row(s) updated.");
+//    } catch (SQLException ex) {
+//        ex.printStackTrace();
+//    }
+//    }
+//        
+    
 
     @FXML
     private void GoBack(ActionEvent event) {
