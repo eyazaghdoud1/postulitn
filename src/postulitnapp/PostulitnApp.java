@@ -72,7 +72,7 @@ public class PostulitnApp {
 
         //add Utilisateur       
 //        
-//        u.setNom("Zaghdoud");
+//        u.setNom("Zn");
 //        u.setPrenom("Eya");
 //        u.setEmail("eya.zaghdoud@esprit.tn");
 //        u.setTel("22222222");
