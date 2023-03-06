@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatistiqueController">
+<BorderPane prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatistiqueController">
    <top>
       <HBox prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
@@ -30,7 +30,7 @@
             </HBox>
             <HBox prefHeight="27.0" prefWidth="195.0">
                <HBox.margin>
-                  <Insets left="1550.0" />
+                  <Insets left="1200.0" />
                </HBox.margin>
                <children>
                   <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="29.0" prefWidth="123.0" text="username" textFill="#0e1947">
@@ -179,8 +179,8 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <PieChart fx:id="chartfor" layoutX="297.0" layoutY="116.0" prefHeight="646.0" prefWidth="1255.0" />
-            <Label layoutX="790.0" layoutY="37.0" text="TYPE OFFRE DIST" textFill="#3e3e3e">
+            <PieChart fx:id="chartfor" layoutX="169.0" layoutY="73.0" prefHeight="502.0" prefWidth="1255.0" />
+            <Label layoutX="673.0" layoutY="16.0" text="TYPE OFFRE DIST" textFill="#3e3e3e">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
