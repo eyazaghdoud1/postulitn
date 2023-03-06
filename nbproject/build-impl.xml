@@ -19,7 +19,11 @@ is divided into following sections:
   - cleanup
 
         -->
+<<<<<<< HEAD
 <project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="postulitnApp-impl">
+=======
+<project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="projet-impl">
+>>>>>>> azizbenguirat2
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>
@@ -48,6 +52,7 @@ is divided into following sections:
         <!-- by the active platform. Just a fallback. -->
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <property name="default.javac.source" value="1.6"/>
         <property name="default.javac.target" value="1.6"/>
 =======
@@ -58,6 +63,10 @@ is divided into following sections:
         <property name="default.javac.source" value="1.6"/>
         <property name="default.javac.target" value="1.6"/>
 >>>>>>> EyaZinelabidine
+=======
+        <property name="default.javac.source" value="1.6"/>
+        <property name="default.javac.target" value="1.6"/>
+>>>>>>> azizbenguirat2
     </target>
     <target depends="-pre-init,-init-private,-init-user" name="-init-project">
         <property file="nbproject/configs/${config}.properties"/>
@@ -88,6 +97,7 @@ is divided into following sections:
                 <length length="0" string="${javac.profile}" when="greater"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <matches pattern="((1\.[89])|9)(\..*)?" string="${javac.source}"/>
 =======
                 <matches pattern="1\.[89](\..*)?" string="${javac.source}"/>
@@ -95,6 +105,9 @@ is divided into following sections:
 =======
                 <matches pattern="((1\.[89])|9)(\..*)?" string="${javac.source}"/>
 >>>>>>> EyaZinelabidine
+=======
+                <matches pattern="((1\.[89])|9)(\..*)?" string="${javac.source}"/>
+>>>>>>> azizbenguirat2
             </and>
         </condition>
         <condition property="do.archive">
@@ -176,12 +189,16 @@ is divided into following sections:
         <property name="runtime.encoding" value="${source.encoding}"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <property name="manifest.encoding" value="${source.encoding}"/>
 =======
 >>>>>>> AzizNaes
 =======
         <property name="manifest.encoding" value="${source.encoding}"/>
 >>>>>>> EyaZinelabidine
+=======
+        <property name="manifest.encoding" value="${source.encoding}"/>
+>>>>>>> azizbenguirat2
         <condition property="javadoc.encoding.used" value="${javadoc.encoding}">
             <and>
                 <isset property="javadoc.encoding"/>
@@ -219,8 +236,11 @@ is divided into following sections:
         </condition>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> EyaZinelabidine
+=======
+>>>>>>> azizbenguirat2
         <condition else="false" property="javac.fork">
             <or>
                 <istrue value="${jdkBug6558476}"/>
@@ -228,11 +248,14 @@ is divided into following sections:
             </or>
         </condition>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         <property name="javac.fork" value="${jdkBug6558476}"/>
 >>>>>>> AzizNaes
 =======
 >>>>>>> EyaZinelabidine
+=======
+>>>>>>> azizbenguirat2
         <property name="jar.index" value="false"/>
         <property name="jar.index.metainf" value="${jar.index}"/>
         <property name="copylibs.rebase" value="true"/>
@@ -260,12 +283,16 @@ is divided into following sections:
         </condition>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <property name="java.failonerror" value="true"/>
 =======
 >>>>>>> AzizNaes
 =======
         <property name="java.failonerror" value="true"/>
 >>>>>>> EyaZinelabidine
+=======
+        <property name="java.failonerror" value="true"/>
+>>>>>>> azizbenguirat2
     </target>
     <target name="-post-init">
         <!-- Empty placeholder for easier customization. -->
@@ -492,7 +519,11 @@ is divided into following sections:
                     </fileset>
                 </union>
                 <taskdef classname="org.testng.TestNGAntTask" classpath="${run.test.classpath}" name="testng"/>
+<<<<<<< HEAD
                 <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="postulitnApp" testname="TestNG tests" workingDir="${work.dir}">
+=======
+                <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="projet" testname="TestNG tests" workingDir="${work.dir}">
+>>>>>>> azizbenguirat2
                     <xmlfileset dir="${build.test.classes.dir}" includes="@{testincludes}"/>
                     <propertyset>
                         <propertyref prefix="test-sys-prop."/>
@@ -643,7 +674,11 @@ is divided into following sections:
                 <condition else="-testclass @{testClass}" property="test.class.or.method" value="-methods @{testClass}.@{testMethod}">
                     <isset property="test.method"/>
                 </condition>
+<<<<<<< HEAD
                 <condition else="-suitename postulitnApp -testname @{testClass} ${test.class.or.method}" property="testng.cmd.args" value="@{testClass}">
+=======
+                <condition else="-suitename projet -testname @{testClass} ${test.class.or.method}" property="testng.cmd.args" value="@{testClass}">
+>>>>>>> azizbenguirat2
                     <matches pattern=".*\.xml" string="@{testClass}"/>
                 </condition>
                 <delete dir="${build.test.results.dir}" quiet="true"/>
@@ -744,6 +779,7 @@ is divided into following sections:
                 <resolve name="profiler.current.path" value="${profiler.info.pathvar}"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <java classname="@{classname}" dir="${profiler.info.dir}" failonerror="${java.failonerror}" fork="true" jvm="${profiler.info.jvm}">
 =======
                 <java classname="@{classname}" dir="${profiler.info.dir}" fork="true" jvm="${profiler.info.jvm}">
@@ -751,6 +787,9 @@ is divided into following sections:
 =======
                 <java classname="@{classname}" dir="${profiler.info.dir}" failonerror="${java.failonerror}" fork="true" jvm="${profiler.info.jvm}">
 >>>>>>> EyaZinelabidine
+=======
+                <java classname="@{classname}" dir="${profiler.info.dir}" failonerror="${java.failonerror}" fork="true" jvm="${profiler.info.jvm}">
+>>>>>>> azizbenguirat2
                     <jvmarg line="${endorsed.classpath.cmd.line.arg}"/>
                     <jvmarg value="${profiler.info.jvmargs.agent}"/>
                     <jvmarg line="${profiler.info.jvmargs}"/>
@@ -827,6 +866,7 @@ is divided into following sections:
             <sequential>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
 =======
                 <java classname="@{classname}" dir="${work.dir}" fork="true">
@@ -834,6 +874,9 @@ is divided into following sections:
 =======
                 <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
 >>>>>>> EyaZinelabidine
+=======
+                <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
+>>>>>>> azizbenguirat2
                     <jvmarg line="${endorsed.classpath.cmd.line.arg}"/>
                     <jvmarg line="${debug-args-line}"/>
                     <jvmarg value="-Xrunjdwp:transport=${debug-transport},address=${jpda.address}"/>
@@ -862,6 +905,7 @@ is divided into following sections:
             <sequential>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
 =======
                 <java classname="@{classname}" dir="${work.dir}" fork="true">
@@ -869,6 +913,9 @@ is divided into following sections:
 =======
                 <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
 >>>>>>> EyaZinelabidine
+=======
+                <java classname="@{classname}" dir="${work.dir}" failonerror="${java.failonerror}" fork="true">
+>>>>>>> azizbenguirat2
                     <jvmarg line="${endorsed.classpath.cmd.line.arg}"/>
                     <jvmarg value="-Dfile.encoding=${runtime.encoding}"/>
                     <redirector errorencoding="${runtime.encoding}" inputencoding="${runtime.encoding}" outputencoding="${runtime.encoding}"/>
@@ -909,6 +956,7 @@ is divided into following sections:
                 <taskdef classname="org.netbeans.modules.java.j2seproject.copylibstask.CopyLibs" classpath="${libs.CopyLibs.classpath}" name="copylibs"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <copylibs compress="${jar.compress}" excludeFromCopy="${copylibs.excludes}" index="${jar.index}" indexMetaInf="${jar.index.metainf}" jarfile="${dist.jar}" manifest="@{manifest}" manifestencoding="UTF-8" rebase="${copylibs.rebase}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
 =======
                 <copylibs compress="${jar.compress}" excludeFromCopy="${copylibs.excludes}" index="${jar.index}" indexMetaInf="${jar.index.metainf}" jarfile="${dist.jar}" manifest="@{manifest}" rebase="${copylibs.rebase}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
@@ -916,6 +964,9 @@ is divided into following sections:
 =======
                 <copylibs compress="${jar.compress}" excludeFromCopy="${copylibs.excludes}" index="${jar.index}" indexMetaInf="${jar.index.metainf}" jarfile="${dist.jar}" manifest="@{manifest}" manifestencoding="UTF-8" rebase="${copylibs.rebase}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
 >>>>>>> EyaZinelabidine
+=======
+                <copylibs compress="${jar.compress}" excludeFromCopy="${copylibs.excludes}" index="${jar.index}" indexMetaInf="${jar.index.metainf}" jarfile="${dist.jar}" manifest="@{manifest}" manifestencoding="UTF-8" rebase="${copylibs.rebase}" runtimeclasspath="${run.classpath.without.build.classes.dir}">
+>>>>>>> azizbenguirat2
                     <fileset dir="${build.classes.dir}" excludes="${dist.archive.excludes}"/>
                     <manifest>
                         <attribute name="Class-Path" value="${jar.classpath}"/>
@@ -929,6 +980,7 @@ is divided into following sections:
         <presetdef name="jar" uri="http://www.netbeans.org/ns/j2se-project/1">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}" manifestencoding="UTF-8">
 =======
             <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}">
@@ -936,6 +988,9 @@ is divided into following sections:
 =======
             <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}" manifestencoding="UTF-8">
 >>>>>>> EyaZinelabidine
+=======
+            <jar compress="${jar.compress}" index="${jar.index}" jarfile="${dist.jar}" manifestencoding="UTF-8">
+>>>>>>> azizbenguirat2
                 <j2seproject1:fileset dir="${build.classes.dir}" excludes="${dist.archive.excludes}"/>
             </jar>
         </presetdef>
@@ -975,7 +1030,11 @@ is divided into following sections:
         <delete file="${built-jar.properties}" quiet="true"/>
     </target>
     <target if="already.built.jar.${basedir}" name="-warn-already-built-jar">
+<<<<<<< HEAD
         <echo level="warn" message="Cycle detected: postulitnApp was already built"/>
+=======
+        <echo level="warn" message="Cycle detected: projet was already built"/>
+>>>>>>> azizbenguirat2
     </target>
     <target depends="init,-deps-jar-init" name="deps-jar" unless="no.deps">
         <mkdir dir="${build.dir}"/>
@@ -1060,12 +1119,16 @@ is divided into following sections:
         <tempfile deleteonexit="true" destdir="${build.dir}" property="tmp.manifest.file"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> EyaZinelabidine
+=======
+>>>>>>> azizbenguirat2
         <copy encoding="${manifest.encoding}" file="${manifest.file}" outputencoding="UTF-8" tofile="${tmp.manifest.file}"/>
     </target>
     <target depends="init,-do-jar-create-manifest,-do-jar-copy-manifest" if="do.archive+main.class.available" name="-do-jar-set-mainclass">
         <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         <copy file="${manifest.file}" tofile="${tmp.manifest.file}"/>
@@ -1075,10 +1138,13 @@ is divided into following sections:
 >>>>>>> AzizNaes
 =======
 >>>>>>> EyaZinelabidine
+=======
+>>>>>>> azizbenguirat2
             <attribute name="Main-Class" value="${main.class}"/>
         </manifest>
     </target>
     <target depends="init,-do-jar-create-manifest,-do-jar-copy-manifest" if="do.archive+profile.available" name="-do-jar-set-profile">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
@@ -1088,6 +1154,9 @@ is divided into following sections:
 =======
         <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
 >>>>>>> EyaZinelabidine
+=======
+        <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+>>>>>>> azizbenguirat2
             <attribute name="Profile" value="${javac.profile}"/>
         </manifest>
     </target>
@@ -1097,6 +1166,7 @@ is divided into following sections:
         <copy failonerror="false" file="${application.splash}" todir="${build.classes.dir}/META-INF"/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
 =======
         <manifest file="${tmp.manifest.file}" mode="update">
@@ -1104,6 +1174,9 @@ is divided into following sections:
 =======
         <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
 >>>>>>> EyaZinelabidine
+=======
+        <manifest encoding="UTF-8" file="${tmp.manifest.file}" mode="update">
+>>>>>>> azizbenguirat2
             <attribute name="SplashScreen-Image" value="META-INF/${splashscreen.basename}"/>
         </manifest>
     </target>
@@ -1300,6 +1373,7 @@ is divided into following sections:
         <startprofiler/>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <antcall target="run-test-with-main"/>
 =======
         <antcal target="run-test-with-main"/>
@@ -1307,6 +1381,9 @@ is divided into following sections:
 =======
         <antcall target="run-test-with-main"/>
 >>>>>>> EyaZinelabidine
+=======
+        <antcall target="run-test-with-main"/>
+>>>>>>> azizbenguirat2
     </target>
     <target depends="-profile-check,-profile-applet-pre72" if="profiler.configured" name="profile-applet" unless="profiler.info.jvmargs.agent">
         <fail unless="applet.url">Must select one file in the IDE or set applet.url</fail>
@@ -1497,7 +1574,11 @@ is divided into following sections:
         <delete file="${built-clean.properties}" quiet="true"/>
     </target>
     <target if="already.built.clean.${basedir}" name="-warn-already-built-clean">
+<<<<<<< HEAD
         <echo level="warn" message="Cycle detected: postulitnApp was already built"/>
+=======
+        <echo level="warn" message="Cycle detected: projet was already built"/>
+>>>>>>> azizbenguirat2
     </target>
     <target depends="init,-deps-clean-init" name="deps-clean" unless="no.deps">
         <mkdir dir="${build.dir}"/>

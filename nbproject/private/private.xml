@@ -1,33 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-<<<<<<< HEAD
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/newCompte.fxml</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewCompteController.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/Ajoutercompte2Controller.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/FXMain.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizQuestionService.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/EntretienService.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/compte2.fxml</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizScoreService.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/CandidatureService.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewoffresController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/utilities/MaConnexion.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/PostulitnApp.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/AjouteroffreController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/projet/NewFXMain.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/OffreService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/OffreInterfaceController.java</file>
         </group>
-=======
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
-        <file>
-            <url>src/pidev/PIDEV.java</url>
-            <bookmark id="1">
-                <name/>
-                <line>98</line>
-                <key/>
-            </bookmark>
-        </file>
-    </editor-bookmarks>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
->>>>>>> EyaZinelabidine
     </open-files>
 </project-private>
