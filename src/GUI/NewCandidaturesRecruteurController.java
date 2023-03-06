@@ -75,7 +75,7 @@ public class NewCandidaturesRecruteurController implements Initializable {
     public static String recSelectedTypeOffreFiltre;
     public static String recSelectedOffreFiltre;
     public static Candidature recSelectedCand;
-    public static List<Candidature> dataCand = csr.fetchCandidatures();
+    public static List<Candidature> dataCand ;
 
     /**
      * Initializes the controller class.
@@ -83,7 +83,7 @@ public class NewCandidaturesRecruteurController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+         dataCand = csr.fetchCandidatures();
         
         //List<Candidature> dataV = cs.filterListeByEtat(data, EtatCandidature.EtatsCandidature.Validée);
                 for (Candidature cand : dataCand) {

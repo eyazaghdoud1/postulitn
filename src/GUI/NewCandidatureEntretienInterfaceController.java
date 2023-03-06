@@ -527,16 +527,22 @@ catch (IOException ex) {
                 entretienVB.setVisible(false);
                 planifierPresBtn.setVisible(false);
                 planifierTelBtn.setVisible(false);
+                System.out.println("case2");
+               /*  modifierBtn2.setVisible(true);
+                 modifierBtn1.setVisible(true);*/
                 //modiferBtn.setVisible(false);
                 for (Entretien ent: le) {
                     if(ent.getType().equals(TypeEntretien.TypeE.Téléphone.toString())) {
                         
                         dateEntTel.setText(dateEntTel.getText() + " " + ent.getDate()  );
                         heureEntTel.setText(heureEntTel.getText() + " " + ent.getHeure());
-                        dateEntPres.setVisible(false);
+                       /* dateEntPres.setVisible(false);
                         heureEntPres.setVisible(false);
-                        lieuEntPres.setVisible(false);
-                        modifierBtn2.setVisible(false);
+                        lieuEntPres.setVisible(false);*/
+                        modifierBtn1.setVisible(true);
+                       
+                        System.out.println(ent);
+                       
                         entTel = ent;
                     }
                     else if(ent.getType().equals(TypeEntretien.TypeE.Présentiel.toString())) {
@@ -545,9 +551,11 @@ catch (IOException ex) {
                         heureEntPres.setText(heureEntPres.getText() + " " + ent.getHeure() );
                         lieuEntPres.setText(lieuEntPres.getText() + " " + ent.getLieu());
                         entPres = ent;
-                        dateEntTel.setVisible(false);
-                        heureEntTel.setVisible(false);
-                        modifierBtn1.setVisible(false);
+                        /*dateEntTel.setVisible(false);
+                        heureEntTel.setVisible(false);*/
+                        modifierBtn2.setVisible(true);
+                       System.out.println(ent);
+                      
                     }
                 }    break;
             case 1:
@@ -565,6 +573,9 @@ catch (IOException ex) {
                     lieuEntPres.setText(lieuEntPres.getText() + " " + entPres.getLieu());
                     
                    planifierPresBtn.setVisible(false);
+                  /* modifierBtn2.setVisible(true);
+                   planifierTelBtn.setVisible(true);*/
+                 
                   
                     
                 }  if (le.get(0).getType().equals(TypeEntretien.TypeE.Téléphone.toString())) {
@@ -577,10 +588,12 @@ catch (IOException ex) {
                     dateEntTel.setText(dateEntTel.getText() + " " + entTel.getDate()  );
                     heureEntTel.setText(heureEntTel.getText() + " " + entTel.getHeure());
                     planifierTelBtn.setVisible(false);
-
+                  //  planifierPresBtn.setVisible(true);
+                  // modifierBtn1.setVisible(true);
                     
                 }  break;
             default:
+                
                 System.out.println("pas d'entretiens");
                 break;
         }
