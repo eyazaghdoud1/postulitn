@@ -17,12 +17,12 @@
             <Font name="Candara" size="19.0" />
          </font>
       </Label>
-      <TextField>
+      <TextField fx:id="descriptionm">
          <HBox.margin>
             <Insets left="10.0" top="30.0" />
          </HBox.margin>
       </TextField>
-      <Button mnemonicParsing="false" text="MODIFIER">
+      <Button mnemonicParsing="false" onAction="#modifier" text="MODIFIER">
          <HBox.margin>
             <Insets left="180.0" top="30.0" />
          </HBox.margin>

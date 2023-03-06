@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.NewtypesController.selectedtype;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -20,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import models.Offre;
 import models.Typeoffre;
@@ -44,8 +46,8 @@ public class TYPEITEMController implements Initializable {
      */
     TypeoffreService tos = new TypeoffreService();
     List<Typeoffre> to = tos.fetchOffres();
-
-     //Typeoffre t = to.get(NewoffresController.selectedoffre);
+    @FXML
+    private TextField descriptionm;
     /**
      * Initializes the controller class.
      */
@@ -79,4 +81,27 @@ public class TYPEITEMController implements Initializable {
                          Logger.getLogger(OFFREITEMController.class.getName()).log(Level.SEVERE, null, ex);
     }
     
-}}
+}
+
+    @FXML
+    private void modifier(ActionEvent event) {
+        
+        OffreService ps = new OffreService();
+        TypeoffreService ts = new TypeoffreService();
+        Typeoffre t = new Typeoffre();
+          
+        t.setDescription(descriptionm.getText());
+          ts.updatetypeoffre(t, to.get(selectedtype).getId());
+           
+          try {Parent Login = FXMLLoader.load(getClass().getResource("./newtypes.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+                         Logger.getLogger(OFFREITEMController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+         
+    }
+}
