@@ -3,39 +3,67 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="503.0" prefWidth="1085.0" style="-fx-background-color: #0E1947;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="866.0" layoutY="434.0" mnemonicParsing="false" onAction="#boutnmodifierguide" prefHeight="42.0" prefWidth="193.0" style="-fx-background-color: #1E9DFF;" text="Ajouter guide" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
-      <TextField fx:id="supporttf" layoutX="366.0" layoutY="335.0" prefHeight="39.0" prefWidth="327.0" />
-      <TextField fx:id="specialitetf" layoutX="365.0" layoutY="234.0" prefHeight="39.0" prefWidth="325.0" />
-      <TextField fx:id="domainetf" layoutX="366.0" layoutY="143.0" prefHeight="39.0" prefWidth="321.0" />
-      <Label layoutX="136.0" layoutY="73.0" text="Ajouter un guide " textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="131.0" layoutY="240.0" text="Specialite:" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="138.0" layoutY="142.0" text="Domaine:" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="138.0" layoutY="337.0" text="Support:" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="734.0" layoutY="338.0" mnemonicParsing="false" onAction="#browsevideo" prefHeight="29.0" prefWidth="87.0" text="Browse" />
+      <AnchorPane id="AnchorPane" prefHeight="739.0" prefWidth="1368.0">
+         <children>
+            <AnchorPane layoutX="-11.0" layoutY="-17.0" prefHeight="756.0" prefWidth="565.0" style="-fx-background-color: #0E1947;">
+               <children>
+                  <ImageView fitHeight="141.0" fitWidth="147.0" layoutX="48.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="384.0" fitWidth="418.0" layoutX="64.0" layoutY="204.0">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="previousbtn" layoutX="43.0" layoutY="44.0" mnemonicParsing="false" onAction="#previous" prefHeight="44.0" prefWidth="65.0" text="&lt;&lt;">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label layoutX="642.0" layoutY="131.0" text="Entreprise" textFill="#0e1947">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField layoutX="642.0" layoutY="173.0" prefHeight="39.0" prefWidth="377.0" promptText="Insérez votre entreprise">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="643.0" layoutY="278.0" prefHeight="46.0" prefWidth="147.0" text="Poste" textFill="#0e1947">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField layoutX="643.0" layoutY="324.0" prefHeight="39.0" prefWidth="377.0" promptText="Insérez votre poste">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="640.0" layoutY="435.0" prefHeight="46.0" prefWidth="342.0" text="Domaine d'expertise" textFill="#0e1947">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField layoutX="642.0" layoutY="481.0" prefHeight="43.0" prefWidth="377.0" promptText="Insérez le domaine de votre entreprise">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnsave" layoutX="1126.0" layoutY="576.0" mnemonicParsing="false" onAction="#signin" prefHeight="41.0" prefWidth="129.0" style="-fx-background-color: #0e1947;" text="Enregistrer" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

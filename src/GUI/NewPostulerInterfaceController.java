@@ -9,12 +9,15 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,12 +27,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Candidature;
+import services.AuthenticationService;
 import services.CandidatureService;
 
 /**
@@ -76,6 +81,7 @@ public class NewPostulerInterfaceController implements Initializable {
     @FXML
     private Button backBtn;
 
+    MenuBarController mbc = new MenuBarController();
     /**
      * Initializes the controller class.
      */
@@ -87,6 +93,35 @@ public class NewPostulerInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        //mbc.setConnectedUser();
+        
+           /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
         cvText.textProperty().addListener((observable, oldValue, newValue) -> {
            postulerBtn.setDisable(newValue.trim().isEmpty() || lettreText.getText().trim().isEmpty()
            || isClickedCv==false || isClickedLettre == false);
@@ -101,26 +136,32 @@ public class NewPostulerInterfaceController implements Initializable {
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

@@ -32,6 +32,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.GuideEntretien;
+import services.AuthenticationService;
 import services.GuideEntretienService;
 
 /**
@@ -62,6 +63,9 @@ public class Ajoutguide2Controller implements Initializable {
     private TextField domainetf;
     @FXML
     private Button backBtn;
+    
+    MenuBarController mbc = new MenuBarController();
+    
 
     /**
      * Initializes the controller class.
@@ -69,23 +73,51 @@ public class Ajoutguide2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+//        URL u;
+//        try {
+//            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
+//             Image image = new Image(u.toString());
+//              userPhoto.setImage(image);
+//             
+//          //  eeltaswira.setImage(image);
+//           
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        // mbc.setConnectedUser();
+           /****************************************************************************************/
         URL u;
-        try {
-            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
-             Image image = new Image(u.toString());
-              userPhoto.setImage(image);
-             
-          //  eeltaswira.setImage(image);
-           
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
     }    
 
     @FXML
     private void goToCompte(MouseEvent event) {
           try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("compte2.fxml"));
+        Parent compteParent = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
         Scene compteScene = new Scene(compteParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(compteScene);
@@ -98,32 +130,28 @@ public class Ajoutguide2Controller implements Initializable {
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
-           try {
-        Parent root = FXMLLoader.load(getClass().getResource("Listeguide.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        System.out.println(ex.getMessage());
-    }
+           mbc.goToGuides(event);
         
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

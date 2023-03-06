@@ -7,6 +7,7 @@ package GUI;
 
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -42,6 +43,7 @@ import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -51,6 +53,7 @@ import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import models.Entretien;
+import services.AuthenticationService;
 import services.EntretienService;
 import utilities.TypeEntretien;
 
@@ -113,6 +116,8 @@ public class NewEntretiensController implements Initializable {
     @FXML
     private DatePicker dateDP1;
     Date sqlDate1;
+    
+    MenuBarController mbc = new MenuBarController();
 
 //public static Popup p = new Popup();
 
@@ -121,8 +126,34 @@ public class NewEntretiensController implements Initializable {
      */
 @Override
     public void initialize(URL url, ResourceBundle rb) {
+     //   mbc.setConnectedUser();
+           /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
         
         
+        /****************************************************************************************************/
         modifHB.setVisible(false);
         //data = es.fetchEntretiens();
         //fetchEntretienByIdRecruteur : ent.candidature.offre.idrecruteur 
@@ -197,22 +228,27 @@ public class NewEntretiensController implements Initializable {
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

@@ -66,13 +66,13 @@ public class CompteServices implements CompteInterface {
             String req = "INSERT INTO `comptes`(`photo`,`diplome`, `dateDiplome`, `entreprise`, `experience`,`domaine`,`poste`,`idUtilisateur`) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, c.getPhoto());
-            ps.setString(3, c.getDiplome());
-            ps.setDate(4, c.getDateDiplome());
-            ps.setString(5, c.getEntreprise());
-            ps.setString(6, c.getExperience());
-            ps.setString(7, c.getDomaine());
-            ps.setString(8, c.getPoste());
-            ps.setInt(9, c.getIdUser());
+            ps.setString(2, c.getDiplome());
+            ps.setDate(3, c.getDateDiplome());
+            ps.setString(4, c.getEntreprise());
+            ps.setString(5, c.getExperience());
+            ps.setString(6, c.getDomaine());
+            ps.setString(7, c.getPoste());
+            ps.setInt(8, c.getIdUser());
             ps.executeUpdate();
             System.out.println("Compte Ajouté avec succes!");
             

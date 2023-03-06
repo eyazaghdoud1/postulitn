@@ -45,8 +45,9 @@ public class FXMain extends Application {
             //Parent root = FXMLLoader.load(getClass().getResource("../GUI/NewEntretiens.fxml"));
            
             // Parent root = FXMLLoader.load(getClass().getResource("../GUI/listeguide.fxml"));
-             Parent root = FXMLLoader.load(getClass().getResource("../GUI/NewCandidaturesRecruteur.fxml"));
-            System.out.println("FXML loaded successfully");
+             //Parent root = FXMLLoader.load(getClass().getResource("../GUI/NewCandidaturesRecruteur.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Login.fxml"));
+             System.out.println("FXML loaded successfully");
             
             Scene scene = new Scene(root);
 

@@ -58,6 +58,7 @@ import models.Entretien;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
+import services.AuthenticationService;
 import services.CandidatureService;
 import services.CompteServices;
 import services.EntretienService;
@@ -171,14 +172,44 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
     @FXML
     private Button refuserBtn;
     public static Compte compteToVisit;
+            
+    MenuBarController mbc = new MenuBarController();
    // public static Candidature thisCandidature ;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         
+//mbc.setConnectedUser();
+        // TODO
+           /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
        // hour spinner
        //thisCandidature = csr.getCandidatureById(NewCandidaturesRecruteurController.recSelectedCand.getId());
        SpinnerValueFactory<Integer> hourFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23);
@@ -246,26 +277,32 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
         
     }
 

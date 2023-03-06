@@ -31,6 +31,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.GuideEntretien;
 import models.VisiteGuide;
+import services.AuthenticationService;
 import services.CompteServices;
 import services.GuideEntretienService;
 import services.VisiteGuideService;
@@ -62,6 +63,7 @@ public class ListeguideController implements Initializable {
     GuideEntretien ge= new GuideEntretien();
     public static GuideEntretien selectedGuide;
     List<GuideEntretien> guides;
+    MenuBarController mbc = new MenuBarController();
     /**
      * Initializes the controller class.
      */
@@ -70,20 +72,49 @@ public class ListeguideController implements Initializable {
         // TODO
       guides =  ges.fetchGuideEntretien();
 //       System.out.println(NewCompteController.compteUser.getPhoto()+"test");
+//        URL u;
+//        //NewCompteController.compteUser.getPhoto()
+//        try {
+//            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
+//           
+//             Image image = new Image(u.toString());
+//              userPhoto.setImage(image);
+//             
+//         
+//           
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
+       // mbc.setConnectedUser();
+       
+          /****************************************************************************************/
         URL u;
-        //NewCompteController.compteUser.getPhoto()
-        try {
-            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
-           
-             Image image = new Image(u.toString());
-              userPhoto.setImage(image);
-             
-         
-           
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
         
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
         for (int i=0; i<guides.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("../gui/guideitem.fxml"));
@@ -103,55 +134,35 @@ public class ListeguideController implements Initializable {
 
     @FXML
     private void goToCompte(MouseEvent event) {
-        //NewCandidatureEntretienInterfaceController.compteToVisit=null;
-         try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
-        Scene compteScene = new Scene(compteParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(compteScene);
-        window.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) throws IOException {
         
         
-          Parent root = FXMLLoader.load(getClass().getResource("listeguide.fxml"));
-    Scene scene = new Scene(root);
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(scene);
-    stage.show();
-        
-        
-//         try {
-//        Parent root = FXMLLoader.load(getClass().getResource("listeguide.fxml"));
-//        Scene scene = new Scene(root);
-//        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        stage.setScene(scene);
-//        stage.show();
-//    } catch (IOException ex) {
-//        System.out.println(ex.getMessage());
-//    }
+         mbc.goToGuides(event);
         
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

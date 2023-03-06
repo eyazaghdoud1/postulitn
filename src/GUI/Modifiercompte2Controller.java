@@ -33,11 +33,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Compte;
+import models.Utilisateur;
+import services.AuthenticationService;
 import services.CompteServices;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -93,93 +97,152 @@ public class Modifiercompte2Controller implements Initializable {
     /**
      * Initializes the controller class.
      */
+    Compte compte ;
+    UtilisateurService us = new UtilisateurService();
+    @FXML
+    private HBox diplomeHB;
+    @FXML
+    private VBox diplomeVB;
+    @FXML
+    private HBox posteentrepriseHB;
+    @FXML
+    private VBox posteVB;
+    @FXML
+    private VBox experienceVB;
+    
+    Utilisateur user;
+    MenuBarController mbc = new MenuBarController();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
+       // mbc.setConnectedUser();
+       
+          /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
+        
+        user = AuthenticationService.userconnecte;
+        nomtf.setText(user.getNom());
+        prenomtf.setText(user.getPrenom());
+        mailtf.setText(user.getEmail());
+        telephonetf.setText(user.getTel());
+        
+        compte = AuthenticationService.compteconnecte;
         datediplomedp.setOnAction(e -> {
             LocalDate selectedDate = datediplomedp.getValue();
            sqlDate = Date.valueOf(selectedDate); 
         });
-        
-        datediplomedp.setValue(NewCompteController.compteUser.getDateDiplome().toLocalDate());
-        
-        diplometf.setText(NewCompteController.compteUser.getDiplome());
+        domainetf.setText(compte.getDomaine()); 
+        if (user.getRole().getDescription().equals("Candidat")){ 
+        datediplomedp.setValue(compte.getDateDiplome().toLocalDate());
+        experiencetf.setText(compte.getExperience());
+        diplometf.setText(compte.getDiplome());
+        posteentrepriseHB.setVisible(false);
+        } else if (user.getRole().getDescription().equals("Recruteur")){
+            entreprisetf.setText(compte.getEntreprise());
+             postetf.setText(compte.getPoste()); 
+             diplomeHB.setVisible(false);
+             experienceVB.setVisible(false);
+        }
+    
 //        cvtf.setText(Compte2Controller.compteUser.getCv());
-        entreprisetf.setText(NewCompteController.compteUser.getEntreprise());
-        experiencetf.setText(NewCompteController.compteUser.getExperience());
-        domainetf.setText(NewCompteController.compteUser.getDomaine()); 
-        postetf.setText(NewCompteController.compteUser.getPoste()); 
         
+        
+        
+       
+        
+       
         
         /* File file = new File("C:\\Users\\dell\\Pictures\\COPY_anarci-1623243208.jpeg");
         URI uri = file.toURI();
         Image image = new Image(uri.toString());
         eetaswira.setImage(image);*/
         
-        URL u;
+        URL u2;
+        if (compte.getPhoto() == null) {
+             try {
+                 u2 = new URL("http://localhost/postulitn/images/"+ "defaultuser.png");
+                Image image = new Image(u2.toString());
+                 eetaswira.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } else {
         try {
-            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
-         Image image = new Image(u.toString());
+            u2 = new URL("http://localhost/postulitn/images/"+compte.getPhoto());
+         Image image = new Image(u2.toString());
         eetaswira.setImage(image);
         } catch (MalformedURLException ex) {
             Logger.getLogger(Modifiercompte2Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } }
        
 
     }    
 
     @FXML
     private void goToCompte(MouseEvent event) {
-         try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
-        Scene compteScene = new Scene(compteParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(compteScene);
-        window.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+         mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
-           try {
-        Parent root = FXMLLoader.load(getClass().getResource("Listeguide.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        System.out.println(ex.getMessage());
-    }
+           mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     File imgFile;
     @FXML
     private void boutnmodifiercompte(ActionEvent event) throws IOException {
         
-         CompteServices cservice = new CompteServices();
+        CompteServices cservice = new CompteServices();
         //date to a string if needed
-        LocalDate selectedDate = datediplomedp.getValue();
-        String dateString = selectedDate.toString();
-        Compte c = NewCompteController.compteUser;
+        
+        Compte c = compte;
         //c.setExperience(experiencetf.getText());
         
         
@@ -192,8 +255,9 @@ public class Modifiercompte2Controller implements Initializable {
         c.setEntreprise(entreprisetf.getText());
         c.setDomaine(domainetf.getText());
         c.setPoste(postetf.getText());
-        c.setDateDiplome(Date.valueOf(datediplomedp.getValue())); 
-       cservice.updateCompte(NewCompteController.compteUser.getIdCompte(),c); 
+        if (user.getRole().getDescription().equals("Candidat")){
+        c.setDateDiplome(Date.valueOf(datediplomedp.getValue())); }
+       cservice.updateCompte(compte.getIdCompte(),c); 
         
                  try {
         Parent root = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
@@ -260,5 +324,8 @@ public class Modifiercompte2Controller implements Initializable {
         System.out.println(ex.getMessage());
     }
     }
-    
 }
+    
+
+  
+

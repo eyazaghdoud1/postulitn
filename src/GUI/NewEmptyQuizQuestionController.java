@@ -39,6 +39,8 @@ public class NewEmptyQuizQuestionController implements Initializable {
     private String reponseCorrecte;
     @FXML
     private Label validerQ;
+    
+    
 
     /**
      * Initializes the controller class.

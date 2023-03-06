@@ -34,6 +34,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.GuideEntretien;
 import static org.joda.time.format.ISODateTimeFormat.date;
+import services.AuthenticationService;
 import services.GuideEntretienService;
 
 /**
@@ -64,6 +65,9 @@ public class Modifierguide2Controller implements Initializable {
     private TextField domainetf;
     @FXML
     private Button backBtn;
+    
+    
+    MenuBarController mbc = new MenuBarController();
 
     /**
      * Initializes the controller class.
@@ -71,19 +75,48 @@ public class Modifierguide2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+           /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
         supporttf.setText(ListeguideController.selectedGuide.getSupport());
         domainetf.setText(ListeguideController.selectedGuide.getDomaine());
         specialitetf.setText(ListeguideController.selectedGuide.getSpecialite());
-         URL u;
-        try {
-            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
-             Image image = new Image(u.toString());
-              userPhoto.setImage(image);
-             
-          
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//         URL u;
+//        try {
+//            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
+//             Image image = new Image(u.toString());
+//              userPhoto.setImage(image);
+//             
+//          
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
+        // mbc.setConnectedUser();
         
         // TODO
 //        domainetf.setText(Guideentretien2Controller.getDomaine());
@@ -93,44 +126,32 @@ public class Modifierguide2Controller implements Initializable {
 
     @FXML
     private void goToCompte(MouseEvent event) {
-         try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("compte2.fxml"));
-        Scene compteScene = new Scene(compteParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(compteScene);
-        window.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+         mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
-           try {
-        Parent root = FXMLLoader.load(getClass().getResource("Listeguide.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        System.out.println(ex.getMessage());
-    }
+           mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

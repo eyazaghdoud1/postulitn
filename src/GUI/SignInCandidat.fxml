@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SignInCandidatController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="12.0" prefHeight="734.0" prefWidth="1356.0">
+         <children>
+            <AnchorPane layoutX="-10.0" layoutY="-20.0" prefHeight="756.0" prefWidth="565.0" style="-fx-background-color: #0E1947;">
+               <children>
+                  <ImageView fitHeight="141.0" fitWidth="147.0" layoutX="48.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="384.0" fitWidth="418.0" layoutX="66.0" layoutY="173.0">
+                     <image>
+                        <Image url="@logo.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="previousbtn" layoutX="18.0" layoutY="28.0" mnemonicParsing="false" onAction="#previous" prefHeight="52.0" prefWidth="96.0" text="&lt;&lt;">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label layoutX="640.0" layoutY="85.0" text="Domaine d'expertise" textFill="#0e1947">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="domaine" layoutX="640.0" layoutY="131.0" prefHeight="39.0" prefWidth="349.0" promptText="Insérez votre domaine d'expertise">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="640.0" layoutY="213.0" text="Diplôme(s)" textFill="#0e1947">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="diplome" layoutX="640.0" layoutY="259.0" prefHeight="39.0" prefWidth="349.0" promptText="Insérez votre (vos) diplôme(s)">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="642.0" layoutY="474.0" text="Expérience académique" textFill="#0e1947">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="exp" layoutX="643.0" layoutY="520.0" prefHeight="39.0" prefWidth="349.0" promptText="Insérez votre expérience académique">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Button fx:id="btnsave" layoutX="1090.0" layoutY="589.0" mnemonicParsing="false" onAction="#signin" prefHeight="51.0" prefWidth="137.0" style="-fx-background-color: #0e1947;" text="Enregistrer" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Label layoutX="642.0" layoutY="336.0" text="Date diplôme" textFill="#0e1947">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="datediplome" layoutX="643.0" layoutY="382.0" prefHeight="39.0" prefWidth="349.0" promptText="JJ/MM/YYYY" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

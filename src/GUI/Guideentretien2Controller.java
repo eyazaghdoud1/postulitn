@@ -44,6 +44,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.GuideEntretien;
+import services.AuthenticationService;
 import services.GuideEntretienService;
 
 /**
@@ -75,14 +76,9 @@ public class Guideentretien2Controller implements Initializable {
     
     public static GuideEntretien guideUser;
     
-//    Media media = new Media("file:///path/to/video.mp4");
-//    MediaPlayer mediaPlayer = new MediaPlayer(media);
-//    MediaView mediaView = new MediaView(mediaPlayer);
-//    Pane pane = new Pane();
-//    pane.getChildren().add(mediaView);
+
      private Pane pane;
-    /* private MediaView mediaView;
-    private MediaPlayer mediaPlayer;*/
+ 
     private AnchorPane mainAnchorPane;
 
 
@@ -103,6 +99,8 @@ javafx.scene.media.MediaPlayer mediaPlayer;
     public static GuideEntretien thisGuide;
     @FXML
     private Button backBtn;
+    
+    MenuBarController mbc = new MenuBarController();
     /**
      * 
      * Initializes the controller class.
@@ -110,18 +108,48 @@ javafx.scene.media.MediaPlayer mediaPlayer;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
    
-        
+        //mbc.setConnectedUser();
+           /****************************************************************************************/
         URL u;
-        try {
-            u = new URL("http://localhost/postulitn/images/"+"check-icon.png");
-             Image image = new Image(u.toString());
-              userPhoto.setImage(image);
-             
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
         
-           
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
+        
+        
+        
+//        URL u;
+//        try {
+//            u = new URL("http://localhost/postulitn/images/"+"check-icon.png");
+//             Image image = new Image(u.toString());
+//              userPhoto.setImage(image);
+//             
+//        
+//           
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
             // TODO
 // String videoPath = "C:\\Users\\dell\\Downloads\\guide1.mp4";
 //videoPath = videoPath.replaceAll("\\\\", "/");
@@ -150,12 +178,15 @@ javafx.scene.media.MediaPlayer mediaPlayer;
             System.out.println(media);*/
             
             /********************** role controle *************************/
-            /*if (userconnecte.getRole().equals("Recruteur")) {
-              noteBtn.SetVisible(false);
-            } else if (userconnecte.getRole().equals("Candidat")) {
+            if (AuthenticationService.roleconnecte.getDescription().equals("Recruteur")) {
+              noteBtn.setVisible(false);
+               supprimerBox.setVisible(true);
+            modifierBtn.setVisible(true);
+            } else if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")) {
               supprimerBox.setVisible(false);
-            modifierBtn.setVisible(false)
-            }*/
+            modifierBtn.setVisible(false);
+            noteBtn.setVisible(true);
+            }
             
             
         
@@ -164,46 +195,34 @@ javafx.scene.media.MediaPlayer mediaPlayer;
 
     @FXML
     private void goToCompte(MouseEvent event) {
-         try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
-        Scene compteScene = new Scene(compteParent);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setScene(compteScene);
-        window.show();
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
+         mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
         
-          try {
-        Parent root = FXMLLoader.load(getClass().getResource("Listeguide.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        System.out.println(ex.getMessage());
-    }
+          mbc.goToGuides(event);
         
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

@@ -6,6 +6,7 @@
 package GUI;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -23,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -32,6 +34,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import models.Quiz;
 import postulitnapp.FXMain;
+import services.AuthenticationService;
 import services.QuizService;
 
 /**
@@ -62,7 +65,7 @@ public class NewQuizListController implements Initializable {
     QuizService qs = new QuizService();
     List<Quiz> quizList = qs.fetchQuiz();
     public static Quiz selectedQuiz;
-    
+    MenuBarController mbc = new MenuBarController();
 
     /**
      * Initializes the controller class.
@@ -70,7 +73,34 @@ public class NewQuizListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        //MenuBarController mbc = new MenuBarController();
+           /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
 
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
          for (Quiz q : quizList) {
             
                  try {
@@ -90,40 +120,50 @@ public class NewQuizListController implements Initializable {
             }
         }
         
-         /*if (userconnecte.getRole().getDescription().equals("candidat")) { // the above code }
-         else if (userconnecte.getRole().getDescription().equals("Recruteur")) {
+        /* if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")) { 
+// the above code 
+         
+         
+         }
+         else if (AuthenticationService.roleconnecte.equals("Recruteur")) {
            quizList = qs.filterQuizByRecruteur(userconnecte.getId());
          Button newQuiz = new Button ("Ajouter un quiz ");
          onclick=> redirection à la page d'ajout de quiz
-         }
+         }*/
          
          
-         */
+         
         
     }    
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

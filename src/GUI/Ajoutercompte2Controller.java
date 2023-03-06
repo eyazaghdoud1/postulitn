@@ -151,7 +151,7 @@ public class Ajoutercompte2Controller implements Initializable {
         
         
         
-       PauseTransition delay = new PauseTransition(Duration.millis(2000));
+       PauseTransition delay = new PauseTransition(Duration.millis(3000));
         delay.setOnFinished(e -> {
             Node node = (Node) event.getSource();
             Stage stage = (Stage) node.getScene().getWindow();

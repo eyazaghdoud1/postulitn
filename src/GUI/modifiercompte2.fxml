@@ -307,9 +307,9 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox fx:id="diplomeHB" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <VBox prefHeight="143.0" prefWidth="383.0">
+                              <VBox fx:id="diplomeVB" prefHeight="143.0" prefWidth="383.0">
                                  <children>
                                     <Label text="Diplome:" textFill="WHITE">
                                        <font>
@@ -346,9 +346,9 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="1017.0">
                            <children>
-                              <HBox prefHeight="56.0" prefWidth="470.0">
+                              <HBox fx:id="posteentrepriseHB" prefHeight="56.0" prefWidth="470.0">
                                  <children>
-                                    <VBox prefHeight="71.0" prefWidth="386.0">
+                                    <VBox fx:id="posteVB" prefHeight="71.0" prefWidth="386.0">
                                        <children>
                                           <Label text="Poste:" textFill="WHITE">
                                              <font>
@@ -396,7 +396,7 @@
                                     <TextField fx:id="domainetf" prefHeight="33.0" prefWidth="281.0" />
                                  </children>
                               </VBox>
-                              <VBox prefHeight="71.0" prefWidth="369.0">
+                              <VBox fx:id="experienceVB" prefHeight="71.0" prefWidth="369.0">
                                  <children>
                                     <Label text="Experience:" textFill="WHITE">
                                        <font>

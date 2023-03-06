@@ -54,6 +54,7 @@ import models.Entretien;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
+import services.AuthenticationService;
 import services.EntretienService;
 import utilities.EtatCandidature;
 import utilities.TypeEntretien;
@@ -137,11 +138,43 @@ public class NewCandidatureInterfaceController implements Initializable {
     
     File cvFile, lettreFile;
     
+    MenuBarController mbc = new MenuBarController();
+            
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        //mbc.setConnectedUser();
+        
+           /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
         updateBtn.setDisable(true);
          /*cvTF.textProperty().addListener((observable, oldValue, newValue) -> {
            updateBtn.setDisable( (newValue.trim().isEmpty() || lettreTF.getText().trim().isEmpty()) 
@@ -176,9 +209,9 @@ public class NewCandidatureInterfaceController implements Initializable {
             //Path filePath = Paths.get("C:\\xampp\\htdocs\\postulitn\\cv\\" + NewCandidaturesController.selectedCandidature.getCv());
           //  Path filePath = new Path("");
           //  URL u = filePath.toUri().toURL();
-          URL u = new URL("http://localhost/postulitn/cv/"+ NewCandidaturesController.selectedCandidature.getCv());
-            System.out.println(u);
-            try (InputStream inputStream = u.openStream()) {
+          URL uc = new URL("http://localhost/postulitn/cv/"+ NewCandidaturesController.selectedCandidature.getCv());
+            System.out.println(uc);
+            try (InputStream inputStream = uc.openStream()) {
                 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 byte[] buffer = new byte[4096];
                 int length;
@@ -349,26 +382,32 @@ catch (IOException ex) {
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML

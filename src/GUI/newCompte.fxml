@@ -199,12 +199,12 @@
                               <Insets left="150.0" top="40.0" />
                            </VBox.margin>
                         </ImageView>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Aziz  Naes">
+                        <Text fx:id="nomPrenom" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="185.0">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="40.0" left="140.0" top="30.0" />
+                              <Insets bottom="40.0" left="100.0" top="30.0" />
                            </VBox.margin>
                         </Text>
                         <VBox prefHeight="238.0" prefWidth="366.0" style="-fx-border-radius: 10;">
@@ -216,7 +216,7 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Mohamedaziz.naes1@esprit.tn" textFill="WHITE">
+                                    <Label fx:id="email" text="Mohamedaziz.naes1@esprit.tn" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
@@ -236,7 +236,7 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label text="+216   22240558" textFill="WHITE">
+                                    <Label fx:id="tel" text="+216   22240558" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
@@ -253,7 +253,7 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label text="01/01/2001" textFill="WHITE">
+                                    <Label fx:id="datenaissance" text="01/01/2001" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="14.0" />
                                        </font>
@@ -288,78 +288,7 @@
                   </VBox>
                   <VBox layoutX="635.0" layoutY="119.0" prefHeight="466.0" prefWidth="474.0" style="-fx-background-color: #353D62; -fx-border-color: #939AB0; -fx-border-radius: 10;">
                      <children>
-                        <HBox prefHeight="51.0" prefWidth="430.0">
-                           <children>
-                              <Label text="Experience:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="exppers" text="2 ans " textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="100.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Diplome:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="diplomepers" text="Ingenieur informatique" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="130.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="40.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Date diplome:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="ddippers" text="20/05/2025" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="60.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Label text="Entreprise:" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="entrpers" text="Google" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                                 <padding>
-                                    <Insets left="110.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox fx:id="domHB" prefHeight="92.0" prefWidth="422.0">
                            <children>
                               <Label text="Domaine:" textFill="WHITE">
                                  <font>
@@ -376,7 +305,78 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        <HBox fx:id="expHB" prefHeight="51.0" prefWidth="430.0">
+                           <children>
+                              <Label text="Experience:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="exppers" text="2 ans " textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="100.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="dipHB" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Diplome:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="diplomepers" prefHeight="25.0" prefWidth="311.0" text="Ingenieur informatique" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="80.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="40.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox fx:id="datdipHB" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Date diplome:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="ddippers" text="20/05/2025" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="60.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="entHB" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Entreprise:" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="entrpers" text="Google" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="110.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="posteHB" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Label text="Poste:" textFill="WHITE">
                                  <font>

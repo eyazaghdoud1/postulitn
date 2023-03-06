@@ -24,11 +24,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Compte;
+import models.Utilisateur;
+import services.AuthenticationService;
 import services.CompteServices;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -60,7 +65,7 @@ public class NewCompteController implements Initializable {
     @FXML
     private Label exppers;
     public static CompteServices comptes = new CompteServices();;
-    public static Compte compteUser = comptes.GetByIdCompte(7);
+    public static Compte compteUser = AuthenticationService.compteconnecte;
     //Compte visitedCompte;
     private ImageView taswira;
     @FXML
@@ -75,61 +80,160 @@ public class NewCompteController implements Initializable {
     private Button backBtn;
     @FXML
     private ImageView backbtn;
-
+    @FXML
+    private Text nomPrenom;
+    @FXML
+    private Label email;
+    @FXML
+    private Label tel;
+    @FXML
+    private Label datenaissance;
+    @FXML
+    private HBox expHB;
+    @FXML
+    private HBox dipHB;
+    @FXML
+    private HBox datdipHB;
+    @FXML
+    private HBox entHB;
+    @FXML
+    private HBox domHB;
+    @FXML
+    private HBox posteHB;
+ Compte c;
     /**
      * Initializes the controller class.
      */
-    
+    CompteServices cservices = new CompteServices();
+    UtilisateurService us = new UtilisateurService();
+      MenuBarController mbc= new MenuBarController();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        
         //compteUser 
-            Compte c;
+        // mbc.setConnectedUser();
+         System.out.println(AuthenticationService.compteconnecte);
+                   System.out.println(AuthenticationService.userconnecte);
+           
+         
+            
             backBtn.setVisible(false);
+            c = AuthenticationService.compteconnecte;
+               modifBtn.setVisible(true); 
        if (NewCandidatureEntretienInterfaceController.compteToVisit != null) {
           c=NewCandidatureEntretienInterfaceController.compteToVisit;
             modifBtn.setVisible(false);   
            // backBtn.setVisible(true);
                   ;}
          //compteUser= c; } 
-         else {
-               c = compteUser;
+        /* else {
+               c = AuthenticationService.compteconnecte;
                modifBtn.setVisible(true); 
               // backBtn.setVisible(false);
-                 }
+                 }*/
        
+        /**********getting the user from compte *******************/
+       Utilisateur user = us.GetByIdUser(c.getIdUser());
+       
+//        URL u;
+//       if (compteUser.getPhoto() == null) {
+//             try {
+//                 u = new URL("http://localhost/postulitn/images/"+ "defaultuser.png");
+//                Image image = new Image(u.toString());
+//                userPhoto.setImage(image);
+//             } catch (MalformedURLException ex) {
+//                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+//             }
+//       } 
+//       else {
+//    try {
+//        u = new URL("http://localhost/postulitn/images/"+ compteUser.getPhoto());
+//         Image image = new Image(u.toString());
+//        userPhoto.setImage(image);
+//        
+//    } catch (MalformedURLException ex) {
+//        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+//    }
+//
+//       }    
+
+        
+         /****************************************************************************************/
         URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
     try {
-        u = new URL("http://localhost/postulitn/images/"+ compteUser.getPhoto());
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
          Image image = new Image(u.toString());
-        userPhoto.setImage(image);
+         userPhoto.setImage(image);
         
     } catch (MalformedURLException ex) {
         Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
     }
 
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
+        //System.out.println(AuthenticationService.userconnecte.getNom());
+         
          
           URL u2;
+          if (c.getPhoto() == null) {
+             try {
+                 u2 = new URL("http://localhost/postulitn/images/"+ "defaultuser.png");
+                Image image = new Image(u2.toString());
+                 eeltaswira.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } else {
     try {
-        u = new URL("http://localhost/postulitn/images/"+ c.getPhoto());
-         Image image2 = new Image(u.toString());
+        u2 = new URL("http://localhost/postulitn/images/"+ c.getPhoto());
+         Image image2 = new Image(u2.toString());
         //userPhoto.setImage(image2);
          eeltaswira.setImage(image2);
         
     } catch (MalformedURLException ex) {
         Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
     }
+          }
+         nomPrenom.setText(user.getNom() + " " + user.getPrenom());
+         email.setText( user.getEmail());
+         tel.setText(user.getTel());
+         
         
+       //  cvpers.setText(c.getCv());
+         //************HOOOOOOO      NAHI ENTREPRISE COMM *******
+         
+         domainetf.setText(c.getDomaine());
+         
+         
+         if (user.getRole().getDescription().equals("Candidat")){
          exppers.setText(c.getExperience()); 
          diplomepers.setText(c.getDiplome());
          ddippers.setText("" + c.getDateDiplome());
-       //  cvpers.setText(c.getCv());
-         //************HOOOOOOO      NAHI ENTREPRISE COMM *******
-         entrpers.setText(c.getEntreprise());
-         domainetf.setText(c.getDomaine());
-         postetf.setText(c.getPoste());
-         
+         entHB.setVisible(false);
+         posteHB.setVisible(false);
+         }
+         else if (user.getRole().getDescription().equals("Recruteur")){
+             entrpers.setText(c.getEntreprise());
+              postetf.setText(c.getPoste());
+              expHB.setVisible(false);
+              dipHB.setVisible(false);
+              datdipHB.setVisible(false);
+         }
 //         if(c.getTypeCompte().equals("Candidat")) {
 //        // Si l'utilisateur est un candidat, masquer le champ entreprise
 //        entrpers.setVisible(false);
@@ -153,41 +257,37 @@ public class NewCompteController implements Initializable {
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
-        
-           try {
-        Parent root = FXMLLoader.load(getClass().getResource("Listeguide.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        System.out.println(ex.getMessage());
-    }
+        mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
 
     @FXML
     private void bouutnmodifiercompte(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("modifiercompte2.fxml"));
+     Parent root = FXMLLoader.load(getClass().getResource("modifiercompte2.fxml"));
     Scene scene = new Scene(root);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(scene);
@@ -258,6 +358,10 @@ public class NewCompteController implements Initializable {
     } catch (IOException e) {
         e.printStackTrace();
     }
+    }
+
+    @FXML
+    private void goBack(ActionEvent event) {
     }
     
 
