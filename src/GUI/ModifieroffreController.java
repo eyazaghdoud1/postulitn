@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.NewoffresController.selectedoffre;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -27,6 +28,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -81,6 +85,14 @@ public class ModifieroffreController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+         List<Offre> offres = os.fetchOffres();
+         postem.setText(NewoffresController.selectedoffre.getPoste());
+         descriptionm.setText(NewoffresController.selectedoffre.getDescription());
+         lieum.setText(NewoffresController.selectedoffre.getLieu());
+         entreprisem.setText(NewoffresController.selectedoffre.getEntreprise());
+         specialitem.setText(NewoffresController.selectedoffre.getLieu());
+         dateD.setValue(NewoffresController.selectedoffre.getDateExpiration().toLocalDate());   
+         typetf.setValue(NewoffresController.selectedoffre.getType().getDescription()+"");
        
         List<Typeoffre> to = tos.fetchOffres();
         for(Typeoffre t :to)  {
@@ -98,7 +110,15 @@ public class ModifieroffreController implements Initializable {
         Offre o = new Offre();
                 OffreService ps = new OffreService();
                 TypeoffreService ts = new TypeoffreService();
-
+                 if (postem.getText().isEmpty() || descriptionm.getText().isEmpty() || lieum.getText().isEmpty()  ||  entreprisem.getText().isEmpty() || specialitem.getText().isEmpty() || typetf.getValue() == null)
+                {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Champs manquants");
+                alert.setContentText("Vous devez remplir tous les champs avant d'enregistrer.");
+                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+                alert.getButtonTypes().setAll( buttonTypeNo);
+                alert.showAndWait();
+                }
                
         
 

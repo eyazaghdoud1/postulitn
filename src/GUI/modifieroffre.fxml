@@ -186,14 +186,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="77.0" prefWidth="1266.0">
-               <children>
-                  <ImageView fitHeight="89.0" fitWidth="68.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/252455794_481441976374019_3525607494353836331_n.png" />
-                     </image>
-                  </ImageView>
-               </children></HBox>
+            <HBox prefHeight="77.0" prefWidth="1266.0" />
             <AnchorPane layoutX="203.0" layoutY="90.0" prefHeight="775.0" prefWidth="1369.0" style="-fx-background-color: #0E1947;">
                <children>
                   <VBox layoutX="182.0" layoutY="170.0" prefHeight="450.0" prefWidth="374.0">
@@ -268,11 +261,6 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Label layoutX="505.0" layoutY="34.0" text="Modifier offre" textFill="WHITE">
-                     <font>
-                        <Font name="Georgia Bold" size="40.0" />
-                     </font>
-                  </Label>
                   <VBox layoutX="832.0" layoutY="170.0" prefHeight="362.0" prefWidth="343.0">
                      <children>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -337,8 +325,22 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
+                  <Label layoutX="-115.0" layoutY="-5.0" text="Modifier offre" textFill="WHITE">
+                     <font>
+                        <Font name="Georgia Bold" size="40.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
+            <Button layoutX="32.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="32.0" prefWidth="41.0">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/252455794_481441976374019_3525607494353836331_n.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children></AnchorPane>
    </center>
 </BorderPane>
