@@ -14,22 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouteroffreController">
+<BorderPane prefHeight="1080.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouteroffreController">
    <top>
       <HBox alignment="TOP_RIGHT" prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="140.0">
-               <children>
-                  <ImageView fitHeight="61.0" fitWidth="55.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@img/325554422_570397571644716_8824221449279015534_n%20(1).png" />
-                     </image>
-                     <HBox.margin>
-                        <Insets left="5.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-            </HBox>
+            <ImageView fitHeight="77.0" fitWidth="73.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
             <HBox prefHeight="27.0" prefWidth="195.0">
                <HBox.margin>
                   <Insets left="1030.0" />
@@ -181,7 +170,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
          <children>
-            <VBox layoutX="95.0" layoutY="221.0" prefHeight="412.0" prefWidth="338.0">
+            <VBox layoutX="416.0" layoutY="220.0" prefHeight="412.0" prefWidth="338.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -244,7 +233,7 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox layoutX="791.0" layoutY="221.0" prefHeight="398.0" prefWidth="398.0">
+            <VBox layoutX="1042.0" layoutY="217.0" prefHeight="522.0" prefWidth="398.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
@@ -290,7 +279,7 @@
                   </HBox>
                   <Button mnemonicParsing="false" onAction="#ajouteroffre" prefHeight="44.0" prefWidth="121.0" style="-fx-background-color: #1E9DFF;" text="Ajouter" textFill="WHITE">
                      <VBox.margin>
-                        <Insets left="120.0" top="20.0" />
+                        <Insets left="120.0" top="60.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="15.0" />
@@ -298,7 +287,7 @@
                   </Button>
                </children>
             </VBox>
-            <Button layoutX="512.0" layoutY="573.0" mnemonicParsing="false" onAction="#liste" prefHeight="52.0" prefWidth="138.0" style="-fx-background-color: #1E9DFF;" text="Liste" textFill="WHITE">
+            <Button layoutX="779.0" layoutY="746.0" mnemonicParsing="false" onAction="#liste" prefHeight="52.0" prefWidth="138.0" style="-fx-background-color: #1E9DFF;" text="Liste" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>

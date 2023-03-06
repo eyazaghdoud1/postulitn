@@ -40,19 +40,17 @@ public class AjoutertypeController implements Initializable {
     @FXML
     private Label userConnecte;
     @FXML
-    private ImageView userPhoto;
-    @FXML
     private VBox offresVB;
     @FXML
-    private VBox candidaturesVB;
-    @FXML
-    private VBox entretiensVB;
-    @FXML
-    private VBox guidesVB;
-    @FXML
-    private VBox quizVB;
-    @FXML
     private AnchorPane listetype;
+    @FXML
+    private VBox TypeOffreVB;
+    @FXML
+    private VBox usersVB;
+    @FXML
+    private VBox rolesVB;
+    @FXML
+    private VBox secteurVB;
 
     /**
      * Initializes the controller class.
@@ -118,9 +116,6 @@ public class AjoutertypeController implements Initializable {
     private void goToGuides(MouseEvent event) {
     }
 
-    @FXML
-    private void goToQuiz(MouseEvent event) {
-    }
 
     @FXML
     private void dist(ActionEvent event) {

@@ -64,17 +64,15 @@ public class ModifieroffreController implements Initializable {
     @FXML
     private Label userConnecte;
     @FXML
-    private ImageView userPhoto;
-    @FXML
     private VBox offresVB;
     @FXML
-    private VBox candidaturesVB;
+    private VBox TypeOffreVB;
     @FXML
-    private VBox entretiensVB;
+    private VBox usersVB;
     @FXML
-    private VBox guidesVB;
+    private VBox rolesVB;
     @FXML
-    private VBox quizVB;
+    private VBox secteurVB;
      
     
 
@@ -138,9 +136,6 @@ public class ModifieroffreController implements Initializable {
     private void goToGuides(MouseEvent event) {
     }
 
-    @FXML
-    private void goToQuiz(MouseEvent event) {
-    }
 
     @FXML
     private void back(MouseEvent event) {
