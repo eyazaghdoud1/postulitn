@@ -48,7 +48,7 @@ import services.TypeoffreService;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
-import util.MyConnection;
+import utilities.MaConnexion;
 
 /**
  * FXML Controller class

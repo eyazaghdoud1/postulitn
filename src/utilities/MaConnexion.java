@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package util;
+package utilities;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author Aziz Ben Guirat
  */
-public class MyConnection {
+public class MaConnexion {
     static final String URL ="jdbc:mysql://localhost:3306/postulidb";
     static final String USER ="root";
     static final String PASSWORD ="";
@@ -20,11 +20,11 @@ public class MyConnection {
     //var
     private Connection cnx;
     //1
-    static MyConnection instance;
+    static MaConnexion instance;
     
     //const
     //2
-    private MyConnection(){
+    private MaConnexion(){
         try {
             cnx = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException ex) {
@@ -38,9 +38,9 @@ public class MyConnection {
     }
 
     //3
-    public static MyConnection getInstance() {
+    public static MaConnexion getInstance() {
         if(instance == null)
-            instance = new MyConnection();
+            instance = new MaConnexion();
         
         return instance;
     }

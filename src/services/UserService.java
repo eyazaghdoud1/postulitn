@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Offre;
 import models.Typeoffre;
-import util.MyConnection;
+import utilities.MaConnexion;
 
 /**
  *
@@ -24,7 +24,7 @@ import util.MyConnection;
  */
 public class UserService {
 
-    Connection cnx = MyConnection.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
 
     public String[] fetchMailUsers() {
         List<String> emails = new ArrayList<>();

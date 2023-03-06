@@ -15,14 +15,14 @@ import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import models.Typeoffre;
-import util.MyConnection;
+import utilities.MaConnexion;
 
 /**
  *
  * @author Aziz Ben Guirat
  */
 public class TypeoffreService implements TypeoffreInterface {
-    Connection cnx = MyConnection.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
 
     @Override
     public void addType(Typeoffre t) {

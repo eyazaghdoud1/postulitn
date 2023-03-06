@@ -179,9 +179,9 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
          <children>
             <ListView fx:id="listeoffre" layoutX="149.0" layoutY="209.0" onMouseClicked="#handleOffre" prefHeight="559.0" prefWidth="904.0" />
-            <Label layoutX="416.0" layoutY="125.0" text="LISTE DES OFFRES" textFill="WHITE">
+            <Label layoutX="70.0" layoutY="89.0" text="LISTE DES OFFRES" textFill="WHITE">
                <font>
-                  <Font name="Georgia" size="21.0" />
+                  <Font name="System Bold" size="29.0" />
                </font>
             </Label>
             <ImageView fitHeight="46.0" fitWidth="65.0" layoutX="14.0" layoutY="6.0" onMouseClicked="#goback" pickOnBounds="true" preserveRatio="true">

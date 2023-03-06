@@ -186,32 +186,32 @@
          <children>
             <HBox prefHeight="77.0" prefWidth="1266.0" />
             <AnchorPane fx:id="listetype" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" />
-            <Button layoutX="1072.0" layoutY="503.0" mnemonicParsing="false" onAction="#dist" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #1E9DFF;" text="Dist" textFill="WHITE">
+            <Button layoutX="806.0" layoutY="787.0" mnemonicParsing="false" onAction="#dist" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #1E9DFF;" text="Dist" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="782.0" layoutY="89.0" prefHeight="98.0" prefWidth="494.0" text="TYPE OFFRE" textFill="WHITE">
+            <TextField fx:id="descriptiontf" layoutX="299.0" layoutY="278.0" />
+            <Label layoutX="114.0" layoutY="279.0" text="Description" textFill="WHITE">
                <font>
-                  <Font name="Georgia Bold" size="58.0" />
+                  <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <TextField fx:id="descriptiontf" layoutX="931.0" layoutY="298.0" />
-            <Label layoutX="764.0" layoutY="298.0" text="Description" textFill="WHITE">
-               <font>
-                  <Font size="22.0" />
-               </font>
-            </Label>
-            <Button layoutX="1176.0" layoutY="299.0" mnemonicParsing="false" onAction="#addtype" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #1E9DFF;" text="Ajouter" textFill="WHITE">
+            <Button layoutX="500.0" layoutY="277.0" mnemonicParsing="false" onAction="#addtype" prefHeight="37.0" prefWidth="77.0" style="-fx-background-color: #1E9DFF;" text="Ajouter" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button layoutX="866.0" layoutY="506.0" mnemonicParsing="false" onAction="#listetype" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #1E9DFF;" text="Liste" textFill="WHITE">
+            <Button layoutX="647.0" layoutY="788.0" mnemonicParsing="false" onAction="#listetype" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: #1E9DFF;" text="Liste" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
+            <Label layoutX="57.0" layoutY="66.0" prefHeight="98.0" prefWidth="802.0" text="TYPE OFFRE" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </center>
 </BorderPane>

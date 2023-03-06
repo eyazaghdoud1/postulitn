@@ -26,7 +26,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import models.Offre;
 import models.Typeoffre;
-import util.MyConnection;
+import utilities.MaConnexion;
 
 /**
  *
@@ -45,7 +45,7 @@ public class OffreService implements OffreInterface {
     private static String RECIPIENT2 = "benguirataziz75@gmail.com";
     UserService us = new UserService();
 
-    Connection cnx = MyConnection.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
 
     @Override
     public void addOffre(Offre o) {
