@@ -73,8 +73,6 @@ public class OffreprojetController implements Initializable {
     private ListView<HBox> CommentsListView;
     @FXML
     private Label Lnom;
-    @FXML
-    private Rating tf_note;
 
 
     /**
@@ -90,6 +88,7 @@ public class OffreprojetController implements Initializable {
         Ldescription.setText(ListeProjetsFreelanceController.selectedProjet.getDescription());
         Lsecteur.setText(ListeProjetsFreelanceController.selectedProjet.getS().getDescription()+"");
         Lnom.setText(ListeProjetsFreelanceController.selectedProjet.getNom());
+       // tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
        
         
       
@@ -141,14 +140,10 @@ public class OffreprojetController implements Initializable {
 
     
     
-    @FXML
-private void Submit(ActionEvent event) throws SQLException {
-  tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
-       System.out.println("Rating enregistré");
-}
+  
 
    /* @FXML
-    private void Submit(ActionEvent event) throws SQLException {
+        private void Submit(ActionEvent event) throws SQLException {
         ProjetServices projetservice = new ProjetServices(); 
         projetservice.ajouterRating(tf_note, ListeProjetsFreelanceController.selectedProjet.getIdProjet());
        //tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());

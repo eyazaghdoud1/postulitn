@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.Rating?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.OffreprojetController">
    <children>
@@ -181,95 +180,84 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="155.0" layoutY="370.0" text="Secteur :" textFill="WHITE">
+                  <Label layoutX="281.0" layoutY="418.0" text="Secteur :" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="155.0" layoutY="264.0" text="Date de fin :" textFill="WHITE">
+                  <Label layoutX="280.0" layoutY="320.0" text="Date de fin :" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="155.0" layoutY="214.0" text="Date de debut :" textFill="WHITE">
+                  <Label layoutX="277.0" layoutY="268.0" text="Date de debut :" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="153.0" layoutY="320.0" text="Description :" textFill="WHITE">
+                  <Label layoutX="278.0" layoutY="366.0" text="Description :" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="158.0" layoutY="163.0" text="Thème :" textFill="WHITE">
+                  <Label layoutX="273.0" layoutY="222.0" text="Thème :" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="158.0" layoutY="114.0" prefHeight="26.0" prefWidth="63.0" text="Durée :" textFill="WHITE">
+                  <Label layoutX="273.0" layoutY="172.0" prefHeight="26.0" prefWidth="63.0" text="Durée :" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Lnom" layoutX="151.0" layoutY="55.0" text="Nom du projet freelance" textFill="WHITE">
+                  <Label fx:id="Lnom" layoutX="154.0" layoutY="82.0" text="Nom du projet freelance" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="22.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Lduree" layoutX="287.0" layoutY="114.0" text="18" textFill="WHITE">
+                  <Label fx:id="Lduree" layoutX="352.0" layoutY="171.0" text="18" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="316.0" layoutY="114.0" prefHeight="26.0" prefWidth="45.0" text="mois" textFill="WHITE">
+                  <Label layoutX="394.0" layoutY="170.0" prefHeight="26.0" prefWidth="45.0" text="mois" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Ltheme" layoutX="287.0" layoutY="163.0" text="Informatique" textFill="WHITE">
+                  <Label fx:id="Ltheme" layoutX="361.0" layoutY="221.0" text="Informatique" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Ldescription" layoutX="296.0" layoutY="320.0" text="Description" textFill="WHITE">
+                  <Label fx:id="Ldescription" layoutX="397.0" layoutY="366.0" text="Description" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Lsecteur" layoutX="264.0" layoutY="369.0" text="Informatique" textFill="#fcfcfc">
+                  <Label fx:id="Lsecteur" layoutX="382.0" layoutY="418.0" text="Informatique" textFill="#fcfcfc">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button layoutX="177.0" layoutY="505.0" mnemonicParsing="false" onAction="#GoToPostuler" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Postuler" textFill="WHITE">
+                  <Button layoutX="251.0" layoutY="534.0" mnemonicParsing="false" onAction="#GoToPostuler" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Postuler" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Button>
-                  <Label fx:id="LDateDebut" layoutX="308.0" layoutY="213.0" text="02/11/2023" textFill="WHITE">
+                  <Label fx:id="LDateDebut" layoutX="413.0" layoutY="268.0" text="02/11/2023" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="LDateFin" layoutX="308.0" layoutY="264.0" text="02/11/2023" textFill="WHITE">
+                  <Label fx:id="LDateFin" layoutX="405.0" layoutY="320.0" text="02/11/2023" textFill="WHITE">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Button layoutX="974.0" layoutY="551.0" mnemonicParsing="false" onAction="#GoToComments" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Check Feedback" textFill="WHITE">
+                  <Button layoutX="485.0" layoutY="534.0" mnemonicParsing="false" onAction="#GoToComments" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Check Feedback" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
-                     </font>
-                  </Button>
-                  <Rating fx:id="tf_note" layoutX="908.0" layoutY="82.0" />
-                  <Label layoutX="740.0" layoutY="87.0" text="Notez cette offre" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  <Button layoutX="882.0" layoutY="151.0" mnemonicParsing="false" onAction="#Submit" style="-fx-background-color: #1E9DFF;" text="Submit" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
                      </font>
                   </Button>
                   <Button layoutX="29.0" layoutY="24.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="31.0" prefWidth="42.0">

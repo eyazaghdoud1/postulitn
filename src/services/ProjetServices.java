@@ -31,7 +31,7 @@ public class ProjetServices implements ProjetInterface {
     
      Connection cnx = MaConnexion.getInstance().getCnx();
      
- 
+ private Rating tf_note;
      
      //INSERT
    
@@ -56,6 +56,8 @@ public class ProjetServices implements ProjetInterface {
          }
     
     }
+    
+    
     
     
    /* public void ajouterRating(int r , ProjetFreelance p){
@@ -131,6 +133,18 @@ public class ProjetServices implements ProjetInterface {
             ex.printStackTrace();
          }
     }
+    
+     @Override
+    public void UpdateRating(ProjetFreelance p, int note) {
+     try {
+             String req ="UPDATE projets SET `note`=? WHERE idProjet = ?";
+             PreparedStatement ps = cnx.prepareStatement(req);
+             ps.setInt(1,p.getNote());
+             System.out.println();
+             ps.execute();
+    }    catch (SQLException ex) {
+             Logger.getLogger(ProjetServices.class.getName()).log(Level.SEVERE, null, ex);
+         }}
 
     
   
@@ -189,10 +203,7 @@ public class ProjetServices implements ProjetInterface {
              System.out.println("Projet supprimé avec succes"); 
          } catch (SQLException ex) {
            ex.printStackTrace(); 
-         }
-
-         
-    
+         }   
 }
      
      //Filtrer par secteur 

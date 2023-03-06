@@ -41,4 +41,6 @@ public interface ProjetInterface {
  //filtrer par duree
 public List<ProjetFreelance> filterByDuree(int Duree);
   
+public void UpdateRating(ProjetFreelance p, int note);
+
 }
