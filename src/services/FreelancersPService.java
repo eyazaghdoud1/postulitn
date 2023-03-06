@@ -12,7 +12,7 @@ import java.util.List;
 import models.FreelancersP;
 import models.Role;
 import models.Utilisateur;
-import utilities.Maconnexion;
+import utilities.MaConnexion;
 
 /**
  *
@@ -21,7 +21,7 @@ import utilities.Maconnexion;
 public class FreelancersPService implements FreelancersPInterface{
     
     //var
-    Connection cnx = Maconnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
     
     @Override
     public void addAffectation(FreelancersP fp) {

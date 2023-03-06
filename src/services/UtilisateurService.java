@@ -19,7 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Role;
 import models.Utilisateur;
-import utilities.Maconnexion;
+import utilities.MaConnexion;
 
 /**
  *
@@ -28,7 +28,7 @@ import utilities.Maconnexion;
 public class UtilisateurService implements UtilisateurInterface {
 
     //var
-    Connection cnx = Maconnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
     
     @Override
     public void addUser(Utilisateur u) {

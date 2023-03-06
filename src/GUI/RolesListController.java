@@ -41,14 +41,6 @@ public class RolesListController implements Initializable {
     @FXML
     private VBox offresVB;
     @FXML
-    private VBox candidaturesVB;
-    @FXML
-    private VBox entretiensVB;
-    @FXML
-    private VBox guidesVB;
-    @FXML
-    private VBox quizVB;
-    @FXML
     private ListView<HBox> listviewrole;
     @FXML
     private Button btnrole;
@@ -59,7 +51,13 @@ public class RolesListController implements Initializable {
     public static int selectedRole;
     List<Role> roles = rs.fetchRoles();
     @FXML
-    private Label USERS;
+    private VBox TypeOffreVB;
+    @FXML
+    private VBox usersVB;
+    @FXML
+    private VBox rolesVB;
+    @FXML
+    private VBox secteurVB;
     /**
      * Initializes the controller class.
      */
@@ -94,9 +92,6 @@ public class RolesListController implements Initializable {
     private void goToCandidatures(MouseEvent event) {
     }
 
-    @FXML
-    private void goToEntretiens(MouseEvent event) {
-    }
 
     @FXML
     private void goToGuides(MouseEvent event) {

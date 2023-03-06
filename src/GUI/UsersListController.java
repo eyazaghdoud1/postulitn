@@ -48,14 +48,6 @@ public class UsersListController implements Initializable {
     @FXML
     private VBox offresVB;
     @FXML
-    private VBox candidaturesVB;
-    @FXML
-    private VBox entretiensVB;
-    @FXML
-    private VBox guidesVB;
-    @FXML
-    private VBox quizVB;
-    @FXML
     private ListView<HBox> userslistview;
     @FXML
     private Label lnom1;
@@ -81,14 +73,20 @@ public class UsersListController implements Initializable {
     private Button ajoutAdmin;
     @FXML
     private Button resetbtn;
-    @FXML
-    private Label ROLE;
     
     private static Role selectedRoleFiltre;  
     public static int selectedUser;
     UtilisateurService us= new UtilisateurService();
     public static List <Utilisateur> utilisateurs;
     RoleService rs = new RoleService();
+    @FXML
+    private VBox TypeOffreVB;
+    @FXML
+    private VBox usersVB;
+    @FXML
+    private VBox rolesVB;
+    @FXML
+    private VBox secteurVB;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -179,13 +177,6 @@ public class UsersListController implements Initializable {
     private void goToCandidatures(MouseEvent event) {
     }
 
-    @FXML
-    private void goToEntretiens(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToGuides(MouseEvent event) {
-    }
 
     @FXML
     private void goToRoles(MouseEvent event) {
@@ -197,6 +188,10 @@ public class UsersListController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void goToAjoutAdmin(MouseEvent event) {
     }
 
 

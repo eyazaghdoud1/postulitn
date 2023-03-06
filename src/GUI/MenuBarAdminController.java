@@ -7,10 +7,13 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import services.RoleService;
@@ -26,23 +29,27 @@ public class MenuBarAdminController implements Initializable {
     private Label userConnecte;
     @FXML
     private VBox offresVB;
+   
     @FXML
-    private VBox candidaturesVB;
+    private VBox TypeOffreVB;
     @FXML
-    private VBox entretiensVB;
+    private VBox usersVB;
     @FXML
-    private VBox guidesVB;
-    @FXML
-    private VBox quizVB;
+    private VBox rolesVB;
     
-    
+     RoleService rs = new RoleService();
 
     /**
      * Initializes the controller class.
      */
-    RoleService rs = new RoleService();
     @FXML
-    private ListView<?> userslistview;
+    private VBox secteurVB;
+    @FXML
+    private ListView<?> listviewrole;
+    @FXML
+    private Button btnrole;
+    @FXML
+    private TextField roleajoute;
            
     
     @Override
@@ -71,8 +78,13 @@ public class MenuBarAdminController implements Initializable {
     }
 
     @FXML
-    private void handleusers(MouseEvent event) {
+    private void handlelistroles(MouseEvent event) {
     }
+
+    @FXML
+    private void AjoutRole(ActionEvent event) {
+    }
+
 
     
 

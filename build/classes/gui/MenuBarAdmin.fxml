@@ -78,19 +78,19 @@
                   <Insets left="40.0" />
                </padding>
             </VBox>
-            <VBox fx:id="candidaturesVB" onMouseClicked="#goToCandidatures" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+            <VBox fx:id="TypeOffreVB" onMouseClicked="#goToCandidatures" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
-                  <ImageView fitHeight="27.0" fitWidth="34.0">
+                  <ImageView fitHeight="33.0" fitWidth="34.0">
                      <image>
-                        <Image url="@candidature.png" />
+                        <Image url="@type%20offre.png" />
                      </image>
                      <VBox.margin>
-                        <Insets left="-7.0" top="15.0" />
+                        <Insets left="-10.0" top="10.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Label prefHeight="16.0" prefWidth="67.0" text="Candidatures" textFill="#0e1947">
+                  <Label prefHeight="16.0" prefWidth="77.0" text="Types d'offres" textAlignment="RIGHT" textFill="#0e1947">
                      <VBox.margin>
-                        <Insets left="-23.0" top="5.0" />
+                        <Insets left="-25.0" top="5.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="10.0" />
@@ -104,22 +104,22 @@
                   <Insets left="40.0" />
                </padding>
             </VBox>
-            <VBox fx:id="entretiensVB" onMouseClicked="#goToEntretiens" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+            <VBox fx:id="usersVB" onMouseClicked="#goToEntretiens" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
-                  <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="33.0" fitWidth="34.0">
                      <image>
-                        <Image url="@280297163_704924577502506_7220543109587187832_n.png" />
+                        <Image url="@icone%20user.png" />
                      </image>
                      <VBox.margin>
-                        <Insets left="-7.0" top="10.0" />
+                        <Insets left="-8.0" top="10.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Label prefHeight="17.0" prefWidth="58.0" text="Entretiens" textFill="#0e1947">
+                  <Label prefHeight="18.0" prefWidth="60.0" text="Utilisateurs" textAlignment="CENTER" textFill="#0e1947">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="-15.0" top="5.0" />
+                        <Insets left="-18.0" top="5.0" />
                      </VBox.margin>
                   </Label>
                </children>
@@ -127,40 +127,51 @@
                   <Insets left="40.0" />
                </padding>
             </VBox>
-            <VBox fx:id="guidesVB" onMouseClicked="#goToGuides" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+            <VBox fx:id="rolesVB" onMouseClicked="#goToGuides" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
-                  <ImageView fitHeight="27.0" fitWidth="34.0">
+                  <ImageView fitHeight="40.0" fitWidth="45.0">
                      <image>
-                        <Image url="@guideentretien.png" />
+                        <Image url="@icon%20role2.png" />
                      </image>
                      <VBox.margin>
-                        <Insets left="30.0" top="15.0" />
+                        <Insets left="25.0" top="15.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Label prefHeight="24.0" prefWidth="94.0" text="Guides d'entretiens" textFill="#0e1947">
+                  <Label prefHeight="24.0" prefWidth="48.0" text="Rôles" textFill="#0e1947">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="5.0" />
+                        <Insets left="35.0" />
                      </VBox.margin>
                   </Label>
                </children>
             </VBox>
-            <VBox fx:id="quizVB" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
-               <children>
-                  <ImageView fitHeight="70.0" fitWidth="75.0">
-                     <image>
-                        <Image url="@quizz.png" />
-                     </image>
-                  </ImageView>
-               </children>
+            <VBox fx:id="secteurVB" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <children>
+                  <ImageView fitHeight="33.0" fitWidth="34.0">
+                     <image>
+                        <Image url="@secteur.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Label prefHeight="16.0" prefWidth="48.0" text="Secteurs" textAlignment="RIGHT" textFill="#0e1947">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="17.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
             </VBox>
          </children>
          <padding>

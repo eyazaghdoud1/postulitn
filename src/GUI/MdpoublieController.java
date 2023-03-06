@@ -37,7 +37,7 @@ import services.AuthenticationService;
 import services.MailUtils;
 import services.Passwordutils;
 import services.UtilisateurService;
-import utilities.Maconnexion;
+import utilities.MaConnexion;
 
 /**
  * FXML Controller class
@@ -52,7 +52,7 @@ public class MdpoublieController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    Connection cnx = Maconnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
     @FXML
     private Button btnlog;
     @FXML

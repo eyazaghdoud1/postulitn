@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import jdk.nashorn.internal.ir.CatchNode;
 import models.Utilisateur;
-import utilities.Maconnexion;
+import utilities.MaConnexion;
 
 /**
  *
@@ -21,7 +21,7 @@ import utilities.Maconnexion;
 public class AuthenticationService implements AuthInterface{
     
     //var   
-    Connection cnx = Maconnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
     public static Utilisateur userconnecte;
     @Override
     

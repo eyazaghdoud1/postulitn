@@ -16,7 +16,7 @@ import static java.util.Collections.list;
 import java.util.List;
 import models.Role;
 import models.Utilisateur;
-import utilities.Maconnexion;
+import utilities.MaConnexion;
 
 /**
  *
@@ -25,7 +25,7 @@ import utilities.Maconnexion;
 public class RoleService implements RoleInterface {
     
     //var
-    Connection cnx = Maconnexion.getInstance().getCnx();
+    Connection cnx = MaConnexion.getInstance().getCnx();
 
     @Override
     public void addRole(Role r) {

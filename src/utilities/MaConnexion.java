@@ -9,7 +9,7 @@ import java.sql.SQLException;
  *
  * @author ezine
  */
-public class Maconnexion {
+public class MaConnexion {
     //DB PARAM
     static final String URL ="jdbc:mysql://localhost:3306/postulidb";
     static final String USER ="root";
@@ -18,11 +18,11 @@ public class Maconnexion {
     //var
     private Connection cnx;
     //1
-    static Maconnexion instance;
+    static MaConnexion instance;
     
     //const
     //2
-    private Maconnexion(){
+    private MaConnexion(){
         try {
             cnx = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException ex) {
@@ -35,9 +35,9 @@ public class Maconnexion {
     }
 
     //3
-    public static Maconnexion getInstance() {
+    public static MaConnexion getInstance() {
         if(instance == null)
-            instance = new Maconnexion();
+            instance = new MaConnexion();
         
         return instance;
     }

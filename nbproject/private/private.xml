@@ -13,29 +13,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/NewFXMain.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/SignInRecruteurController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/SignInCandidatController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/SignInRecruteur.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/Modifmdp.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/MenuBarController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/Login.fxml</file>
+            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/MenuBarAdminController.java</file>
             <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/RolesListController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/SignInCandidat.fxml</file>
             <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/UsersListController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/UController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/SignInController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/AjoutAdmin.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/LoginController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/AjoutAdminController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/Mdpoublie.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/r.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/u.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/SignIn.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/RolesList.fxml</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/ModifmdpController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/MdpoublieController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/RController.java</file>
-            <file>file:/C:/Users/ezine/OneDrive/Documents/NetBeansProjects/postulitnApp/src/GUI/UsersList.fxml</file>
         </group>
     </open-files>
 </project-private>
