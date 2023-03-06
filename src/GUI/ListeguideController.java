@@ -59,25 +59,29 @@ public class ListeguideController implements Initializable {
     private ListView<HBox> guidelist;
     
     GuideEntretienService ges= new GuideEntretienService();
-     GuideEntretien ge= new GuideEntretien();
+    GuideEntretien ge= new GuideEntretien();
     public static GuideEntretien selectedGuide;
-List<GuideEntretien> guides = ges.fetchGuideEntretien();
+    List<GuideEntretien> guides;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+      guides =  ges.fetchGuideEntretien();
+//       System.out.println(NewCompteController.compteUser.getPhoto()+"test");
         URL u;
+        //NewCompteController.compteUser.getPhoto()
         try {
-            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
+           
              Image image = new Image(u.toString());
               userPhoto.setImage(image);
              
          
            
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         for (int i=0; i<guides.size();i++){
@@ -99,8 +103,9 @@ List<GuideEntretien> guides = ges.fetchGuideEntretien();
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        //NewCandidatureEntretienInterfaceController.compteToVisit=null;
          try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("compte2.fxml"));
+        Parent compteParent = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
         Scene compteScene = new Scene(compteParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(compteScene);
@@ -167,7 +172,7 @@ List<GuideEntretien> guides = ges.fetchGuideEntretien();
             CompteServices cservice = new CompteServices();
        v.setDate_consultation(Date.valueOf(currentDate));
         v.setGuideentretien(selectedGuide);
-        v.setCompte(cservice.GetByIdCompte(10));
+        v.setCompte(NewCompteController.compteUser);
         vgs.addVisiteGuide(v);
             
         } catch (IOException ex) {
@@ -178,7 +183,7 @@ List<GuideEntretien> guides = ges.fetchGuideEntretien();
 
     @FXML
     private void allerajouter(ActionEvent event) throws IOException {
-         Parent root = FXMLLoader.load(getClass().getResource("ajoutguide2.fxml"));
+    Parent root = FXMLLoader.load(getClass().getResource("ajoutguide2.fxml"));
     Scene scene = new Scene(root);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(scene);

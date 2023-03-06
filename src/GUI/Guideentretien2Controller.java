@@ -12,6 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,11 +20,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -77,20 +84,27 @@ public class Guideentretien2Controller implements Initializable {
     /* private MediaView mediaView;
     private MediaPlayer mediaPlayer;*/
     private AnchorPane mainAnchorPane;
-    @FXML
-    private VBox supprimerBox;
+
+
+javafx.scene.media.MediaPlayer mediaPlayer;
+
+ GuideEntretienService ges = new GuideEntretienService();
     @FXML
     private Button noteBtn;
     @FXML
     private Button modifierBtn;
     @FXML
+    private VBox supprimerBox;
+    @FXML
     private VBox container;
     @FXML
     private MediaView mediaView;
-
-
-javafx.scene.media.MediaPlayer mediaPlayer;
+    
+    public static GuideEntretien thisGuide;
+    @FXML
+    private Button backBtn;
     /**
+     * 
      * Initializes the controller class.
      */
     @Override
@@ -99,14 +113,14 @@ javafx.scene.media.MediaPlayer mediaPlayer;
         
         URL u;
         try {
-            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+            u = new URL("http://localhost/postulitn/images/"+"check-icon.png");
              Image image = new Image(u.toString());
               userPhoto.setImage(image);
              
         
            
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
         }
             // TODO
 // String videoPath = "C:\\Users\\dell\\Downloads\\guide1.mp4";
@@ -121,16 +135,27 @@ javafx.scene.media.MediaPlayer mediaPlayer;
 //            GuideEntretien ge =ges.GetByIdGuideEntretiens(13);
 //            guideUser= ge;
             
-            domguide.setText(ListeguideController.selectedGuide.getDomaine());
-            specguide.setText(ListeguideController.selectedGuide.getSpecialite());
-            noteguide.setText((int) ListeguideController.selectedGuide.getNote() + "");
+            thisGuide = ges.GetByIdGuideEntretiens(ListeguideController.selectedGuide.getIdguide());
+            domguide.setText(thisGuide.getDomaine());
+            specguide.setText(thisGuide.getSpecialite());
+            noteguide.setText((int) thisGuide.getNote() + "");
 
-            Media media = new Media(new File("C:\\Users\\dell\\Downloads\\guide1.mp4").toURI().toString());  
+            /*Media media = new Media(new File("C:\\Users\\dell\\Downloads\\guide1.mp4").toURI().toString());  
+            
+          
             mediaPlayer = new MediaPlayer(media);  
             mediaView.setMediaPlayer(mediaPlayer);
             //container.getChildren().add(mediaView);
             //mediaPlayer.setAutoPlay(true);  
-            System.out.println(media);
+            System.out.println(media);*/
+            
+            /********************** role controle *************************/
+            /*if (userconnecte.getRole().equals("Recruteur")) {
+              noteBtn.SetVisible(false);
+            } else if (userconnecte.getRole().equals("Candidat")) {
+              supprimerBox.setVisible(false);
+            modifierBtn.setVisible(false)
+            }*/
             
             
         
@@ -140,7 +165,7 @@ javafx.scene.media.MediaPlayer mediaPlayer;
     @FXML
     private void goToCompte(MouseEvent event) {
          try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("compte2.fxml"));
+        Parent compteParent = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
         Scene compteScene = new Scene(compteParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(compteScene);
@@ -184,11 +209,58 @@ javafx.scene.media.MediaPlayer mediaPlayer;
     @FXML
     private void donnernote(ActionEvent event) throws IOException {
         
-          Parent root = FXMLLoader.load(getClass().getResource("notationguide.fxml"));
+        /*  Parent root = FXMLLoader.load(getClass().getResource("notationguide.fxml"));
     Scene scene = new Scene(root);
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(scene);
-    stage.show();
+    stage.show();*/
+        ComboBox<Integer> comboBox = new ComboBox<>();
+        for (int i=0; i<=10; i++) {
+         comboBox.getItems().add(i);
+        }
+        //Button confirmButton = new Button("Confirm");
+        
+        VBox vbox = new VBox(10);
+        vbox.getChildren().addAll(comboBox);
+        vbox.setAlignment(Pos.CENTER);
+        
+                Alert alert = new Alert(Alert.AlertType.NONE);
+                alert.setTitle("Noter guide d'entretien");
+                //alert.setHeaderText("Etes-vous sures de vouloir supprimer cet entretien?");
+                alert.getDialogPane().setContent(vbox);
+
+                ButtonType buttonTypeYes = new ButtonType("Confimer");
+                ButtonType buttonTypeNo = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+                
+                   
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonTypeYes){
+                 // clic sur le bouton oui
+                 // int idGuide = Integer.parseInt(idguidepn.getText()); // récupérer l'identifiant du guide entretien à partir d'un champ de saisie
+       double note = (double) comboBox.getValue();
+                
+        GuideEntretien ge = ges.GetByIdGuideEntretiens(ListeguideController.selectedGuide.getIdguide()); 
+        if (ge != null) { 
+            ges.ajouterNote(note, ge);
+            System.out.println(note);
+            
+             Parent root = FXMLLoader.load(getClass().getResource("guideentretien2.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            System.out.println("Le guide entretien avec l'identifiant " + ListeguideController.selectedGuide.getIdguide() + " n'a pas été trouvé dans la base de données.");
+        }
+                
+ 
+                } else {
+                 // clic sur le bouton non
+                 alert.close();
+                }
         
     }
 
@@ -210,16 +282,33 @@ javafx.scene.media.MediaPlayer mediaPlayer;
     @FXML
     private void iconesupp(MouseEvent event) throws IOException {
         
-         GuideEntretienService ges = new GuideEntretienService();
-    ges.deleteGuideEntretien(ListeguideController.selectedGuide);
+    GuideEntretienService ges = new GuideEntretienService();
     
-    Parent root = FXMLLoader.load(getClass().getResource("listeguide.fxml"));
-    Scene scene = new Scene(root);
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(scene);
-    stage.show();
-        
-        
+    
+      Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Suppression de guide");
+                alert.setHeaderText("Etes-vous sures de vouloir supprimer ce guide?");
+                
+
+                ButtonType buttonTypeYes = new ButtonType("Confimer");
+                ButtonType buttonTypeNo = new ButtonType("Annuler", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+                alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == buttonTypeYes){
+                 // clic sur le bouton oui
+             ges.deleteGuideEntretien(Guideentretien2Controller.thisGuide);
+            
+            Parent root = FXMLLoader.load(getClass().getResource("listeguide.fxml"));
+           Scene scene = new Scene(root);
+           Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           stage.setScene(scene);
+            stage.show();
+        } else {
+             alert.close();
+        }
+
     }
     
     
@@ -247,6 +336,23 @@ mediaPlayer.play();
 }
 }
     }
+
+    @FXML
+    private void goBack(ActionEvent event) {
+        
+          
+           try {
+        Parent root = FXMLLoader.load(getClass().getResource("listeguide.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException ex) {
+        System.out.println(ex.getMessage());
+    }
+    }
+
+
     
     
     

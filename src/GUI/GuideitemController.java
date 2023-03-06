@@ -26,8 +26,6 @@ public class GuideitemController implements Initializable {
     @FXML
     private Label lspecialite;
     @FXML
-    private Label lsupport;
-    @FXML
     private Label lnote;
 
     /**
@@ -43,7 +41,7 @@ public class GuideitemController implements Initializable {
         lidguide.setText((int) ge.getIdguide()+"");
         ldomaine.setText(ge.getDomaine());
         lspecialite.setText(ge.getSpecialite());
-        lsupport.setText(ge.getSupport());
+       // lsupport.setText(ge.getSupport());
         lnote.setText((int) ge.getNote() +"");
         
     }

@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -27,6 +29,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.GuideEntretien;
 import services.GuideEntretienService;
@@ -57,6 +60,8 @@ public class Ajoutguide2Controller implements Initializable {
     private TextField specialitetf;
     @FXML
     private TextField domainetf;
+    @FXML
+    private Button backBtn;
 
     /**
      * Initializes the controller class.
@@ -66,14 +71,14 @@ public class Ajoutguide2Controller implements Initializable {
         // TODO
         URL u;
         try {
-            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
              Image image = new Image(u.toString());
               userPhoto.setImage(image);
              
           //  eeltaswira.setImage(image);
            
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
 
@@ -168,11 +173,30 @@ if (domaine.isEmpty() || specialite.isEmpty() || support.isEmpty()) {
     }
     }
 
+    File supportFile;
     @FXML
     private void browsevideo(ActionEvent event) {
+         FileChooser fileChooser = new FileChooser();
+         fileChooser.setTitle("Select support");
+
+        supportFile = fileChooser.showOpenDialog(supporttf.getScene().getWindow());
+        System.out.println("done");
+        supporttf.setText(supportFile.getAbsolutePath());   
         
+    }
+
+    @FXML
+    private void goBack(ActionEvent event) {
         
-        
+          try {
+        Parent root = FXMLLoader.load(getClass().getResource("listeguide.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException ex) {
+        System.out.println(ex.getMessage());
+    }
     }
     
 }

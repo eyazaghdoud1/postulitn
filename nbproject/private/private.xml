@@ -3,7 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/MenuBarController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/newCompte.fxml</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewCompteController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/Ajoutercompte2Controller.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/FXMain.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizQuestionService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/EntretienService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/compte2.fxml</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizScoreService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/CandidatureService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/QuizService.java</file>
         </group>
     </open-files>
 </project-private>

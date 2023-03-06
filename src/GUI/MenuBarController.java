@@ -7,14 +7,20 @@ package GUI;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.MediaView;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -49,9 +55,8 @@ public class MenuBarController implements Initializable {
     }    
 
 
-    @FXML
-    private ListView<?> guidelist;
 
+    @FXML
     private void goToOffres(MouseEvent event) {
     }
 
@@ -76,8 +81,10 @@ public class MenuBarController implements Initializable {
     private void goToCompte(MouseEvent event) {
     }
 
+
+
+
    
 
-    private void handleguidelist(MouseEvent event) {}
 }
 

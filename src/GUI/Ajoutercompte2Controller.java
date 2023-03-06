@@ -85,14 +85,14 @@ public class Ajoutercompte2Controller implements Initializable {
         // TODO
         URL u;
         try {
-            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
              Image image = new Image(u.toString());
               userPhoto.setImage(image);
              
           //  eeltaswira.setImage(image);
            
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
 

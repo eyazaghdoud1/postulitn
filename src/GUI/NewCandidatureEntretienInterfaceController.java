@@ -52,11 +52,14 @@ import javafx.stage.FileChooser;
 import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import models.Candidature;
+import models.Compte;
 import models.Entretien;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
 import services.CandidatureService;
+import services.CompteServices;
 import services.EntretienService;
 import utilities.EtatCandidature;
 import utilities.TypeEntretien;
@@ -159,7 +162,7 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
     private Button planifierPresBtn;
     
     EntretienService es = new EntretienService();
-    CandidatureService csr = new CandidatureService();
+    public static CandidatureService csr = new CandidatureService();
     
       byte[] pdfDataCV;
     byte[] pdfDataLettre;
@@ -167,8 +170,8 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
     private VBox entretiensContainer;
     @FXML
     private Button refuserBtn;
-    
-
+    public static Compte compteToVisit;
+   // public static Candidature thisCandidature ;
     /**
      * Initializes the controller class.
      */
@@ -177,6 +180,7 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
         // TODO
         
        // hour spinner
+       //thisCandidature = csr.getCandidatureById(NewCandidaturesRecruteurController.recSelectedCand.getId());
        SpinnerValueFactory<Integer> hourFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23);
        hourSpinner.setValueFactory(hourFactory);
        hourSpinner.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
@@ -377,9 +381,25 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
 
     @FXML
     private void consulterProfil(ActionEvent event) {
+        CompteServices comptesService = new CompteServices();
+        compteToVisit = comptesService.GetByIdCompte(10);
+        try {
+                  Parent root = FXMLLoader.load(getClass().getResource("./newCompte.fxml"));
+                  System.out.println("FXML loaded successfully");
+                  Scene scene = new Scene(root);
+                  Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                  stage.setScene(scene);
+                  stage.show();
+           
+                 } catch (IOException e) {
+                      e.printStackTrace();
+                 }
+        
     }
     
     private void setDataCand() {
+       
+       
       candidat.setText(candidat.getText() + NewCandidaturesRecruteurController.recSelectedCand.getIdCandidat());
       dateCand.setText(dateCand.getText() + NewCandidaturesRecruteurController.recSelectedCand.getDate());
       etatCand.setText(etatCand.getText() + NewCandidaturesRecruteurController.recSelectedCand.getEtat());

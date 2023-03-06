@@ -1,53 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<HBox prefHeight="83.0" prefWidth="1611.0" style="-fx-background-color: #0E1947;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GuideitemController">
+<HBox prefHeight="63.0" prefWidth="1091.0" style="-fx-background-color: white; -fx-border-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GuideitemController">
    <children>
-      <Label fx:id="lidguide" prefHeight="32.0" prefWidth="260.0" text="ID GUIDE " textFill="WHITE">
+      <Label fx:id="lidguide" prefHeight="40.0" prefWidth="120.0" text="ID GUIDE ">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
          <HBox.margin>
             <Insets left="10.0" top="15.0" />
          </HBox.margin>
       </Label>
-      <Label fx:id="ldomaine" prefHeight="32.0" prefWidth="271.0" text="DOMAINE" textFill="WHITE">
+      <Label fx:id="ldomaine" prefHeight="32.0" prefWidth="261.0" text="DOMAINE">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
          <HBox.margin>
-            <Insets left="100.0" top="15.0" />
+            <Insets left="30.0" top="15.0" />
          </HBox.margin>
       </Label>
-      <Label fx:id="lspecialite" prefHeight="32.0" prefWidth="292.0" text="SPECIALITE" textFill="WHITE">
+      <Label fx:id="lspecialite" prefHeight="28.0" prefWidth="380.0" text="SPECIALITE">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
          <HBox.margin>
-            <Insets left="100.0" top="15.0" />
+            <Insets left="70.0" top="15.0" />
          </HBox.margin>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
       </Label>
-      <Label fx:id="lsupport" prefHeight="32.0" prefWidth="274.0" text="SUPPORT" textFill="WHITE">
+      <Label fx:id="lnote" prefHeight="20.0" prefWidth="66.0" text="NOTE">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="14.0" />
          </font>
          <HBox.margin>
-            <Insets left="100.0" top="15.0" />
-         </HBox.margin>
-      </Label>
-      <Label fx:id="lnote" text="NOTE" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-         <HBox.margin>
-            <Insets left="100.0" top="15.0" />
+            <Insets left="30.0" top="15.0" />
          </HBox.margin>
       </Label>
    </children>

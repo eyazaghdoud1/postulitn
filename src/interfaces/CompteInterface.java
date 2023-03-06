@@ -25,6 +25,5 @@ public interface CompteInterface {
     //delete
     public void deleteCompte(Compte c);
      
-    //read cv 
-     public String readCV(String filePath) throws IOException;
+    
 }

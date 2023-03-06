@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,6 +21,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -28,6 +30,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.GuideEntretien;
 import static org.joda.time.format.ISODateTimeFormat.date;
@@ -59,6 +62,8 @@ public class Modifierguide2Controller implements Initializable {
     private TextField specialitetf;
     @FXML
     private TextField domainetf;
+    @FXML
+    private Button backBtn;
 
     /**
      * Initializes the controller class.
@@ -66,15 +71,18 @@ public class Modifierguide2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        supporttf.setText(ListeguideController.selectedGuide.getSupport());
+        domainetf.setText(ListeguideController.selectedGuide.getDomaine());
+        specialitetf.setText(ListeguideController.selectedGuide.getSpecialite());
          URL u;
         try {
-            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
+            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
              Image image = new Image(u.toString());
               userPhoto.setImage(image);
              
           
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         // TODO
@@ -149,18 +157,18 @@ if (domaine.isEmpty() || specialite.isEmpty() || support.isEmpty()) {
 } else {
         
         
-                    GuideEntretienService ges = new GuideEntretienService();
-        GuideEntretien ge = new GuideEntretien();
+        GuideEntretienService ges = new GuideEntretienService();
+        GuideEntretien ge = Guideentretien2Controller.thisGuide;
         ge.setDomaine(domainetf.getText());
         ge.setSpecialite(specialitetf.getText());
         ge.setSupport(supporttf.getText());
-        ges.updateGuideEntretien(ListeguideController.selectedGuide.getIdguide(), ge);
+        ges.updateGuideEntretien(Guideentretien2Controller.thisGuide.getIdguide(), ge);
         
        
  try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/listeguide.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/guideentretien2.fxml"));
         Parent root = loader.load();
-        ListeguideController controller = loader.getController();
+       
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -170,4 +178,28 @@ if (domaine.isEmpty() || specialite.isEmpty() || support.isEmpty()) {
     }
 }
 }
+
+    @FXML
+    private void goBack(ActionEvent event) {
+        
+           try {
+        Parent root = FXMLLoader.load(getClass().getResource("guideentretien2.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException ex) {
+        System.out.println(ex.getMessage());
+    }
+    }
+    File supportFile;
+    @FXML
+    private void browse(ActionEvent event) {
+         FileChooser fileChooser = new FileChooser();
+         fileChooser.setTitle("Select support");
+
+        supportFile = fileChooser.showOpenDialog(supporttf.getScene().getWindow());
+        System.out.println("done");
+        supporttf.setText(supportFile.getAbsolutePath());
+    }
 }

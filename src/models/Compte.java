@@ -18,25 +18,28 @@ public class Compte {
     private int idCompte;
     private String experience, photo,diplome,entreprise,domaine,poste ;
     private Date dateDiplome;
+    private int idUser;
     
     //const
     public Compte() {
     }
-    public Compte(String experience, String photo, String cv, String diplome, Date dateDiplome, String entreprise) {
+    public Compte(String experience, String photo, String cv, String diplome, Date dateDiplome, String entreprise, int idUser) {
         this.experience = experience;
         this.photo = photo;
         this.diplome = diplome;
         this.dateDiplome = dateDiplome;
         this.entreprise = entreprise;
+        this.idUser= idUser;
     }
 
-    public Compte(int idCompte, String experience, String photo, String cv, String diplome, String entreprise, Date dateDiplome) {
+    public Compte(int idCompte, String experience, String photo, String cv, String diplome, String entreprise, Date dateDiplome, int idUser) {
         this.idCompte = idCompte;
         this.experience = experience;
         this.photo = photo;
         this.diplome = diplome;
         this.entreprise = entreprise;
         this.dateDiplome = dateDiplome;
+        this.idUser = idUser;
     }
     
     public int getIdCompte() {
@@ -102,13 +105,23 @@ public class Compte {
     public void setPoste(String poste) {
         this.poste = poste;
     }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
     
     //display
 
     @Override
     public String toString() {
-        return "Compte{" + "idCompte=" + idCompte + ", experience=" + experience + ", photo=" + photo + ", diplome=" + diplome + ", entreprise=" + entreprise + ", domaine=" + domaine + ", poste=" + poste + ", dateDiplome=" + dateDiplome + '}';
+        return "Compte{" + "idCompte=" + idCompte + ", experience=" + experience + ", photo=" + photo + ", diplome=" + diplome + ", entreprise=" + entreprise + ", domaine=" + domaine + ", poste=" + poste + ", dateDiplome=" + dateDiplome + ", idUser=" + idUser + '}';
     }
+
+    
 
    
         

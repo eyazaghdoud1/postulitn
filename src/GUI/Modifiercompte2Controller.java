@@ -26,6 +26,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -64,8 +65,6 @@ public class Modifiercompte2Controller implements Initializable {
     private TextField diplometf;
     @FXML
     private TextField phototf;
-    @FXML
-    private TextField cvtf;
     
     // visible si user est recruteur
     @FXML
@@ -81,6 +80,16 @@ public class Modifiercompte2Controller implements Initializable {
     private TextField postetf;
     @FXML
     private ImageView eetaswira;
+    @FXML
+    private TextField nomtf;
+    @FXML
+    private TextField prenomtf;
+    @FXML
+    private TextField telephonetf;
+    @FXML
+    private TextField mailtf;
+    @FXML
+    private Button backBtn;
     /**
      * Initializes the controller class.
      */
@@ -93,37 +102,37 @@ public class Modifiercompte2Controller implements Initializable {
            sqlDate = Date.valueOf(selectedDate); 
         });
         
-        datediplomedp.setValue(Compte2Controller.compteUser.getDateDiplome().toLocalDate());
+        datediplomedp.setValue(NewCompteController.compteUser.getDateDiplome().toLocalDate());
         
-        diplometf.setText(Compte2Controller.compteUser.getDiplome());
+        diplometf.setText(NewCompteController.compteUser.getDiplome());
 //        cvtf.setText(Compte2Controller.compteUser.getCv());
-        entreprisetf.setText(Compte2Controller.compteUser.getEntreprise());
-        experiencetf.setText(Compte2Controller.compteUser.getExperience());
-        domainetf.setText(Compte2Controller.compteUser.getDomaine()); 
-        postetf.setText(Compte2Controller.compteUser.getPoste()); 
+        entreprisetf.setText(NewCompteController.compteUser.getEntreprise());
+        experiencetf.setText(NewCompteController.compteUser.getExperience());
+        domainetf.setText(NewCompteController.compteUser.getDomaine()); 
+        postetf.setText(NewCompteController.compteUser.getPoste()); 
         
         
+        /* File file = new File("C:\\Users\\dell\\Pictures\\COPY_anarci-1623243208.jpeg");
+        URI uri = file.toURI();
+        Image image = new Image(uri.toString());
+        eetaswira.setImage(image);*/
+        
+        URL u;
         try {
-            /* File file = new File("C:\\Users\\dell\\Pictures\\COPY_anarci-1623243208.jpeg");
-            URI uri = file.toURI();
-            Image image = new Image(uri.toString());
-            eetaswira.setImage(image);*/
-            
-            URL u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
-            Image image = new Image(u.toString());
-            eetaswira.setImage(image);
-           
-            
+            u = new URL("http://localhost/postulitn/images/"+NewCompteController.compteUser.getPhoto());
+         Image image = new Image(u.toString());
+        eetaswira.setImage(image);
         } catch (MalformedURLException ex) {
             Logger.getLogger(Modifiercompte2Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+       
 
     }    
 
     @FXML
     private void goToCompte(MouseEvent event) {
          try {
-        Parent compteParent = FXMLLoader.load(getClass().getResource("compte2.fxml"));
+        Parent compteParent = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
         Scene compteScene = new Scene(compteParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(compteScene);
@@ -170,7 +179,7 @@ public class Modifiercompte2Controller implements Initializable {
         //date to a string if needed
         LocalDate selectedDate = datediplomedp.getValue();
         String dateString = selectedDate.toString();
-        Compte c = Compte2Controller.compteUser;
+        Compte c = NewCompteController.compteUser;
         //c.setExperience(experiencetf.getText());
         
         
@@ -184,10 +193,10 @@ public class Modifiercompte2Controller implements Initializable {
         c.setDomaine(domainetf.getText());
         c.setPoste(postetf.getText());
         c.setDateDiplome(Date.valueOf(datediplomedp.getValue())); 
-       cservice.updateCompte(Compte2Controller.compteUser.getIdCompte(),c); 
+       cservice.updateCompte(NewCompteController.compteUser.getIdCompte(),c); 
         
                  try {
-        Parent root = FXMLLoader.load(getClass().getResource("compte2.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage) eetaswira.getScene().getWindow();
         stage.setScene(scene);
@@ -213,10 +222,10 @@ public class Modifiercompte2Controller implements Initializable {
         
     }
 
+
     @FXML
-    private void zidtaswira(ActionEvent event) {
-        
-            // Create a FileChooser dialog
+    private void browse(ActionEvent event) {
+               // Create a FileChooser dialog
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select Image");
 
@@ -228,14 +237,28 @@ public class Modifiercompte2Controller implements Initializable {
         // Show the dialog and wait for the user to select a file
         //fileChooser.setInitialDirectory(new File(System.getProperty("user.home"), "Images"));
         imgFile = fileChooser.showOpenDialog(eetaswira.getScene().getWindow());
-        
+        System.out.println("done");
         phototf.setText(imgFile.getAbsolutePath());
         // If a file was selected, load it into the ImageView
 //        if (file != null) {
 //            Image image = new Image(file.toURI().toString());
 //            eetaswira.setImage(image);
 //        }
-        
+    }
+
+    @FXML
+    private void goBack(ActionEvent event) {
+          try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/newCompte.fxml"));
+        Parent root = loader.load();
+       // ListeguideController controller = loader.getController();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    } catch (IOException ex) {
+        System.out.println(ex.getMessage());
+    }
     }
     
 }

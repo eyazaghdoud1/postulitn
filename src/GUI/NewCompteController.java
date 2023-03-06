@@ -5,7 +5,6 @@
  */
 package GUI;
 
-import static GUI.Compte2Controller.compteUser;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -20,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -33,10 +33,10 @@ import services.CompteServices;
 /**
  * FXML Controller class
  *
- * @author dell
+ * @author HP I5
  */
-public class Compte2Controller implements Initializable {
-    @FXML
+public class NewCompteController implements Initializable {
+@FXML
     private Label userConnecte;
     @FXML
     private ImageView userPhoto;
@@ -59,8 +59,9 @@ public class Compte2Controller implements Initializable {
     private Label diplomepers;
     @FXML
     private Label exppers;
-    public static CompteServices comptes = new CompteServices();
+    public static CompteServices comptes = new CompteServices();;
     public static Compte compteUser = comptes.GetByIdCompte(7);
+    //Compte visitedCompte;
     private ImageView taswira;
     @FXML
     private Label domainetf;
@@ -68,31 +69,58 @@ public class Compte2Controller implements Initializable {
     private Label postetf;
     @FXML
     private ImageView eeltaswira;
+    @FXML
+    private Button modifBtn;
+    @FXML
+    private Button backBtn;
+    @FXML
+    private ImageView backbtn;
 
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+       
+        //compteUser 
+            Compte c;
+            backBtn.setVisible(false);
+       if (NewCandidatureEntretienInterfaceController.compteToVisit != null) {
+          c=NewCandidatureEntretienInterfaceController.compteToVisit;
+            modifBtn.setVisible(false);   
+           // backBtn.setVisible(true);
+                  ;}
+         //compteUser= c; } 
+         else {
+               c = compteUser;
+               modifBtn.setVisible(true); 
+              // backBtn.setVisible(false);
+                 }
+       
         URL u;
-        try {
-            u = new URL("http://localhost/postulitn/images/"+Compte2Controller.compteUser.getPhoto());
-             Image image = new Image(u.toString());
-              userPhoto.setImage(image);
-             
-           eeltaswira.setImage(image);
-           
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Compte2Controller.class.getName()).log(Level.SEVERE, null, ex);
-        }
-           
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ compteUser.getPhoto());
+         Image image = new Image(u.toString());
+        userPhoto.setImage(image);
         
-         
-         Compte c =compteUser;
-         //compteUser= c; 
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
 
+         
+          URL u2;
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ c.getPhoto());
+         Image image2 = new Image(u.toString());
+        //userPhoto.setImage(image2);
+         eeltaswira.setImage(image2);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        
          exppers.setText(c.getExperience()); 
          diplomepers.setText(c.getDiplome());
          ddippers.setText("" + c.getDateDiplome());
@@ -212,7 +240,26 @@ public class Compte2Controller implements Initializable {
     }
     
     
+   /* public void setVisitedUser(Compte visited) {
+       visitedCompte= visited;
+    }*/
+
+  
+
+    @FXML
+    private void goBack(MouseEvent event) {
+          
+        try {
+        Parent ajoutCompteParent = FXMLLoader.load(getClass().getResource("NewCandidatureEntretienInterface.fxml"));
+        Scene ajoutCompteScene = new Scene(ajoutCompteParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(ajoutCompteScene);
+        window.show();
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    }
     
+
     
 }
-
