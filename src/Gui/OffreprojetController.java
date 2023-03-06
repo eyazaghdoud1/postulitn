@@ -29,6 +29,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import Models.Commentaire;
 import org.controlsfx.control.Rating;
+//import org.controlsfx.control.Rating;
 import services.CommentaireServices;
 
 /**
@@ -116,18 +117,7 @@ public class OffreprojetController implements Initializable {
     private void GoToPostuler(ActionEvent event) {
     }
 
-    @FXML
-    private void GoToListeProjets(MouseEvent event) {
-        try {
-            Parent Offreprojet = FXMLLoader.load(getClass().getResource("ListeProjetsFreelance.fxml"));
-            Scene  OffreprojetScene = new Scene(Offreprojet);
-            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            appStage.setScene(OffreprojetScene);
-            appStage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
 
     @FXML
     private void GoToComments(ActionEvent event) {
@@ -145,8 +135,21 @@ public class OffreprojetController implements Initializable {
     @FXML
     private void Submit(ActionEvent event) {
 
-        tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
+     //   tf_note.setRating(ListeProjetsFreelanceController.selectedProjet.getNote());
         
+    }
+
+    @FXML
+    private void GoBack(ActionEvent event) {
+          try {
+            Parent Offreprojet = FXMLLoader.load(getClass().getResource("ListeProjetsFreelance.fxml"));
+            Scene  OffreprojetScene = new Scene(Offreprojet);
+            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            appStage.setScene(OffreprojetScene);
+            appStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

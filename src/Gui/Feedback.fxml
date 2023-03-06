@@ -187,14 +187,22 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Button>
-                  <Label layoutX="51.0" layoutY="39.0" text="Feedback" textFill="WHITE">
+                  <Label layoutX="135.0" layoutY="39.0" text="Feedback" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <TextField fx:id="ContenuTF" layoutX="135.0" layoutY="490.0" prefHeight="81.0" prefWidth="992.0" />
                   <ListView fx:id="CommentListView" layoutX="135.0" layoutY="90.0" prefHeight="343.0" prefWidth="984.0" />
-                  <Label layoutX="1198.0" layoutY="30.0" onMouseClicked="#GoBack" text="Retour" textFill="WHITE" underline="true" />
+                  <Button layoutX="17.0" layoutY="16.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="34.0" prefWidth="47.0">
+                     <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="32.0">
+                           <image>
+                              <Image url="@RetourLogo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </center>

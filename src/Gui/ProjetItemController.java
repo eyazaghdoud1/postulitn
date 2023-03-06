@@ -60,7 +60,7 @@ public class ProjetItemController implements Initializable {
    Lduree.setText(p.getDuree()+""); 
    Lsecteur.setText(p.getS().getDescription());
     Lnom.setText(p.getNom());
-    tf_note.setRating(p.getNote()); 
+   tf_note.setRating(p.getNote()); 
 
     }
 

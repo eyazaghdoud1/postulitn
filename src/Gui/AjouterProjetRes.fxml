@@ -224,9 +224,9 @@
                         <Font size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="51.0" layoutY="39.0" text="Nouveau projet freelance " textFill="WHITE">
+                  <Label layoutX="178.0" layoutY="62.0" text="Nouveau projet freelance " textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <TextField fx:id="NomTF" layoutX="313.0" layoutY="137.0" prefHeight="26.0" prefWidth="695.0" />
@@ -242,7 +242,15 @@
                   <Label fx:id="erreurDateDebut" layoutX="314.0" layoutY="390.0" prefHeight="18.0" prefWidth="695.0" textFill="WHITE" />
                   <Label fx:id="erreurDateFin" layoutX="313.0" layoutY="451.0" prefHeight="18.0" prefWidth="695.0" textFill="WHITE" />
                   <Label fx:id="erreurSecteur" layoutX="312.0" layoutY="514.0" prefHeight="18.0" prefWidth="695.0" textFill="WHITE" />
-                  <Label layoutX="1172.0" layoutY="44.0" onMouseClicked="#GoBack" text="Retour " textFill="WHITE" underline="true" />
+                  <Button layoutX="37.0" layoutY="24.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="31.0" prefWidth="46.0">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="25.0">
+                           <image>
+                              <Image url="@RetourLogo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </AnchorPane>
          </center>

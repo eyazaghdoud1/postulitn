@@ -210,9 +210,9 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Lnom" layoutX="47.0" layoutY="36.0" text="Nouveau projet freelance " textFill="WHITE">
+                  <Label fx:id="Lnom" layoutX="156.0" layoutY="46.0" text="Nouveau projet freelance " textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="22.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Label fx:id="Lduree" layoutX="287.0" layoutY="114.0" text="18" textFill="WHITE">
@@ -255,11 +255,6 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="1179.0" layoutY="27.0" onMousePressed="#GoToListeProjets" prefHeight="18.0" prefWidth="63.0" text="Retour" textFill="WHITE" underline="true">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
                   <Button layoutX="784.0" layoutY="535.0" mnemonicParsing="false" onAction="#GoToCommentaire" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Voir commentaires" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
@@ -269,6 +264,15 @@
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
+                  </Button>
+                  <Button layoutX="30.0" layoutY="24.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="31.0" prefWidth="46.0">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="30.0">
+                           <image>
+                              <Image url="@RetourLogo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </AnchorPane>

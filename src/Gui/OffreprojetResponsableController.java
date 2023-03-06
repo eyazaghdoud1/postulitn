@@ -103,7 +103,6 @@ public class OffreprojetResponsableController implements Initializable {
     private void goToGuides(MouseEvent event) {
     }
 
-    @FXML
     private void GoToListeProjets(MouseEvent event) {
         try {
             Parent Offreprojet = FXMLLoader.load(getClass().getResource("ListeProjetsResponsable.fxml"));
@@ -185,5 +184,19 @@ public class OffreprojetResponsableController implements Initializable {
             Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void GoBack(ActionEvent event) {
+         try {
+            Parent Offreprojet = FXMLLoader.load(getClass().getResource("ListeProjetsResponsable.fxml"));
+            Scene  OffreprojetScene = new Scene(Offreprojet);
+            Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            appStage.setScene(OffreprojetScene);
+            appStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }
     
-}
+

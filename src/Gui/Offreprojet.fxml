@@ -211,7 +211,7 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="Lnom" layoutX="47.0" layoutY="36.0" text="Nom du projet freelance" textFill="WHITE">
+                  <Label fx:id="Lnom" layoutX="151.0" layoutY="55.0" text="Nom du projet freelance" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="22.0" />
                      </font>
@@ -256,11 +256,6 @@
                         <Font size="17.0" />
                      </font>
                   </Label>
-                  <Label layoutX="1179.0" layoutY="27.0" onMousePressed="#GoToListeProjets" prefHeight="18.0" prefWidth="63.0" text="Retour" textFill="WHITE" underline="true">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
                   <Button layoutX="974.0" layoutY="551.0" mnemonicParsing="false" onAction="#GoToComments" prefHeight="54.0" prefWidth="220.0" style="-fx-background-color: #1E9DFF;" text="Check Feedback" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
@@ -276,6 +271,15 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                  </Button>
+                  <Button layoutX="29.0" layoutY="24.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="31.0" prefWidth="42.0">
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="27.0">
+                           <image>
+                              <Image url="@RetourLogo.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </AnchorPane>

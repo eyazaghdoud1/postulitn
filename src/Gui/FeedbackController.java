@@ -62,6 +62,8 @@ public class FeedbackController implements Initializable {
     private Button AjouterCommentaire;
     @FXML
     private TextField ContenuTF;
+    @FXML
+    private Label GoBack;
     /**
      * Initializes the controller class.
      */
@@ -134,7 +136,7 @@ public class FeedbackController implements Initializable {
     }
 
     @FXML
-    private void GoBack(MouseEvent event) {
+    private void GoBack(ActionEvent event) {
              try {
             Parent Offreprojet = FXMLLoader.load(getClass().getResource("OffreProjet.fxml"));
             Scene  OffreprojetScene = new Scene(Offreprojet);

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -93,10 +94,17 @@ public class FeedbackRespController implements Initializable {
     private void goToGuides(MouseEvent event) {
     }
 
+   
+
     @FXML
-    private void GoBack(MouseEvent event) {
-     try {
-            Parent Offreprojet = FXMLLoader.load(getClass().getResource("OffreprojetResponable.fxml"));
+    private void HandleCommentaire(MouseEvent event) {
+    selectedCommentResp = commentairesResp.get(CommentListView.getSelectionModel().getSelectedIndex());
+    }
+
+    @FXML
+    private void GoBack(ActionEvent event) {
+         try {
+            Parent Offreprojet = FXMLLoader.load(getClass().getResource("OffreProjetResponsable.fxml"));
             Scene  OffreprojetScene = new Scene(Offreprojet);
             Stage appStage = (Stage)((Node)event.getSource()).getScene().getWindow();
             appStage.setScene(OffreprojetScene);
@@ -104,11 +112,6 @@ public class FeedbackRespController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(OffreprojetController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @FXML
-    private void HandleCommentaire(MouseEvent event) {
-    selectedCommentResp = commentairesResp.get(CommentListView.getSelectionModel().getSelectedIndex());
     }
     }
     
