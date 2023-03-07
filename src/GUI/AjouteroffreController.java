@@ -107,7 +107,7 @@ public class AjouteroffreController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        
         /****************************************************************************************/
-       /* URL u;
+        URL u;
        if (AuthenticationService.compteconnecte.getPhoto() == null) {
              try {
                  u = new URL("http://localhost/postulitn/images/defaultuser.png");
@@ -130,7 +130,7 @@ public class AjouteroffreController implements Initializable {
        }    
        
         userConnecte.setText(AuthenticationService.userconnecte.getNom());
-        */
+        
         
         /****************************************************************************************************/
         

@@ -122,12 +122,6 @@ public class NewCandidatureInterfaceController implements Initializable {
     @FXML
     private Label typeOffre;
     @FXML
-    private Label descriptionOffre;
-    @FXML
-    private Label dateExpOffre;
-    @FXML
-    private Label recruteurOffre;
-    @FXML
     private Label etatCand;
     @FXML
     private Button updateBtn;
@@ -149,7 +143,7 @@ public class NewCandidatureInterfaceController implements Initializable {
         //mbc.setConnectedUser();
         
            /****************************************************************************************/
-        URL u;
+     /*   URL u;
        if (AuthenticationService.compteconnecte.getPhoto() == null) {
              try {
                  u = new URL("http://localhost/postulitn/images/defaultuser.png");
@@ -171,7 +165,7 @@ public class NewCandidatureInterfaceController implements Initializable {
 
        }    
        
-        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());*/
         
         
         /****************************************************************************************************/

@@ -209,42 +209,11 @@
                               </HBox>
                               <HBox prefHeight="599.0" prefWidth="1254.0" spacing="10.0">
                                  <children>
-                                    <VBox fx:id="offreVB" prefHeight="628.0" prefWidth="400.0" spacing="5.0" style="-fx-background-color: #353D62; -fx-border-radius: 40;">
+                                    <VBox fx:id="offreVB" prefHeight="403.0" prefWidth="400.0" spacing="5.0" style="-fx-background-color: #353D62; -fx-border-radius: 40;">
                                        <children>
-                                          <Label text="Votre offre" textFill="WHITE">
-                                             <font>
-                                                <Font name="System Bold" size="15.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="20.0" left="20.0" top="20.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <Label fx:id="psteOffre" prefHeight="27.0" prefWidth="375.0" text="Poste:  Développeur web" textFill="WHITE">
-                                             <padding>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </padding>
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <Label fx:id="descriptionOffre" prefHeight="42.0" prefWidth="372.0" text="Description:" textFill="WHITE">
-                                             <padding>
-                                                <Insets bottom="5.0" />
-                                             </padding>
-                                          </Label>
-                                          <Label fx:id="dateExpOffre" prefHeight="17.0" prefWidth="365.0" text="Date d'expiration de l'offre: " textFill="WHITE">
-                                             <padding>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </padding>
-                                          </Label>
-                                          <Label fx:id="experienceOffre" prefHeight="17.0" prefWidth="365.0" text="Expérience: " textFill="WHITE">
-                                             <padding>
-                                                <Insets bottom="5.0" top="5.0" />
-                                             </padding>
-                                          </Label>
                                           <VBox prefHeight="280.0" prefWidth="380.0">
                                              <children>
-                                                <VBox fx:id="candVB1" prefHeight="312.0" prefWidth="385.0" style="-fx-border-color: #939AB0;">
+                                                <VBox fx:id="candVB1" prefHeight="404.0" prefWidth="383.0" style="-fx-border-color: #939AB0;">
                                                    <children>
                                                       <HBox prefHeight="56.0" prefWidth="390.0">
                                                          <children>
@@ -330,7 +299,7 @@
                                                       </Button>
                                                    </children>
                                                    <VBox.margin>
-                                                      <Insets right="7.0" top="10.0" />
+                                                      <Insets right="7.0" top="100.0" />
                                                    </VBox.margin>
                                                    <padding>
                                                       <Insets bottom="10.0" />

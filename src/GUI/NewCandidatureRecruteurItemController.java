@@ -11,6 +11,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import models.Candidature;
+import models.Offre;
+import models.Utilisateur;
 
 /**
  * FXML Controller class
@@ -38,11 +40,11 @@ public class NewCandidatureRecruteurItemController implements Initializable {
         // TODO
     }    
     
-    public void setData(Candidature c) {
-     offre.setText("Offre " + c.getIdOffre() );
-     type.setText("Type ");
+    public void setData(Candidature c, Offre o, Utilisateur u) {
+     offre.setText(o.getPoste() );
+     type.setText(o.getType().getDescription());
      etat.setText(c.getEtat().toString());
-     candidat.setText("Candidat: " + c.getIdCandidat());
+     candidat.setText(u.getNom() + u.getPrenom());
 }
 
 }

@@ -148,7 +148,7 @@ public class NewoffresController implements Initializable {
     @FXML
     private void handleOffre(MouseEvent event) {
         selectedoffre= offres.get(listeoffre.getSelectionModel().getSelectedIndex());
-        try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/offreinterface.fxml"));
+        try {Parent Liste = FXMLLoader.load(getClass().getResource("../GUI/offreinterface.fxml"));
         
             Scene si = new Scene(Liste);
             si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -181,7 +181,21 @@ public class NewoffresController implements Initializable {
 
     @FXML
     private void goToajouter(ActionEvent event) {
-         try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/ajouteroffre.fxml"));
+         try {Parent Liste = FXMLLoader.load(getClass().getResource("../GUI/ajouteroffre.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
+    }
+
+    @FXML
+    private void goToProjetsFreelance(ActionEvent event) {
+          try {Parent Liste = FXMLLoader.load(getClass().getResource("../GUI/ListeProjetsResponsable.fxml"));
         
             Scene si = new Scene(Liste);
             si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());

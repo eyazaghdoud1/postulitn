@@ -60,8 +60,6 @@ public class NewQuizListController implements Initializable {
     private VBox quizVB;
     @FXML
     private ListView<HBox> quizListView;
-    @FXML
-    private SplitMenuButton specialiteFitre;
     QuizService qs = new QuizService();
     List<Quiz> quizList = qs.fetchQuiz();
     public static Quiz selectedQuiz;

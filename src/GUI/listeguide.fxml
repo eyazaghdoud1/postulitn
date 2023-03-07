@@ -191,7 +191,7 @@
                               <Insets left="60.0" top="20.0" />
                            </HBox.margin>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#allerajouter" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #1E9DFF;" text="Ajouter un guide" textFill="WHITE">
+                        <Button fx:id="addGuideBtn" mnemonicParsing="false" onAction="#allerajouter" prefHeight="30.0" prefWidth="124.0" style="-fx-background-color: #1E9DFF;" text="Ajouter un guide" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="800.0" top="15.0" />
                            </HBox.margin>

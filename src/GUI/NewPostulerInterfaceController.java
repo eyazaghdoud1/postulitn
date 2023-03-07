@@ -35,6 +35,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import models.Candidature;
+import models.Offre;
 import services.AuthenticationService;
 import services.CandidatureService;
 
@@ -134,10 +135,21 @@ public class NewPostulerInterfaceController implements Initializable {
         });
         postulerBtn.setDisable(true);
         /**************************************************************************************************/
-        psteOffre.setText(psteOffre.getText() + CondidatoffresController.selectedoffre.getPoste());
+        Offre o;
+        if (CondidatoffresController.selectedoffre != null && ListeProjetsFreelanceController.selectedProjet == null)
+        {   psteOffre.setText(psteOffre.getText() + CondidatoffresController.selectedoffre.getPoste());
         descriptionOffre.setText(descriptionOffre.getText() + CondidatoffresController.selectedoffre.getDescription());
         dateExpOffre.setText(dateExpOffre.getText() + "" + CondidatoffresController.selectedoffre.getDateExpiration());
         entrepriseOffre.setText(entrepriseOffre.getText()+ CondidatoffresController.selectedoffre.getEntreprise());
+        
+        }
+        else if (ListeProjetsFreelanceController.selectedProjet != null && CondidatoffresController.selectedoffre == null) {
+          psteOffre.setText(ListeProjetsFreelanceController.selectedProjet.getNom());
+        descriptionOffre.setText(descriptionOffre.getText() + ListeProjetsFreelanceController.selectedProjet.getDescription());
+        dateExpOffre.setText(ListeProjetsFreelanceController.selectedProjet.getTheme());
+        entrepriseOffre.setText("Secteur: "+ ListeProjetsFreelanceController.selectedProjet.getS().getDescription());
+        }
+       
         
     }    
 

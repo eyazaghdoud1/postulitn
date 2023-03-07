@@ -35,8 +35,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Candidature;
+import models.Offre;
 import services.AuthenticationService;
 import services.CandidatureService;
+import services.OffreService;
 import utilities.EtatCandidature;
 
 /**
@@ -71,7 +73,6 @@ public class NewCandidaturesController implements Initializable {
     private HBox headerHB;
     @FXML
     private SplitMenuButton filtresEtat;
-    @FXML
     private SplitMenuButton filtreTypeOffre;
     
     // static var to retrieve the selected index
@@ -131,9 +132,10 @@ public class NewCandidaturesController implements Initializable {
         mainVB.setEffect(new DropShadow(2d, 0d, +2d, Color.BLACK));*/
        headerHB.setEffect(new DropShadow(2d, 0d, +2d, Color.GREY));
        // data = cs.filterByCandidat(userconnecte.getId)
-       
+        Offre o ; 
+        OffreService os = new OffreService();
         for (Candidature cand : data) {
-            
+                o=os.getelementbyid(cand.getIdOffre());
                  try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("./NewCandidatureItem.fxml"));
@@ -143,7 +145,7 @@ public class NewCandidaturesController implements Initializable {
                 hbox.setEffect(new DropShadow(2d, 0d, +2d, Color.WHITE));
                 listViewCand.setStyle("-fx-control-inner-background:  #0E1947; -fx-box-border:#0E1947; -fx-border-radius: 10;");
                 NewCandidatureItemController cic = fxmlLoader.getController();
-                cic.setData(cand);
+                cic.setData(cand, o);
                 /*if (cand.getEtat().equals(EtatCandidature.EtatsCandidature.Validée.toString())) {
                 
                 Image check = new Image("C:\\Users\\HP I5\\Documents\\NetBeansProjects\\postulitnApp\\src\\GUI");
@@ -218,7 +220,7 @@ public class NewCandidaturesController implements Initializable {
           });*/
         
         // 2 - type Offre filter options 
-        filtreTypeOffre.getItems().clear();
+       /* filtreTypeOffre.getItems().clear();
         if (selectedTypeOffreFiltre == null) {
           filtreTypeOffre.setText("Types d'offres");
         } else {
@@ -228,7 +230,7 @@ public class NewCandidaturesController implements Initializable {
         MenuItem type2 = new MenuItem("Mi-temps");
         MenuItem type3 = new MenuItem("Embauche");
         
-        filtreTypeOffre.getItems().addAll(type1, type2, type3);
+        filtreTypeOffre.getItems().addAll(type1, type2, type3);*/ 
       
     }    
 
@@ -310,9 +312,6 @@ public class NewCandidaturesController implements Initializable {
                  }
     }
 
-    @FXML
-    private void filterByTypeOffre(ActionEvent event) {
-    }
 
     @FXML
     private void reset(ActionEvent event) {

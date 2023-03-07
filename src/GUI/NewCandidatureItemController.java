@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import models.Candidature;
+import models.Offre;
 import utilities.EtatCandidature;
 
 /**
@@ -39,9 +40,9 @@ public class NewCandidatureItemController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-      public void setData(Candidature c) {
-     offre.setText("Offre " + c.getIdOffre() );
-     typeOffre.setText("Type ");
+      public void setData(Candidature c, Offre o) {
+     offre.setText(o.getPoste() );
+     typeOffre.setText(o.getType().getDescription());
      etat.setText(c.getEtat().toString());
      
      

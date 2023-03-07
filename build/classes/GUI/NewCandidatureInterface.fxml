@@ -224,7 +224,7 @@
                   </HBox>
                   <HBox layoutX="9.0" layoutY="76.0" prefHeight="342.0" prefWidth="1242.0" spacing="10.0">
                      <children>
-                        <VBox prefHeight="358.0" prefWidth="768.0" style="-fx-background-color: #353D62;">
+                        <VBox prefHeight="389.0" prefWidth="768.0" style="-fx-background-color: #353D62;">
                            <children>
                               <HBox prefHeight="0.0" prefWidth="768.0">
                                  <children>
@@ -435,49 +435,6 @@
                            </effect>
                         </VBox>
                      </children></HBox>
-                  <VBox layoutX="7.0" layoutY="440.0" prefHeight="169.0" prefWidth="1224.0" style="-fx-background-color: #353D62;" AnchorPane.topAnchor="440.0">
-                     <children>
-                        <Label text="Détails de l'offre" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets top="20.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="descriptionOffre" prefHeight="49.0" prefWidth="1159.0" text="Description:" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" top="5.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="dateExpOffre" prefHeight="17.0" prefWidth="365.0" text="Date d'expiration de l'offre: " textFill="WHITE">
-                           <padding>
-                              <Insets bottom="5.0" top="5.0" />
-                           </padding>
-                        </Label>
-                        <Label fx:id="recruteurOffre" prefHeight="27.0" prefWidth="380.0" text="Publiée par: " textFill="WHITE">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" top="5.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                     <effect>
-                        <DropShadow>
-                           <color>
-                              <Color red="0.0117647061124444" green="0.03529411926865578" blue="0.2235294133424759" />
-                           </color>
-                        </DropShadow>
-                     </effect>
-                     <padding>
-                        <Insets left="40.0" />
-                     </padding>
-                  </VBox>
                   <HBox layoutX="8.0" layoutY="5.0" prefHeight="29.0" prefWidth="106.0">
                      <children>
                         <Button fx:id="backBtn" mnemonicParsing="false" onAction="#goBack" prefHeight="27.0" prefWidth="29.0">

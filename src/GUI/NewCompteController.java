@@ -126,11 +126,11 @@ public class NewCompteController implements Initializable {
            // backBtn.setVisible(true);
                   ;}
          //compteUser= c; } 
-        /* else {
+         else {
                c = AuthenticationService.compteconnecte;
-               modifBtn.setVisible(true); 
+              // modifBtn.setVisible(true); 
               // backBtn.setVisible(false);
-                 }*/
+                 }
        
         /**********getting the user from compte *******************/
        Utilisateur user = us.GetByIdUser(c.getIdUser());

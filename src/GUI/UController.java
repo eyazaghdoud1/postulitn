@@ -79,7 +79,7 @@ public class UController implements Initializable {
     @FXML
     private void supprimerUtilisateur(ActionEvent event) {
         
-            Utilisateur u = utilisateurs.get(UsersListController.selectedUser);
+            Utilisateur u = UsersListController.selectedUser;
             us.deleteUser(u);
             
        try {Parent Login = FXMLLoader.load(getClass().getResource("../GUI/UsersList.fxml"));

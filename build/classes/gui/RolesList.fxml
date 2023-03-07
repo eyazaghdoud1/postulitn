@@ -172,27 +172,27 @@
                               <Font name="System Bold" size="30.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="30.0" top="30.0" />
+                              <Insets left="120.0" top="30.0" />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <VBox layoutX="3.0" layoutY="100.0" prefHeight="509.0" prefWidth="1306.0" style="-fx-background-color: #0e1947;">
+                  <VBox layoutX="119.0" layoutY="103.0" prefHeight="506.0" prefWidth="1004.0" style="-fx-background-color: #0e1947;">
                      <children>
-                        <ListView fx:id="listviewrole" onMouseClicked="#handlelistroles" prefHeight="397.0" prefWidth="1306.0" style="-fx-background-color: #0E1947;" />
+                        <ListView fx:id="listviewrole" onMouseClicked="#handlelistroles" prefHeight="369.0" prefWidth="1018.0" style="-fx-background-color: white;" />
                      </children>
                   </VBox>
                   <HBox layoutX="4.0" layoutY="510.0" prefHeight="82.0" prefWidth="1292.0" style="-fx-background-color: #0e1947;">
                      <children>
-                        <Button fx:id="btnrole" mnemonicParsing="false" onAction="#AjoutRole" prefHeight="39.0" prefWidth="206.0" style="-fx-background-color: #ffffff;" text="Ajouter un rôle" textFill="#0e1947">
+                        <Button fx:id="btnrole" mnemonicParsing="false" onAction="#AjoutRole" prefHeight="20.0" prefWidth="167.0" style="-fx-background-color: #ffffff;" text="Ajouter un rôle" textFill="#0e1947">
                            <HBox.margin>
-                              <Insets left="400.0" />
+                              <Insets left="130.0" />
                            </HBox.margin>
                            <font>
-                              <Font size="17.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="roleajoute" prefHeight="40.0" prefWidth="265.0">
+                        <TextField fx:id="roleajoute" prefHeight="36.0" prefWidth="265.0">
                            <HBox.margin>
                               <Insets left="30.0" />
                            </HBox.margin>

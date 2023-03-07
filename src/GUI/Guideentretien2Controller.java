@@ -168,20 +168,34 @@ javafx.scene.media.MediaPlayer mediaPlayer;
             specguide.setText(thisGuide.getSpecialite());
             noteguide.setText((int) thisGuide.getNote() + "");
 
-            /*Media media = new Media(new File("C:\\Users\\dell\\Downloads\\guide1.mp4").toURI().toString());  
-            
-          
+            /* try {
+                 u = new URL("http://localhost/postulitn/supports/" + ListeguideController.selectedGuide.getSupport());
+               
+              
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }*/
+            if (thisGuide.getSpecialite().equalsIgnoreCase("Java")) {
+            Media media = new Media(new File("C:\\xampp\\htdocs\\postulitn\\supports\\guide.mp4").toURI().toString());  
             mediaPlayer = new MediaPlayer(media);  
-            mediaView.setMediaPlayer(mediaPlayer);
+            mediaView.setMediaPlayer(mediaPlayer); }
+            else {
+            Media media = new Media(new File("C:\\xampp\\htdocs\\postulitn\\supports\\guidegeneral.mp4").toURI().toString());  
+            mediaPlayer = new MediaPlayer(media);  
+            mediaView.setMediaPlayer(mediaPlayer); 
+            }
+               
+          
+            
             //container.getChildren().add(mediaView);
             //mediaPlayer.setAutoPlay(true);  
-            System.out.println(media);*/
+           // System.out.println(media);
             
             /********************** role controle *************************/
             if (AuthenticationService.roleconnecte.getDescription().equals("Recruteur")) {
               noteBtn.setVisible(false);
                supprimerBox.setVisible(true);
-            modifierBtn.setVisible(true);
+                modifierBtn.setVisible(true);
             } else if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")) {
               supprimerBox.setVisible(false);
             modifierBtn.setVisible(false);

@@ -73,7 +73,7 @@ public class RolesListController implements Initializable {
                  GUI.RController rc = fxmlLoader.getController();
                  rc.setData(roles.get(i));
                  listviewrole.getItems().add(hBox);
-                 listviewrole.setStyle("-fx-control-inner-background:  #0E1947");
+                 
              } catch (IOException ex) {
                  Logger.getLogger(GUI.UsersListController.class.getName()).log(Level.SEVERE, null, ex);
              }

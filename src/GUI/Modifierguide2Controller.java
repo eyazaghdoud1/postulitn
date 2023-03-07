@@ -9,6 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -158,46 +162,48 @@ public class Modifierguide2Controller implements Initializable {
     private void boutnmodifierguide(ActionEvent event) {
         
         String domaine = domainetf.getText().trim();
-String specialite = specialitetf.getText().trim();
-String support = supporttf.getText().trim();
-
-if (domaine.isEmpty() || specialite.isEmpty() || support.isEmpty()) {
-    // afficher un message d'erreur ou faire une action appropriée
-     Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Champs manquants");
-                alert.setContentText("Vous devez remplir tous les champs avant d'enregistrer.");
-                ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
-                alert.getButtonTypes().setAll( buttonTypeNo);
-                alert.showAndWait();
-    
-    
-    
-    
-    
-    return;
-} else {
-        
-        
-        GuideEntretienService ges = new GuideEntretienService();
-        GuideEntretien ge = Guideentretien2Controller.thisGuide;
-        ge.setDomaine(domainetf.getText());
-        ge.setSpecialite(specialitetf.getText());
-        ge.setSupport(supporttf.getText());
-        ges.updateGuideEntretien(Guideentretien2Controller.thisGuide.getIdguide(), ge);
-        
-       
- try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/guideentretien2.fxml"));
-        Parent root = loader.load();
-       
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    } catch (IOException ex) {
-        System.out.println(ex.getMessage());
-    }
-}
+        String specialite = specialitetf.getText().trim();
+        String support = supporttf.getText().trim();
+        /* Path sourceimg=supportFile.toPath();
+        Path destinationimg=Paths.get("C:\\xampp\\htdocs\\postulitn\\supports\\" +supportFile.getName());
+        Files.copy(sourceimg, destinationimg, StandardCopyOption.REPLACE_EXISTING);*/
+        if (domaine.isEmpty() || specialite.isEmpty() || support.isEmpty()) {
+            // afficher un message d'erreur ou faire une action appropriée
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Champs manquants");
+            alert.setContentText("Vous devez remplir tous les champs avant d'enregistrer.");
+            ButtonType buttonTypeNo = new ButtonType("Okay", ButtonBar.ButtonData.OK_DONE);
+            alert.getButtonTypes().setAll( buttonTypeNo);
+            alert.showAndWait();
+            
+            
+            
+            
+            
+            return;
+        } else {
+            
+            
+            GuideEntretienService ges = new GuideEntretienService();
+            GuideEntretien ge = Guideentretien2Controller.thisGuide;
+            ge.setDomaine(domainetf.getText());
+            ge.setSpecialite(specialitetf.getText());
+            ge.setSupport(supportFile.getName());
+            ges.updateGuideEntretien(Guideentretien2Controller.thisGuide.getIdguide(), ge);
+            
+            
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/guideentretien2.fxml"));
+                Parent root = loader.load();
+                
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
 }
 
     @FXML

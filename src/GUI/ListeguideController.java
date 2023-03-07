@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
@@ -64,6 +65,8 @@ public class ListeguideController implements Initializable {
     public static GuideEntretien selectedGuide;
     List<GuideEntretien> guides;
     TestmenubarController mbc = new TestmenubarController();
+    @FXML
+    private Button addGuideBtn;
     /**
      * Initializes the controller class.
      */
@@ -112,6 +115,12 @@ public class ListeguideController implements Initializable {
        }    
        
         userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        if (AuthenticationService.roleconnecte.getDescription().equals("Recruteur")) {
+         addGuideBtn.setVisible(true);
+        } else {
+         addGuideBtn.setVisible(false);
+        }
         
         
         /****************************************************************************************************/

@@ -184,15 +184,16 @@
                   <HBox prefHeight="77.0" prefWidth="1266.0" />
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;">
                      <children>
-                        <ListView fx:id="listeoffre" layoutX="95.0" layoutY="127.0" onMouseClicked="#handleOffre" prefHeight="362.0" prefWidth="927.0" />
+                        <ListView fx:id="listeoffre" layoutX="95.0" layoutY="124.0" onMouseClicked="#handleOffre" prefHeight="362.0" prefWidth="927.0" />
                         <Label layoutX="90.0" layoutY="64.0" prefHeight="31.0" prefWidth="203.0" text="Liste des offres" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="21.0" />
                            </font>
                         </Label>
-                        <Button layoutX="880.0" layoutY="67.0" mnemonicParsing="false" onAction="#goToajouter" prefHeight="25.0" prefWidth="100.0" text="Ajouter offre" />
+                        <Button layoutX="880.0" layoutY="67.0" mnemonicParsing="false" onAction="#goToajouter" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #1E9DFF;" text="Ajouter offre" textFill="WHITE" />
                      </children>
                   </AnchorPane>
+                  <Button layoutX="849.0" layoutY="505.0" mnemonicParsing="false" onAction="#goToProjetsFreelance" style="-fx-background-color: #1E9DFF;" text="Voir les projets freelance" textFill="WHITE" />
                </children>
             </AnchorPane>
          </children></AnchorPane>

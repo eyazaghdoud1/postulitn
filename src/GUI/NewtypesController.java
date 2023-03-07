@@ -131,7 +131,7 @@ public class NewtypesController implements Initializable {
 
     @FXML
     private void goToListSecteurs(MouseEvent event) {
-//        mbac.goToListSecteurs(event);
+        mbac.goToListSecteurs(event);
     }
 
   @FXML

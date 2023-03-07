@@ -211,18 +211,6 @@
                               <Font size="13.0" />
                            </font>
                         </SplitMenuButton>
-                        <SplitMenuButton fx:id="filtreTypeOffre" mnemonicParsing="false" onAction="#filterByTypeOffre" prefHeight="27.0" prefWidth="125.0" text="Type d'offre">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="Action 1" />
-                              <MenuItem mnemonicParsing="false" text="Action 2" />
-                           </items>
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </SplitMenuButton>
                      </children>
                      <padding>
                         <Insets left="40.0" top="10.0" />

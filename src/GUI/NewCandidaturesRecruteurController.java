@@ -34,8 +34,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Candidature;
 import models.Entretien;
+import models.Offre;
+import models.Utilisateur;
 import services.AuthenticationService;
 import services.CandidatureService;
+import services.OffreService;
+import services.UtilisateurService;
 import utilities.EtatCandidature;
 
 /**
@@ -61,9 +65,7 @@ public class NewCandidaturesRecruteurController implements Initializable {
     private VBox quizVB;
     @FXML
     private HBox headerHB;
-    @FXML
     private SplitMenuButton filtresOffre;
-    @FXML
     private SplitMenuButton filtreTypeOffre;
     @FXML
     private VBox mainVB;
@@ -119,10 +121,14 @@ public class NewCandidaturesRecruteurController implements Initializable {
         /****************************************************************************************************/
         // TODO
          dataCand = csr.fetchCandidatures();
-        
+        Offre o;
+        Utilisateur user;
+        UtilisateurService us = new UtilisateurService();
+        OffreService ofs = new OffreService();
         //List<Candidature> dataV = cs.filterListeByEtat(data, EtatCandidature.EtatsCandidature.Validée);
                 for (Candidature cand : dataCand) {
-            
+                  o = ofs.getelementbyid(cand.getIdOffre());
+                  user = us.GetByIdUser(cand.getIdCandidat());
                  try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("./NewCandidatureRecruteurItem.fxml"));
@@ -132,7 +138,7 @@ public class NewCandidaturesRecruteurController implements Initializable {
                 hbox.setEffect(new DropShadow(2d, 0d, +2d, Color.WHITE));
                 listViewCand.setStyle("-fx-control-inner-background:  #0E1947; -fx-box-border:#0E1947; -fx-border-radius: 10;");
                 NewCandidatureRecruteurItemController cic = fxmlLoader.getController();
-                cic.setData(cand);
+                cic.setData(cand, o, user);
                 listViewCand.getItems().add(hbox);
                  } catch (IOException ex) {
                ex.printStackTrace();
@@ -158,27 +164,7 @@ public class NewCandidaturesRecruteurController implements Initializable {
           });
         }
         
-        
-        // type d'offre filtre 
-        filtreTypeOffre.getItems().clear();
-        if (recSelectedTypeOffreFiltre == null) {
-          filtreTypeOffre.setText("Types d'offres");
-        } else {
-          filtreTypeOffre.setText(recSelectedTypeOffreFiltre);
-        }
-        MenuItem type1 = new MenuItem("Stage");
-        MenuItem type2 = new MenuItem("Mi-temps");
-        MenuItem type3 = new MenuItem("Embauche");
-        
-        filtreTypeOffre.getItems().addAll(type1, type2, type3);
-        
-        //offre filtre 
-        filtresOffre.getItems().clear();
-        if (recSelectedOffreFiltre == null) {
-          filtresOffre.setText("Offres");
-        } else {
-          filtresOffre.setText(recSelectedOffreFiltre);
-        }
+       
         
         
         
@@ -216,13 +202,6 @@ public class NewCandidaturesRecruteurController implements Initializable {
     }
 
 
-    @FXML
-    private void filterByOffre(ActionEvent event) {
-    }
-
-    @FXML
-    private void filterByTypeOffre(ActionEvent event) {
-    }
 
     @FXML
     private void handleMouseClick(MouseEvent event) {

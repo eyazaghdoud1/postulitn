@@ -218,23 +218,6 @@
                                           <Font size="11.0" />
                                        </font>
                                     </SplitMenuButton>
-                                    <SplitMenuButton fx:id="filtreTypeOffre" mnemonicParsing="false" onAction="#filterByTypeOffre" prefHeight="27.0" prefWidth="140.0" text="Type d'offre">
-                                       <items>
-                                          <MenuItem mnemonicParsing="false" text="Action 1" />
-                                          <MenuItem mnemonicParsing="false" text="Action 2" />
-                                       </items>
-                                       <font>
-                                          <Font size="11.0" />
-                                       </font>
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
-                                    </SplitMenuButton>
-                                    <SplitMenuButton fx:id="filtresOffre" mnemonicParsing="false" onAction="#filterByOffre" prefHeight="27.0" prefWidth="100.0" text="Offres">
-                                       <font>
-                                          <Font size="11.0" />
-                                       </font>
-                                    </SplitMenuButton>
                                     <Label prefHeight="25.0" prefWidth="191.0" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="16.0" />

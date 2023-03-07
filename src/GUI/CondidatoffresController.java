@@ -204,4 +204,18 @@ public class CondidatoffresController implements Initializable {
 
     }
 
+    @FXML
+    private void goToProjetsFreelance(ActionEvent event) {
+        try {
+            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/ListeProjetsFreelance.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+               
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

@@ -11,6 +11,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import models.Entretien;
+import models.Utilisateur;
+import services.EntretienService;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -36,11 +39,14 @@ public class NewEntretienItemController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    UtilisateurService us = new UtilisateurService();
+    
     public void setData(Entretien e) {
+     Utilisateur u = us.GetByIdUser(e.getCandidature().getIdCandidat());
      date.setText(e.getDate().toString());
      horaire.setText(e.getHeure());
      type.setText(e.getType());
-     candidat.setText("Candidat: " + e.getCandidature().getIdCandidat());
+     candidat.setText(u.getNom() + u.getPrenom());
     }
     
 }

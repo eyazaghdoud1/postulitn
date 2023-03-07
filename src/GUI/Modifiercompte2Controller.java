@@ -257,7 +257,7 @@ public class Modifiercompte2Controller implements Initializable {
         c.setPoste(postetf.getText());
         if (user.getRole().getDescription().equals("Candidat")){
         c.setDateDiplome(Date.valueOf(datediplomedp.getValue())); }
-       cservice.updateCompte(compte.getIdCompte(),c); 
+       cservice.updateCompte(AuthenticationService.compteconnecte.getIdCompte(),c); 
         
                  try {
         Parent root = FXMLLoader.load(getClass().getResource("newCompte.fxml"));
@@ -282,8 +282,7 @@ public class Modifiercompte2Controller implements Initializable {
 //    }
 //    
              
-         Compte c1 = new Compte();
-        
+      
     }
 
 

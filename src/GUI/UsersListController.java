@@ -74,8 +74,8 @@ public class UsersListController implements Initializable {
     private Button resetbtn;
     
     private static Role selectedRoleFiltre;  
-    public static int selectedUser;
-    UtilisateurService us= new UtilisateurService();
+    public static Utilisateur selectedUser;
+    public static UtilisateurService us= new UtilisateurService();
     public static List <Utilisateur> utilisateurs;
     RoleService rs = new RoleService();
     TestMenuBarAdminController mbac = new TestMenuBarAdminController();
@@ -135,7 +135,8 @@ public class UsersListController implements Initializable {
 
     @FXML
     private void handleusers(MouseEvent event) {
-        selectedUser= userslistview.getSelectionModel().getSelectedIndex();
+        selectedUser= utilisateurs.get(userslistview.getSelectionModel().getSelectedIndex()) ;
+        System.out.println( selectedUser);
        
     }
 

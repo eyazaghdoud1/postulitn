@@ -55,6 +55,7 @@ import javafx.stage.Stage;
 import models.Candidature;
 import models.Compte;
 import models.Entretien;
+import models.Utilisateur;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.rendering.PDFRenderer;
@@ -62,6 +63,7 @@ import services.AuthenticationService;
 import services.CandidatureService;
 import services.CompteServices;
 import services.EntretienService;
+import services.UtilisateurService;
 import utilities.EtatCandidature;
 import utilities.TypeEntretien;
 
@@ -91,13 +93,7 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
     @FXML
     private VBox offreVB;
     @FXML
-    private Label psteOffre;
-    @FXML
-    private Label descriptionOffre;
-    @FXML
     private Label dateExpOffre;
-    @FXML
-    private Label experienceOffre;
     @FXML
     private HBox entTelVideHB;
     @FXML
@@ -416,10 +412,13 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
        this.reload();
     }
 
+    UtilisateurService us = new UtilisateurService();
     @FXML
     private void consulterProfil(ActionEvent event) {
         CompteServices comptesService = new CompteServices();
-        compteToVisit = comptesService.GetByIdCompte(10);
+        Utilisateur user = us.GetByIdUser(NewCandidaturesRecruteurController.recSelectedCand.getIdCandidat());
+        
+        compteToVisit = comptesService.getByIdUser(user.getId());
         try {
                   Parent root = FXMLLoader.load(getClass().getResource("./newCompte.fxml"));
                   System.out.println("FXML loaded successfully");
@@ -436,6 +435,7 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
     
     private void setDataCand() {
        
+        
        
       candidat.setText(candidat.getText() + NewCandidaturesRecruteurController.recSelectedCand.getIdCandidat());
       dateCand.setText(dateCand.getText() + NewCandidaturesRecruteurController.recSelectedCand.getDate());

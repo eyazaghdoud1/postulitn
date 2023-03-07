@@ -113,7 +113,7 @@ public class NewQuizInterfaceController implements Initializable {
     Quiz quiz = NewQuizListController.selectedQuiz;
     private final List<QuizQuestion> listeQ = quiz.getQuestions();
     
-    QuizScore score = new QuizScore(1, quiz);    
+    QuizScore score = new QuizScore(AuthenticationService.userconnecte.getId(), quiz);    
     QuizScoreService scoreService = new QuizScoreService();
     
     String r1,r2,r3,r4,r5;
@@ -185,11 +185,11 @@ public class NewQuizInterfaceController implements Initializable {
         setQuestion4();
         setQuestion5();
         
-        Calendar cal = Calendar.getInstance();
+       Calendar cal = Calendar.getInstance();
        cal.add(Calendar.MONTH, -1);
        java.sql.Date oneMonthAgo = new java.sql.Date(cal.getTimeInMillis());
         
-        QuizScore pastScore = scoreService.getQuizScore(1, quiz);
+        QuizScore pastScore = scoreService.getQuizScore(AuthenticationService.userconnecte.getId(), quiz);
         if (pastScore != null  ) {
          sLabel.setText("Dernier score:");
          scoreLabel.setText( pastScore.getScore() + " / 5");

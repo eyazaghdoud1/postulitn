@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewoffresController.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/utilities/MaConnexion.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/PostulitnApp.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/AjouteroffreController.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/projet/NewFXMain.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/OffreService.java</file>
-            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/OffreInterfaceController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/AjoutertypeController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/services/UtilisateurService.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/ListeguideController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/postulitnapp/NewFXMain.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/Guideentretien2Controller.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/Modifierguide2Controller.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/Modifiercompte2Controller.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/NewCompteController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/UsersListController.java</file>
+            <file>file:/C:/Users/HP%20I5/Documents/NetBeansProjects/postulitnApp/src/GUI/UController.java</file>
         </group>
     </open-files>
 </project-private>
