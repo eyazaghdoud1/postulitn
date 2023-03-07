@@ -64,8 +64,8 @@ public class CommentaireRespItemController implements Initializable {
             st.setScene(si);
             st.show();
         } catch (IOException ex) {
-            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(CommentaireRespItemController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
 }

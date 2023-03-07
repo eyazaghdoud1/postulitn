@@ -104,8 +104,8 @@ public class ListeProjetsFreelanceController implements Initializable {
             st.setScene(si);
             st.show();
         } catch (IOException ex) {
-            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+             Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
+         }
             
         });
        
@@ -158,7 +158,7 @@ selectedProjet = projets.get( ProjetsFreelanceListView.getSelectionModel().getSe
             st.setScene(si);
             st.show();
         } catch (IOException ex) {
-            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ListeProjetsFreelanceController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 }

@@ -103,8 +103,8 @@ public class ListeProjetsResponsableController implements Initializable {
             st.setScene(si);
             st.show();
         } catch (IOException ex) {
-            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         Logger.getLogger(ListeProjetsResponsableController.class.getName()).log(Level.SEVERE, null, ex);
+     }
             
         });
        
@@ -168,8 +168,8 @@ public class ListeProjetsResponsableController implements Initializable {
             st.setScene(si);
             st.show();
         } catch (IOException ex) {
-            Logger.getLogger(RController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(ListeProjetsResponsableController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     }
 
