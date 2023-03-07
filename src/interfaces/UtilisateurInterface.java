@@ -37,4 +37,6 @@ public interface UtilisateurInterface {
     //getByEmail
     public Utilisateur GetByEmail(String mail);
     
+    //fetch mails
+    public String[] fetchMailUsers();
 }

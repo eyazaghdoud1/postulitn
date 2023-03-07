@@ -56,6 +56,8 @@ public class MenuBarController implements Initializable {
     private VBox guidesVB;
     @FXML
     private VBox quizVB;
+    @FXML
+    private ListView<?> listeoffre;
 
     /**
      * Initializes the controller class.
@@ -107,17 +109,29 @@ public class MenuBarController implements Initializable {
 
     @FXML
     public void goToOffres(MouseEvent event) {
-        
-//         try {
-//            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newoffres.fxml"));
-//            Scene si = new Scene(Login);
-//            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-//            st.setScene(si);
-//            st.show();
-//               
-//        } catch (IOException ex) {
-//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+         if (AuthenticationService.roleconnecte.getDescription().equals("Recruteur")) {
+         try {
+            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newoffres.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+               
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }} else if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
+             try {
+            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/condidatoffres.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+               
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+         
         
     }
 
@@ -152,7 +166,7 @@ public class MenuBarController implements Initializable {
         
           if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
         try {
-            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/NewEntretiens.fxml"));
+            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/NewEntretiensCandidat.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
             st.setScene(si);
@@ -230,7 +244,6 @@ public class MenuBarController implements Initializable {
         }
         
     }
-
 
 
 

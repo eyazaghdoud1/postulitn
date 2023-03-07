@@ -7,43 +7,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="207.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CONDIDATITEMController">
+<HBox prefHeight="131.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CONDIDATITEMController">
    <children>
-      <VBox prefHeight="211.0" prefWidth="764.0">
+      <VBox prefHeight="129.0" prefWidth="764.0">
          <children>
             <HBox prefHeight="79.0" prefWidth="735.0">
                <children>
-                  <Label fx:id="poste" prefHeight="35.0" prefWidth="657.0" text="Poste">
+                  <Label fx:id="poste" prefHeight="35.0" prefWidth="626.0" text="Poste">
                      <HBox.margin>
                         <Insets left="25.0" top="8.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="System Bold Italic" size="24.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
                   <Button mnemonicParsing="false" onAction="#postuler" text="Postuler">
                      <HBox.margin>
-                        <Insets top="20.0" />
+                        <Insets top="10.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
             <HBox prefHeight="66.0" prefWidth="765.0">
                <children>
-                  <Label text="Description :">
-                     <HBox.margin>
-                        <Insets left="25.0" top="5.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="description" prefHeight="18.0" prefWidth="86.0" text="experiance">
-                     <HBox.margin>
-                        <Insets left="10.0" top="8.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label text="TYPE :">
+                  <Label text="Type:">
                      <HBox.margin>
                         <Insets left="30.0" top="5.0" />
                      </HBox.margin>
@@ -53,10 +40,10 @@
                   </Label>
                   <Label fx:id="idtype" prefHeight="18.0" prefWidth="86.0" text="embauche">
                      <HBox.margin>
-                        <Insets left="10.0" top="8.0" />
+                        <Insets left="10.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="dateExpiration :">
+                  <Label text="Date d'expiration">
                      <HBox.margin>
                         <Insets left="40.0" top="5.0" />
                      </HBox.margin>
@@ -66,16 +53,20 @@
                   </Label>
                   <Label fx:id="dateE" prefHeight="18.0" prefWidth="86.0" text="20/06/2020">
                      <HBox.margin>
-                        <Insets left="10.0" top="8.0" />
+                        <Insets left="10.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="61.0" prefWidth="764.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="574.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+                  <Label text="Description :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
                      <HBox.margin>
-                        <Insets left="10.0" top="20.0" />
+                        <Insets left="50.0" top="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="description" prefHeight="18.0" prefWidth="86.0" text="experiance">
+                     <HBox.margin>
+                        <Insets top="5.0" />
                      </HBox.margin>
                   </Label>
                </children>

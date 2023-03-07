@@ -2,32 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.Font?>
 
-<HBox prefHeight="100.0" prefWidth="1014.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TYPEITEMController">
+<HBox prefHeight="77.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.TYPEITEMController">
    <children>
-      <Label fx:id="description" minHeight="40.0" minWidth="20.0" prefHeight="83.0" prefWidth="158.0" text="description">
-         <padding>
-            <Insets left="40.0" right="20.0" />
-         </padding>
-         <font>
-            <Font name="Candara" size="19.0" />
-         </font>
-      </Label>
-      <TextField fx:id="descriptionm">
+      <TextField fx:id="description">
          <HBox.margin>
             <Insets left="10.0" top="30.0" />
          </HBox.margin>
       </TextField>
-      <Button mnemonicParsing="false" onAction="#modifier" text="MODIFIER">
+      <Button mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: #1E9DFF;" text="Modifier" textFill="WHITE">
          <HBox.margin>
-            <Insets left="180.0" top="30.0" />
+            <Insets left="400.0" top="30.0" />
          </HBox.margin>
       </Button>
-      <Button mnemonicParsing="false" onAction="#delete" text="SUPPRIMER">
+      <Button mnemonicParsing="false" onAction="#delete" style="-fx-background-color: red;" text="Supprimer" textFill="WHITE">
          <HBox.margin>
             <Insets left="80.0" top="30.0" />
          </HBox.margin>

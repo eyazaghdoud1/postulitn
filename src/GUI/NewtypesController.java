@@ -6,12 +6,14 @@
 package GUI;
 
 import static GUI.NewoffresController.selectedoffre;
+import interfaces.TypeoffreInterface;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -41,8 +44,6 @@ public class NewtypesController implements Initializable {
     @FXML
     private Label userConnecte;
     @FXML
-    private VBox offresVB;
-    @FXML
     private ListView<HBox> listetypes;
     public static int selectedtype;
 
@@ -59,12 +60,18 @@ public class NewtypesController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    MenuBarAdminController mbac = new MenuBarAdminController();
+    @FXML
+    private TextField descriptiontf;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          List<Typeoffre> to = tos.fetchOffres();
        
         
        List<Typeoffre> types = tos.fetchOffres();
+       
+       
        
         for(int i=0; i<types.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -83,25 +90,9 @@ public class NewtypesController implements Initializable {
         }
         // TODO
     }    
-    @FXML
-    private void goToCompte(MouseEvent event) {
-    }
+    
 
-    @FXML
-    private void goToOffres(MouseEvent event) {
-    }
 
-    @FXML
-    private void goToCandidatures(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToEntretiens(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToGuides(MouseEvent event) {
-    }
 
 
     @FXML
@@ -109,7 +100,6 @@ public class NewtypesController implements Initializable {
         selectedtype=listetypes.getSelectionModel().getSelectedIndex();
     }
 
-    @FXML
     private void back(MouseEvent event) {
          try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/ajoutertype.fxml"));
         
@@ -121,5 +111,65 @@ public class NewtypesController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();;
         }
+    }
+
+    @FXML
+    private void goToTypeOffre(MouseEvent event) {
+        mbac.goToTypeOffre(event);
+    }
+
+    @FXML
+    private void goToListUsers(MouseEvent event) {
+        mbac.goToListUsers(event);
+    }
+
+    @FXML
+    private void goToListRoles(MouseEvent event) {
+        mbac.goToListRoles(event);
+    }
+
+    @FXML
+    private void goToListSecteurs(MouseEvent event) {
+//        mbac.goToListSecteurs(event);
+    }
+
+  @FXML
+    private void addtype(ActionEvent event) {
+ TypeoffreService ts = new TypeoffreService();
+ Typeoffre t = new Typeoffre();
+ 
+// if(controleTextFieldNomEtPrenom(descriptiontf)  )     {         
+//    if (descriptiontf.getText().isEmpty())
+//         {
+//                        erreurdescription.setText("description non valide !");
+//                        erreurdescription.setVisible(true);
+//                        
+//                        return;
+//                    }
+
+   Typeoffre to = new Typeoffre();
+      t.setDescription(descriptiontf.getText());
+      TypeoffreService pt = new TypeoffreService();
+      pt.addType2(t);
+   
+       
+    
+    
+   }
+
+    @FXML
+    private void dist(ActionEvent event) {
+        
+            try {Parent Liste = FXMLLoader.load(getClass().getResource("../GUI/statistique.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
+    
     }
 }

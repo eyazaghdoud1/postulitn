@@ -1,69 +1,354 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="0.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane id="AnchorPane" prefHeight="739.0" prefWidth="1368.0">
-         <children>
-            <AnchorPane layoutX="-11.0" layoutY="-17.0" prefHeight="756.0" prefWidth="565.0" style="-fx-background-color: #0E1947;">
+      <BorderPane prefHeight="788.0" prefWidth="1673.0">
+         <top>
+            <HBox prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="141.0" fitWidth="147.0" layoutX="48.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fitHeight="384.0" fitWidth="418.0" layoutX="64.0" layoutY="204.0">
-                     <image>
-                        <Image url="@logo.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="previousbtn" layoutX="43.0" layoutY="44.0" mnemonicParsing="false" onAction="#previous" prefHeight="44.0" prefWidth="65.0" text="&lt;&lt;">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Button>
+                  <HBox prefHeight="61.0" prefWidth="140.0">
+                     <children>
+                        <ImageView fitHeight="61.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@325554422_570397571644716_8824221449279015534_n.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="27.0" prefWidth="195.0">
+                     <HBox.margin>
+                        <Insets left="950.0" />
+                     </HBox.margin>
+                     <children>
+                        <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="29.0" prefWidth="123.0" text="username" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="15.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </Label>
+                        <ImageView fx:id="userPhoto" fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </HBox.margin>
+                           <image>
+                              <Image url="@330831433_1536180653567674_6866388944530913939_n.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox opacity="0.72" prefHeight="715.0" prefWidth="101.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="offresVB" onMouseClicked="#goToOffres" prefHeight="76.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="27.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@333746549_1356825635076666_3460829535495601600_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-4.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label text="Offres" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="candidaturesVB" onMouseClicked="#goToCandidatures" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@73944.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-5.0" top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="16.0" prefWidth="67.0" text="Candidatures" textFill="#0e1947">
+                           <VBox.margin>
+                              <Insets left="-23.0" top="5.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="entretiensVB" onMouseClicked="#goToEntretiens" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="33.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@280297163_704924577502506_7220543109587187832_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="-7.0" top="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="17.0" prefWidth="58.0" text="Entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="-15.0" top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="guidesVB" onMouseClicked="#goToGuides" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="42.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@85615.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="30.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label prefHeight="24.0" prefWidth="94.0" text="Guides d'entretiens" textFill="#0e1947">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="quizVB" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="75.0" onMouseClicked="#goToQuiz" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@334074808_9577115555639300_2186101771236401721_n.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="3.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane prefHeight="793.0" prefWidth="1192.0" style="-fx-background-color: #0E1947;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;">
+                     <children>
+                        <HBox prefHeight="77.0" prefWidth="1266.0">
+                           <children>
+                              <AnchorPane prefHeight="620.0" prefWidth="1129.0" style="-fx-background-color: #0E1947;">
+                                 <children>
+                                    <VBox layoutX="182.0" layoutY="170.0" prefHeight="450.0" prefWidth="374.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                             <children>
+                                                <Label prefHeight="34.0" prefWidth="142.0" text="Poste :" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="postem">
+                                                   <HBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                             <children>
+                                                <Label prefHeight="34.0" prefWidth="142.0" text="Description :" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="descriptionm">
+                                                   <HBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                             <children>
+                                                <Label prefHeight="34.0" prefWidth="142.0" text="Lieu :" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="lieum">
+                                                   <HBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+                                             <children>
+                                                <Label prefHeight="34.0" prefWidth="142.0" text="Entreprise :" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="25.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="entreprisem">
+                                                   <HBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="832.0" layoutY="170.0" prefHeight="362.0" prefWidth="343.0">
+                                       <children>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label prefHeight="58.0" prefWidth="168.0" text="Specialite :" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <TextField fx:id="specialitem" prefHeight="26.0" prefWidth="174.0">
+                                                   <HBox.margin>
+                                                      <Insets top="38.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <Label prefHeight="58.0" prefWidth="168.0" text="DateE :" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="23.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <DatePicker fx:id="dateD">
+                                                   <HBox.margin>
+                                                      <Insets top="38.0" />
+                                                   </HBox.margin>
+                                                </DatePicker>
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label prefHeight="34.0" prefWidth="116.0" text="Type" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="System Bold" size="23.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets top="20.0" />
+                                                         </HBox.margin>
+                                                      </Label>
+                                                   </children>
+                                                </HBox>
+                                                <ComboBox fx:id="typetf" prefHeight="25.0" prefWidth="213.0">
+                                                   <HBox.margin>
+                                                      <Insets top="30.0" />
+                                                   </HBox.margin>
+                                                </ComboBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Button layoutX="938.0" layoutY="554.0" mnemonicParsing="false" onAction="#modifier" prefHeight="48.0" prefWidth="149.0" style="-fx-background-color: #1E9DFF;" text="Modifier" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="525.0" layoutY="50.0" text="Modifier offre" textFill="WHITE">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                        <Button layoutX="32.0" layoutY="31.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="32.0" prefWidth="41.0">
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@img/252455794_481441976374019_3525607494353836331_n.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
-            <Label layoutX="642.0" layoutY="131.0" text="Entreprise" textFill="#0e1947">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <TextField layoutX="642.0" layoutY="173.0" prefHeight="39.0" prefWidth="377.0" promptText="Insérez votre entreprise">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <Label layoutX="643.0" layoutY="278.0" prefHeight="46.0" prefWidth="147.0" text="Poste" textFill="#0e1947">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <TextField layoutX="643.0" layoutY="324.0" prefHeight="39.0" prefWidth="377.0" promptText="Insérez votre poste">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <Label layoutX="640.0" layoutY="435.0" prefHeight="46.0" prefWidth="342.0" text="Domaine d'expertise" textFill="#0e1947">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <TextField layoutX="642.0" layoutY="481.0" prefHeight="43.0" prefWidth="377.0" promptText="Insérez le domaine de votre entreprise">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <Button fx:id="btnsave" layoutX="1126.0" layoutY="576.0" mnemonicParsing="false" onAction="#signin" prefHeight="41.0" prefWidth="129.0" style="-fx-background-color: #0e1947;" text="Enregistrer" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
+         </center>
+      </BorderPane>
    </children>
 </AnchorPane>

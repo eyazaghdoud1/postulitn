@@ -36,7 +36,7 @@ and open the template in the editor.
 
 .card-title-error {
     -fx-font-weight: bold;
-    -fx-font-size: 36px;
+    -fx-font-size: 20px;
     -fx-text-fill: white; /* sets text color to white */
     -fx-alignment: center; /* centers the text horizontally */
     
@@ -49,6 +49,7 @@ and open the template in the editor.
 .card-pane {
     -fx-background-color: white;
     -fx-background-radius: 10px;
+    
      /* Add padding to create space between center and bottom */
 }
 .card-pane .demander-btn {

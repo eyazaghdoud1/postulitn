@@ -264,8 +264,26 @@ public class UtilisateurService implements UtilisateurInterface {
          }
          return u;
     }
-    
-    
+   
+@Override
+    public String[] fetchMailUsers() {
+        List<String> emails = new ArrayList<>();
+        try {
+
+            String req = "SELECT email FROM utilisateur";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+
+                emails.add(rs.getString("email"));
+            }
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        String[] stringArray = emails.toArray(new String[0]);
+        return stringArray;
+    }
 }
 
      

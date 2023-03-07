@@ -5,13 +5,19 @@
  */
 package GUI;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import models.Offre;
 
 /**
@@ -40,6 +46,17 @@ public class CONDIDATITEMController implements Initializable {
 
     @FXML
     private void postuler(ActionEvent event) {
+        
+          try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/NewPostulerInterface.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
     }
     public void setData (Offre o){
         

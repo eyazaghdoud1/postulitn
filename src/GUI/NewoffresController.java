@@ -6,11 +6,13 @@
 package GUI;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,12 +21,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.Offre;
+import services.AuthenticationService;
 import services.OffreService;
 import services.TypeoffreService;
 
@@ -47,14 +53,17 @@ public class NewoffresController implements Initializable {
       String typeSelectionne;
              List<Offre> offres = os.fetchOffres();
     @FXML
-    private VBox TypeOffreVB;
+    private ImageView userPhoto;
     @FXML
-    private VBox usersVB;
+    private VBox candidaturesVB;
     @FXML
-    private VBox rolesVB;
+    private VBox entretiensVB;
     @FXML
-    private VBox secteurVB;
-
+    private VBox guidesVB;
+    @FXML
+    private VBox quizVB;
+    
+    MenuBarController mbc = new MenuBarController();
 
     /**
      * Initializes the controller class.
@@ -62,7 +71,33 @@ public class NewoffresController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
+        /****************************************************************************************/
+       URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
        
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
         
         for(int i=0; i<offres.size();i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -71,6 +106,9 @@ public class NewoffresController implements Initializable {
             try{
                 HBox hBox = fxmlLoader.load();
                 OFFREITEMController cic = fxmlLoader.getController();
+                hBox.setStyle("-fx-background-color: #939AB0; -fx-border-radius: 10;"); 
+                hBox.setEffect(new DropShadow(2d, 0d, +2d, Color.WHITE));
+                listeoffre.setStyle("-fx-control-inner-background:  #0E1947; -fx-box-border:#0E1947; -fx-border-radius: 10;");
                 cic.setData(offres.get(i));
                 listeoffre.getItems().add(hBox);
                  
@@ -83,22 +121,27 @@ public class NewoffresController implements Initializable {
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
 
@@ -117,8 +160,7 @@ public class NewoffresController implements Initializable {
         }
     }
 
-    @FXML
-    private void goback(MouseEvent event) {
+   /* private void goback(MouseEvent event) {
          try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/ajouteroffre.fxml"));
         
             Scene si = new Scene(Liste);
@@ -130,6 +172,25 @@ public class NewoffresController implements Initializable {
             ex.printStackTrace();;
         }
 
+    }*/
+
+    @FXML
+    private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
+    }
+
+    @FXML
+    private void goToajouter(ActionEvent event) {
+         try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/ajouteroffre.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
     }
     
 }

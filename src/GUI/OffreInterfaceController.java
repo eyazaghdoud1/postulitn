@@ -6,9 +6,12 @@
 package GUI;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +24,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -28,8 +32,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Offre;
+import models.Utilisateur;
+import services.AuthenticationService;
 import services.OffreService;
 import services.TypeoffreService;
+import services.UtilisateurService;
 
 /**
  * FXML Controller class
@@ -59,24 +66,57 @@ public class OffreInterfaceController implements Initializable {
     @FXML
     private Label type;
     private VBox suggestedContainer;
-    @FXML
-    private VBox TypeOffreVB;
-    @FXML
-    private VBox usersVB;
-    @FXML
-    private VBox rolesVB;
-    @FXML
-    private VBox secteurVB;
 
+    MenuBarController mbc = new MenuBarController();
     /**
      * Initializes the controller class.
      */
+    
+    UtilisateurService us = new UtilisateurService();
+    @FXML
+    private ImageView userPhoto;
+    @FXML
+    private VBox candidaturesVB;
+    @FXML
+    private VBox entretiensVB;
+    @FXML
+    private VBox guidesVB;
+    @FXML
+    private VBox quizVB;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         OffreService os = new OffreService();
         List<Offre> suggestedOffres = os.suggestedOffres(NewoffresController.selectedoffre.getType().getId(),NewoffresController.selectedoffre.getId());
        
+         /****************************************************************************************/
+        URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
         
         // Loop through the card list and create a custom card component for each one
       /*  int numCards = suggestedOffres.size();
@@ -130,32 +170,43 @@ public class OffreInterfaceController implements Initializable {
         dateE.setText(NewoffresController.selectedoffre.getDateExpiration() + "");
         lieu.setText(NewoffresController.selectedoffre.getLieu());
         specialite.setText(NewoffresController.selectedoffre.getSpecialite());
-        idR.setText(NewoffresController.selectedoffre.getIdRecruteur() + "");
+        Utilisateur user = us.GetByIdUser(NewoffresController.selectedoffre.getIdRecruteur());
+        idR.setText(user.getNom()+" "+user.getPrenom());
         type.setText(NewoffresController.selectedoffre.getType().getDescription());
 
     }
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
+        
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
-
+    @FXML
+    private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
+    }
+    
     @FXML
     private void delete(ActionEvent event) { 
         TypeoffreService tos = new TypeoffreService();
@@ -214,6 +265,8 @@ public class OffreInterfaceController implements Initializable {
             ex.printStackTrace();;
         }
     }
+
+    
     }
 
 

@@ -6,6 +6,7 @@
 package GUI;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
@@ -35,6 +36,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -44,6 +46,7 @@ import javafx.util.Duration;
 import services.OffreService;
 import models.Offre;
 import models.Typeoffre;
+import services.AuthenticationService;
 import services.TypeoffreService;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -98,11 +101,40 @@ public class AjouteroffreController implements Initializable {
      * Initializes the controller class.
      * @param url
      */
-    
+    MenuBarController mbc = new MenuBarController();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
        
+        /****************************************************************************************/
+       /* URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        */
+        
+        /****************************************************************************************************/
+        
+        
         List<Typeoffre> to = tos.fetchOffres();
         for(Typeoffre t :to)  {
         typetf.getItems().add(t.getDescription());
@@ -110,7 +142,7 @@ public class AjouteroffreController implements Initializable {
         typetf.setOnAction(e -> {typeSelectionne=typetf.getValue().toString();});
         
         OffreService os = new OffreService();
-
+        
     }    
 
     @FXML
@@ -277,7 +309,6 @@ String dateString = selectedDate.toString();
         }
              return false;}
 
-    @FXML
     private void liste(ActionEvent event) {
         try {Parent Liste = FXMLLoader.load(getClass().getResource("../gui/newoffres.fxml"));
             Scene si = new Scene(Liste);
@@ -291,26 +322,43 @@ String dateString = selectedDate.toString();
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
-    private void goToGuides(MouseEvent event) {
+    private void goToGuides(MouseEvent event) {mbc.goToGuides(event);
     }
 
     @FXML
     private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
+    }
+
+    @FXML
+    private void goback(MouseEvent event) {
+        try {Parent Login = FXMLLoader.load(getClass().getResource("./newoffres.fxml"));
+           Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+                         Logger.getLogger(OFFREITEMController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     

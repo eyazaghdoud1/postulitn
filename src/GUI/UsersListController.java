@@ -47,8 +47,6 @@ public class UsersListController implements Initializable {
     @FXML
     private Label userConnecte;
     @FXML
-    private VBox offresVB;
-    @FXML
     private ListView<HBox> userslistview;
     @FXML
     private Label lnom1;
@@ -170,7 +168,6 @@ public class UsersListController implements Initializable {
     }
 
 
-    @FXML
     private void goToOffres(MouseEvent event) {
         mbac.goToOffres(event);
     }
@@ -190,6 +187,10 @@ public class UsersListController implements Initializable {
     @FXML
     private void goToListSecteurs(MouseEvent event) {
         mbac.goToListSecteurs(event);
+    }
+
+    @FXML
+    private void goToAjoutAdmin(MouseEvent event) {
     }
 
 

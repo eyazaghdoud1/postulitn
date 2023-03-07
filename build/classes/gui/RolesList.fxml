@@ -58,29 +58,6 @@
    <left>
       <VBox opacity="0.72" prefHeight="860.0" prefWidth="101.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="offresVB" onMouseClicked="#goToOffres" prefHeight="76.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
-               <children>
-                  <ImageView fitHeight="27.0" fitWidth="34.0">
-                     <image>
-                        <Image url="@offres.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets left="-7.0" top="15.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label text="Offres" textFill="#0e1947">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-7.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="40.0" />
-               </padding>
-            </VBox>
             <VBox fx:id="TypeOffreVB" onMouseClicked="#goToTypeOffre" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
                   <ImageView fitHeight="33.0" fitWidth="34.0">

@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewtypesController">
+<BorderPane prefHeight="728.0" prefWidth="1367.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.NewtypesController">
    <top>
       <HBox prefHeight="61.0" prefWidth="1257.0" style="-fx-background-color: #353D62; -fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
@@ -27,10 +28,10 @@
             </HBox>
             <HBox prefHeight="27.0" prefWidth="195.0">
                <HBox.margin>
-                  <Insets left="1550.0" />
+                  <Insets left="1000.0" />
                </HBox.margin>
                <children>
-                  <Label fx:id="userConnecte" onMouseClicked="#goToCompte" prefHeight="29.0" prefWidth="123.0" text="username" textFill="#0e1947">
+                  <Label fx:id="userConnecte" prefHeight="29.0" prefWidth="157.0" text="Administrateur" textFill="#0e1947">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -57,30 +58,7 @@
    <left>
       <VBox opacity="0.72" prefHeight="715.0" prefWidth="101.0" style="-fx-background-color: #D9D9D9;" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="offresVB" onMouseClicked="#goToOffres" prefHeight="76.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
-               <children>
-                  <ImageView fitHeight="27.0" fitWidth="34.0">
-                     <image>
-                        <Image url="@img/333746549_1356825635076666_3460829535495601600_n.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets left="-7.0" top="15.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label text="Offres" textFill="#0e1947">
-                     <font>
-                        <Font name="System Bold" size="10.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets left="-7.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="40.0" />
-               </padding>
-            </VBox>
-            <VBox fx:id="TypeOffreVB" onMouseClicked="#goToCandidatures" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+            <VBox fx:id="TypeOffreVB" onMouseClicked="#goToTypeOffre" prefHeight="73.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
                   <ImageView fitHeight="33.0" fitWidth="34.0">
                      <image>
@@ -106,7 +84,7 @@
                   <Insets left="40.0" />
                </padding>
             </VBox>
-            <VBox fx:id="usersVB" onMouseClicked="#goToEntretiens" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+            <VBox fx:id="usersVB" onMouseClicked="#goToListUsers" prefHeight="76.0" prefWidth="98.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
                   <ImageView fitHeight="33.0" fitWidth="34.0">
                      <image>
@@ -129,7 +107,7 @@
                   <Insets left="40.0" />
                </padding>
             </VBox>
-            <VBox fx:id="rolesVB" onMouseClicked="#goToGuides" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+            <VBox fx:id="rolesVB" onMouseClicked="#goToListRoles" prefHeight="79.0" prefWidth="112.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <children>
                   <ImageView fitHeight="40.0" fitWidth="45.0">
                      <image>
@@ -149,7 +127,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox fx:id="secteurVB" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
+            <VBox fx:id="secteurVB" onMouseClicked="#goToListSecteurs" prefHeight="72.0" prefWidth="101.0" style="-fx-border-color: #939AB0; -fx-border-radius: 20;">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -188,24 +166,31 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #0E1947;">
                      <children>
-                        <ListView fx:id="listetypes" layoutX="48.0" layoutY="136.0" onMouseClicked="#handletype" prefHeight="602.0" prefWidth="1196.0" />
-                        <Label layoutX="47.0" layoutY="88.0" text="LES TYPES D'OFFRE" textFill="WHITE">
+                        <ListView fx:id="listetypes" layoutX="162.0" layoutY="125.0" onMouseClicked="#handletype" prefHeight="364.0" prefWidth="866.0" />
+                        <Label layoutX="47.0" layoutY="50.0" text="LES TYPES D'OFFRE" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="23.0" />
                            </font>
                         </Label>
-                        <Button layoutX="22.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="32.0" prefWidth="41.0">
-                           <graphic>
-                              <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@img/252455794_481441976374019_3525607494353836331_n.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
+                        <Button layoutX="906.0" layoutY="49.0" mnemonicParsing="false" onAction="#dist" prefHeight="31.0" prefWidth="117.0" style="-fx-background-color: #1E9DFF;" text="Statistiques" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
                         </Button>
                      </children>
                   </AnchorPane>
                </children></HBox>
+            <TextField fx:id="descriptiontf" layoutX="312.0" layoutY="525.0" />
+            <Label layoutX="178.0" layoutY="519.0" text="Description" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="519.0" layoutY="524.0" mnemonicParsing="false" onAction="#addtype" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #1E9DFF;" text="Ajouter" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
    </center>
 </BorderPane>

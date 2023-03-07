@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -36,8 +37,6 @@ public class MenuBarAdminController implements Initializable {
 
     @FXML
     private Label userConnecte;
-    @FXML
-    private VBox offresVB;
    
     @FXML
     private VBox TypeOffreVB;
@@ -53,6 +52,8 @@ public class MenuBarAdminController implements Initializable {
      */
     @FXML
     private VBox secteurVB;
+    @FXML
+    private PieChart chartfor;
            
     
     @Override
@@ -61,7 +62,6 @@ public class MenuBarAdminController implements Initializable {
     }    
 
 
-    @FXML
     public void goToOffres(MouseEvent event) {
 //         try {
 //            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newoffres.fxml"));
@@ -78,16 +78,16 @@ public class MenuBarAdminController implements Initializable {
 
     @FXML
     public void goToTypeOffre(MouseEvent event) {
-         //         try {
-//            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newTypeoffres.fxml"));
-//            Scene si = new Scene(Login);
-//            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-//            st.setScene(si);
-//            st.show();
-//               
-//        } catch (IOException ex) {
-//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+                  try {
+            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newtypes.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+               
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -130,6 +130,10 @@ public class MenuBarAdminController implements Initializable {
 //        } catch (IOException ex) {
 //            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+    }
+
+    @FXML
+    private void goback(MouseEvent event) {
     }
 
 

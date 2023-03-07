@@ -24,6 +24,9 @@ import models.Typeoffre;
 import services.OffreService;
 import services.TypeoffreService;
 import java.lang.Integer;
+import java.net.MalformedURLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -32,10 +35,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import services.AuthenticationService;
 
 /**
  * FXML Controller class
@@ -70,21 +75,53 @@ public class ModifieroffreController implements Initializable {
     @FXML
     private VBox offresVB;
     @FXML
-    private VBox TypeOffreVB;
+    private ImageView userPhoto;
     @FXML
-    private VBox usersVB;
+    private VBox candidaturesVB;
     @FXML
-    private VBox rolesVB;
+    private VBox entretiensVB;
     @FXML
-    private VBox secteurVB;
+    private VBox guidesVB;
+    @FXML
+    private VBox quizVB;
      
     
 
     /**
      * Initializes the controller class.
      */
+    
+    MenuBarController mbc = new MenuBarController();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+         /****************************************************************************************/
+       URL u;
+       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+             try {
+                 u = new URL("http://localhost/postulitn/images/defaultuser.png");
+                Image image = new Image(u.toString());
+                userPhoto.setImage(image);
+             } catch (MalformedURLException ex) {
+                 Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+       } 
+       else {
+    try {
+        u = new URL("http://localhost/postulitn/images/"+ AuthenticationService.compteconnecte.getPhoto());
+         Image image = new Image(u.toString());
+         userPhoto.setImage(image);
+        
+    } catch (MalformedURLException ex) {
+        Logger.getLogger(NewCompteController.class.getName()).log(Level.SEVERE, null, ex);
+    }
+
+       }    
+       
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        
+        
+        /****************************************************************************************************/
          List<Offre> offres = os.fetchOffres();
          postem.setText(NewoffresController.selectedoffre.getPoste());
          descriptionm.setText(NewoffresController.selectedoffre.getDescription());
@@ -138,22 +175,27 @@ public class ModifieroffreController implements Initializable {
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
 
@@ -169,6 +211,11 @@ public class ModifieroffreController implements Initializable {
         } catch (IOException ex) {
             ex.printStackTrace();;
         }
+    }
+
+    @FXML
+    private void goToQuiz(MouseEvent event) {
+        mbc.goToQuiz(event);
     }
     
 }

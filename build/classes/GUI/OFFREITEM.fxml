@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="207.0" prefWidth="764.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OFFREITEMController">
+<HBox prefHeight="98.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OFFREITEMController">
    <children>
       <VBox prefHeight="211.0" prefWidth="764.0">
          <children>
@@ -17,7 +17,7 @@
                         <Insets left="25.0" top="8.0" />
                      </HBox.margin>
                      <font>
-                        <Font name="System Bold Italic" size="24.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -32,9 +32,9 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="description" prefHeight="18.0" prefWidth="86.0" text="experiance">
+                  <Label fx:id="description" prefHeight="18.0" prefWidth="86.0" text="expérience">
                      <HBox.margin>
-                        <Insets left="10.0" top="8.0" />
+                        <Insets left="10.0" top="5.0" />
                      </HBox.margin>
                   </Label>
                   <Label text="TYPE :">
@@ -47,10 +47,10 @@
                   </Label>
                   <Label fx:id="idtype" prefHeight="18.0" prefWidth="86.0" text="embauche">
                      <HBox.margin>
-                        <Insets left="10.0" top="8.0" />
+                        <Insets left="10.0" top="5.0" />
                      </HBox.margin>
                   </Label>
-                  <Label text="dateExpiration :">
+                  <Label text="Date d'expiration :">
                      <HBox.margin>
                         <Insets left="40.0" top="5.0" />
                      </HBox.margin>
@@ -60,19 +60,12 @@
                   </Label>
                   <Label fx:id="dateE" prefHeight="18.0" prefWidth="86.0" text="20/06/2020">
                      <HBox.margin>
-                        <Insets left="10.0" top="8.0" />
+                        <Insets left="10.0" top="5.0" />
                      </HBox.margin>
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="61.0" prefWidth="764.0">
-               <children>
-                  <Label prefHeight="18.0" prefWidth="574.0" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
-                     <HBox.margin>
-                        <Insets left="10.0" top="20.0" />
-                     </HBox.margin>
-                  </Label>
-               </children></HBox>
+            <HBox prefHeight="61.0" prefWidth="764.0" />
          </children>
       </VBox>
    </children>

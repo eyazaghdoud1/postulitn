@@ -22,6 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -65,8 +66,6 @@ public class NewPostulerInterfaceController implements Initializable {
     @FXML
     private Label dateExpOffre;
     @FXML
-    private Label experienceOffre;
-    @FXML
     private VBox parentVB;
     @FXML
     private TextField cvText;
@@ -89,6 +88,8 @@ public class NewPostulerInterfaceController implements Initializable {
     File lettreFile;
     File cvFile;
     private boolean isClickedCv=false, isClickedLettre=false;
+    @FXML
+    private Label entrepriseOffre;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -97,7 +98,7 @@ public class NewPostulerInterfaceController implements Initializable {
         
            /****************************************************************************************/
         URL u;
-       if (AuthenticationService.compteconnecte.getPhoto() == null) {
+/*       if (AuthenticationService.compteconnecte.getPhoto() == null) {
              try {
                  u = new URL("http://localhost/postulitn/images/defaultuser.png");
                 Image image = new Image(u.toString());
@@ -118,7 +119,7 @@ public class NewPostulerInterfaceController implements Initializable {
 
        }    
        
-        userConnecte.setText(AuthenticationService.userconnecte.getNom());
+        userConnecte.setText(AuthenticationService.userconnecte.getNom());*/
         
         
         /****************************************************************************************************/
@@ -132,6 +133,12 @@ public class NewPostulerInterfaceController implements Initializable {
                   || isClickedCv==false || isClickedLettre == false);
         });
         postulerBtn.setDisable(true);
+        /**************************************************************************************************/
+        psteOffre.setText(psteOffre.getText() + CondidatoffresController.selectedoffre.getPoste());
+        descriptionOffre.setText(descriptionOffre.getText() + CondidatoffresController.selectedoffre.getDescription());
+        dateExpOffre.setText(dateExpOffre.getText() + "" + CondidatoffresController.selectedoffre.getDateExpiration());
+        entrepriseOffre.setText(entrepriseOffre.getText()+ CondidatoffresController.selectedoffre.getEntreprise());
+        
     }    
 
     @FXML
@@ -232,6 +239,16 @@ public class NewPostulerInterfaceController implements Initializable {
     @FXML
     private void goBack(ActionEvent event) {
         //go back to offrespage
+          try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/condidatoffres.fxml"));
+        
+            Scene si = new Scene(Liste);
+            si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
     }
     
 }

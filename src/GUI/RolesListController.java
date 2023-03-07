@@ -39,8 +39,6 @@ public class RolesListController implements Initializable {
     @FXML
     private Label userConnecte;
     @FXML
-    private VBox offresVB;
-    @FXML
     private ListView<HBox> listviewrole;
     @FXML
     private Button btnrole;
@@ -83,7 +81,6 @@ public class RolesListController implements Initializable {
         }
     }    
 
-    @FXML
     private void goToOffres(MouseEvent event) {
         mbac.goToOffres(event);
     }

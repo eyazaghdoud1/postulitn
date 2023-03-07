@@ -39,18 +39,15 @@ public class StatistiqueController implements Initializable {
     @FXML
     private Label userConnecte;
     @FXML
-    private ImageView userPhoto;
+    private VBox TypeOffreVB;
     @FXML
-    private VBox offresVB;
+    private VBox usersVB;
     @FXML
-    private VBox candidaturesVB;
+    private VBox rolesVB;
     @FXML
-    private VBox entretiensVB;
-    @FXML
-    private VBox guidesVB;
-    @FXML
-    private VBox quizVB;
+    private VBox secteurVB;
 
+    MenuBarAdminController mbac = new MenuBarAdminController();
     /**
      * Initializes the controller class.
      */
@@ -73,33 +70,43 @@ public class StatistiqueController implements Initializable {
     chartfor.setData(PieChartData);
     }
 
-    @FXML
-    private void goToCompte(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToOffres(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToCandidatures(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToEntretiens(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToGuides(MouseEvent event) {
-    }
-
-    @FXML
-    private void goToQuiz(MouseEvent event) {
-    }
-
-    @FXML
     private void back(MouseEvent event) {
-         try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/ajoutertype.fxml"));
+        try {Parent Liste = FXMLLoader.load(getClass().getResource("../Gui/ajoutertype.fxml"));
+        
+        Scene si = new Scene(Liste);
+        si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        Stage st = (Stage)((Node)event.getSource()).getScene().getWindow();
+        st.setScene(si);
+        st.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();;
+        }
+    }
+
+    @FXML
+    private void goToTypeOffre(MouseEvent event) {
+        mbac.goToTypeOffre(event);
+    }
+
+    @FXML
+    private void goToListUsers(MouseEvent event) {
+        mbac.goToListUsers(event);
+    }
+
+    @FXML
+    private void goToListRoles(MouseEvent event) {
+        mbac.goToListRoles(event);
+    }
+
+    @FXML
+    private void goToListSecteurs(MouseEvent event) {
+        mbac.goToListSecteurs(event);
+    }
+
+    @FXML
+    private void goback(MouseEvent event) {
+        
+         try {Parent Liste = FXMLLoader.load(getClass().getResource("../GUI/newtypes.fxml"));
         
             Scene si = new Scene(Liste);
             si.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
@@ -110,5 +117,6 @@ public class StatistiqueController implements Initializable {
             ex.printStackTrace();;
         }
     }
+
     
 }

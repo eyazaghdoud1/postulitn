@@ -192,21 +192,33 @@
                            <padding>
                               <Insets bottom="5.0" top="5.0" />
                            </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="descriptionOffre" prefHeight="42.0" prefWidth="372.0" text="Description:" textFill="WHITE">
+                        <Label fx:id="descriptionOffre" prefHeight="42.0" prefWidth="483.0" text="Description:" textFill="WHITE">
                            <padding>
                               <Insets bottom="5.0" />
                            </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
                         <Label fx:id="dateExpOffre" prefHeight="17.0" prefWidth="365.0" text="Date d'expiration de l'offre: " textFill="WHITE">
                            <padding>
                               <Insets bottom="5.0" top="5.0" />
                            </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="experienceOffre" prefHeight="17.0" prefWidth="365.0" text="Expérience: " textFill="WHITE">
+                        <Label fx:id="entrepriseOffre" prefHeight="17.0" prefWidth="365.0" text="Entreprise: " textFill="WHITE">
                            <padding>
                               <Insets bottom="5.0" top="5.0" />
                            </padding>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
                      </children>
                      <padding>

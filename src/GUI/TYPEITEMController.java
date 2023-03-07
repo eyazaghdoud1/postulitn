@@ -36,7 +36,7 @@ import services.TypeoffreService;
 public class TYPEITEMController implements Initializable {
 
     @FXML
-    private Label description;
+    private TextField description;
 
     /**
      * Initializes the controller class.
@@ -46,8 +46,7 @@ public class TYPEITEMController implements Initializable {
      */
     TypeoffreService tos = new TypeoffreService();
     List<Typeoffre> to = tos.fetchOffres();
-    @FXML
-    private TextField descriptionm;
+   
     /**
      * Initializes the controller class.
      */
@@ -90,7 +89,7 @@ public class TYPEITEMController implements Initializable {
         TypeoffreService ts = new TypeoffreService();
         Typeoffre t = new Typeoffre();
           
-        t.setDescription(descriptionm.getText());
+        t.setDescription(description.getText());
           ts.updatetypeoffre(t, to.get(selectedtype).getId());
            
           try {Parent Login = FXMLLoader.load(getClass().getResource("./newtypes.fxml"));
