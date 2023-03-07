@@ -22,13 +22,13 @@ public class MaConnexion {
     
   
    //var
-    private Connection cnx;
+    public Connection cnx;
     //1
     static MaConnexion instance;
     
     //const
     //2
-    private MaConnexion(){
+    public MaConnexion(){
         try {
             cnx = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException ex) {

@@ -135,9 +135,9 @@ public class ProjetServices implements ProjetInterface {
     }
     
      @Override
-    public void UpdateRating(ProjetFreelance p, int note) {
+    public void UpdateRating(int id, ProjetFreelance p) {
      try {
-             String req ="UPDATE projets SET `note`=? WHERE idProjet = ?";
+             String req ="UPDATE projets SET `note`=? WHERE idProjet = '"+"'";
              PreparedStatement ps = cnx.prepareStatement(req);
              ps.setInt(1,p.getNote());
              System.out.println();
