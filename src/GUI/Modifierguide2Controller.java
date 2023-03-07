@@ -67,7 +67,7 @@ public class Modifierguide2Controller implements Initializable {
     private Button backBtn;
     
     
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
 
     /**
      * Initializes the controller class.

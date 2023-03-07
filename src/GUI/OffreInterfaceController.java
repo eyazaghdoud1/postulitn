@@ -67,7 +67,7 @@ public class OffreInterfaceController implements Initializable {
     private Label type;
     private VBox suggestedContainer;
 
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     /**
      * Initializes the controller class.
      */

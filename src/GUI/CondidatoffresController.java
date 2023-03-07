@@ -67,7 +67,7 @@ public class CondidatoffresController implements Initializable {
     @FXML
     private VBox suggestedContainer;
 
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     /**
      * Initializes the controller class.
      */

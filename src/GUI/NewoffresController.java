@@ -63,7 +63,7 @@ public class NewoffresController implements Initializable {
     @FXML
     private VBox quizVB;
     
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
 
     /**
      * Initializes the controller class.

@@ -139,7 +139,7 @@ public class NewQuizInterfaceController implements Initializable {
     private Label sLabel;
 
    private boolean isUpdate=false;
-   MenuBarController mbc = new MenuBarController();
+   TestmenubarController mbc = new TestmenubarController();
    
     /**
      * Initializes the controller class.

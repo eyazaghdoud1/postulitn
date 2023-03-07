@@ -65,7 +65,7 @@ public class NewQuizListController implements Initializable {
     QuizService qs = new QuizService();
     List<Quiz> quizList = qs.fetchQuiz();
     public static Quiz selectedQuiz;
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
 
     /**
      * Initializes the controller class.

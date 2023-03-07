@@ -78,7 +78,7 @@ public class UsersListController implements Initializable {
     UtilisateurService us= new UtilisateurService();
     public static List <Utilisateur> utilisateurs;
     RoleService rs = new RoleService();
-    MenuBarAdminController mbac = new MenuBarAdminController();
+    TestMenuBarAdminController mbac = new TestMenuBarAdminController();
     @FXML
     private VBox TypeOffreVB;
     @FXML

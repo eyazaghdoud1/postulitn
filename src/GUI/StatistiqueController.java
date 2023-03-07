@@ -47,7 +47,7 @@ public class StatistiqueController implements Initializable {
     @FXML
     private VBox secteurVB;
 
-    MenuBarAdminController mbac = new MenuBarAdminController();
+    TestMenuBarAdminController mbac = new TestMenuBarAdminController();
     /**
      * Initializes the controller class.
      */

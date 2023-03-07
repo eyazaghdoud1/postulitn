@@ -91,7 +91,7 @@ public class ModifieroffreController implements Initializable {
      * Initializes the controller class.
      */
     
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         

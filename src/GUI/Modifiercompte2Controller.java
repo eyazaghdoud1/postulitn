@@ -111,7 +111,7 @@ public class Modifiercompte2Controller implements Initializable {
     private VBox experienceVB;
     
     Utilisateur user;
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -100,7 +100,7 @@ javafx.scene.media.MediaPlayer mediaPlayer;
     @FXML
     private Button backBtn;
     
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     /**
      * 
      * Initializes the controller class.

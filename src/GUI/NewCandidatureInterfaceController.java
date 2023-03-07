@@ -138,7 +138,7 @@ public class NewCandidatureInterfaceController implements Initializable {
     
     File cvFile, lettreFile;
     
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
             
     /**
      * Initializes the controller class.

@@ -10,75 +10,52 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import services.AuthenticationService;
-import services.RoleService;
 
 /**
  * FXML Controller class
  *
- * @author ezine
+ * @author HP I5
  */
-public class MenuBarAdminController implements Initializable {
+public class TestMenuBarAdminController implements Initializable {
 
     @FXML
     private Label userConnecte;
-   
+    @FXML
+    private VBox offresVB;
     @FXML
     private VBox TypeOffreVB;
     @FXML
     private VBox usersVB;
     @FXML
     private VBox rolesVB;
-    
-     RoleService rs = new RoleService();
+    @FXML
+    private VBox secteurVB;
 
     /**
      * Initializes the controller class.
      */
-    @FXML
-    private VBox secteurVB;
-    @FXML
-    private PieChart chartfor;
-           
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+        // TODO
     }    
 
-
+    @FXML
     public void goToOffres(MouseEvent event) {
-//         try {
-//            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newoffres.fxml"));
-//            Scene si = new Scene(Login);
-//            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-//            st.setScene(si);
-//            st.show();
-//               
-//        } catch (IOException ex) {
-//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
     }
-
 
     @FXML
     public void goToTypeOffre(MouseEvent event) {
-                  try {
+          try {
             Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newtypes.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
@@ -92,7 +69,7 @@ public class MenuBarAdminController implements Initializable {
 
     @FXML
     public void goToListUsers(MouseEvent event) {
-            try {
+        try {
             Parent Login = FXMLLoader.load(getClass().getResource("../GUI/UsersList.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
@@ -106,7 +83,7 @@ public class MenuBarAdminController implements Initializable {
 
     @FXML
     public void goToListRoles(MouseEvent event) {
-            try {
+        try {
             Parent Login = FXMLLoader.load(getClass().getResource("../GUI/RolesList.fxml"));
             Scene si = new Scene(Login);
             Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
@@ -120,26 +97,7 @@ public class MenuBarAdminController implements Initializable {
 
     @FXML
     public void goToListSecteurs(MouseEvent event) {
-//         try {
-//            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newListSecteurs.fxml"));
-//            Scene si = new Scene(Login);
-//            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-//            st.setScene(si);
-//            st.show();
-//               
-//        } catch (IOException ex) {
-//            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        
     }
-
-    @FXML
-    private void goback(MouseEvent event) {
-    }
-
-
-
-    
-
-
     
 }

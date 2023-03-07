@@ -60,7 +60,8 @@ public class NewtypesController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    MenuBarAdminController mbac = new MenuBarAdminController();
+    TestMenuBarAdminController mbac = new TestMenuBarAdminController();
+    
     @FXML
     private TextField descriptiontf;
     

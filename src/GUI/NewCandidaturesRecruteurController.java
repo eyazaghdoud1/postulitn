@@ -82,7 +82,7 @@ public class NewCandidaturesRecruteurController implements Initializable {
     public static Candidature recSelectedCand;
     public static List<Candidature> dataCand ;
 
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     /**
      * Initializes the controller class.
      */

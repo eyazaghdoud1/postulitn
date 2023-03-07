@@ -106,8 +106,7 @@ public class NewCompteController implements Initializable {
      */
     CompteServices cservices = new CompteServices();
     UtilisateurService us = new UtilisateurService();
-      MenuBarController mbc= new MenuBarController();
-    @Override
+      TestmenubarController mbc = new TestmenubarController();
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        

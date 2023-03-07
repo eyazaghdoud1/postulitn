@@ -84,7 +84,7 @@ public class NewAjouterQuizController implements Initializable {
     public static List<QuizQuestion> newQuestionsList = new ArrayList<>(5);
     QuizService qs = new QuizService();
     QuizQuestionService qqs = new QuizQuestionService();
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     
     /**
      * Initializes the controller class.

@@ -11,36 +11,26 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.MediaView;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import services.AuthenticationService;
 
 /**
  * FXML Controller class
  *
-
  * @author HP I5
  */
-public class MenuBarController implements Initializable {
-
+public class TestmenubarController implements Initializable {
 
     @FXML
     private Label userConnecte;
@@ -56,8 +46,6 @@ public class MenuBarController implements Initializable {
     private VBox guidesVB;
     @FXML
     private VBox quizVB;
-    @FXML
-    private ListView<?> listeoffre;
 
     /**
      * Initializes the controller class.
@@ -66,9 +54,8 @@ public class MenuBarController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
-
-    public void setConnectedUser (){
+    
+     public void setConnectedUser (){
 //        URL u;
 //        try {
 //            u = new URL("http://localhost/postulitn/images/"+AuthenticationService.compteconnecte.getPhoto());
@@ -108,8 +95,22 @@ public class MenuBarController implements Initializable {
     }
 
     @FXML
+    public void goToCompte(MouseEvent event) {
+        try {
+            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newCompte.fxml"));
+            Scene si = new Scene(Login);
+            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
+            st.setScene(si);
+            st.show();
+               
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
     public void goToOffres(MouseEvent event) {
-         if (AuthenticationService.roleconnecte.getDescription().equals("Recruteur")) {
+        if (AuthenticationService.roleconnecte.getDescription().equals("Recruteur")) {
          try {
             Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newoffres.fxml"));
             Scene si = new Scene(Login);
@@ -132,12 +133,11 @@ public class MenuBarController implements Initializable {
         }
         }
          
-        
     }
 
     @FXML
     public void goToCandidatures(MouseEvent event) {
-        if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
+         if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
         try {
             Parent Login = FXMLLoader.load(getClass().getResource("../GUI/NewCandidatures.fxml"));
             Scene si = new Scene(Login);
@@ -163,8 +163,7 @@ public class MenuBarController implements Initializable {
 
     @FXML
     public void goToEntretiens(MouseEvent event) {
-        
-          if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
+        if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
         try {
             Parent Login = FXMLLoader.load(getClass().getResource("../GUI/NewEntretiensCandidat.fxml"));
             Scene si = new Scene(Login);
@@ -204,7 +203,7 @@ public class MenuBarController implements Initializable {
 
     @FXML
     public void goToQuiz(MouseEvent event) {
-            if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
+        if (AuthenticationService.roleconnecte.getDescription().equals("Candidat")){ 
         try {
             Parent Login = FXMLLoader.load(getClass().getResource("../GUI/NewQuizList.fxml"));
             Scene si = new Scene(Login);
@@ -226,28 +225,6 @@ public class MenuBarController implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
-        
     }
-
-    @FXML
-
-    public void goToCompte(MouseEvent event) {
-         try {
-            Parent Login = FXMLLoader.load(getClass().getResource("../GUI/newCompte.fxml"));
-            Scene si = new Scene(Login);
-            Stage st = (Stage)((Node)event.getSource()).getScene().getWindow(); 
-            st.setScene(si);
-            st.show();
-               
-        } catch (IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-
-
-
-   
-
+    
 }
-

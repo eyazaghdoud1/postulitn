@@ -117,7 +117,7 @@ public class NewEntretiensController implements Initializable {
     private DatePicker dateDP1;
     Date sqlDate1;
     
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
 
 //public static Popup p = new Popup();
 

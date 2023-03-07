@@ -71,7 +71,7 @@ public class NewEntretiensCandidatController implements Initializable {
     private DatePicker dateDP;
     public static Date candSelectedEntDateFilter;
 
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     /**
      * Initializes the controller class.
      */

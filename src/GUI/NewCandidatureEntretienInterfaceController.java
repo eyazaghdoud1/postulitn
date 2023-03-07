@@ -173,7 +173,7 @@ public class NewCandidatureEntretienInterfaceController implements Initializable
     private Button refuserBtn;
     public static Compte compteToVisit;
             
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
    // public static Candidature thisCandidature ;
     /**
      * Initializes the controller class.

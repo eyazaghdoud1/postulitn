@@ -80,7 +80,7 @@ public class NewPostulerInterfaceController implements Initializable {
     @FXML
     private Button backBtn;
 
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     /**
      * Initializes the controller class.
      */

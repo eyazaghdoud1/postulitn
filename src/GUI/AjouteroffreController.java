@@ -101,7 +101,7 @@ public class AjouteroffreController implements Initializable {
      * Initializes the controller class.
      * @param url
      */
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

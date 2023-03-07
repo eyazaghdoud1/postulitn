@@ -89,7 +89,7 @@ public class NewCandidaturesController implements Initializable {
     @FXML
     private Button resetBtn;
 
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
 
     /**
      * Initializes the controller class.

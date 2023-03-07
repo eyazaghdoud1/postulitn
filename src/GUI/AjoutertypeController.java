@@ -51,7 +51,7 @@ public class AjoutertypeController implements Initializable {
     private VBox rolesVB;
     @FXML
     private VBox secteurVB;
-
+TestmenubarController mbc = new TestmenubarController();
     /**
      * Initializes the controller class.
      */
@@ -98,22 +98,27 @@ public class AjoutertypeController implements Initializable {
 
     @FXML
     private void goToCompte(MouseEvent event) {
+        mbc.goToCompte(event);
     }
 
     @FXML
     private void goToOffres(MouseEvent event) {
+        mbc.goToOffres(event);
     }
 
     @FXML
     private void goToCandidatures(MouseEvent event) {
+        mbc.goToCandidatures(event);
     }
 
     @FXML
     private void goToEntretiens(MouseEvent event) {
+        mbc.goToEntretiens(event);
     }
 
     @FXML
     private void goToGuides(MouseEvent event) {
+        mbc.goToGuides(event);
     }
 
 

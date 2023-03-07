@@ -64,7 +64,7 @@ public class Ajoutguide2Controller implements Initializable {
     @FXML
     private Button backBtn;
     
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     
 
     /**

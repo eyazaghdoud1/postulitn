@@ -63,7 +63,7 @@ public class ListeguideController implements Initializable {
     GuideEntretien ge= new GuideEntretien();
     public static GuideEntretien selectedGuide;
     List<GuideEntretien> guides;
-    MenuBarController mbc = new MenuBarController();
+    TestmenubarController mbc = new TestmenubarController();
     /**
      * Initializes the controller class.
      */
